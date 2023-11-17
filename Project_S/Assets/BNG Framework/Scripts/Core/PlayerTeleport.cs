@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -324,7 +324,7 @@ namespace BNG {
                     segments[i] = segments[i - 1] + segVelocity.normalized * hit.distance;
 
                     // correct ending velocity, since we didn't actually travel an entire segment
-                    segVelocity = segVelocity - Physics.gravity * (SegmentScale - hit.distance) / segVelocity.magnitude;                   
+                    segVelocity = segVelocity - Physics.gravity * (SegmentScale - hit.distance) / segVelocity.magnitude;
 
                     _hitAngle = Vector3.Angle(transform.up, hit.normal);
 
@@ -334,7 +334,8 @@ namespace BNG {
 
                     // Snap to Teleport Destination
                     DestinationObject = _hitObject.GetComponent<TeleportDestination>();
-                    if(DestinationObject != null) {
+                    if (DestinationObject != null)
+                    {
                         isDestination = true;
                         TeleportMarker.transform.position = DestinationObject.transform.position;
                         TeleportMarker.transform.rotation = DestinationObject.transform.rotation;
@@ -500,6 +501,7 @@ namespace BNG {
                     // ForcePlayerRotation will get passed to the coroutine if true
                     if (DestinationObject.ForcePlayerRotation) {
                         rotation = DestinationObject.DestinationTransform.rotation;
+
                         allowTeleportationRotation = true;
                     }
                 }
@@ -598,7 +600,8 @@ namespace BNG {
                 // Otherwise just move the transform directly
                 transform.position = playerDestination;
 
-                if (rotatePlayer) {
+                if (rotatePlayer)
+                {
                     transform.rotation = playerRotation;
 
                     // Force our character to remain upright
@@ -633,6 +636,8 @@ namespace BNG {
 
         public void TeleportPlayerToTransform(Transform destination) {
             StartCoroutine(doTeleport(destination.position, destination.rotation, true));
+
+
         }
 
         Vector2 teleportAxis = Vector2.zero;
