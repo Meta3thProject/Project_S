@@ -38,23 +38,39 @@ public class PlayerController : MonoBehaviour
         if (Input.GetMouseButtonDown(0))
         {
             Collider[] targetsInViewRadius = Physics.OverlapSphere(transform.position, viewRadius, 1 << LayerMask.NameToLayer("Water"));
+
+            Transform target = default;
+
             for (int i = 0; i < targetsInViewRadius.Length; i++)
             {
-                Transform target = targetsInViewRadius[i].transform;
-                Debug.Log(target.name);
+                Transform targetTemp = targetsInViewRadius[i].transform;
 
-                Vector3 dirToTarget = (target.position - transform.position).normalized;
+                Vector3 dirToTemp = (targetTemp.position - transform.position).normalized;
 
-                if (Vector3.Angle(transform.forward, dirToTarget) < viewAngle / 2)
+                if (Vector3.Angle(transform.forward, dirToTemp) < viewAngle / 2)
                 {
-                    float dstToTarget = Vector3.Distance(transform.position, target.position);
+                    if (target == default)
+                    {
+                        target = targetTemp;
+                    }
+                    else
+                    {
+                        float dstToTarget = Vector3.Distance(transform.position, target.position);
+                        float dstToTemp = Vector3.Distance(transform.position, targetTemp.position);
 
-                    // 시야 내에 있는 오브젝트에 대한 추가적인 작업 수행
-                    cc.gameObject.SetActive(true);
-                    cc.GetComponent<RectTransform>().position = (dirToTarget * 2) + transform.position;
-                    cc.GetComponent<RectTransform>().forward = dirToTarget;
+                        if (dstToTarget > dstToTemp)
+                        {
+                            target = targetTemp;
+                        }
+                    }
                 }
             }
+
+            Vector3 dirToTarget = (target.position - transform.position).normalized;
+
+            cc.gameObject.SetActive(true);
+            cc.GetComponent<RectTransform>().position = (dirToTarget * 2) + transform.position;
+            cc.GetComponent<RectTransform>().forward = dirToTarget;
         }
     }
 }
