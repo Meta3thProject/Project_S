@@ -14,8 +14,10 @@ public class SceneLoader : GSingleton<SceneLoader>
 
     }
 
-    
+    private void Init()
+    {
 
+    }
     public void LoadScene(int _sceneNumber)
     {
         SceneManager.LoadScene(_sceneNumber);       

@@ -25,7 +25,7 @@ public class PortalContainer : MonoBehaviour
         if (!portals.IsValid())
         {
             arraySize = 4;
-        }       // if : arraySize가 비어있을 경우 초기값인 4로 일단 고정 
+        }       // if : arraySize가 비어있을 경우 초기값인 4로 고정 
 
         portals = new GameObject[arraySize];
  

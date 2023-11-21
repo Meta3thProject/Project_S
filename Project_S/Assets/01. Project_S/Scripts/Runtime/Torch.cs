@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class Torch : MonoBehaviour
 {
-    // Start is called before the first frame update
+    // Start is called before the first frame 
     void Start()
     {
 
