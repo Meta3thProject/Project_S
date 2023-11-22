@@ -6,9 +6,12 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
+    path: Assets/_HSJ/Scene/SnowMap.unity
+    guid: fe0f3f53860ce2c4b853b340ebab586f
+  - enabled: 0
     path: Assets/_HSJ/Scene/HSJ_TestScene.unity
     guid: 4b3884068fcd8fc48bd658297f3b8e61
-  - enabled: 1
+  - enabled: 0
     path: Assets/_HSJ/Scene/HSJ_TestScene(1).unity
     guid: f42d51ede807cb747abd8aa7bec3a826
   - enabled: 0

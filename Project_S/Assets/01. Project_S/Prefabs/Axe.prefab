@@ -56,7 +56,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8209645168073777110}
   m_LocalRotation: {x: -0.2184385, y: 0.09222722, z: -0.011319603, w: 0.9714169}
-  m_LocalPosition: {x: 0.011, y: -0.17, z: 0.037}
+  m_LocalPosition: {x: 0.003, y: -0.1883, z: -0.0015}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -112,7 +112,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8854022567590405259}
   m_LocalRotation: {x: -0.21843852, y: -0.09222728, z: 0.01131967, w: 0.9714168}
-  m_LocalPosition: {x: -0.011, y: -0.17, z: 0.036}
+  m_LocalPosition: {x: -0.0029, y: -0.1885, z: -0.0028}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -460,7 +460,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 821cfb7c3eab3764bbb57d764c6e26d6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Damage: 25
+  Damage: 5
   ColliderRigidbody: {fileID: 0}
   MinForce: 0.1
   LastRelativeVelocity: 0
@@ -494,7 +494,7 @@ Transform:
   m_GameObject: {fileID: 9182599089819631211}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1.2, z: 1}
+  m_LocalScale: {x: 0.4, y: 1.2, z: 0.7}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1704247576234808966}
@@ -661,7 +661,7 @@ PrefabInstance:
     - target: {fileID: 4213795611944346746, guid: 9e3b0bca4dce07c4cac56011bea1487d,
         type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -0.17
+      value: -0.18
       objectReference: {fileID: 0}
     - target: {fileID: 4213795611944346746, guid: 9e3b0bca4dce07c4cac56011bea1487d,
         type: 3}

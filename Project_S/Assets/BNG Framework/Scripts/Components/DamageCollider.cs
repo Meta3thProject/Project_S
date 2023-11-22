@@ -9,6 +9,12 @@ namespace BNG {
     /// </summary>
     public class DamageCollider : MonoBehaviour {
 
+        /// <summary> 
+        /// HSJ_ 231122
+        /// To prevent multiple collision enter 
+        /// </summary>
+        public bool IsCollision = false;
+
         /// <summary>
         /// How much damage to apply to the Damageable object
         /// </summary>
@@ -22,7 +28,7 @@ namespace BNG {
         /// <summary>
         /// Minimum Amount of force necessary to do damage. Expressed as relativeVelocity.magnitude
         /// </summary>
-        public float MinForce = 0.1f;
+        public float MinForce = 0.5f;
 
         /// <summary>
         /// Our previous frame's last relative velocity value
@@ -53,7 +59,9 @@ namespace BNG {
 
         private void OnCollisionEnter(Collision collision) {
 
-            if(!this.isActiveAndEnabled) {
+            // ! IsCollision boolean added 
+            if(!this.isActiveAndEnabled && IsCollision)
+            {
                 return;
             }
 
@@ -65,11 +73,16 @@ namespace BNG {
             LastRelativeVelocity = collision.relativeVelocity.magnitude;
 
             if (LastDamageForce >= MinForce) {
+                // HSJ_
+                IsCollision = true;
 
                 // Can we damage what we hit?
                 Damageable d = collision.gameObject.GetComponent<Damageable>();
                 if (d) {
                     d.DealDamage(Damage, collision.GetContact(0).point, collision.GetContact(0).normal, true, gameObject, collision.gameObject);
+                    Debug.Log("!");
+                    // HSJ_
+                    IsCollision = false;
                 }
                 // Otherwise, can we take damage ourselves from this collision?
                 else if (TakeCollisionDamage && thisDamageable != null) {
