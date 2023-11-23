@@ -6,10 +6,20 @@ public class QuestManager : MonoBehaviour
 {
     public static QuestManager instance;
 
+    // 퀘스트 리스트
+    
+
     // 플레이어
     public GameObject player;
     // 대화창 캔버스
     public Canvas windowCanvas;
+
+    // 대화창
+    public GameObject main;
+    // 2지 선택창
+    public GameObject twoChoices;
+    // 3지 선택창
+    public GameObject threeChoices;
 
     private void Awake()
     {
