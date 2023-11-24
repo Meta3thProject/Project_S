@@ -4,10 +4,14 @@ using UnityEngine;
 
 public class NPC : MonoBehaviour
 {
-    // NPC에 따라
+    // { NPC에 따라
     // 플레이어 감지 지역
+    public GameObject trigger;
     // 퀘스트
+    // 아직 안씀
     // 대사
+    public List<string> dialogList;
+    // } NPC에 따라
 
 
     [HideInInspector]
@@ -56,6 +60,6 @@ public class NPC : MonoBehaviour
 
         Vector3 dirToTarget = (target.position - transform.position).normalized;
 
-        QuestManager.instance.PopUp(dirToTarget);
+        QuestManager.Instance.PopUp(dirToTarget);
     }
 }

@@ -598,8 +598,14 @@ MonoBehaviour:
   player: {fileID: 2133564697}
   windowCanvas: {fileID: 1063987780}
   main: {fileID: 302766811}
+  oneOfOne: {fileID: 476689475}
   twoChoices: {fileID: 2135922696}
+  oneOfTwo: {fileID: 1722573175}
+  twoOfTwo: {fileID: 350693946}
   threeChoices: {fileID: 526965123}
+  oneOfThree: {fileID: 1767398667}
+  twoOfThree: {fileID: 886217996}
+  threeOfThree: {fileID: 507532011}
 --- !u!4 &485791765
 Transform:
   m_ObjectHideFlags: 0

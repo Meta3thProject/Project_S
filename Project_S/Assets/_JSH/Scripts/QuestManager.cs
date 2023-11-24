@@ -1,43 +1,68 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class QuestManager : MonoBehaviour
 {
-    public static QuestManager instance;
+    private static QuestManager instance;
 
-    // 퀘스트 리스트
-    
+    public static QuestManager Instance
+    {
+        get
+        {
+            if (instance == null)
+            {
+                Debug.LogWarning("QuestManager 인스턴스가 없다리");
+                instance = new QuestManager();
+            }
+            return instance;
+        }
+    }
+
+    // 퀘스트 리스트: <ID, 정보>
+    public Dictionary<int, Quest> questList;
 
     // 플레이어
     public GameObject player;
+    // 현재 진행중인 퀘스트
+    public Quest currentQuest;
     // 대화창 캔버스
     public Canvas windowCanvas;
 
     // 대화창
     public GameObject main;
+    public TextMeshProUGUI oneOfOne;
     // 2지 선택창
     public GameObject twoChoices;
+    public TextMeshProUGUI oneOfTwo;
+    public TextMeshProUGUI twoOfTwo;
     // 3지 선택창
     public GameObject threeChoices;
+    public TextMeshProUGUI oneOfThree;
+    public TextMeshProUGUI twoOfThree;
+    public TextMeshProUGUI threeOfThree;
 
     private void Awake()
     {
-        if (instance == null)
-        {
-            instance = this;
-        }
-        else
-        {
-            Debug.LogWarning("퀘스트 매니져가 둘 이상이다리");
-        }
+        instance = this;
+        Debug.Log(instance.name);
 
-        windowCanvas.gameObject.SetActive(false);
+        main.SetActive(false);
+        twoChoices.SetActive(false);
+        threeChoices.SetActive(false);
     }
 
     public void PopUp(Vector3 dir_)
     {
-        windowCanvas.gameObject.SetActive(true);
+        switch (currentQuest.type)
+        {
+            case QuestType.Tutorial:
+                break;
+            default:
+                break;
+        }
         windowCanvas.GetComponent<RectTransform>().position = (dir_ * 2) + player.transform.position;
         windowCanvas.GetComponent<RectTransform>().forward = dir_;
     }
