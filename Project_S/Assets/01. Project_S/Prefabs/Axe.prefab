@@ -155,6 +155,7 @@ GameObject:
   - component: {fileID: 9182599089271216674}
   - component: {fileID: 9182599089271216676}
   - component: {fileID: 9182599089271216677}
+  - component: {fileID: 4242085466742697242}
   - component: {fileID: 9182599089271216675}
   - component: {fileID: 9182599089271216672}
   - component: {fileID: 9182599089271216673}
@@ -288,6 +289,29 @@ MonoBehaviour:
   UseCustomInspector: 1
   lastFlickTime: 0
   FlickForce: 1
+--- !u!114 &4242085466742697242
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9182599089271216856}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f37c39332e8dbd747a9aa54c42e93a4e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  BladeTransform: {fileID: 0}
+  RaycastTransform: {fileID: 0}
+  LaserCollision:
+    serializedVersion: 2
+    m_Bits: 0
+  CollisionParticle: {fileID: 0}
+  AxeEnabled: 0
+  LaserLength: 1
+  LaserActivateSpeed: 10
+  CollisionAudio: {fileID: 0}
+  Colliding: 0
 --- !u!82 &9182599089271216675
 AudioSource:
   m_ObjectHideFlags: 0
@@ -460,6 +484,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 821cfb7c3eab3764bbb57d764c6e26d6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  IsCollision: 0
   Damage: 5
   ColliderRigidbody: {fileID: 0}
   MinForce: 0.1
