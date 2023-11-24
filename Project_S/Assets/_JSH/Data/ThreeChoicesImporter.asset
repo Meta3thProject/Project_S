@@ -18,11 +18,11 @@ MonoBehaviour:
   sheetName: ThreeChoices.xlsx
   workSheetName: ThreeTable
   columnHeaderList:
-  - type: 0
+  - type: 3
     name: ID
     isEnable: 0
     isArray: 0
-  - type: 0
+  - type: 1
     name: Dialog
     isEnable: 0
     isArray: 0

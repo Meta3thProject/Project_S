@@ -14,4 +14,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   SheetName: Assets/_JSH/Data/ThreeChoices.xlsx
   WorksheetName: ThreeTable
-  dataArray: []
+  dataArray:
+  - id: 0
+    dialog: Yes
+  - id: 0
+    dialog: No
+  - id: 0
+    dialog: What
