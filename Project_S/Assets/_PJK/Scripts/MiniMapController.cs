@@ -20,6 +20,8 @@ public class MiniMapController : MonoBehaviour
     private float bottom = 0f;
     private float top = 0f;
     private float right = 1090f;
+
+    private bool isacting = false;
     void Start()
     {
         newPadding = new Vector4(left, bottom, right, top);
@@ -32,31 +34,37 @@ public class MiniMapController : MonoBehaviour
 
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.J))
+        if (isacting == false)
         {
-            OpenMap();
-            Debug.Log("J");
-        }
-        if (Input.GetKeyDown(KeyCode.K))
-        {
-            CloseMap();
-            Debug.Log("K");
-        }
-        if (Input.GetKeyDown(KeyCode.U))
-        {
-            OpenLeftMap();
-            Debug.Log("U");
-        }
-        if (Input.GetKeyDown(KeyCode.I))
-        {
-            CloseLeftMap();
-            Debug.Log("I");
+
+
+            if (Input.GetKeyDown(KeyCode.J))
+            {
+                isacting = true;
+                OpenMap();
+            }
+            if (Input.GetKeyDown(KeyCode.K))
+            {
+                isacting = true;
+                CloseMap();
+            }
+            if (Input.GetKeyDown(KeyCode.U))
+            {
+                isacting = true;
+                CloseLeftMap();
+            }
+            if (Input.GetKeyDown(KeyCode.I))
+            {
+                isacting = true;
+                OpenLeftMap();
+            }
         }
     }
 
     void OpenMap()
     {
-        m.SetFloat(direction, 1);
+        gameObject.transform.position = new Vector3(0f, 2f, 0f);
+        m.SetFloat(direction, -1);
 
         StartCoroutine(OpenM());
         Debug.Log(number);
@@ -70,18 +78,21 @@ public class MiniMapController : MonoBehaviour
 
             testFloat += speed*0.1f;
             m.SetFloat(id, testFloat);
+            left = 0f;
             right = Mathf.Lerp(1090f, -50f, testFloat-0.05f);
             newPadding = new Vector4(left, bottom, right, top);
             imagemask.padding = newPadding;
-            Debug.Log(testFloat);
             yield return new WaitForSeconds(0.01f);
         }
+        yield return null;
+        isacting = false;
 
     }
 
     void OpenLeftMap()
     {
-        m.SetFloat(direction, -1);
+        gameObject.transform.position = new Vector3(2.95f, 2f, 0f);
+        m.SetFloat(direction, 1);
         StartCoroutine(OpenLeftM());
         Debug.Log(number);
 
@@ -89,17 +100,19 @@ public class MiniMapController : MonoBehaviour
     }
     IEnumerator OpenLeftM()
     {
-        while (testFloat < 1f)
+        while (testFloat > 0f)
         {
-            testFloat += speed * 0.1f;
+            testFloat -= speed * 0.1f;
             m.SetFloat(id, testFloat);
-            right = Mathf.Lerp(-1090f, 50f, testFloat + 0.05f);
+            right = 0f;
+            left = Mathf.Lerp(1090f, -50f, testFloat - 0.05f);
             newPadding = new Vector4(left, bottom, right, top);
             imagemask.padding = newPadding;
             Debug.Log(testFloat);
             yield return new WaitForSeconds(0.01f);
         }
-
+        yield return null;
+        isacting = false;
     }
 
 
@@ -108,7 +121,8 @@ public class MiniMapController : MonoBehaviour
 
     void CloseMap()
     {
-        m.SetFloat(direction, 1);
+        gameObject.transform.position = new Vector3(0f, 2f, 0f);
+        m.SetFloat(direction, -1);
         StartCoroutine(CloseM());
         Debug.Log(number);
     }
@@ -118,34 +132,37 @@ public class MiniMapController : MonoBehaviour
         {
             testFloat -= speed*0.1f;
             m.SetFloat(id, testFloat);
-            m.SetFloat(direction, -1);
+            left = 0f;
             right = Mathf.Lerp(1090f, -50f, testFloat - 0.05f);
             newPadding = new Vector4(left, bottom, right, top);
             imagemask.padding = newPadding;
-            Debug.Log(testFloat);
             yield return new WaitForSeconds(0.01f);
         }
-
+        yield return null;
+        isacting = false;
     }
 
     void CloseLeftMap()
     {
-        m.SetFloat(direction, -1);
+        gameObject.transform.position = new Vector3(2.95f, 2f, 0f);
+        m.SetFloat(direction, 1);
         StartCoroutine(CloseLeftM());
         Debug.Log(number);
     }
     IEnumerator CloseLeftM()
     {
-        while (testFloat > 0f)
+        while (testFloat < 1f)
         {
-            testFloat -= speed * 0.1f;
+            testFloat += speed * 0.1f;
             m.SetFloat(id, testFloat);
-            right = Mathf.Lerp(-1090f, 50f, testFloat - 0.05f);
+            right = 0;
+            left = Mathf.Lerp(1090f, -50f, testFloat - 0.05f);
             newPadding = new Vector4(left, bottom, right, top);
             imagemask.padding = newPadding;
             Debug.Log(testFloat);
             yield return new WaitForSeconds(0.01f);
         }
-
+        yield return null;
+        isacting = false;
     }
 }
