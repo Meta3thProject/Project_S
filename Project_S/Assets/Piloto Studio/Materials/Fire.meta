@@ -1,5 +1,9 @@
 fileFormatVersion: 2
+<<<<<<< HEAD
+guid: c20eda93c3b98e64e98fd517ff1f232f
+=======
 guid: c94bf7055eb25334085ada6cfcc9fbd2
+>>>>>>> upstream/develope
 folderAsset: yes
 DefaultImporter:
   externalObjects: {}

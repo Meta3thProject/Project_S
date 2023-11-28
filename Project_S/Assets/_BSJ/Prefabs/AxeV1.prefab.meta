@@ -1,6 +1,11 @@
 fileFormatVersion: 2
+<<<<<<<< HEAD:Project_S/Assets/RollPaper/RollPaperHDRP.unitypackage.meta
+guid: 7e71aaa28d22dd746b3616c871e2a637
+DefaultImporter:
+========
 guid: 1c90eeccc56b28f468d7d9478c9c9140
 PrefabImporter:
+>>>>>>>> upstream/develope:Project_S/Assets/_BSJ/Prefabs/AxeV1.prefab.meta
   externalObjects: {}
   userData: 
   assetBundleName: 
