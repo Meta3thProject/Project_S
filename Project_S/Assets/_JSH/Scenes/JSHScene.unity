@@ -342,6 +342,7 @@ GameObject:
   m_Component:
   - component: {fileID: 359317298}
   - component: {fileID: 359317297}
+  - component: {fileID: 359317299}
   - component: {fileID: 359317296}
   - component: {fileID: 359317295}
   m_Layer: 4
@@ -350,7 +351,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!65 &359317295
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -429,6 +430,23 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &359317299
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 359317294}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 11332cdbb829c7d4191a7f11a77d994b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  trigger: {fileID: 0}
+  threeChoices: {fileID: 11400000, guid: 09623424417f489498674742e162499e, type: 2}
+  choiceDialog: []
+  viewAngle: 90
+  viewRadius: 2
 --- !u!1 &476689473
 GameObject:
   m_ObjectHideFlags: 0
@@ -1475,9 +1493,9 @@ GameObject:
   m_Component:
   - component: {fileID: 1225872223}
   - component: {fileID: 1225872222}
+  - component: {fileID: 1225872224}
   - component: {fileID: 1225872221}
   - component: {fileID: 1225872220}
-  - component: {fileID: 1225872224}
   m_Layer: 4
   m_Name: NPC 2
   m_TagString: Untagged
@@ -1572,11 +1590,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 1225872219}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fb9d663afd161a14e832c83d0bbacfa3, type: 3}
+  m_Script: {fileID: 11500000, guid: 0040f0ca74b87a34b810694f3673bd5f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   trigger: {fileID: 0}
-  threeChoices: {fileID: 11400000, guid: 09623424417f489498674742e162499e, type: 2}
+  twoChoices: {fileID: 11400000, guid: 173f298c5cb99d84c84876bfd127cd0a, type: 2}
   choiceDialog: []
   viewAngle: 90
   viewRadius: 2
@@ -1672,7 +1690,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!65 &1339640530
 BoxCollider:
   m_ObjectHideFlags: 0
