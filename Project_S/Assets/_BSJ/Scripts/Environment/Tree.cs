@@ -7,6 +7,6 @@ public class Tree : MonoBehaviour, IShakable
 {
     public void Shake()
     {
-        transform.DOShakeScale(5f, 0.1f).SetEase(Ease.OutElastic);
+        transform.DOShakeScale(0.5f, 0.1f).SetEase(Ease.OutElastic);
     }
 }
