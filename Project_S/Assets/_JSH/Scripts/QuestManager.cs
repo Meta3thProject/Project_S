@@ -4,23 +4,8 @@ using TMPro;
 using Unity.VisualScripting;
 using UnityEngine;
 
-public class QuestManager : MonoBehaviour
+public class QuestManager : GSingleton<QuestManager>
 {
-    private static QuestManager instance;
-
-    public static QuestManager Instance
-    {
-        get
-        {
-            if (instance == null)
-            {
-                Debug.LogWarning("QuestManager 인스턴스가 없다리");
-                instance = new QuestManager();
-            }
-            return instance;
-        }
-    }
-
     // 퀘스트 리스트: <ID, 정보>
     public Dictionary<int, Quest> questList;
 
@@ -46,9 +31,6 @@ public class QuestManager : MonoBehaviour
 
     private void Awake()
     {
-        instance = this;
-        Debug.Log(instance.name);
-
         main.SetActive(false);
         twoChoices.SetActive(false);
         threeChoices.SetActive(false);
@@ -56,14 +38,37 @@ public class QuestManager : MonoBehaviour
 
     public void PopUp(Vector3 dir_)
     {
-        switch (currentQuest.type)
-        {
-            case QuestType.Tutorial:
-                break;
-            default:
-                break;
-        }
         windowCanvas.GetComponent<RectTransform>().position = (dir_ * 2) + player.transform.position;
         windowCanvas.GetComponent<RectTransform>().forward = dir_;
+    }
+
+    public void PopDown()
+    {
+        main.SetActive(false);
+        twoChoices.SetActive(false);
+        threeChoices.SetActive(false);
+
+        windowCanvas.GetComponent<RectTransform>().position = Vector3.zero;
+    }
+
+    public void ActivateMain(string dialog_)
+    {
+        main.SetActive(true);
+        oneOfOne.text = dialog_;
+    }
+
+    public void ActivateTwoChoices(List<string> dialogs_)
+    {
+        twoChoices.SetActive(true);
+        oneOfTwo.text = dialogs_[0];
+        twoOfTwo.text = dialogs_[1];
+    }
+
+    public void ActivateThreeChoices(List<string> dialogs_)
+    {
+        threeChoices.SetActive(true);
+        oneOfThree.text = dialogs_[0];
+        twoOfThree.text = dialogs_[1];
+        threeOfThree.text = dialogs_[2];
     }
 }

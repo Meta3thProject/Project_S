@@ -14,7 +14,7 @@ public enum QuestType
     Tutorial
 }
 
-public abstract class Quest
+public class Quest
 {
     // 이름
     public string title;
@@ -22,8 +22,30 @@ public abstract class Quest
     public QuestType type;
 
     // 시작 조건
-    public abstract void StartQuest();
+    public virtual void StartQuest()
+    {
+        switch (type)
+        {
+            case QuestType.Collect:
+                break;
+            case QuestType.Adventure:
+                break;
+            case QuestType.Delivery:
+                break;
+            case QuestType.Choice:
+                break;
+            case QuestType.Destroy:
+                break;
+            case QuestType.Puzzle:
+                break;
+            case QuestType.Tutorial:
+                break;
+        }
+    }
 
     // 완료 조건
-    public abstract void ClearQuest();
+    public virtual void ClearQuest()
+    {
+
+    }
 }
