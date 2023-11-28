@@ -1,4 +1,4 @@
-﻿using System.Collections;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -31,11 +31,12 @@ namespace BNG {
         void Start() {
             grab = GetComponent<Grabbable>();
             rigid = GetComponent<Rigidbody>();
+
             useGravityInitial = rigid.useGravity;
         }
 
         void Update() {
-
+                     
             // Reset the counter if we're holding the item
             if(grab.BeingHeld) {
                 currentDelay = 0;
@@ -52,10 +53,12 @@ namespace BNG {
             if(validReturn && currentDelay >= ReturnDelay) {
                 moveToSnapZone();
             }
+
         }
 
         void moveToSnapZone() {
             
+
             rigid.useGravity = false;
             
             transform.position = Vector3.MoveTowards(transform.position, ReturnTo.transform.position, Time.deltaTime * LerpSpeed);

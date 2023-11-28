@@ -83,7 +83,6 @@ public class Axe : GrabbableEvents
 
         if (axeEnabled == false && !axeSwitchOn)
         {
-            Debug.Log("!");
             
             //CollisionParticle.Pause();
             return;
