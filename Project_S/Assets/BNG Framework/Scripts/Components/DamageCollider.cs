@@ -80,8 +80,6 @@ namespace BNG {
                 Damageable d = collision.gameObject.GetComponent<Damageable>();
                 if (d) {
                     d.DealDamage(Damage, collision.GetContact(0).point, collision.GetContact(0).normal, true, gameObject, collision.gameObject);
-                    Debug.Log("!");
-                    // HSJ_
                     IsCollision = false;
                 }
                 // Otherwise, can we take damage ourselves from this collision?
