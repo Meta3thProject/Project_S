@@ -74,6 +74,7 @@ public static partial class GFunc
 
     public static T CreateObj<T>(string objName_) where T : Component
     {
+        Debug.Log(typeof(T));
         GameObject createdObj = new GameObject(objName_);
         return createdObj.AddComponent<T>();
     }       // CreateObj()
