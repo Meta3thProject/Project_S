@@ -1,22 +1,22 @@
 {
   "project_info": {
-    "project_number": "247293156418",
-    "firebase_url": "https://projects-66472-default-rtdb.firebaseio.com",
-    "project_id": "projects-66472",
-    "storage_bucket": "projects-66472.appspot.com"
+    "project_number": "279966731281",
+    "firebase_url": "https://test-project-s-c765e-default-rtdb.asia-southeast1.firebasedatabase.app",
+    "project_id": "test-project-s-c765e",
+    "storage_bucket": "test-project-s-c765e.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:247293156418:android:5819030eff5344707361db",
+        "mobilesdk_app_id": "1:279966731281:android:c7c6dc3a203157b4f175b0",
         "android_client_info": {
-          "package_name": "com.meta3th.projects"
+          "package_name": "com.bsj.project_s"
         }
       },
       "oauth_client": [],
       "api_key": [
         {
-          "current_key": "AIzaSyDtEmvdHWg754WHeclobQS079jhg_epeFg"
+          "current_key": "AIzaSyCv4-58yg89AJjv6lhGRDEpfA8xmAtWt-0"
         }
       ],
       "services": {
