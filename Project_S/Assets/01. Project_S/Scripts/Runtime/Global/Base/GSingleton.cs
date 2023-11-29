@@ -8,7 +8,7 @@ public class GSingleton<T> : MonoBehaviour where T : GSingleton<T>
     {
         get
         {
-            if (GSingleton<T>._instance == default || GSingleton<T>._instance == null)
+            if (GSingleton<T>._instance == default || _instance == default)
             {
                 GSingleton<T>._instance =
                     GFunc.CreateObj<T>(typeof(T).ToString());

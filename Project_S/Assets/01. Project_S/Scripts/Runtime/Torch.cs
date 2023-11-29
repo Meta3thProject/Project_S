@@ -1,7 +1,5 @@
 using BNG;
 using UnityEngine;
-using UnityEngine.Windows;
-using static UnityEngine.Rendering.VirtualTexturing.Debugging;
 
 public class Torch : GrabbableEvents
 {
@@ -24,24 +22,18 @@ public class Torch : GrabbableEvents
     }
     // Update is called once per frame
     void Update()
-    {
-        if (this.transform.parent != null && this.transform.parent.name.Equals("HolsterCenter"))
+    {        
+        if(this.transform.parent != null)
         {
-            handle.gameObject.SetActive(false);
-        }
-        else
-        {
-            handle.gameObject.SetActive(true);
+            flameCollider.enabled = false;
         }
         // { 토치 횃불 이펙트 끄고 키기
         if (isFlameOn)
         {                       
-            flameCollider.enabled = isFlameOn;
             ActiveFlame();
         }
         else
         {
-            flameCollider.enabled = isFlameOn;
             ActiveFlame();
         }
         // } 토치 횃불 이펙트 끄고 키기
@@ -55,15 +47,16 @@ public class Torch : GrabbableEvents
     public override void OnTriggerDown()
     {
         isFlameOn = !isFlameOn;
+        flameCollider.enabled = isFlameOn;
         base.OnTriggerDown();
     }
 
     private void OnTriggerEnter(Collider other)
     {
+        if (!flameCollider.enabled) { return; }
         if (other.gameObject.layer == LayerMask.NameToLayer("Default"))
-        {
+        {              
             input.VibrateController(0.2f, 0.1f, 0.1f, thisGrabber.HandSide);
-            Debug.Log("Trigger 닿았음");
         }
     }
 }

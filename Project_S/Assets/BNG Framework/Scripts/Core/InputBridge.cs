@@ -1,4 +1,4 @@
-﻿#define VRIF
+#define VRIF
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
