@@ -27,26 +27,26 @@ public class Choice : MonoBehaviour
     public void AcceptReward()
     {
         // 플레이어 스탯 증가
-        switch (targetIdx)
-        {
-            // 아직 플레이어 스탯이 없음
-            case MBTI.I:
-                break;
-            case MBTI.E:
-                break;
-            case MBTI.S:
-                break;
-            case MBTI.N:
-                break;
-            case MBTI.T:
-                break;
-            case MBTI.F:
-                break;
-            case MBTI.J:
-                break;
-            case MBTI.P:
-                break;
-        }
+        // 아직 플레이어 스탯이 없음
+        //switch (targetIdx)
+        //{
+        //    case MBTI.I:
+        //        break;
+        //    case MBTI.E:
+        //        break;
+        //    case MBTI.S:
+        //        break;
+        //    case MBTI.N:
+        //        break;
+        //    case MBTI.T:
+        //        break;
+        //    case MBTI.F:
+        //        break;
+        //    case MBTI.J:
+        //        break;
+        //    case MBTI.P:
+        //        break;
+        //}
 
         // 선택지 창 비활성화
         transform.parent.gameObject.SetActive(false);

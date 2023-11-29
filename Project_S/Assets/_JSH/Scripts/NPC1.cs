@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class NPC1 : MonoBehaviour
+public class NPC1 : MonoBehaviour, INPCBehaviour
 {
     // { NPC에 따라
     // 플레이어 감지 지역
@@ -14,69 +14,32 @@ public class NPC1 : MonoBehaviour
     public List<string> dialogs;
     // } NPC에 따라
 
+    // 표시할 대화 인덱스
+    private int dialogIdx = default;
+
     private void Awake()
     {
         dialogs = new List<string>();
 
         for (int i = 0; i < dialogTable.dataArray.Length; i++)
         {
-            if (dialogTable.dataArray[i].ID == 0)
-            {
-                dialogs.Add(dialogTable.dataArray[i].Dialog);
-            }
+            dialogs.Add(dialogTable.dataArray[i].Dialog);
 
             //Debug.Log(choiceDialog[i]);
         }
+
+        dialogIdx = 0;
     }
 
-    [HideInInspector]
-    public float viewAngle = 90f; // 시야각 설정
-    [HideInInspector]
-    public float viewRadius = 2f; // 시야 반경 설정
 
-    public void DetectPlayer()
+    public void PopUpDialog()
     {
-        Collider[] targetsInViewRadius = Physics.OverlapSphere(transform.position, viewRadius, 1 << LayerMask.NameToLayer("Player"));
+        QuestManager.Instance.ActivateMain(dialogs[dialogIdx]);
 
-        if (targetsInViewRadius.Length <= 0)
+        dialogIdx += 1;
+        if (dialogIdx >= dialogs.Count)
         {
-            QuestManager.Instance.PopDown();
-            return;
+            dialogIdx = 0;
         }
-
-        Transform target = default;
-
-        for (int i = 0; i < targetsInViewRadius.Length; i++)
-        {
-            Transform targetTemp = targetsInViewRadius[i].transform;
-
-            target = targetTemp;
-
-            //Vector3 dirToTemp = (targetTemp.position - transform.position).normalized;
-
-            //if (Vector3.Angle(transform.forward, dirToTemp) < viewAngle / 2)
-            //{
-
-            //    if (target == default)
-            //    {
-            //        target = targetTemp;
-            //    }
-            //    else
-            //    {
-            //        float dstToTemp = Vector3.Distance(transform.position, targetTemp.position);
-            //        float dstToTarget = Vector3.Distance(transform.position, target.position);
-
-            //        if (dstToTarget > dstToTemp)
-            //        {
-            //            target = targetTemp;
-            //        }
-            //    }
-            //}
-        }
-
-        Vector3 dirToTarget = (target.position - transform.position).normalized;
-
-        QuestManager.Instance.PopUp(dirToTarget);
-        QuestManager.Instance.ActivateMain(dialogs[0]);
     }
 }

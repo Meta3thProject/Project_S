@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class NPC3 : MonoBehaviour
+public class NPC3 : MonoBehaviour, INPCBehaviour
 {
     // { NPC에 따라
     // 플레이어 감지 지역
@@ -27,43 +27,18 @@ public class NPC3 : MonoBehaviour
         }
     }
 
-    [HideInInspector]
-    public float viewAngle = 90f; // 시야각 설정
-    [HideInInspector]
-    public float viewRadius = 2f; // 시야 반경 설정
-
-    public void DetectPlayer()
+    public void PopUpDialog()
     {
-        Collider[] targetsInViewRadius = Physics.OverlapSphere(transform.position, viewRadius, 1 << LayerMask.NameToLayer("Player"));
-
-        if (targetsInViewRadius.Length <= 0)
-        {
-            QuestManager.Instance.PopDown();
-            return;
-        }
-
-        Transform target = default;
-
-        for (int i = 0; i < targetsInViewRadius.Length; i++)
-        {
-            Transform targetTemp = targetsInViewRadius[i].transform;
-
-            target = targetTemp;
-        }
-
-        Vector3 dirToTarget = (target.position - transform.position).normalized;
-
-        QuestManager.Instance.PopUp(dirToTarget);
         QuestManager.Instance.ActivateThreeChoices(choiceDialog);
 
         // 선택지에 보상 추가
-        QuestManager.Instance.oneOfThree.GetComponent<Choice>().targetIdx = Choice.MBTI.S;
-        QuestManager.Instance.oneOfThree.GetComponent<Choice>().mbtiValue = 2;
+        QuestManager.Instance.oneOfThree.GetComponentInParent<Choice>().targetIdx = Choice.MBTI.S;
+        QuestManager.Instance.oneOfThree.GetComponentInParent<Choice>().mbtiValue = 2;
 
-        QuestManager.Instance.twoOfThree.GetComponent<Choice>().targetIdx = Choice.MBTI.T;
-        QuestManager.Instance.twoOfThree.GetComponent<Choice>().mbtiValue = 2;
+        QuestManager.Instance.twoOfThree.GetComponentInParent<Choice>().targetIdx = Choice.MBTI.T;
+        QuestManager.Instance.twoOfThree.GetComponentInParent<Choice>().mbtiValue = 2;
 
-        QuestManager.Instance.threeOfThree.GetComponent<Choice>().targetIdx = Choice.MBTI.P;
-        QuestManager.Instance.threeOfThree.GetComponent<Choice>().mbtiValue = 2;
+        QuestManager.Instance.threeOfThree.GetComponentInParent<Choice>().targetIdx = Choice.MBTI.P;
+        QuestManager.Instance.threeOfThree.GetComponentInParent<Choice>().mbtiValue = 2;
     }
 }

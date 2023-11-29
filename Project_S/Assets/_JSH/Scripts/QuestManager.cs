@@ -1,7 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
-using Unity.VisualScripting;
 using UnityEngine;
 
 public class QuestManager : GSingleton<QuestManager>
@@ -31,9 +30,13 @@ public class QuestManager : GSingleton<QuestManager>
 
     private void Awake()
     {
+        QuestManager.Instance = this;
+        DontDestroyOnLoad(gameObject);
+
         main.SetActive(false);
         twoChoices.SetActive(false);
         threeChoices.SetActive(false);
+       
     }
 
     public void PopUp(Vector3 dir_)
