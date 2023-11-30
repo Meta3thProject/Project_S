@@ -10,7 +10,7 @@ public class NPC3 : MonoBehaviour, INPCBehaviour
     // 퀘스트
     // 아직 안씀
     // 대사
-    [SerializeField] ThreeTable threeChoices;
+
     public List<string> choiceDialog;
     // } NPC에 따라
 
@@ -18,13 +18,13 @@ public class NPC3 : MonoBehaviour, INPCBehaviour
     {
         choiceDialog = new List<string>();
 
-        for (int i = 0; i < threeChoices.dataArray.Length; i++)
-        {
-            if (threeChoices.dataArray[i].ID == 0)
-            {
-                choiceDialog.Add(threeChoices.dataArray[i].Dialog);
-            }
-        }
+        //for (int i = 0; i < threeChoices.dataArray.Length; i++)
+        //{
+        //    if (threeChoices.dataArray[i].ID == 0)
+        //    {
+        //        choiceDialog.Add(threeChoices.dataArray[i].Dialog);
+        //    }
+        //}
     }
 
     public void PopUpDialog()

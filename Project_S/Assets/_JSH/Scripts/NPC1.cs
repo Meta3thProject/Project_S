@@ -10,7 +10,7 @@ public class NPC1 : MonoBehaviour, INPCBehaviour
     // 퀘스트
     // 아직 안씀
     // 대사
-    [SerializeField] DialogTable dialogTable;
+
     public List<string> dialogs;
     // } NPC에 따라
 
@@ -21,12 +21,12 @@ public class NPC1 : MonoBehaviour, INPCBehaviour
     {
         dialogs = new List<string>();
 
-        for (int i = 0; i < dialogTable.dataArray.Length; i++)
-        {
-            dialogs.Add(dialogTable.dataArray[i].Dialog);
+        //for (int i = 0; i < dialogTable.dataArray.Length; i++)
+        //{
+        //    dialogs.Add(dialogTable.dataArray[i].Dialog);
 
-            //Debug.Log(choiceDialog[i]);
-        }
+        //    //Debug.Log(choiceDialog[i]);
+        //}
 
         dialogIdx = 0;
     }

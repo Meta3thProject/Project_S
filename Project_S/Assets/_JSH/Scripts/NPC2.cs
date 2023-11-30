@@ -10,7 +10,7 @@ public class NPC2 : MonoBehaviour, INPCBehaviour
     // 퀘스트
     // 아직 안씀
     // 대사
-    [SerializeField] TwoTable twoChoices;
+
     public List<string> choiceDialog;
     // } NPC에 따라
 
@@ -18,13 +18,13 @@ public class NPC2 : MonoBehaviour, INPCBehaviour
     {
         choiceDialog = new List<string>();
 
-        for (int i = 0; i < twoChoices.dataArray.Length; i++)
-        {
-            if (twoChoices.dataArray[i].ID == 0)
-            {
-                choiceDialog.Add(twoChoices.dataArray[i].Dialog);
-            }
-        }
+        //for (int i = 0; i < twoChoices.dataArray.Length; i++)
+        //{
+        //    if (twoChoices.dataArray[i].ID == 0)
+        //    {
+        //        choiceDialog.Add(twoChoices.dataArray[i].Dialog);
+        //    }
+        //}
     }
 
     public void PopUpDialog()
