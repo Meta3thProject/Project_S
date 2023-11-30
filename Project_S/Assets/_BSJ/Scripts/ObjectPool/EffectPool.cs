@@ -6,7 +6,7 @@ using UnityEngine;
 // 이펙트 타입 구별
 public enum EffectType
 {
-    TestEffect01
+    SortEffect01, SortEffect02, TreeHitEffect,
 }
 
 [Serializable]

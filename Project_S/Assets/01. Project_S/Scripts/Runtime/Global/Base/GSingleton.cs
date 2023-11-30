@@ -19,5 +19,15 @@ public class GSingleton<T> : MonoBehaviour where T : GSingleton<T>
             return _instance;
         }
     }
+
+    public void Create()
+    {
+        this.Init();
+    }       // Create()
+
+    protected virtual void Init()
+    {
+        /* Do something */
+    }
 }
 

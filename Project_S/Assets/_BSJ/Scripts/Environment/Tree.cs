@@ -6,9 +6,17 @@ using UnityEngine;
 
 public class Tree : InteractableObject, IShakable
 {
+    [SerializeField]
+    private GameObject treeHitEffect;
+
     private void OnTriggerEnter(Collider other)
     {
         if (isInteractionAble == false) { return; }
+
+        // 이펙트 풀에서 이펙트 가져오기.
+        GameObject effect = EffectPool.instance.GetEffect(EffectType.TreeHitEffect);
+        effect.gameObject.SetActive(true);
+        effect.transform.position = this.transform.position;
 
         // 상호작용 실행
         InteractObject();
@@ -54,7 +62,7 @@ public class Tree : InteractableObject, IShakable
                 OnComplete ( () =>
                 {   
                     // 이펙트 풀에서 이펙트 가져오기.
-                    GameObject effect = EffectPool.instance.GetEffect(EffectType.TestEffect01);
+                    GameObject effect = EffectPool.instance.GetEffect(EffectType.SortEffect01);
                     effect.gameObject.SetActive(true);
                     effect.transform.position = this.transform.position;
 

@@ -12,8 +12,9 @@ GameObject:
   - component: {fileID: 6930182536962927849}
   - component: {fileID: 6920012168026333445}
   - component: {fileID: 6971297874306221019}
-  - component: {fileID: -458623611983747890}
   - component: {fileID: -2324281278840210158}
+  - component: {fileID: -458623611983747890}
+  - component: {fileID: 4391687921467459917}
   m_Layer: 0
   m_Name: Wood
   m_TagString: Untagged
@@ -100,20 +101,6 @@ MeshCollider:
   m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: 43726033164913236, guid: 431edb57d0a72834e84800f62a259a47, type: 2}
---- !u!114 &-458623611983747890
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6944077738385724783}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7edc24e74c8ddfe469d7e7fc79eac77e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  itemName: 0
-  saveTarget: {fileID: 0}
 --- !u!54 &-2324281278840210158
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -130,3 +117,34 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &-458623611983747890
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6944077738385724783}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7edc24e74c8ddfe469d7e7fc79eac77e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  itemName: 0
+  <saveTarget>k__BackingField: {fileID: 0}
+--- !u!114 &4391687921467459917
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6944077738385724783}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c61953921e8252a42a56abe3b81e1c5f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  target: {fileID: 0}
+  UpFromSort: 2
+  UpFromTarget: 0
+  _UpFromSort: {x: 0, y: 0, z: 0}
+  _TargetVector: {x: 0, y: 0, z: 0}
