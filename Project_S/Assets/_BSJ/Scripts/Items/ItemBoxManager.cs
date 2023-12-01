@@ -34,17 +34,17 @@ public class ItemBoxManager : MonoBehaviour
     /// </summary>
     private void SetSavePosition()
     {
-        for (int i = 0; i < this.transform.childCount; i++) 
+        for (int i = 0; i < transform.GetChild(0).childCount; i++) 
         {
-            saveItemPositions.Add(transform.GetChild(i).transform);
+            saveItemPositions.Add(transform.GetChild(0).transform.GetChild(i).transform);
         }
     }
 
     private void SetSaveTMPText()
     {
-        for (int i = 0; i < this.transform.childCount; i++)
+        for (int i = 0; i < transform.GetChild(1).childCount; i++)
         {
-            saveItemTexts.Add(transform.GetChild(i).transform.GetChild(0).transform.GetChild(0).GetComponent<TMP_Text>());
+            saveItemTexts.Add(transform.GetChild(1).transform.GetChild(i).GetComponent<TMP_Text>());
         }
     }
 

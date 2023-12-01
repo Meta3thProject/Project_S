@@ -8,6 +8,12 @@ using TMPro;
 
 public class SortableObject : MonoBehaviour
 {
+    // 캐싱해둘 스크립트
+    SaveableObject saveableObj;
+
+    // 정렬하는 아이템 이름
+    [SerializeField] private ItemName itemName;
+
     // 두 트윈 시퀀스
     DG.Tweening.Sequence itemSortSequence;
 
@@ -34,12 +40,18 @@ public class SortableObject : MonoBehaviour
 
     private void Start()
     {
-        target = GetComponent<SaveableObject>().saveTarget;
+        // 데이터 캐싱
+        saveableObj = GetComponent<SaveableObject>();
+        target = saveableObj.saveTarget;
+        itemName = saveableObj.itemName;
+
         tmp_Text = ItemBoxManager.Instance.saveItemTexts[0];
 
         _RigidBody = GetComponent<Rigidbody>();
 
+        // 두트윈 시 위로 얼마나 올라갈 것인지 Vector3 셋팅
         _UpFromSort = new Vector3(gameObject.transform.position.x, gameObject.transform.position.y + UpFromSort, gameObject.transform.position.z);
+        // 도착 지점 위로 얼마나 올라갈 것인지 Vector3 셋팅
         _TargetVector = new Vector3(target.position.x, target.position.y + UpFromTarget, target.position.z);
     }
 
@@ -112,6 +124,7 @@ public class SortableObject : MonoBehaviour
                 // 이펙트 풀에서 이펙트 가져오기.
                 GetEffect(EffectType.SortEffect02, this.transform.position);
 
+                // 텍스트 두트윈
                 ChangeText();
             });
     }
@@ -124,11 +137,6 @@ public class SortableObject : MonoBehaviour
     {
         
         GetEffect(effectType, 0f, _position);
-
-        // TRASH :
-        //GameObject effect = EffectPool.instance.GetEffect(effectType);
-        //effect.gameObject.SetActive(true);
-        //effect.transform.position = this.transform.position;
     }
 
     private void GetEffect(EffectType effectType, float delayTime, Vector3 _position)
@@ -162,6 +170,19 @@ public class SortableObject : MonoBehaviour
 
         sequence = DOTween.Sequence();
         sequence.SetAutoKill(false).Append(tmpAnim.DOPunchCharOffset(0, new Vector3(0.01f, 0.01f, 0.01f), 0.2f, 5)).
-            Join(tmpAnim.DOShakeCharScale(0, 0.2f, 0.5f, 5));
+            Join(tmpAnim.DOShakeCharScale(0, 0.2f, 0.5f, 5)).
+            OnComplete(() =>
+            {
+                AfterSortItemCount(itemName, true);
+            });
+    }
+
+    /// <summary>
+    /// 정렬 두트윈 종료 시 실제적으로 아이템을 증가시키는 메서드.
+    /// </summary>
+    private void AfterSortItemCount(ItemName _ItemName, bool _PlusOrNinus)
+    {
+        PlayerInventory.instance.PlusOrNinusItemCount(_ItemName, _PlusOrNinus);
+        tmp_Text.text = PlayerInventory.instance.wood.ToString();
     }
 }

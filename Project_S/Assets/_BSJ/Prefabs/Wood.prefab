@@ -129,7 +129,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7edc24e74c8ddfe469d7e7fc79eac77e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  itemName: 0
+  <itemName>k__BackingField: 0
   <saveTarget>k__BackingField: {fileID: 0}
 --- !u!114 &4391687921467459917
 MonoBehaviour:
@@ -143,8 +143,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c61953921e8252a42a56abe3b81e1c5f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  itemName: 0
   target: {fileID: 0}
   UpFromSort: 2
   UpFromTarget: 0
   _UpFromSort: {x: 0, y: 0, z: 0}
   _TargetVector: {x: 0, y: 0, z: 0}
+  tmp_Text: {fileID: 0}

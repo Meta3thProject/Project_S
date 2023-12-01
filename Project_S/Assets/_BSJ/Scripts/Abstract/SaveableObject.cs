@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class SaveableObject : MonoBehaviour
 {
-    [SerializeField] private ItemName itemName;     // 이 아이템의 이름
+    [field: SerializeField] public ItemName itemName { get; private set; }     // 이 아이템의 이름
     [field: SerializeField] public Transform saveTarget { get; private set; }  // 인벤토리에 저장될 때 어디에 저장될지 미리 캐싱
 
     private void Start()

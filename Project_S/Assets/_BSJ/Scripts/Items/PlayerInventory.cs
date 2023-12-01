@@ -77,7 +77,7 @@ public class PlayerInventory : MonoBehaviour
         }
 
         // 초기 아이템 초기화 셋팅하기
-        ItemInit();
+        // ItemInit();
 
         // 초기 딕셔너리 셋팅하기 ( 6은 아이템 타입 )
         for(int i = 0; i <= 6; i++)
@@ -88,7 +88,7 @@ public class PlayerInventory : MonoBehaviour
 
 
     /// <summary>
-    /// 모든 아이템 변수 초기화 하는 함수.
+    /// 모든 아이템 변수 초기화 하는 메서드.
     /// </summary>
     public void ItemInit()
     {
@@ -102,7 +102,7 @@ public class PlayerInventory : MonoBehaviour
     }
 
     /// <summary>
-    /// DB에 저장될 딕셔너리를 셋팅하는 함수.
+    /// DB에 저장될 딕셔너리를 셋팅하는 메서드.
     /// </summary>
     /// <param name="_itemType"></param>
     public void SetItemsDictionry(int _itemType)
@@ -163,7 +163,7 @@ public class PlayerInventory : MonoBehaviour
     }
 
     /// <summary>
-    /// DB에 저장될 딕셔너리를 초기화 하는 함수.
+    /// DB에 저장될 딕셔너리를 초기화 하는 메서드.
     /// </summary>
     /// <param name="_itemType"></param>
     public void ItemDictionaryInit(int _itemType)
@@ -194,26 +194,56 @@ public class PlayerInventory : MonoBehaviour
         }
     }
 
-    //! TEST : 사과 갯수 증가하는 함수
-    public void PlusWood()
-    {
-        wood++;
-        PlusItemCount(itemType0, "wood");
-    }
-
     /// <summary>
-    /// 아이템 딕셔너리에 값을 추가하는 함수.
+    /// 아이템 딕셔너리에 값을 추가하는 메서드.
     /// </summary>
-    /// <param name="dictionary"></param>
-    /// <param name="key"></param>
-    public void PlusItemCount(Dictionary<string, int> dictionary, string key)
+    /// <param name="dictionary">아이템 타입.</param>
+    /// <param name="key">어떤 아이템의 값을 변경할 것인지.</param>
+    /// <param name="_PlusOrNinus">true면 ++, false면 --.</param>
+    public void PlusOrNinusItemDictionary(Dictionary<string, int> dictionary, string key, bool _PlusOrNinus)
     {
-        // 딕셔너리에 키가 이미 존재하는지 확인
-        if (dictionary.ContainsKey(key))
+        // 딕셔너리에 키가 이미 존재하는지 확인 && 덧셈인지 뺼셈인지 판단.
+        if (dictionary.ContainsKey(key) && _PlusOrNinus == true)
         {
             // 키가 존재하면 값을 증가시킴
             dictionary[key]++;
         }
+        else if (dictionary.ContainsKey(key) && _PlusOrNinus == false)
+        {
+            dictionary[key]--;
+        }
         else { /* Do Nothing */ }
+    }
+
+
+    /// <summary>
+    /// 아이템의 갯수를 증가시키거나 감소시키는 메서드.
+    /// </summary>
+    /// <param name="_itemName">아이템의 이름.</param>
+    /// <param name="_PlusOrNinus">true면 ++, false면 --.</param>
+    public void PlusOrNinusItemCount(ItemName _itemName, bool _PlusOrNinus)
+    {
+        #region 아이템 증가
+        if (_PlusOrNinus)
+        {
+            if (_itemName == ItemName.wood)
+            {
+                wood++;
+                PlusOrNinusItemDictionary(itemType0, "wood", true);
+            }
+        }
+        #endregion
+
+        #region 아이템 감소
+        else
+        {
+            if (_itemName == ItemName.wood)
+            {
+                wood--;
+                PlusOrNinusItemDictionary(itemType0, "wood", false);
+            }
+        }
+        #endregion
+
     }
 }
