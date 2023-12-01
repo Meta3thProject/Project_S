@@ -9,13 +9,18 @@ public class FireButton : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
+        //// 눌리면 땅에 박힘
+        //transform.position -= Vector3.up * 2;
+
+        //// 눌리면 화로 리프트 업
+        //fireBase.transform.position += Vector3.up * 2;
+    }
+    private void OnTriggerEnter(Collider other)
+    {
         // 눌리면 땅에 박힘
         transform.position -= Vector3.up * 2;
 
         // 눌리면 화로 리프트 업
         fireBase.transform.position += Vector3.up * 2;
-    }
-    private void OnTriggerEnter(Collider other)
-    {
     }
 }
