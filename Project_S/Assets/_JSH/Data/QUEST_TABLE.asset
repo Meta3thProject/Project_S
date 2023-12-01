@@ -1,0 +1,50 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8e54655f3754f224192c968dfbd64a24, type: 3}
+  m_Name: QUEST_TABLE
+  m_EditorClassIdentifier: 
+  SheetName: Assets/_JSH/Data/QUEST_DATA.xlsx
+  WorksheetName: QUEST_TABLE
+  dataArray:
+  - id: 301000
+    quest_title: "\uACBD\uC77C\uACFC \uC778\uC0AC\uD558\uB77C"
+    quest_goal: "\uACBD\uC77C \uC55E\uC5D0\uC11C LT/RT \uBC84\uD2BC\uC744 \uB204\uB974\uC138\uC694"
+    quest_type: 30
+    value1: 300000
+    value2: 0
+    value3: 0
+    dialogue: 304000
+    reward: 0
+    lead_quest: 0
+    chain_quest: 301001
+  - id: 301001
+    quest_title: "\uB098\uBB34\uB97C \uD68D\uB4DD\uD558\uB77C"
+    quest_goal: "\uB098\uBB34 1\uAC1C\uB97C \uD68D\uB4DD\uD558\uC138\uC694"
+    quest_type: 11
+    value1: 0
+    value2: 1
+    value3: 1
+    dialogue: 0
+    reward: 0
+    lead_quest: 301000
+    chain_quest: 301002
+  - id: 301002
+    quest_title: "\uB098\uBB34\uB97C \uBC30\uB2EC\uD558\uB77C"
+    quest_goal: "\uB098\uBB34 1\uAC1C\uB97C \uACBD\uC77C\uC5D0\uAC8C \uC8FC\uC138\uC694"
+    quest_type: 21
+    value1: 300001
+    value2: 1
+    value3: 1
+    dialogue: 304001
+    reward: 0
+    lead_quest: 301001
+    chain_quest: 0
