@@ -1,3 +1,4 @@
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class GSingleton<T> : MonoBehaviour where T : GSingleton<T>
@@ -10,13 +11,18 @@ public class GSingleton<T> : MonoBehaviour where T : GSingleton<T>
         {
             if (GSingleton<T>._instance == default || _instance == default)
             {
-                GSingleton<T>._instance =
+                _instance = 
                     GFunc.CreateObj<T>(typeof(T).ToString());
                 DontDestroyOnLoad(_instance.gameObject);
             }       // if: 인스턴스가 비어 있을 때 새로 인스턴스화 한다
 
             // 여기서 부터는 인스턴스가 절대 비어있지 않을듯?
             return _instance;
+        }
+
+        protected set
+        {
+            _instance = value;
         }
     }
 }

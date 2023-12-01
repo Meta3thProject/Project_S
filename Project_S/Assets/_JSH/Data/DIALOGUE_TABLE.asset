@@ -1,0 +1,41 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 900d1471a4895194ea994013297f3215, type: 3}
+  m_Name: DIALOGUE_TABLE
+  m_EditorClassIdentifier: 
+  SheetName: Assets/_JSH/Data/QUEST_DATA.xlsx
+  WorksheetName: DIALOGUE_TABLE
+  dataArray:
+  - id: 304000
+    npc_id: 300000
+    dialogue: "\uC548\uB155\uD558\uC138\uC694? /n\uB098\uBB34\uD558\uB098\uB9CC \uC8FC\uC2E4\uB798\uC694?"
+    link_dialog_choice: 0
+    mbti: 0
+    value: 0
+  - id: 304001
+    npc_id: 300001
+    dialogue: "\uB098\uBB34 \uAC10\uC0AC\uD569\uB2C8\uB2E4. /n\uC5B4\uB514 \uAC00\uC2DC\uB098\uBD10\uC694?"
+    link_dialog_choice: 302000
+    mbti: 0
+    value: 0
+  - id: 304002
+    npc_id: 300001
+    dialogue: "\uC0AC\uB78C\uC774 \uB9CE\uC740 \uACF3\uC73C\uB85C \uAC00\uB294\uAD70\uC694"
+    link_dialog_choice: 0
+    mbti: 2
+    value: 2
+  - id: 304003
+    npc_id: 300001
+    dialogue: "\uC0AC\uB78C\uC774 \uC801\uC740 \uACF3\uC73C\uB85C \uAC00\uB294\uAD70\uC694"
+    link_dialog_choice: 0
+    mbti: 1
+    value: 3
