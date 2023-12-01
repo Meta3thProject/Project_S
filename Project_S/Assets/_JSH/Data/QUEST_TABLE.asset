@@ -30,10 +30,21 @@ MonoBehaviour:
     quest_title: "\uB098\uBB34\uB97C \uD68D\uB4DD\uD558\uB77C"
     quest_goal: "\uB098\uBB34 1\uAC1C\uB97C \uD68D\uB4DD\uD558\uC138\uC694"
     quest_type: 11
-    value1: 1
+    value1: 0
     value2: 1
-    value3: 0
-    dialogue: 304001
+    value3: 1
+    dialogue: 0
     reward: 0
     lead_quest: 301000
     chain_quest: 301002
+  - id: 301002
+    quest_title: "\uB098\uBB34\uB97C \uBC30\uB2EC\uD558\uB77C"
+    quest_goal: "\uB098\uBB34 1\uAC1C\uB97C \uACBD\uC77C\uC5D0\uAC8C \uC8FC\uC138\uC694"
+    quest_type: 21
+    value1: 300001
+    value2: 1
+    value3: 1
+    dialogue: 304001
+    reward: 0
+    lead_quest: 301001
+    chain_quest: 0

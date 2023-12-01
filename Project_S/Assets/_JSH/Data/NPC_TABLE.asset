@@ -14,4 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   SheetName: Assets/_JSH/Data/QUEST_DATA.xlsx
   WorksheetName: NPC_TABLE
-  dataArray: []
+  dataArray:
+  - id: 300000
+    name: "\uACBD\uC77C"
+  - id: 300001
+    name: "\uACBD\uC774"

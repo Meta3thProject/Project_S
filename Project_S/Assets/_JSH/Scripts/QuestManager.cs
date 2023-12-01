@@ -8,6 +8,9 @@ public class QuestManager : GSingleton<QuestManager>
     // 퀘스트 리스트: <ID, 정보>
     public Dictionary<int, Quest> questList;
 
+    // 퀘스트 데이터
+    public QUEST_TABLE questTable;
+
     // 플레이어
     public GameObject player;
     // 현재 진행중인 퀘스트
@@ -33,10 +36,11 @@ public class QuestManager : GSingleton<QuestManager>
         QuestManager.Instance = this;
         DontDestroyOnLoad(gameObject);
 
+
+
         main.SetActive(false);
         twoChoices.SetActive(false);
         threeChoices.SetActive(false);
-       
     }
 
     public void PopUp(Vector3 dir_)
@@ -60,18 +64,20 @@ public class QuestManager : GSingleton<QuestManager>
         oneOfOne.text = dialog_;
     }
 
-    public void ActivateTwoChoices(List<string> dialogs_)
+    public void ActivateChoices(List<string> dialogs_)
     {
-        twoChoices.SetActive(true);
-        oneOfTwo.text = dialogs_[0];
-        twoOfTwo.text = dialogs_[1];
-    }
-
-    public void ActivateThreeChoices(List<string> dialogs_)
-    {
-        threeChoices.SetActive(true);
-        oneOfThree.text = dialogs_[0];
-        twoOfThree.text = dialogs_[1];
-        threeOfThree.text = dialogs_[2];
+        if (dialogs_.Count == 2)
+        {
+            twoChoices.SetActive(true);
+            oneOfTwo.text = dialogs_[0];
+            twoOfTwo.text = dialogs_[1];
+        }
+        else if (dialogs_.Count == 3)
+        {
+            threeChoices.SetActive(true);
+            oneOfThree.text = dialogs_[0];
+            twoOfThree.text = dialogs_[1];
+            threeOfThree.text = dialogs_[2];
+        }
     }
 }

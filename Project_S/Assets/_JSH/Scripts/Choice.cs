@@ -10,14 +10,14 @@ public class Choice : MonoBehaviour
     // IESNTFJP 순서
     public enum MBTI
     {
-        I,
-        E,
-        S,
-        N,
-        T,
-        F,
-        J,
-        P
+        I = 1,
+        E = 2,
+        N = 3,
+        S = 4,
+        F = 5,
+        T = 6,
+        P = 7,
+        J = 8
     }
 
     public MBTI targetIdx = default;
