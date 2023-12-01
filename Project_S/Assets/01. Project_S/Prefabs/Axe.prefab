@@ -162,6 +162,7 @@ GameObject:
   - component: {fileID: 9182599089271216687}
   - component: {fileID: 8331312907041538919}
   - component: {fileID: 9182599089271216679}
+  - component: {fileID: 717463382}
   m_Layer: 10
   m_Name: Axe
   m_TagString: Untagged
@@ -214,7 +215,7 @@ CapsuleCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  m_Radius: 0.035
+  m_Radius: 0.02
   m_Height: 0.85
   m_Direction: 1
   m_Center: {x: 0.000000059604645, y: 0.1, z: -0.00000008940697}
@@ -307,9 +308,9 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 0
   CollisionParticle: {fileID: 0}
-  AxeEnabled: 0
+  axeEnabled: 0
   LaserLength: 1
-  LaserActivateSpeed: 10
+  axeActivateSpeed: 10
   CollisionAudio: {fileID: 0}
   Colliding: 0
 --- !u!82 &9182599089271216675
@@ -470,8 +471,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 0.06, y: 0.25, z: 0.1}
-  m_Center: {x: -0.00041878223, y: 0.4, z: 0.22}
+  m_Size: {x: 0.03, y: 0.3, z: 0.01}
+  m_Center: {x: -0.00041878223, y: 0.36, z: 0.17}
 --- !u!114 &9182599089271216679
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -484,14 +485,29 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 821cfb7c3eab3764bbb57d764c6e26d6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  IsCollision: 0
   Damage: 5
   ColliderRigidbody: {fileID: 0}
-  MinForce: 0.1
+  MinForce: 0.5
   LastRelativeVelocity: 0
   LastDamageForce: 0
   TakeCollisionDamage: 0
   CollisionDamage: 5
+--- !u!114 &717463382
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9182599089271216856}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0e7fc31b3b1411d4e8e8b77b687c7bef, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ReturnTo: {fileID: 0}
+  LerpSpeed: 50
+  ReturnDelay: 0
+  SnapDistance: 0.05
 --- !u!1 &9182599089819631211
 GameObject:
   m_ObjectHideFlags: 0
