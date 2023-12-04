@@ -43,7 +43,7 @@ public class Portal : MonoBehaviour
                 return;
             }       // if : portalType이 지정되지 않았을 경우 로그를 띄우고 씬 로드를 막음
 
-            SceneLoader.Instance.LoadScene(type.EnumToInt());            
+            SceneLoadManager.Instance.LoadScene(type.EnumToInt());            
         }
     }
 }

@@ -3,10 +3,12 @@ using UnityEngine;
 
 public class Torch : GrabbableEvents
 {
+    Grabbable grabbable;
+
     private bool isFlameOn = false;
     private GameObject flameFX = default;
     private SphereCollider flameCollider = default;
-    private GameObject handle = default;
+
     // Start is called before the first frame 
     void Start()
     {
@@ -15,17 +17,19 @@ public class Torch : GrabbableEvents
 
     void Init()
     {
+        grabbable = GetComponent<Grabbable>();  
+
         flameFX = this.gameObject.GetChildObj("TorchFire");
         flameCollider = this.GetComponent<SphereCollider>();
-        handle = this.gameObject.GetChildObj("Handle");
         flameCollider.enabled = false;
     }
     // Update is called once per frame
     void Update()
     {        
-        if(this.transform.parent != null)
+        if(!grabbable.BeingHeld)
         {
             flameCollider.enabled = false;
+            isFlameOn = false;
         }
         // { 토치 횃불 이펙트 끄고 키기
         if (isFlameOn)

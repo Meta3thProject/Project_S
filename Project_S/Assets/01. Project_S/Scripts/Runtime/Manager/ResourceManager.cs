@@ -2,30 +2,42 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ResourceManager : GSingleton<ResourceManager>
+public static class ResourceManager
 {
-    // Start is called before the first frame update
-    void Start()
+    #region Dictionarys
+    public static Dictionary<string, GameObject> objects;
+    public static Dictionary<string, GameObject> effects;
+    public static Dictionary<string, GameObject> items;
+    #endregion
+
+    public static void Init()
     {
-        
-    }
+        objects = new Dictionary<string, GameObject>();
+        effects = new Dictionary<string, GameObject>();
+        items = new Dictionary<string, GameObject>();
 
-    /// <summary>
-    /// Resources 폴더에서 프리팹을 가져와서 인스턴스로 생성하는 함수
-    /// </summary>
-    /// <param name="_path">경로 혹은 오브젝트 이름</param>
-    /// <param name="_pos">생성될 오브젝트의 위치</param>
-    /// <param name="_rot">생성될 오브젝트의 회전</param>
-    /// <returns>프리팹 오브젝트</returns>
-    public GameObject GetResource(string _path, Vector3 _pos, Quaternion _rot)
+        AddResouces();
+    }       // Init()
+
+    // ! 리소스 배열에 추가
+    public static void AddResouces()
     {
-        GameObject tempObject = default;
+        GameObject[] objResources = Resources.LoadAll<GameObject>(RDefine.PATH_OBJECTS);
+        GameObject[] effectResource = Resources.LoadAll<GameObject>(RDefine.PATH_EFFECTS);
+        GameObject[] itemResources = Resources.LoadAll<GameObject>(RDefine.PATH_ITEMS);
 
-        tempObject = Resources.Load<GameObject>(_path);
-        
-        tempObject.transform.position = _pos;
-        tempObject.transform.rotation = _rot;
+        AddDictionary(objResources, objects);
+        AddDictionary(effectResource, effects);
+        AddDictionary(itemResources, items);
 
-        return Instantiate(tempObject);        
-    }       // GetResource()
+    }       // AddResource()
+
+    // ! 리소스 배열을 딕셔너리에 캐싱
+    private static void AddDictionary(GameObject[] resources_, Dictionary<string, GameObject> dictionary_)
+    {
+        foreach(GameObject resource in resources_)
+        {
+            dictionary_.Add(resource.name, resource);
+        }
+    }       // AddDictionary()
 }
