@@ -34,8 +34,6 @@ public class Axe : GrabbableEvents
     }
     void Update()
     {
-
-        // Toggle Saber
         if (!grabbable.BeingHeld)
         {
             isBladeOn = false;

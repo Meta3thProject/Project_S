@@ -29990,7 +29990,6 @@ GameObject:
   - component: {fileID: 4411879953698737988}
   - component: {fileID: 4411879953698737991}
   - component: {fileID: 599937386681198109}
-  - component: {fileID: 5642438727351263585}
   - component: {fileID: 8794463456013407114}
   m_Layer: 0
   m_Name: LeftController
@@ -30067,19 +30066,6 @@ MonoBehaviour:
   thisControllerModel: 
   OffsetPosition: {x: 0, y: 0, z: 0}
   OffsetRotation: {x: 0, y: 0, z: 0}
---- !u!114 &5642438727351263585
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4411879953698737989}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a35b123e1c8f5be408936ed3f3acc8c1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  bullet: {fileID: 0}
 --- !u!114 &8794463456013407114
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -33280,7 +33266,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &6999851722886097207
 Transform:
   m_ObjectHideFlags: 0
@@ -42700,7 +42686,7 @@ CharacterController:
   serializedVersion: 2
   m_Height: 1.5
   m_Radius: 0.1
-  m_SlopeLimit: 45
+  m_SlopeLimit: 90
   m_StepOffset: 0.3
   m_SkinWidth: 0.001
   m_MinMoveDistance: 0
@@ -53622,6 +53608,7 @@ GameObject:
   - component: {fileID: 4411879952611641821}
   - component: {fileID: 4411879952611641808}
   - component: {fileID: 5642438727257685778}
+  - component: {fileID: 8320362179826470186}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -53789,6 +53776,18 @@ MonoBehaviour:
   HMDIsActive: 0
   LeftControllerPosition: {x: -0.2, y: -0.2, z: 0.5}
   RightControllerPosition: {x: 0.2, y: -0.2, z: 0.5}
+--- !u!114 &8320362179826470186
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7742066444194261339}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 85966cfd4812ef041a876b89d597c727, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &7742066444229502769
 GameObject:
   m_ObjectHideFlags: 0
@@ -65376,12 +65375,12 @@ PrefabInstance:
     - target: {fileID: 7965783791829060510, guid: 79d6eb9496d140a4c953d23ac9677d1c,
         type: 3}
       propertyPath: m_AnchorMax.x
-      value: 0.9999981
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7965783791829060510, guid: 79d6eb9496d140a4c953d23ac9677d1c,
         type: 3}
       propertyPath: m_AnchorMax.y
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7965783791829060510, guid: 79d6eb9496d140a4c953d23ac9677d1c,
         type: 3}
