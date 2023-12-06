@@ -1,7 +1,7 @@
 using BNG;
 using UnityEngine;
 
-public class ItemInteraction : MonoBehaviour
+public class Inventory : MonoBehaviour
 {
     // Start is called before the first frame update
     private InputBridge input = default;
@@ -35,7 +35,8 @@ public class ItemInteraction : MonoBehaviour
             isPress = !isPress;
             if(snapZone.HeldItem != null)
             {
-                snapZone.HeldItem.gameObject.SetActive(isPress);
+                snapZone.gameObject.SetActive(isPress);
+                snapZone.enabled = isPress;
             }
         }
     }

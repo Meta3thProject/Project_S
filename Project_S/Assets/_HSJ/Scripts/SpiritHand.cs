@@ -7,17 +7,21 @@ public class SpiritHand : MonoBehaviour
 {
     private InputBridge input = default;
     private Grabber grabber = default;
-    private Vector3 linePointer = default;
+    private GameObject projectilePointer = default;
+    private GameObject spiritProjectile = default;
 
-    // 일단 타입을 나누기 위해 열어둠
+    private VRUISystem uiSystem;
+
+    // 타입을 나누기 위해 열어둠
     public HandControl handControl = default;
     
     
     private float chargeTime = default;
-    private float maxChargeTime = 2f;
+    private float maxChargeTime = 1f;
 
-    private bool isTriggerDown = false;
+    private bool isHandEnabled = false;
     private bool isCharged = false;
+    
     // Start is called before the first frame update
  
     void Start()
@@ -27,68 +31,114 @@ public class SpiritHand : MonoBehaviour
     }
     void Init()
     {
-        grabber = GetComponentInChildren<Grabber>();
         input = InputBridge.Instance;
+        uiSystem = VRUISystem.Instance;
+
+        grabber = GetComponentInChildren<Grabber>();
+
+        projectilePointer = this.gameObject.GetChildObj("ProjectilePointer");
+        spiritProjectile = Instantiate(ResourceManager.objects["Projectile"], projectilePointer.transform);
+        projectilePointer.SetActive(isHandEnabled);
     }
 
 
     // Update is called once per frame
     void Update()
     {
-        if(grabber.HeldGrabbable != null)
+        if (grabber.HeldGrabbable != null )
         {
             return;
         } // if : 빈 손이 아니라면 return 
 
-        
-            ActiveSpiritHand();
-        
+        isHandEnabled = CheckTriggerDown();
+
+        ActiveSpiritHand();
 
     }
-    
+
     private void ActiveSpiritHand()
     {
-        if (CheckTriggerDown())
+        if (isHandEnabled)
         {
 
             grabber.ForceRelease = true;
             grabber.HideHandGraphics();
 
+            ActivePointer();
+            ChargeTimer();
             // TODO : 정령의 손 충전 중 그랩 가능 한것 방지할 것 
-            
 
         }
-        else if (!CheckTriggerDown())
+        else if (!isHandEnabled)
         {
-
+            chargeTime = 0f;
             grabber.ForceRelease = false;
-
             grabber.ResetHandGraphics();
 
-
-            //projectile.GetComponent<Rigidbody>().AddForce(this.transform.forward * 5f, ForceMode.Impulse);
-            //chargeTime = 0f;
+            ActivePointer();
+            ShootProjectile();
         }
     }
 
-    public bool CheckTriggerDown()
+    private void ActivePointer()
+    {
+        projectilePointer.SetActive(isHandEnabled);
+
+    }
+    // TEST : 임시 
+    private void ChargeTimer()
+    {
+        chargeTime += Time.deltaTime;
+        if (maxChargeTime <= chargeTime)
+        {
+            isCharged = true;
+        }
+
+
+    }
+    private void ShootProjectile()
+    {
+        if (isCharged)
+        {
+            spiritProjectile.transform.SetParent(null);
+            spiritProjectile.GetComponent<Rigidbody>().AddForce(projectilePointer.transform.forward * 5f, ForceMode.Impulse);
+            isCharged = false;
+            StartCoroutine(WaitForShoot());
+        }
+    }
+
+    private IEnumerator WaitForShoot()
+    {
+        float timer = 0f;
+        while(timer < 2f)
+        {
+            timer += Time.deltaTime;
+            yield return null;
+        }
+        SetProjectile();
+    }
+
+    private void SetProjectile()
+    {
+        spiritProjectile.transform.SetParent(projectilePointer.transform);
+        spiritProjectile.transform.localPosition = Vector3.zero;
+        spiritProjectile.GetComponent<Rigidbody>().velocity = Vector3.zero;
+
+    }
+
+    // ! HandControl 
+    private bool CheckTriggerDown()
     {
 
-        if(GetHandController(handControl) == HandControl.LeftTrigger)
+        if (GetHandController(handControl) == HandControl.LeftTrigger)
         {
-            if (input.LeftTriggerDown)
-            {
-                return true;
-            }
+            return input.LeftTrigger > 0.2f;
         }
-        else if(GetHandController(handControl) == HandControl.RightTrigger)
+        else if (GetHandController(handControl) == HandControl.RightTrigger)
         {
-            if(input.RightTriggerDown)
-            {
-                return true;
-            }
-        }          
-                     
+            return input.RightTrigger > 0.2f;
+        }
+
         return false;
     }       // CheckTriggerDown()
 

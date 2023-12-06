@@ -17,7 +17,7 @@ public class Torch : GrabbableEvents
 
     void Init()
     {
-        grabbable = GetComponent<Grabbable>();  
+        grabbable = GetComponent<Grabbable>();
 
         flameFX = this.gameObject.GetChildObj("TorchFire");
         flameCollider = this.GetComponent<SphereCollider>();
@@ -41,8 +41,8 @@ public class Torch : GrabbableEvents
             ActiveFlame();
         }
         // } 토치 횃불 이펙트 끄고 키기
-    }    
-    
+    }
+
     private void ActiveFlame()
     {
         flameFX.SetActive(isFlameOn);
@@ -62,5 +62,6 @@ public class Torch : GrabbableEvents
         {              
             input.VibrateController(0.2f, 0.1f, 0.1f, thisGrabber.HandSide);
         }
+                
     }
 }
