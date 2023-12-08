@@ -72,6 +72,7 @@ public static partial class GFunc
     }
 
 
+    // ! 특정 컴퍼넌트를 붙이고 게임 오브젝트를 생성하는 함수
     public static T CreateObj<T>(string objName_) where T : Component
     {
         Debug.Log(typeof(T));
@@ -79,10 +80,17 @@ public static partial class GFunc
         return createdObj.AddComponent<T>();
     }       // CreateObj()
 
+    // !  특정 이름으로 게임 오브젝트를 생성하는 함수
+    public static GameObject CreatObj(this GameObject gameObject_)
+    {
+        GameObject createdObj = new GameObject(gameObject_.name);
+        return createdObj;
+    }       // CreateObj()
+
     public static Scene GetActiveScene()
     {
         Scene activeScene = SceneManager.GetActiveScene();
         return activeScene;
     }       // GetActiveScene()
-
+        
 }

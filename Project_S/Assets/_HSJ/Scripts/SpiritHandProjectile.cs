@@ -1,8 +1,4 @@
 using BNG;
-using System.Collections;
-using System.Collections.Generic;
-using System.Drawing.Printing;
-using Unity.VisualScripting;
 using UnityEngine;
 
 
@@ -19,23 +15,9 @@ public class SpiritHandProjectile : GrabbableEvents
         Init();
     }
 
-    private void OnEnable()
-    {
-        this.transform.SetParent(null);
-        Invoke("DisableSelf",3f);
-    }
-
-    private void OnDisable()
-    {
-        this.transform.localScale = tempScale;
-        this.transform.parent = parent;
-        rb.velocity = Vector3.zero;
-        this.transform.localPosition = Vector3.zero;
-
-    }
+   
     void Init()
     { 
-        tempScale = this.transform.localScale;
     }
 
     // Update is called once per frame
@@ -43,8 +25,17 @@ public class SpiritHandProjectile : GrabbableEvents
     {
     
     }
-    void DisableSelf()
+
+    public override void OnTriggerDown()
     {
-        this.gameObject.SetActive(false);
+        //isBladeOn = !isBladeOn;
+        //bladeCollider.enabled = isBladeOn;
+        base.OnTriggerDown();
+    }
+
+    public override void OnTrigger(float triggerValue)
+    {
+
+        base.OnTrigger(triggerValue);
     }
 }
