@@ -1,6 +1,7 @@
 using BNG;
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditor.Rendering;
 using UnityEngine;
 
 public class SpiritHand : MonoBehaviour
@@ -10,7 +11,8 @@ public class SpiritHand : MonoBehaviour
     private GameObject projectilePointer = default;
     private GameObject spiritProjectile = default;
 
-    private VRUISystem uiSystem;
+    private LineRenderer lineRenderer = default;
+    private Vector3 defaultPosition = new Vector3(0f,0f,10f);
 
     // 타입을 나누기 위해 열어둠
     public HandControl handControl = default;
@@ -32,21 +34,36 @@ public class SpiritHand : MonoBehaviour
     void Init()
     {
         input = InputBridge.Instance;
-        uiSystem = VRUISystem.Instance;
 
         grabber = GetComponentInChildren<Grabber>();
-
+        
         projectilePointer = this.gameObject.GetChildObj("ProjectilePointer");
+        lineRenderer = projectilePointer.GetComponent<LineRenderer>();
+
         spiritProjectile = Instantiate(ResourceManager.objects["Projectile"], projectilePointer.transform);
         projectilePointer.SetActive(isHandEnabled);
     }
 
 
     // Update is called once per frame
-    void Update()
+    //void Update()
+    //{
+    //    if (grabber.HeldGrabbable != null )
+    //    {
+    //        return;
+    //    } // if : 빈 손이 아니라면 return 
+
+    //    isHandEnabled = CheckTriggerDown();
+
+    //    ActiveSpiritHand();
+              
+    //}
+
+    // Test : 가장 늦은 업데이트 실행으로 잡고 있는 오브젝트가 없을 떄만 실행할 수 있도록 테스트 
+    void LateUpdate()
     {
-        if (grabber.HeldGrabbable != null )
-        {
+        if (grabber.HeldGrabbable != null)
+        {            
             return;
         } // if : 빈 손이 아니라면 return 
 
@@ -55,7 +72,6 @@ public class SpiritHand : MonoBehaviour
         ActiveSpiritHand();
 
     }
-
     private void ActiveSpiritHand()
     {
         if (isHandEnabled)
@@ -63,9 +79,11 @@ public class SpiritHand : MonoBehaviour
 
             grabber.ForceRelease = true;
             grabber.HideHandGraphics();
-
-            ActivePointer();
+            
+            ActivePointer();            
             ChargeTimer();
+            
+
             // TODO : 정령의 손 충전 중 그랩 가능 한것 방지할 것 
 
         }
@@ -78,13 +96,31 @@ public class SpiritHand : MonoBehaviour
             ActivePointer();
             ShootProjectile();
         }
-    }
+    }       // ActiveSpiritHand()
 
+
+    private Vector3 GetRayDistance()
+    {                
+        Vector3 tempPos = defaultPosition;
+        RaycastHit hit = new RaycastHit();
+
+        if(Physics.Raycast(projectilePointer.transform.position,projectilePointer.transform.forward,
+            out hit,10f, LayerMask.GetMask("Default")))
+        {            
+            tempPos = new Vector3(0f,0f,hit.distance);     
+        }
+        
+        return tempPos;
+    }       // GetRayDistance()
     private void ActivePointer()
     {
+        if(isHandEnabled)
+        {
+            lineRenderer.SetPosition(1,GetRayDistance());
+        }
         projectilePointer.SetActive(isHandEnabled);
 
-    }
+    }       // ActivePointer()
     // TEST : 임시 
     private void ChargeTimer()
     {
@@ -95,7 +131,7 @@ public class SpiritHand : MonoBehaviour
         }
 
 
-    }
+    }       // ChargeTimer()
     private void ShootProjectile()
     {
         if (isCharged)
@@ -105,7 +141,7 @@ public class SpiritHand : MonoBehaviour
             isCharged = false;
             StartCoroutine(WaitForShoot());
         }
-    }
+    }       // ShootProjectile()
 
     private IEnumerator WaitForShoot()
     {
@@ -116,7 +152,7 @@ public class SpiritHand : MonoBehaviour
             yield return null;
         }
         SetProjectile();
-    }
+    }       // WaitForShoot()
 
     private void SetProjectile()
     {
@@ -124,7 +160,7 @@ public class SpiritHand : MonoBehaviour
         spiritProjectile.transform.localPosition = Vector3.zero;
         spiritProjectile.GetComponent<Rigidbody>().velocity = Vector3.zero;
 
-    }
+    }       // SetProjectile()
 
     // ! HandControl 
     private bool CheckTriggerDown()
