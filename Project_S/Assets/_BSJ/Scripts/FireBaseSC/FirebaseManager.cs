@@ -130,6 +130,7 @@ public class FirebaseManager : MonoBehaviour
     /// </summary>
     public void Register()
     {
+        infoTextField.text = "상태 : 회원가입 시도 중 ...";
         registerButton.interactable = false;
         // 제공되는 함수 : 이메일과 비밀번호로 회원가입 시켜 줌
         auth.CreateUserWithEmailAndPasswordAsync(emailField.text, passField.text).ContinueWithOnMainThread(
@@ -184,7 +185,7 @@ public class FirebaseManager : MonoBehaviour
     /// </summary>
     public void Login()
     {
-        infoTextField.text = "상태 : 로그인 시도 중 !!!";
+        infoTextField.text = "상태 : 로그인 시도 중 ...";
         loginButton.interactable = false;
         auth.SignInWithEmailAndPasswordAsync(emailField.text, passField.text).ContinueWithOnMainThread(
             task =>
