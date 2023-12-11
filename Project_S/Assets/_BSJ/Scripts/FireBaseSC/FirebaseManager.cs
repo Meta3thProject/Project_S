@@ -268,8 +268,6 @@ public class FirebaseManager : MonoBehaviour
 
             textOutputCount++;
         }
-        
-
     }
 
     //LEGACY :
