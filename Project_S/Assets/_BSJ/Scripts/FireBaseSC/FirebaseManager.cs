@@ -55,6 +55,7 @@ public class FirebaseManager : MonoBehaviour
     private FirebaseAuth auth;              // 로그인 | 회원가입 등에 사용 => 인증을 관리할 객체
     private FirebaseUser user;              // 인증이 완료된 유저 정보
 
+    [SerializeField] private GameObject loginObjects;        // 로그인 관련 오브젝트들
     [SerializeField] private Button loginButton;            // 로그인 버튼
     [SerializeField] private Button registerButton;         // 회원가입 버튼
 
@@ -62,10 +63,13 @@ public class FirebaseManager : MonoBehaviour
     [SerializeField] private InputField passField;          // 비밀번호 입력받을 필드
     [SerializeField] private Text infoTextField;            // 상태 메시지 텍스트
 
-    [SerializeField] private GameObject loadingObject;      // 로딩 오브젝트
+    [SerializeField] private GameObject loadingObjects;      // 로딩 관련 오브젝트들
     [SerializeField] private Text loadingTitleText;         // 로딩 타이틀 텍스트
     [SerializeField] private Text loadingGaugeText;         // 로딩 게이지 텍스트
     [SerializeField] private Text tipText;                  // 팁 텍스트
+
+    [SerializeField] private WaitForSecondsRealtime loadingGauge = new WaitForSecondsRealtime(0.02f);  // 로딩 게이지 올라가는 연출을 위한 시간
+    [SerializeField] private WaitForSecondsRealtime loadingTitleTextChangeTime = new WaitForSecondsRealtime(1.0f);  // 로딩 텍스트 변환시간
 
     [SerializeField]
     private readonly string DBurl = "https://test-project-s-c765e-default-rtdb.asia-southeast1.firebasedatabase.app/";        // DB URL 주소
@@ -104,9 +108,10 @@ public class FirebaseManager : MonoBehaviour
         infoTextField.text = "상태 : 대기 중 ...";
 
         // 로딩 관련 텍스트 캐싱받기
-        loadingTitleText = loadingObject.transform.GetChild(0).GetComponent<Text>();
-        loadingGaugeText = loadingObject.transform.GetChild(1).GetComponent<Text>();
-        tipText = loadingObject.transform.GetChild(1).GetComponent<Text>();
+        loadingTitleText = loadingObjects.transform.GetChild(0).GetComponent<Text>();
+        loadingGaugeText = loadingObjects.transform.GetChild(1).GetComponent<Text>();
+        tipText = loadingObjects.transform.GetChild(1).GetComponent<Text>();
+        loadingObjects.SetActive(false);
     }
 
     void Start()
@@ -117,6 +122,8 @@ public class FirebaseManager : MonoBehaviour
         // 루트 레퍼런스
         reference = FirebaseDatabase.DefaultInstance.RootReference;
     }
+
+
 
     /// <summary>
     /// 회원가입하는 함수
@@ -202,16 +209,67 @@ public class FirebaseManager : MonoBehaviour
                     infoTextField.text = "상태 : 로그인 성공!!!";
                     Debug.Log($"로그인 성공 : {emailField.text}, {result.User.UserId}");
                     loginButton.interactable = true;
+
+                    // 로딩 관련 UI 활성화
+                    loginObjects.gameObject.SetActive(false);
+                    loadingObjects.gameObject.SetActive(true);
+                    StartCoroutine(LoadTitleText());
+                    StartCoroutine(LoadSceneAsync());
                 }
             });
     }
 
-    // 비동기 로딩
+    //! 비동기 로딩
     IEnumerator LoadSceneAsync()
     {
         AsyncOperation AsyncLoad = SceneManager.LoadSceneAsync(MAINSCENE);
+        AsyncLoad.allowSceneActivation = false;
+
+        int loadingGaugeCount = 0;
+
+        while (loadingGaugeCount <= 99)
+        {
+            yield return loadingGauge;
+
+            loadingGaugeText.text = loadingGaugeCount.ToString() + "%";
+            loadingGaugeCount++;
+
+            if (loadingGaugeCount > 99)
+            {
+                AsyncLoad.allowSceneActivation = true;
+            }
+        }
     }
 
+    //! 비동기 로딩 타이틀 텍스트 출력
+    IEnumerator LoadTitleText()
+    {
+        int textOutputCount = 0;
+
+        while(true)
+        {
+            if(textOutputCount == 4)
+            {
+                textOutputCount = 0;
+            }
+
+            yield return loadingTitleTextChangeTime;
+
+            string _loadTitleText = textOutputCount switch
+            {
+                0 => "로딩 중",
+                1 => "로딩 중 .",
+                2 => "로딩 중 ..",
+                3 => "로딩 중 ...",
+            };
+
+            loadingTitleText.text = _loadTitleText;
+
+            textOutputCount++;
+        }
+        
+
+    }
 
     //LEGACY :
     //public void Login()
