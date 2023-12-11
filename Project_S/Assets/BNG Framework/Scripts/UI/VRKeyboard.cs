@@ -1,13 +1,14 @@
-﻿using System.Collections;
+using System.Collections;
 using System.Collections.Generic;
+using System.Drawing.Printing;
 using System.Linq;
 using UnityEngine;
 
 
 namespace BNG {
     public class VRKeyboard : MonoBehaviour {
-
-        public UnityEngine.UI.InputField AttachedInputField;
+        [SerializeField]
+        private UnityEngine.UI.InputField AttachedInputField;
 
         public bool UseShift = false;
 

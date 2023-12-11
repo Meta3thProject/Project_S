@@ -1,10 +1,13 @@
-﻿using System.Collections;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace BNG {
-    public class VRTextInput : MonoBehaviour {
+namespace BNG
+{
+    public class VRTextInput : MonoBehaviour
+    {
 
+        [SerializeField]
         UnityEngine.UI.InputField thisInputField;
 
         public bool AttachToVRKeyboard = true;
@@ -18,33 +21,39 @@ namespace BNG {
 
         float lastActivatedTime = 0;
 
-        void Awake() {
+        void Awake()
+        {
             thisInputField = GetComponent<UnityEngine.UI.InputField>();
-            
-            if(thisInputField && AttachedKeyboard != null) {
+
+            if (thisInputField && AttachedKeyboard != null)
+            {
                 AttachedKeyboard.AttachToInputField(thisInputField);
             }
         }
 
-        void Update() {
-
+        void Update()
+        {
             isFocused = thisInputField != null && thisInputField.isFocused;
 
             // Check if our input field is now focused
-            if(isFocused == true && wasFocused == false) {
+            if (isFocused == true && wasFocused == false)
+            {
                 OnInputSelect();
             }
-            else if (isFocused == false && wasFocused == true) {
+            else if (isFocused == false && wasFocused == true)
+            {
                 OnInputDeselect();
             }
 
             wasFocused = isFocused;
         }
 
-        public void OnInputSelect() {
+        public void OnInputSelect()
+        {
 
             // Enable keyboard if disabled
-            if (ActivateKeyboardOnSelect && AttachedKeyboard != null && !AttachedKeyboard.gameObject.activeInHierarchy) {
+            if (ActivateKeyboardOnSelect && AttachedKeyboard != null && !AttachedKeyboard.gameObject.activeInHierarchy)
+            {
                 AttachedKeyboard.gameObject.SetActive(true);
 
                 AttachedKeyboard.AttachToInputField(thisInputField);
@@ -53,19 +62,23 @@ namespace BNG {
             }
         }
 
-        public void OnInputDeselect() {
+        public void OnInputDeselect()
+        {
             // Deslect if valid keyboard is found, and did not recently activate
-            if (DeactivateKeyboardOnDeselect && AttachedKeyboard != null && AttachedKeyboard.gameObject.activeInHierarchy && Time.time - lastActivatedTime >= 0.1f) {
+            if (DeactivateKeyboardOnDeselect && AttachedKeyboard != null && AttachedKeyboard.gameObject.activeInHierarchy && Time.time - lastActivatedTime >= 0.1f)
+            {
                 AttachedKeyboard.gameObject.SetActive(false);
             }
-        }
 
-        // Assign the AttachedKeyboard variable when adding the component to a GameObject for the first time
-        void Reset() {
-            var keyboard = GameObject.FindObjectOfType<VRKeyboard>();
-            if(keyboard) {
-                AttachedKeyboard = keyboard;
-                Debug.Log("Found and attached Keyboard to " + AttachedKeyboard.transform.name);
+            // Assign the AttachedKeyboard variable when adding the component to a GameObject for the first time
+            void Reset()
+            {
+                var keyboard = GameObject.FindObjectOfType<VRKeyboard>();
+                if (keyboard)
+                {
+                    AttachedKeyboard = keyboard;
+                    Debug.Log("Found and attached Keyboard to " + AttachedKeyboard.transform.name);
+                }
             }
         }
     }
