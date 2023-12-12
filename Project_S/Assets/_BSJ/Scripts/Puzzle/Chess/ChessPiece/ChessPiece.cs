@@ -12,7 +12,6 @@ public class ChessPiece : MonoBehaviour
     [field: SerializeField]
     public ChessPieceName pieceName { get; private set; }
 
-    [field: SerializeField]
     public ParticleSystem particle { get; private set; }
 
     private void Awake()
