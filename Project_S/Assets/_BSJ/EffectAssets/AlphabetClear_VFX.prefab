@@ -9771,7 +9771,7 @@ GameObject:
   - component: {fileID: 3978223574929838918}
   - component: {fileID: 4084568134516467819}
   m_Layer: 0
-  m_Name: TreeHit_VFX
+  m_Name: AlphabetClear_VFX
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

@@ -21,25 +21,28 @@ public class GroundTrigger : MonoBehaviour
 
             if (flower.flowerName == flowerName)
             {
+                Rigidbody rb = flower.GetComponent<Rigidbody>();
+                flower.transform.position = new Vector3(transform.position.x, flower.transform.position.y, transform.position.z);
+                rb.velocity = Vector3.zero;
+
                 flower.EnterGroundTrigger();
                 puzzleClear.IncreaseClearCheck((int)flowerName);
-                flower.transform.position = new Vector3(transform.position.x, flower.transform.position.y, transform.position.z);
             }
         }
     }
 
-    private void OnTriggerStay(Collider other)
-    {
-        if (other.GetComponent<ChessPiece>() != null)
-        {
-            FlowerPuzzle flower = other.GetComponent<FlowerPuzzle>();
+    //private void OnTriggerStay(Collider other)
+    //{
+    //    if (other.GetComponent<ChessPiece>() != null)
+    //    {
+    //        FlowerPuzzle flower = other.GetComponent<FlowerPuzzle>();
 
-            if (flower.flowerName == flowerName)
-            {
-                flower.StayGroundTrigger();
-            }
-        }
-    }
+    //        if (flower.flowerName == flowerName)
+    //        {
+    //            flower.StayGroundTrigger();
+    //        }
+    //    }
+    //}
 
     private void OnTriggerExit(Collider other)
     {
