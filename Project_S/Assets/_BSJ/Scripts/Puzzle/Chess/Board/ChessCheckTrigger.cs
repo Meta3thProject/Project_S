@@ -23,6 +23,20 @@ public class ChessCheckTrigger : MonoBehaviour
             {
                 chesspiece.EnterChessTrigger();
                 puzzleClear.IncreaseClearCheck((int)chessPieceName);
+                chesspiece.transform.position = new Vector3(transform.position.x, chesspiece.transform.position.y, transform.position.z);
+            }
+        }
+    }
+
+    private void OnTriggerStay(Collider other)
+    {
+        if (other.GetComponent<ChessPiece>() != null)
+        {
+            ChessPiece chesspiece = other.GetComponent<ChessPiece>();
+
+            if (chesspiece.pieceName == chessPieceName)
+            {
+                chesspiece.StayChessTrigger();
             }
         }
     }
