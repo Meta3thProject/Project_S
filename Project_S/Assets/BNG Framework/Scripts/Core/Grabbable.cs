@@ -1,4 +1,5 @@
-﻿using System.Collections;
+using EPOOutline;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
@@ -486,6 +487,7 @@ namespace BNG {
             events = GetComponents<GrabbableEvents>().ToList();
             collisions = new List<Collider>();
 
+
             // Try parent if no rigid found here
             if (rigid == null && transform.parent != null) {
                 rigid = transform.parent.GetComponent<Rigidbody>();
@@ -536,6 +538,7 @@ namespace BNG {
         }        
 
         public virtual void Update() {
+
 
             if (BeingHeld) {
 
