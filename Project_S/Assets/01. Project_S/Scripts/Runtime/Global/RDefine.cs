@@ -1,8 +1,13 @@
 // ! 리소스 가져올 경로 또는 이름
 public static class RDefine 
 {
-    // { 오브젝트 이름
-    public  const string PORTAL_OBJ = "Portal";
+    #region Obejcts Name
+    
+    #endregion
 
-    //  오브젝트 이름 }
+    #region Path Name
+    public const string PATH_EFFECTS = "Effects";
+    public const string PATH_ITEMS = "Items";
+    public const string PATH_OBJECTS = "Objects";
+    #endregion
 }

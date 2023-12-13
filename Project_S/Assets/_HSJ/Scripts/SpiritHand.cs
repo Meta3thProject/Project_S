@@ -5,70 +5,147 @@ using UnityEngine;
 
 public class SpiritHand : MonoBehaviour
 {
-    private HandController controller = default;
     private InputBridge input = default;
-    private GameObject projectile = default;
-    private readonly string projectileName = "Projectile";
+    private Grabber grabber = default;
+    private GameObject projectilePointer = default;
+    private GameObject spiritProjectile = default;
+
+    private VRUISystem uiSystem;
+
+    // 타입을 나누기 위해 열어둠
+    public HandControl handControl = default;
     
-    public GameObject bullet = default;
+    
+    private float chargeTime = default;
+    private float maxChargeTime = 1f;
 
-    private float maxScale = default;
-    private float minScale = default;
-    private float curScale = default;
-
-    private bool isEnabled = false;
+    private bool isHandEnabled = false;
+    private bool isCharged = false;
+    
     // Start is called before the first frame update
-    void Awake()
+ 
+    void Start()
     {
         Init();
+
     }
     void Init()
     {
-        controller = GetComponent<HandController>();
-        projectile = this.gameObject.GetChildObj(projectileName);
         input = InputBridge.Instance;
-        maxScale = 0.5f;
-        minScale = 0.1f;
+        uiSystem = VRUISystem.Instance;
+
+        grabber = GetComponentInChildren<Grabber>();
+
+        projectilePointer = this.gameObject.GetChildObj("ProjectilePointer");
+        spiritProjectile = Instantiate(ResourceManager.objects["Projectile"], projectilePointer.transform);
+        projectilePointer.SetActive(isHandEnabled);
     }
 
-    void Start()
-    {
-        
-    }
 
     // Update is called once per frame
     void Update()
     {
-        if(controller.PreviousHeldObject != null)
+        if (grabber.HeldGrabbable != null )
         {
             return;
-        }
-        if (input.LeftTriggerDown && controller.PreviousHeldObject == null)
+        } // if : 빈 손이 아니라면 return 
+
+        isHandEnabled = CheckTriggerDown();
+
+        ActiveSpiritHand();
+
+    }
+
+    private void ActiveSpiritHand()
+    {
+        if (isHandEnabled)
         {
-            if (isEnabled == false)
-            {
-                controller.PreviousHeldObject = projectile;
-                StartCoroutine(ChargeSpiritHand());
-             
-            }
+
+            grabber.ForceRelease = true;
+            grabber.HideHandGraphics();
+
+            ActivePointer();
+            ChargeTimer();
+            // TODO : 정령의 손 충전 중 그랩 가능 한것 방지할 것 
+
+        }
+        else if (!isHandEnabled)
+        {
+            chargeTime = 0f;
+            grabber.ForceRelease = false;
+            grabber.ResetHandGraphics();
+
+            ActivePointer();
+            ShootProjectile();
         }
     }
-    IEnumerator ChargeSpiritHand()
+
+    private void ActivePointer()
     {
-        curScale = 0f;
-        while (curScale < maxScale)
+        projectilePointer.SetActive(isHandEnabled);
+
+    }
+    // TEST : 임시 
+    private void ChargeTimer()
+    {
+        chargeTime += Time.deltaTime;
+        if (maxChargeTime <= chargeTime)
         {
-            isEnabled = true;
-            projectile.transform.SetParent(transform);
-            projectile.transform.localPosition = Vector3.zero;
-            projectile.SetActive(isEnabled);
-            curScale += Time.deltaTime;
-            projectile.transform.localScale = new Vector3(curScale, curScale, curScale);
+            isCharged = true;
+        }
+
+
+    }
+    private void ShootProjectile()
+    {
+        if (isCharged)
+        {
+            spiritProjectile.transform.SetParent(null);
+            spiritProjectile.GetComponent<Rigidbody>().AddForce(projectilePointer.transform.forward * 5f, ForceMode.Impulse);
+            isCharged = false;
+            StartCoroutine(WaitForShoot());
+        }
+    }
+
+    private IEnumerator WaitForShoot()
+    {
+        float timer = 0f;
+        while(timer < 2f)
+        {
+            timer += Time.deltaTime;
             yield return null;
         }
-        projectile.transform.localScale = new Vector3(minScale, minScale, minScale);
-        projectile.GetComponent<Rigidbody>().AddForce(this.transform.forward * 5f, ForceMode.Impulse);
-        projectile.transform.SetParent(null);
-        isEnabled = false;
+        SetProjectile();
     }
+
+    private void SetProjectile()
+    {
+        spiritProjectile.transform.SetParent(projectilePointer.transform);
+        spiritProjectile.transform.localPosition = Vector3.zero;
+        spiritProjectile.GetComponent<Rigidbody>().velocity = Vector3.zero;
+
+    }
+
+    // ! HandControl 
+    private bool CheckTriggerDown()
+    {
+
+        if (GetHandController(handControl) == HandControl.LeftTrigger)
+        {
+            return input.LeftTrigger > 0.2f;
+        }
+        else if (GetHandController(handControl) == HandControl.RightTrigger)
+        {
+            return input.RightTrigger > 0.2f;
+        }
+
+        return false;
+    }       // CheckTriggerDown()
+
+    private HandControl GetHandController(HandControl handControl_)
+    {
+        HandControl Trigger = handControl_;
+  
+        return Trigger;
+    }       // GetHandController()
 }

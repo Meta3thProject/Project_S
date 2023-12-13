@@ -1,4 +1,4 @@
-﻿using System.Collections;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
@@ -129,7 +129,8 @@ namespace BNG {
 
             // Keep snapped to us or drop
             if (HeldItem != null) {
-
+                // To Stop move HeldItem 
+                HeldItem.transform.localPosition = Vector3.zero;
                 // Something picked this up or changed transform parent
                 if (HeldItem.BeingHeld || HeldItem.transform.parent != transform) {
                     ReleaseAll();
