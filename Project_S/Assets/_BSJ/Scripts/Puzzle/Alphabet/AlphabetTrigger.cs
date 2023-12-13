@@ -7,6 +7,7 @@ public class AlphabetTrigger : MonoBehaviour
     [SerializeField] private AlphabetBlockType alphabetType;
 
     private AlphabetPuzzleClear alphabetClear;
+    private AlphabetBlock alphabetBlock;
 
     private void Awake()
     {
@@ -17,10 +18,8 @@ public class AlphabetTrigger : MonoBehaviour
     {
         if (other.GetComponent<AlphabetBlock>() != null)
         {
-            AlphabetBlock alphabetBlock = other.GetComponent<AlphabetBlock>();
-            Rigidbody rb = alphabetBlock.GetComponent<Rigidbody>();
+            alphabetBlock = other.GetComponent<AlphabetBlock>();
             alphabetBlock.transform.position = new Vector3(transform.position.x, alphabetBlock.transform.position.y, transform.position.z);
-            rb.velocity = Vector3.zero;
 
             if (alphabetBlock.type == alphabetType)
             {
@@ -34,7 +33,7 @@ public class AlphabetTrigger : MonoBehaviour
     {
         if (other.GetComponent<AlphabetBlock>() != null)
         {
-            AlphabetBlock alphabetBlock = other.GetComponent<AlphabetBlock>();
+            alphabetBlock = other.GetComponent<AlphabetBlock>();
 
             if (alphabetBlock.type == alphabetType)
             {
