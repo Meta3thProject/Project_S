@@ -7,6 +7,7 @@ public class GroundTrigger : MonoBehaviour
     [SerializeField] private FlowerName flowerName;
 
     private FlowerPuzzleClear puzzleClear;
+    private FlowerPuzzle flower;
 
     private void Awake()
     {
@@ -17,38 +18,22 @@ public class GroundTrigger : MonoBehaviour
     {
         if (other.GetComponent<FlowerPuzzle>() != null)
         {
-            FlowerPuzzle flower = other.GetComponent<FlowerPuzzle>();
+            flower = other.GetComponent<FlowerPuzzle>();
 
             if (flower.flowerName == flowerName)
             {
-                Rigidbody rb = flower.GetComponent<Rigidbody>();
                 flower.transform.position = new Vector3(transform.position.x, flower.transform.position.y, transform.position.z);
-                rb.velocity = Vector3.zero;
-
                 flower.EnterGroundTrigger();
                 puzzleClear.IncreaseClearCheck((int)flowerName);
             }
         }
     }
 
-    //private void OnTriggerStay(Collider other)
-    //{
-    //    if (other.GetComponent<ChessPiece>() != null)
-    //    {
-    //        FlowerPuzzle flower = other.GetComponent<FlowerPuzzle>();
-
-    //        if (flower.flowerName == flowerName)
-    //        {
-    //            flower.StayGroundTrigger();
-    //        }
-    //    }
-    //}
-
     private void OnTriggerExit(Collider other)
     {
         if (other.GetComponent<ChessPiece>() != null)
         {
-            FlowerPuzzle flower = other.GetComponent<FlowerPuzzle>();
+            flower = other.GetComponent<FlowerPuzzle>();
 
             if (flower.flowerName == flowerName)
             {

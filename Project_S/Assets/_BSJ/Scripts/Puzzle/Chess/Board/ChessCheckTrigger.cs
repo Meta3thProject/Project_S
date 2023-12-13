@@ -6,8 +6,8 @@ public class ChessCheckTrigger : MonoBehaviour
 {
     [SerializeField] private ChessPieceName chessPieceName;
 
-    [SerializeField] private ChessPuzzleClear puzzleClear;
-    [SerializeField] private ChessPiece chesspiece;
+    private ChessPuzzleClear puzzleClear;
+    private ChessPiece chesspiece;
 
     private void Awake()
     {

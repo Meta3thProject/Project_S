@@ -12,21 +12,19 @@ public class FlowerPuzzle : MonoBehaviour
     [field: SerializeField]
     public FlowerName flowerName { get; private set; }
 
-    public ParticleSystem particle { get; private set; }
+    private ParticleSystem particle;
+    private Rigidbody rb;
 
     private void Awake()
     {
         particle = transform.GetChild(0).GetComponent<ParticleSystem>();
+        rb = GetComponent<Rigidbody>();
     }
 
     public void EnterGroundTrigger()
     {
         PlayFlowerParticle();
-        transform.rotation = Quaternion.identity;
-    }
-
-    public void StayGroundTrigger()
-    {
+        rb.velocity = Vector3.zero;
         transform.rotation = Quaternion.identity;
     }
 

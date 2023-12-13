@@ -12,8 +12,7 @@ public class ChessPiece : MonoBehaviour
     [field: SerializeField]
     public ChessPieceName pieceName { get; private set; }
 
-    public ParticleSystem particle { get; private set; }
-
+    private ParticleSystem particle;
     private Rigidbody rb;
 
     private void Awake()
