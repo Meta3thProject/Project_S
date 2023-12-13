@@ -14,15 +14,19 @@ public class ChessPiece : MonoBehaviour
 
     public ParticleSystem particle { get; private set; }
 
+    private Rigidbody rb;
+
     private void Awake()
     {
         particle = transform.GetChild(0).GetComponent<ParticleSystem>();
+        rb = GetComponent<Rigidbody>();
     }
 
     public void EnterChessTrigger()
     {
         PlayParticle();
         transform.rotation = Quaternion.identity;
+        rb.velocity = Vector3.zero;
     }
 
     public void ExitChessTrigger()
@@ -37,6 +41,6 @@ public class ChessPiece : MonoBehaviour
 
     private void StopParticle()
     {
-        particle.Stop();
+        particle.Stop(true, ParticleSystemStopBehavior.StopEmittingAndClear);
     }
 }

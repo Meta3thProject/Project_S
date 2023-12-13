@@ -6089,7 +6089,13 @@ PrefabInstance:
       propertyPath: m_Name
       value: Tree
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    - target: {fileID: 3463322985651234834, guid: 8d1834b52e71ad94cbb92dd09d9abe21,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents:
+    - {fileID: 3463322985651113768, guid: 8d1834b52e71ad94cbb92dd09d9abe21, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 8d1834b52e71ad94cbb92dd09d9abe21, type: 3}
 --- !u!1001 &528667464
 PrefabInstance:
@@ -17603,7 +17609,13 @@ PrefabInstance:
       propertyPath: m_Name
       value: Tree (1)
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    - target: {fileID: 3463322985651234834, guid: 8d1834b52e71ad94cbb92dd09d9abe21,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents:
+    - {fileID: 3463322985651113768, guid: 8d1834b52e71ad94cbb92dd09d9abe21, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 8d1834b52e71ad94cbb92dd09d9abe21, type: 3}
 --- !u!1 &1407919281
 GameObject:
@@ -27153,6 +27165,66 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Puzzle_Alphabet
+      objectReference: {fileID: 0}
+    - target: {fileID: 3292754495057788425, guid: 3d0f2a2179472cc43b547ae9c19ac06d,
+        type: 3}
+      propertyPath: m_Size.x
+      value: 0.4
+      objectReference: {fileID: 0}
+    - target: {fileID: 3292754495057788425, guid: 3d0f2a2179472cc43b547ae9c19ac06d,
+        type: 3}
+      propertyPath: m_Size.y
+      value: 0.25
+      objectReference: {fileID: 0}
+    - target: {fileID: 3292754495057788425, guid: 3d0f2a2179472cc43b547ae9c19ac06d,
+        type: 3}
+      propertyPath: m_Size.z
+      value: 0.4
+      objectReference: {fileID: 0}
+    - target: {fileID: 3292754495057788425, guid: 3d0f2a2179472cc43b547ae9c19ac06d,
+        type: 3}
+      propertyPath: m_Center.y
+      value: -0.25
+      objectReference: {fileID: 0}
+    - target: {fileID: 8128193254672250107, guid: 3d0f2a2179472cc43b547ae9c19ac06d,
+        type: 3}
+      propertyPath: m_Size.x
+      value: 0.4
+      objectReference: {fileID: 0}
+    - target: {fileID: 8128193254672250107, guid: 3d0f2a2179472cc43b547ae9c19ac06d,
+        type: 3}
+      propertyPath: m_Size.y
+      value: 0.25
+      objectReference: {fileID: 0}
+    - target: {fileID: 8128193254672250107, guid: 3d0f2a2179472cc43b547ae9c19ac06d,
+        type: 3}
+      propertyPath: m_Size.z
+      value: 0.4
+      objectReference: {fileID: 0}
+    - target: {fileID: 8128193254672250107, guid: 3d0f2a2179472cc43b547ae9c19ac06d,
+        type: 3}
+      propertyPath: m_Center.y
+      value: -0.25
+      objectReference: {fileID: 0}
+    - target: {fileID: 8227768224215213629, guid: 3d0f2a2179472cc43b547ae9c19ac06d,
+        type: 3}
+      propertyPath: m_Size.x
+      value: 0.4
+      objectReference: {fileID: 0}
+    - target: {fileID: 8227768224215213629, guid: 3d0f2a2179472cc43b547ae9c19ac06d,
+        type: 3}
+      propertyPath: m_Size.y
+      value: 0.25
+      objectReference: {fileID: 0}
+    - target: {fileID: 8227768224215213629, guid: 3d0f2a2179472cc43b547ae9c19ac06d,
+        type: 3}
+      propertyPath: m_Size.z
+      value: 0.4
+      objectReference: {fileID: 0}
+    - target: {fileID: 8227768224215213629, guid: 3d0f2a2179472cc43b547ae9c19ac06d,
+        type: 3}
+      propertyPath: m_Center.y
+      value: -0.25
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3d0f2a2179472cc43b547ae9c19ac06d, type: 3}
