@@ -5,9 +5,13 @@ using UnityEngine;
 // 상호 작용한 물체의 추상클래스
 public abstract class InteractableObject : MonoBehaviour
 {
-    // 물체의 체력
+    // 물체의 최대 체력
     [field: SerializeField]
-    public int hp {  get; protected set; }
+    public int maxHp {  get; protected set; }
+
+    // 물체의 최대 체력
+    [field: SerializeField]
+    public int currentHp { get; protected set; }
 
     // 다음 상호작용까지의 시간
     [field: SerializeField]
@@ -21,11 +25,11 @@ public abstract class InteractableObject : MonoBehaviour
     public bool isInteractionAble { get; protected set; }
 
     // 물체가 파괴되었을 때 드랍될 아이템
-    [SerializeField]
     protected GameObject dropedItem;
 
-    protected void Start()
+    protected void Awake()
     {
+        currentHp = maxHp;
         isInteractionAble = true;
         interactTime = new WaitForSeconds(nextInteractionTime);
     }

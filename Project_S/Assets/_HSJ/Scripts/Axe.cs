@@ -13,7 +13,9 @@ public class Axe : GrabbableEvents
     public LayerMask LaserCollision;
     public ParticleSystem CollisionParticle;
 
-    public bool axeEnabled = false;
+    //public bool axeEnabled = false;
+    // BSJ _ 퍼즐 테스트 용 으로 true로 변경하고 할게요!
+    public bool axeEnabled = true;
 
     bool axeSwitchOn = false;
 
