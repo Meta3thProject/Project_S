@@ -6,7 +6,8 @@ public class ChessCheckTrigger : MonoBehaviour
 {
     [SerializeField] private ChessPieceName chessPieceName;
 
-    private ChessPuzzleClear puzzleClear;
+    [SerializeField] private ChessPuzzleClear puzzleClear;
+    [SerializeField] private ChessPiece chesspiece;
 
     private void Awake()
     {
@@ -17,7 +18,7 @@ public class ChessCheckTrigger : MonoBehaviour
     {
         if (other.GetComponent<ChessPiece>() != null)
         {
-            ChessPiece chesspiece = other.GetComponent<ChessPiece>();
+            chesspiece = other.GetComponent<ChessPiece>();
 
             if(chesspiece.pieceName == chessPieceName) 
             {
@@ -32,9 +33,9 @@ public class ChessCheckTrigger : MonoBehaviour
     {
         if (other.GetComponent<ChessPiece>() != null)
         {
-            ChessPiece chesspiece = other.GetComponent<ChessPiece>();
+            chesspiece = other.GetComponent<ChessPiece>();
 
-            if (chesspiece.pieceName == chessPieceName)
+            if(chesspiece.pieceName == chessPieceName)
             {
                 chesspiece.ExitChessTrigger();
                 puzzleClear.DecreaseClearCheck((int)chessPieceName);
