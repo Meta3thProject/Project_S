@@ -25,11 +25,6 @@ public class ChessPiece : MonoBehaviour
         transform.rotation = Quaternion.identity;
     }
 
-    public void StayChessTrigger()
-    {
-        transform.rotation = Quaternion.identity;
-    }
-
     public void ExitChessTrigger()
     {
         StopParticle();

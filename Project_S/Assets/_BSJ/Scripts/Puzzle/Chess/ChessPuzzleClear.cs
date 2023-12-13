@@ -7,9 +7,13 @@ public class ChessPuzzleClear : MonoBehaviour
     [field: SerializeField]
     public int[] clearCheck { get; private set; }
 
+    [field: SerializeField] 
+    public bool isClear { get; private set; }
+
     private void Awake()
     {
-        clearCheck = new int[3] { 0, 0, 0 }; 
+        clearCheck = new int[3] { 0, 0, 0 };
+        isClear = false;
     }
 
     public void IncreaseClearCheck(int _indexNumber)
@@ -23,6 +27,12 @@ public class ChessPuzzleClear : MonoBehaviour
         clearCheck[_indexNumber] = 0;
     }
 
+    public void PuzzleClear()
+    {
+        isClear = true;
+        Debug.Log("클리어!");
+    }
+
     private void CheckClearArray()
     {
         foreach (int i in clearCheck) 
@@ -33,6 +43,9 @@ public class ChessPuzzleClear : MonoBehaviour
             }
         }
 
-        Debug.Log("클리어!");
+        if (isClear == false)
+        {
+            PuzzleClear();
+        }
     }
 }

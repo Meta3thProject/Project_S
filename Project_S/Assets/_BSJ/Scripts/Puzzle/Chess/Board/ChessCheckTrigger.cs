@@ -31,19 +31,6 @@ public class ChessCheckTrigger : MonoBehaviour
         }
     }
 
-    //private void OnTriggerStay(Collider other)
-    //{
-    //    if (other.GetComponent<ChessPiece>() != null)
-    //    {
-    //        ChessPiece chesspiece = other.GetComponent<ChessPiece>();
-
-    //        if (chesspiece.pieceName == chessPieceName)
-    //        {
-    //            chesspiece.StayChessTrigger();
-    //        }
-    //    }
-    //}
-
     private void OnTriggerExit(Collider other)
     {
         if (other.GetComponent<ChessPiece>() != null)
