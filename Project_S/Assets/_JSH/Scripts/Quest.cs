@@ -1,23 +1,21 @@
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+using System;
 
 // 유형
 public enum QuestType
 {
-    Collect = 11,
-    Adventure = 12,
-    Delivery = 21,
-    Choice = 22,
-    Destroy = 30,
-    Puzzle = 40,
-    Tutorial = 60
+    Collection = 11,    // 수집
+    Produce = 12,       // 제작
+    Delivery1 = 21,     // 배달1
+    Delivery2 = 22,     // 배달2
+    Episode = 30,       // 대화
+    Exploration = 40,   // 탐사
+    Destroy = 50,       // 파괴
+    Instruction = 60,   // 지시
 }
 
+[Serializable]
 public class Quest
 {
-    // ID
-    public int id;
     // 이름
     public string title;
     // 목표
@@ -29,25 +27,34 @@ public class Quest
     // 다음 퀘스트
     public int nextId;
 
+    public Quest(QUEST_TABLEData data_)
+    {
+        title = data_.QUEST_TITLE;
+        goal = data_.QUEST_GOAL;
+        type = (QuestType)data_.QUEST_TYPE;
+        nextId = data_.CHAIN_QUEST;
+    }
 
     // 시작 조건
     public virtual void StartQuest()
     {
         switch (type)
         {
-            case QuestType.Collect:
+            case QuestType.Collection:
                 break;
-            case QuestType.Adventure:
+            case QuestType.Produce:
                 break;
-            case QuestType.Delivery:
+            case QuestType.Delivery1:
                 break;
-            case QuestType.Choice:
+            case QuestType.Delivery2:
+                break;
+            case QuestType.Episode:
+                break;
+            case QuestType.Exploration:
                 break;
             case QuestType.Destroy:
                 break;
-            case QuestType.Puzzle:
-                break;
-            case QuestType.Tutorial:
+            case QuestType.Instruction:
                 break;
         }
     }

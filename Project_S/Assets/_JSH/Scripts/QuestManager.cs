@@ -1,4 +1,3 @@
-using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
@@ -6,7 +5,7 @@ using UnityEngine;
 public class QuestManager : GSingleton<QuestManager>
 {
     // 퀘스트 리스트: <ID, 정보>
-    public Dictionary<int, Quest> questList;
+    public Dictionary<int, QuestRepeater> questData;
 
     // 퀘스트 데이터
     public QUEST_TABLE questTable;
@@ -33,10 +32,19 @@ public class QuestManager : GSingleton<QuestManager>
 
     private void Awake()
     {
-        QuestManager.Instance = this;
+        Instance = this;
         DontDestroyOnLoad(gameObject);
 
+        questData = new Dictionary<int, QuestRepeater>();
 
+        // 퀘스트 리스트 생성
+        for (int i = 0; i < questTable.dataArray.Length; i++)
+        {
+            QUEST_TABLEData data = questTable.dataArray[i];
+            questData.Add(data.ID, new QuestRepeater(data));
+        }
+
+        //currentQuest = questData[301000];
 
         main.SetActive(false);
         twoChoices.SetActive(false);
@@ -64,20 +72,21 @@ public class QuestManager : GSingleton<QuestManager>
         oneOfOne.text = dialog_;
     }
 
-    public void ActivateChoices(List<string> dialogs_)
+    public void ActivateChoices(List<string> dialogs_, int keyIdx_)
     {
         if (dialogs_.Count == 2)
         {
             twoChoices.SetActive(true);
-            oneOfTwo.text = dialogs_[0];
-            twoOfTwo.text = dialogs_[1];
+            oneOfTwo.text = dialogs_[keyIdx_];
+            keyIdx_ += 1;
+            twoOfTwo.text = dialogs_[keyIdx_];
         }
-        else if (dialogs_.Count == 3)
-        {
-            threeChoices.SetActive(true);
-            oneOfThree.text = dialogs_[0];
-            twoOfThree.text = dialogs_[1];
-            threeOfThree.text = dialogs_[2];
-        }
+        //else if (dialogs_.Count == 3)
+        //{
+        //    threeChoices.SetActive(true);
+        //    oneOfThree.text = dialogs_[0];
+        //    twoOfThree.text = dialogs_[1];
+        //    threeOfThree.text = dialogs_[2];
+        //}
     }
 }

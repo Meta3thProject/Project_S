@@ -82,6 +82,7 @@ public class PlayerController : MonoBehaviour
         else { return; }
 
         Vector3 dirToTarget = (target.position - transform.position).normalized;
+        dirToTarget.y = 0;
 
         QuestManager.Instance.PopUp(dirToTarget);
         target.GetComponent<INPCBehaviour>().PopUpDialog();

@@ -16,7 +16,7 @@ MonoBehaviour:
   scriptFilePath: QuickSheet/Example/Data/Runtime
   editorScriptFilePath: QuickSheet/Example/Data/Editor
   sheetName: QUEST_DATA.xlsx
-  workSheetName: NPC_TABLE
+  workSheetName: DIALOGUE_TABLE
   columnHeaderList:
   - type: 3
     name: ID
@@ -32,4 +32,4 @@ MonoBehaviour:
   - DIALOGUE_TABLE
   - CHOICE_TABLE
   - NPC_TABLE
-  currentSelectedSheet: 3
+  currentSelectedSheet: 1
