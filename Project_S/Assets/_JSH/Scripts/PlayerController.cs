@@ -44,7 +44,7 @@ public class PlayerController : MonoBehaviour
 
         if (targetsInViewRadius.Length <= 0)
         {
-            QuestManager.Instance.PopDown();
+            NPCManager.Instance.PopDown();
             return;
         }
 
@@ -84,7 +84,7 @@ public class PlayerController : MonoBehaviour
         Vector3 dirToTarget = (target.position - transform.position).normalized;
         dirToTarget.y = 0;
 
-        QuestManager.Instance.PopUp(dirToTarget);
+        NPCManager.Instance.PopUp(dirToTarget);
         target.GetComponent<INPCBehaviour>().PopUpDialog();
     }
 }

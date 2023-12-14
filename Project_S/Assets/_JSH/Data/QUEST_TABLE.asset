@@ -1,0 +1,83 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8e54655f3754f224192c968dfbd64a24, type: 3}
+  m_Name: QUEST_TABLE
+  m_EditorClassIdentifier: 
+  SheetName: Assets/_JSH/Data/QUEST_DATA.xlsx
+  WorksheetName: QUEST_TABLE
+  dataArray:
+  - id: 301501
+    quest_title: "\uC218\uD504\uB97C \uC644\uC131\uD574\uB77C"
+    start_npc: 300501
+    end_npc: 300501
+    quest_type: 4
+    value1: 0
+    value2: 0
+    before_dialogue: 304501
+    doing_dialogue: 304503
+    complete_dialogue: 304504
+    reward: 0
+  - id: 301502
+    quest_title: "\uBC8C\uB808\uB97C \uC7A1\uC544\uB77C"
+    start_npc: 300502
+    end_npc: 300502
+    quest_type: 3
+    value1: 0
+    value2: 0
+    before_dialogue: 304509
+    doing_dialogue: 0
+    complete_dialogue: 304515
+    reward: 0
+  - id: 301503
+    quest_title: "\uBE68\uAC04 \uC7A5\uC2DD\uC73C\uB85C \uD1B5\uC77C"
+    start_npc: 300503
+    end_npc: 300503
+    quest_type: 3
+    value1: 0
+    value2: 0
+    before_dialogue: 304516
+    doing_dialogue: 0
+    complete_dialogue: 304522
+    reward: 0
+  - id: 301504
+    quest_title: "\uD5A5\uC218\uB97C \uC0AC\uACA0\uB2C8?"
+    start_npc: 300504
+    end_npc: 300504
+    quest_type: 3
+    value1: 0
+    value2: 0
+    before_dialogue: 304523
+    doing_dialogue: 0
+    complete_dialogue: 304528
+    reward: 0
+  - id: 301505
+    quest_title: "\uAC08\uB4F1\uC744 \uBA48\uCD94\uB294 \uBC95"
+    start_npc: 300505
+    end_npc: 300505
+    quest_type: 2
+    value1: 105069
+    value2: 105070
+    before_dialogue: 304529
+    doing_dialogue: 304531
+    complete_dialogue: 304532
+    reward: 0
+  - id: 301506
+    quest_title: "\uC9C0\uAE08 \uD544\uC694\uD55C \uC74C\uB8CC\uC218\uB294"
+    start_npc: 300506
+    end_npc: 300506
+    quest_type: 2
+    value1: 105107
+    value2: 105108
+    before_dialogue: 304537
+    doing_dialogue: 304540
+    complete_dialogue: 304541
+    reward: 0

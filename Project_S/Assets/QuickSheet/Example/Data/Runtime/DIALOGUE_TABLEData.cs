@@ -21,15 +21,7 @@ public class DIALOGUE_TABLEData
   public string DIALOGUE { get {return dialogue; } set { this.dialogue = value;} }
   
   [SerializeField]
-  int link_dialog_choice;
-  public int LINK_DIALOG_CHOICE { get {return link_dialog_choice; } set { this.link_dialog_choice = value;} }
-  
-  [SerializeField]
-  int mbti;
-  public int MBTI { get {return mbti; } set { this.mbti = value;} }
-  
-  [SerializeField]
-  int value;
-  public int VALUE { get {return value; } set { this.value = value;} }
+  int link_dialog;
+  public int LINK_DIALOG { get {return link_dialog; } set { this.link_dialog = value;} }
   
 }

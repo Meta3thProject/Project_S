@@ -13,7 +13,11 @@ public class NPC_TABLEData
   public int ID { get {return id; } set { this.id = value;} }
   
   [SerializeField]
-  string name;
-  public string NAME { get {return name; } set { this.name = value;} }
+  string npc_name;
+  public string NPC_NAME { get {return npc_name; } set { this.npc_name = value;} }
+  
+  [SerializeField]
+  int npc_initial_quest;
+  public int NPC_INITIAL_QUEST { get {return npc_initial_quest; } set { this.npc_initial_quest = value;} }
   
 }
