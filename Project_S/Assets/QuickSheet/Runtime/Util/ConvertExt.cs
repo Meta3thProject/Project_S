@@ -1,4 +1,4 @@
-﻿///////////////////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////////////////
 ///
 /// ConvertExt.cs
 ///
@@ -15,7 +15,7 @@ namespace UnityQuickSheet
     /// QuickSheet specific a helper class for various type converting. 
     /// 
     /// </summary>
-    public class ConvertExt
+    public class ConvertExt : MonoBehaviour
     {
         /// <summary>
         /// 

@@ -5,8 +5,7 @@ using UnityEngine;
 
 public class CombineButtonClick : MonoBehaviour
 {
-    [SerializeField]
-    private bool isCombine;
+    [SerializeField] private bool isCombine;
 
     public InventoryTable inventoryTable;
 
