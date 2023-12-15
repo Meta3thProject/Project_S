@@ -16,8 +16,9 @@ public class SelectButton : MonoBehaviour
     // 상승량
     public int amount;
 
-    private void Start()
+    public void RewardAndReset()
     {
         stat.AddPoint(target.ToString(), amount);
+
     }
 }
