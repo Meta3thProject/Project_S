@@ -5,7 +5,7 @@ public class MenuController : MonoBehaviour
 {
     InputBridge input = default;
     CharacterController controller = default;
-    PlayerTeleport teleport = default;
+    LocomotionManager locomotionManager = default;
     bool isPress = default;
     void Awake()
     {
@@ -16,7 +16,7 @@ public class MenuController : MonoBehaviour
     {
         input = InputBridge.Instance;
         controller = this.GetComponent<CharacterController>();
-        teleport = this.GetComponent<PlayerTeleport>();
+        locomotionManager = this.GetComponent<LocomotionManager>();
         isPress = false;
     }
 
@@ -26,7 +26,7 @@ public class MenuController : MonoBehaviour
         {
             isPress = !isPress;
             controller.enabled = !isPress;
-            teleport.enabled = false;
+            locomotionManager.enabled = !isPress;
         }
     }
 
