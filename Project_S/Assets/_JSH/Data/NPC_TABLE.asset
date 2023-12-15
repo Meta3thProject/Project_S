@@ -15,7 +15,21 @@ MonoBehaviour:
   SheetName: Assets/_JSH/Data/QUEST_DATA.xlsx
   WorksheetName: NPC_TABLE
   dataArray:
-  - id: 300000
-    name: "\uACBD\uC77C"
-  - id: 300001
-    name: "\uACBD\uC774"
+  - id: 300501
+    npc_name: "\uC218\uD504 \uAC00\uAC8C \uC8FC\uC778"
+    npc_initial_quest: 301501
+  - id: 300502
+    npc_name: "\uBC8C\uB808\uAC00 \uBB34\uC11C\uC6B4 \uC544\uC800\uC528"
+    npc_initial_quest: 301502
+  - id: 300503
+    npc_name: "\uC7A5\uC2DD \uD310\uB9E4\uC810 \uC8FC\uC778"
+    npc_initial_quest: 301503
+  - id: 300504
+    npc_name: "\uD5A5\uC218 \uAC00\uAC8C \uC544\uAC00\uC528"
+    npc_initial_quest: 301504
+  - id: 300505
+    npc_name: "\uC7A1\uD654 \uB3C4\uAD6C\uC810 \uC190\uB2D8"
+    npc_initial_quest: 301505
+  - id: 300506
+    npc_name: "\uC74C\uB8CC\uC218 \uAC00\uAC8C \uC190\uB2D8"
+    npc_initial_quest: 301506
