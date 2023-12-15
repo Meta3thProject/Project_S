@@ -14,7 +14,6 @@ GameObject:
   - component: {fileID: 2376499442343376963}
   - component: {fileID: 2376499442343376962}
   - component: {fileID: 6770240574069636894}
-  - component: {fileID: 6770240574069636895}
   m_Layer: 13
   m_Name: Projectile
   m_TagString: Untagged
@@ -130,8 +129,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   BeingHeld: 0
   GrabButton: 1
-  Grabtype: 0
-  GrabPhysics: 1
+  Grabtype: 1
+  GrabPhysics: 4
   GrabMechanic: 0
   GrabSpeed: 15
   RemoteGrabbable: 0
@@ -139,11 +138,11 @@ MonoBehaviour:
   RemoteGrabDistance: 2
   ThrowForceMultiplier: 2
   ThrowForceMultiplierAngular: 1.5
-  BreakDistance: 0
+  BreakDistance: 0.05
   HideHandGraphics: 1
   ParentToHands: 1
   ParentHandModel: 0
-  SnapHandModel: 1
+  SnapHandModel: 0
   CanBeDropped: 0
   CanBeSnappedToSnapZone: 0
   ForceDisableKinematicOnDrop: 0
@@ -185,15 +184,3 @@ MonoBehaviour:
   UseCustomInspector: 1
   lastFlickTime: 0
   FlickForce: 1
---- !u!114 &6770240574069636895
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2376499442343376961}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 41b35d9679b27d849821434a9aae345d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
