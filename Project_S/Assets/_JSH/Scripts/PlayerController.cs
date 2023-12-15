@@ -78,13 +78,14 @@ public class PlayerController : MonoBehaviour
             }
         }
 
-        if (Input.GetMouseButtonDown(0)) { /* Do Nothing */ }
+        if (Input.GetMouseButtonDown(0))
+        {
+            Vector3 dirToTarget = (target.position - transform.position).normalized;
+            dirToTarget.y = 0;
+
+            NPCManager.Instance.PopUp(dirToTarget);
+            target.GetComponent<INPCBehaviour>().PopUpDialog();
+        }
         else { return; }
-
-        Vector3 dirToTarget = (target.position - transform.position).normalized;
-        dirToTarget.y = 0;
-
-        NPCManager.Instance.PopUp(dirToTarget);
-        target.GetComponent<INPCBehaviour>().PopUpDialog();
     }
 }

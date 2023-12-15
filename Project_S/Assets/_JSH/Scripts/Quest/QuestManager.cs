@@ -19,6 +19,7 @@ public class QuestManager : GSingleton<QuestManager>
         DontDestroyOnLoad(gameObject);
 
         idToQuest = new Dictionary<int, Quest>();
+        currQuestID = questTable.dataArray[0].ID;
 
         // 퀘스트 생성
         for (int i = 0; i < questTable.dataArray.Length; i++)

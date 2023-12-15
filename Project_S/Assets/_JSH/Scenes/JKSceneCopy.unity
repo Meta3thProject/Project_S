@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.12731713, g: 0.13414736, b: 0.12107852, a: 1}
+  m_IndirectSpecularColor: {r: 0.18028352, g: 0.22571376, b: 0.30692244, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -5709,8 +5709,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 866819957b943824d833eceaacda08af, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  targetIdx: 0
-  mbtiValue: 0
 --- !u!114 &1064450479
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6384,6 +6382,7 @@ MonoBehaviour:
   npcId: 0
   npcName: 
   questID: 0
+  printID: 0
 --- !u!1 &1239680949
 GameObject:
   m_ObjectHideFlags: 0
@@ -7287,6 +7286,7 @@ MonoBehaviour:
   npcId: 0
   npcName: 
   questID: 0
+  printID: 0
 --- !u!1 &1356316772
 GameObject:
   m_ObjectHideFlags: 0
@@ -7304,7 +7304,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &1356316773
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9930,8 +9930,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 866819957b943824d833eceaacda08af, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  targetIdx: 0
-  mbtiValue: 0
 --- !u!114 &1964215901
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10076,8 +10074,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 866819957b943824d833eceaacda08af, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  targetIdx: 0
-  mbtiValue: 0
 --- !u!114 &1964277026
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -92,6 +92,13 @@ public class NPCManager : GSingleton<NPCManager>
         twoChoices.SetActive(true);
 
         oneOfTwo.text = idToChoices[id_].choice1;
+        SelectButton button1 = oneOfTwo.transform.parent.GetComponent<SelectButton>();
+        button1.target = (MBTI)idToChoices[id_].value1;
+        button1.amount = idToChoices[id_].value2;
+
         twoOfTwo.text = idToChoices[id_].choice2;
+        SelectButton button2 = twoOfTwo.transform.parent.GetComponent<SelectButton>();
+        button2.target = (MBTI)idToChoices[id_].value3;
+        button2.amount = idToChoices[id_].value4;
     }
 }
