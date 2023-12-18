@@ -69,7 +69,7 @@ GameObject:
   - component: {fileID: 6349778633970785421}
   - component: {fileID: 6349778633970785422}
   - component: {fileID: 6349778633970785423}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Book04
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -276,7 +276,7 @@ GameObject:
   - component: {fileID: 6349778634277956880}
   - component: {fileID: 6349778634277956881}
   - component: {fileID: 6349778634277956882}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: RingHelper
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -421,7 +421,7 @@ GameObject:
   - component: {fileID: 6349778634350928245}
   - component: {fileID: 6349778634350928251}
   - component: {fileID: 6349778634350928244}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Book04_Model
   m_TagString: Untagged
   m_Icon: {fileID: 0}

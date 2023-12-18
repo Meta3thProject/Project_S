@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 919428566438621137}
   - component: {fileID: 7851318995352703423}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: GrabTransform Left
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -70,7 +70,7 @@ GameObject:
   - component: {fileID: 5550163664905798719}
   - component: {fileID: 4009016045263158583}
   - component: {fileID: 4655010529689092921}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: RingHelper
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -214,7 +214,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2865551189780639784}
   - component: {fileID: 6419018723750751799}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: GrabTransform Right
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -271,7 +271,7 @@ GameObject:
   - component: {fileID: 5360148983744819367}
   - component: {fileID: 8347689940235338547}
   - component: {fileID: 2934786996747710767}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Hold_Effect
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5142,7 +5142,7 @@ GameObject:
   - component: {fileID: 7771836550256873249}
   - component: {fileID: 6500248577456902856}
   - component: {fileID: 3765270823277816669}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Sparks
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -9967,7 +9967,7 @@ GameObject:
   - component: {fileID: 8703979298985545566}
   - component: {fileID: 8703979298985545561}
   - component: {fileID: 6170602987731371521}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: White Pawn
   m_TagString: Untagged
   m_Icon: {fileID: 0}

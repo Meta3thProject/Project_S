@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Runtime.Remoting.Metadata.W3cXsd2001;
 using UnityEngine;
 
 public enum ChessPieceName
@@ -23,9 +24,12 @@ public class ChessPiece : MonoBehaviour
 
     public void EnterChessTrigger()
     {
-        PlayParticle();
-        transform.rotation = Quaternion.identity;
         rb.velocity = Vector3.zero;
+        rb.angularVelocity = Vector3.zero;
+        rb.constraints = RigidbodyConstraints.FreezeAll;
+        transform.rotation = Quaternion.identity;
+        PlayParticle();
+        StartCoroutine(ConstraintsControl());
     }
 
     public void ExitChessTrigger()
@@ -41,5 +45,11 @@ public class ChessPiece : MonoBehaviour
     private void StopParticle()
     {
         particle.Stop(true, ParticleSystemStopBehavior.StopEmittingAndClear);
+    }
+
+    private IEnumerator ConstraintsControl()
+    {
+        yield return new WaitForSecondsRealtime(0.5f);
+        rb.constraints = RigidbodyConstraints.None;
     }
 }

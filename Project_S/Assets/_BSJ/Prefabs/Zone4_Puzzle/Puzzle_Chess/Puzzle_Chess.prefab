@@ -135,7 +135,7 @@ Transform:
   m_GameObject: {fileID: 6596363507022438048}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 17.35, y: -1.69, z: 0}
-  m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
+  m_LocalScale: {x: 0.25, y: 0.25, z: 0.25}
   m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 6596363508401248201}
@@ -349,13 +349,28 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 644280597171570817, guid: b90611dc22f785540bff192a62bb76ef,
         type: 3}
+      propertyPath: GrabPhysics
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 644280597171570817, guid: b90611dc22f785540bff192a62bb76ef,
+        type: 3}
       propertyPath: GrabMechanic
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 644280597171570817, guid: b90611dc22f785540bff192a62bb76ef,
+        type: 3}
+      propertyPath: ParentHandModel
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 644280597171570817, guid: b90611dc22f785540bff192a62bb76ef,
         type: 3}
       propertyPath: RemoteGrabbable
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 836474875781666895, guid: b90611dc22f785540bff192a62bb76ef,
+        type: 3}
+      propertyPath: m_LightProbeUsage
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 836474875783894515, guid: b90611dc22f785540bff192a62bb76ef,
         type: 3}
@@ -452,6 +467,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 6596363506926141543}
     m_Modifications:
+    - target: {fileID: 3422797421901104706, guid: 181ee1a60685e8644a928b89ce97ef67,
+        type: 3}
+      propertyPath: m_LightProbeUsage
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3422797421902160441, guid: 181ee1a60685e8644a928b89ce97ef67,
         type: 3}
       propertyPath: Grabtype
@@ -464,7 +484,17 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3422797421902160441, guid: 181ee1a60685e8644a928b89ce97ef67,
         type: 3}
+      propertyPath: GrabPhysics
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3422797421902160441, guid: 181ee1a60685e8644a928b89ce97ef67,
+        type: 3}
       propertyPath: GrabMechanic
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3422797421902160441, guid: 181ee1a60685e8644a928b89ce97ef67,
+        type: 3}
+      propertyPath: ParentHandModel
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3422797421903464152, guid: 181ee1a60685e8644a928b89ce97ef67,
@@ -928,6 +958,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   <clearCheck>k__BackingField: 
+  <isClear>k__BackingField: 0
 --- !u!1001 &9017903045566408313
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1007,7 +1038,22 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6170602987731371521, guid: fe6272ee66dce094c9b420368d7dcb53,
         type: 3}
+      propertyPath: GrabPhysics
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6170602987731371521, guid: fe6272ee66dce094c9b420368d7dcb53,
+        type: 3}
       propertyPath: GrabMechanic
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6170602987731371521, guid: fe6272ee66dce094c9b420368d7dcb53,
+        type: 3}
+      propertyPath: ParentHandModel
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8703979298983283104, guid: fe6272ee66dce094c9b420368d7dcb53,
+        type: 3}
+      propertyPath: m_LightProbeUsage
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8703979298985620824, guid: fe6272ee66dce094c9b420368d7dcb53,

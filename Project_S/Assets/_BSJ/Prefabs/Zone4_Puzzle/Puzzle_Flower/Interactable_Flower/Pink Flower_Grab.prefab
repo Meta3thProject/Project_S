@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5578526867902974951}
   - component: {fileID: 3028461830413314870}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: GrabTransform Right
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -71,7 +71,7 @@ GameObject:
   - component: {fileID: 6845207033101083703}
   - component: {fileID: 7972086696022957462}
   - component: {fileID: -6831928460695102902}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Pink Flower_Grab
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -273,7 +273,7 @@ GameObject:
   - component: {fileID: 801507446424484012}
   - component: {fileID: 3308411971565084807}
   - component: {fileID: 4077980938325301992}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: RingHelper
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -417,7 +417,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2473154285001270047}
   - component: {fileID: 1650750480755418847}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: GrabTransform Left
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -549,6 +549,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Planting_VFX
+      objectReference: {fileID: 0}
+    - target: {fileID: 2119864009698443774, guid: c7287f0a3c7048540a0d451d296b8d0f,
+        type: 3}
+      propertyPath: m_Layer
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 2352067651047031746, guid: c7287f0a3c7048540a0d451d296b8d0f,
         type: 3}

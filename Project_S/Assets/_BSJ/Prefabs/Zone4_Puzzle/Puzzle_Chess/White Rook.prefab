@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 836474875784056661}
   - component: {fileID: 836474875784056658}
   - component: {fileID: 644280597171570817}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: White Rook
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -214,7 +214,7 @@ GameObject:
   - component: {fileID: 1768333913654552208}
   - component: {fileID: 2982785780417313657}
   - component: {fileID: 5121036584976597740}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Sparks
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5038,7 +5038,7 @@ GameObject:
   - component: {fileID: 3272765291128247335}
   - component: {fileID: 8414615325578112286}
   - component: {fileID: 3363734005266143199}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: RingHelper
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5182,7 +5182,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4652539051373023869}
   - component: {fileID: 7769780685826081787}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: GrabTransform Right
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5239,7 +5239,7 @@ GameObject:
   - component: {fileID: 4121476871950260502}
   - component: {fileID: 38717914144500354}
   - component: {fileID: 6623400048116340894}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Hold_Effect
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -10109,7 +10109,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3410080212755501800}
   - component: {fileID: 4967447037829187073}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: GrabTransform Left
   m_TagString: Untagged
   m_Icon: {fileID: 0}

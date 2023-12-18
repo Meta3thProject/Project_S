@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 2101373471183035846}
   - component: {fileID: 2635297193964662354}
   - component: {fileID: 9219134696705334350}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Hold_Effect
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4881,7 +4881,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2090855984525649559}
   - component: {fileID: 2090855984525649552}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: GrabTransform Left
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4937,7 +4937,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2090855985896292780}
   - component: {fileID: 2090855985896292781}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: GrabTransform Right
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4998,7 +4998,7 @@ GameObject:
   - component: {fileID: 3422797421903250842}
   - component: {fileID: 3422797421903250841}
   - component: {fileID: 3422797421902160441}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: White Knight
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5197,7 +5197,7 @@ GameObject:
   - component: {fileID: 4364440189246497344}
   - component: {fileID: 972499017156149161}
   - component: {fileID: 7136633990329484860}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Sparks
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -10021,7 +10021,7 @@ GameObject:
   - component: {fileID: 4894615496006375732}
   - component: {fileID: 4686121078926403046}
   - component: {fileID: 2867895168111835162}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: RingHelper
   m_TagString: Untagged
   m_Icon: {fileID: 0}

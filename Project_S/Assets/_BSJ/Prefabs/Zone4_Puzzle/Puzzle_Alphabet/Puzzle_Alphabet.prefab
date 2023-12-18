@@ -44,10 +44,30 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 2738717879853637091}
     m_Modifications:
+    - target: {fileID: 4284478776099990072, guid: fde550d013d35534cbc4922f4dcc87d1,
+        type: 3}
+      propertyPath: m_Layer
+      value: 10
+      objectReference: {fileID: 0}
     - target: {fileID: 4284478776529410422, guid: fde550d013d35534cbc4922f4dcc87d1,
         type: 3}
       propertyPath: m_Name
       value: WoodBlock_D
+      objectReference: {fileID: 0}
+    - target: {fileID: 4284478776529410422, guid: fde550d013d35534cbc4922f4dcc87d1,
+        type: 3}
+      propertyPath: m_Layer
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 4284478776529410424, guid: fde550d013d35534cbc4922f4dcc87d1,
+        type: 3}
+      propertyPath: GrabPhysics
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4284478776529410424, guid: fde550d013d35534cbc4922f4dcc87d1,
+        type: 3}
+      propertyPath: ParentHandModel
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4284478776529410425, guid: fde550d013d35534cbc4922f4dcc87d1,
         type: 3}
@@ -104,10 +124,30 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4284478776529410429, guid: fde550d013d35534cbc4922f4dcc87d1,
+        type: 3}
+      propertyPath: m_CastShadows
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4284478776529410429, guid: fde550d013d35534cbc4922f4dcc87d1,
+        type: 3}
+      propertyPath: m_LightProbeUsage
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4284478776529410431, guid: fde550d013d35534cbc4922f4dcc87d1,
         type: 3}
       propertyPath: <type>k__BackingField
       value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 4284478776757166853, guid: fde550d013d35534cbc4922f4dcc87d1,
+        type: 3}
+      propertyPath: m_Layer
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 4284478777083481329, guid: fde550d013d35534cbc4922f4dcc87d1,
+        type: 3}
+      propertyPath: m_Layer
+      value: 10
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: fde550d013d35534cbc4922f4dcc87d1, type: 3}
@@ -184,6 +224,66 @@ PrefabInstance:
       propertyPath: m_Name
       value: Table
       objectReference: {fileID: 0}
+    - target: {fileID: 843254650276494661, guid: fb0b40576e40858439f98ffccbc1964d,
+        type: 3}
+      propertyPath: m_Size.x
+      value: 0.4
+      objectReference: {fileID: 0}
+    - target: {fileID: 843254650276494661, guid: fb0b40576e40858439f98ffccbc1964d,
+        type: 3}
+      propertyPath: m_Size.y
+      value: 0.25
+      objectReference: {fileID: 0}
+    - target: {fileID: 843254650276494661, guid: fb0b40576e40858439f98ffccbc1964d,
+        type: 3}
+      propertyPath: m_Size.z
+      value: 0.4
+      objectReference: {fileID: 0}
+    - target: {fileID: 843254650276494661, guid: fb0b40576e40858439f98ffccbc1964d,
+        type: 3}
+      propertyPath: m_Center.y
+      value: -0.25
+      objectReference: {fileID: 0}
+    - target: {fileID: 6066074911016248689, guid: fb0b40576e40858439f98ffccbc1964d,
+        type: 3}
+      propertyPath: m_Size.x
+      value: 0.4
+      objectReference: {fileID: 0}
+    - target: {fileID: 6066074911016248689, guid: fb0b40576e40858439f98ffccbc1964d,
+        type: 3}
+      propertyPath: m_Size.y
+      value: 0.25
+      objectReference: {fileID: 0}
+    - target: {fileID: 6066074911016248689, guid: fb0b40576e40858439f98ffccbc1964d,
+        type: 3}
+      propertyPath: m_Size.z
+      value: 0.4
+      objectReference: {fileID: 0}
+    - target: {fileID: 6066074911016248689, guid: fb0b40576e40858439f98ffccbc1964d,
+        type: 3}
+      propertyPath: m_Center.y
+      value: -0.25
+      objectReference: {fileID: 0}
+    - target: {fileID: 6254591504298768311, guid: fb0b40576e40858439f98ffccbc1964d,
+        type: 3}
+      propertyPath: m_Size.x
+      value: 0.4
+      objectReference: {fileID: 0}
+    - target: {fileID: 6254591504298768311, guid: fb0b40576e40858439f98ffccbc1964d,
+        type: 3}
+      propertyPath: m_Size.y
+      value: 0.25
+      objectReference: {fileID: 0}
+    - target: {fileID: 6254591504298768311, guid: fb0b40576e40858439f98ffccbc1964d,
+        type: 3}
+      propertyPath: m_Size.z
+      value: 0.4
+      objectReference: {fileID: 0}
+    - target: {fileID: 6254591504298768311, guid: fb0b40576e40858439f98ffccbc1964d,
+        type: 3}
+      propertyPath: m_Center.y
+      value: -0.25
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: fb0b40576e40858439f98ffccbc1964d, type: 3}
 --- !u!4 &2812054453203970887 stripped
@@ -199,6 +299,21 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 2738717879853637091}
     m_Modifications:
+    - target: {fileID: 897356442207165072, guid: 1d4562afb9b1aff4c98101651b6a0565,
+        type: 3}
+      propertyPath: m_Layer
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 897356442255894774, guid: 1d4562afb9b1aff4c98101651b6a0565,
+        type: 3}
+      propertyPath: m_Layer
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 897356443239197688, guid: 1d4562afb9b1aff4c98101651b6a0565,
+        type: 3}
+      propertyPath: m_Layer
+      value: 10
+      objectReference: {fileID: 0}
     - target: {fileID: 897356444227331824, guid: 1d4562afb9b1aff4c98101651b6a0565,
         type: 3}
       propertyPath: m_RootOrder
@@ -259,6 +374,31 @@ PrefabInstance:
       propertyPath: m_Name
       value: WoodBlock_T
       objectReference: {fileID: 0}
+    - target: {fileID: 897356444227331825, guid: 1d4562afb9b1aff4c98101651b6a0565,
+        type: 3}
+      propertyPath: m_Layer
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 897356444227331827, guid: 1d4562afb9b1aff4c98101651b6a0565,
+        type: 3}
+      propertyPath: GrabPhysics
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 897356444227331827, guid: 1d4562afb9b1aff4c98101651b6a0565,
+        type: 3}
+      propertyPath: ParentHandModel
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 897356444227331828, guid: 1d4562afb9b1aff4c98101651b6a0565,
+        type: 3}
+      propertyPath: m_CastShadows
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 897356444227331828, guid: 1d4562afb9b1aff4c98101651b6a0565,
+        type: 3}
+      propertyPath: m_LightProbeUsage
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 897356444227331830, guid: 1d4562afb9b1aff4c98101651b6a0565,
         type: 3}
       propertyPath: <type>k__BackingField
@@ -279,6 +419,26 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 2738717879853637091}
     m_Modifications:
+    - target: {fileID: 606035152259335777, guid: ca822f2b25cfca14fa2092837a4fceff,
+        type: 3}
+      propertyPath: m_CastShadows
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 606035152259335777, guid: ca822f2b25cfca14fa2092837a4fceff,
+        type: 3}
+      propertyPath: m_LightProbeUsage
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 606035152259335788, guid: ca822f2b25cfca14fa2092837a4fceff,
+        type: 3}
+      propertyPath: GrabPhysics
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 606035152259335788, guid: ca822f2b25cfca14fa2092837a4fceff,
+        type: 3}
+      propertyPath: ParentHandModel
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 606035152259335789, guid: ca822f2b25cfca14fa2092837a4fceff,
         type: 3}
       propertyPath: m_RootOrder
@@ -339,6 +499,26 @@ PrefabInstance:
       propertyPath: m_Name
       value: WoodBlock_O
       objectReference: {fileID: 0}
+    - target: {fileID: 606035152259335790, guid: ca822f2b25cfca14fa2092837a4fceff,
+        type: 3}
+      propertyPath: m_Layer
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 606035152657039423, guid: ca822f2b25cfca14fa2092837a4fceff,
+        type: 3}
+      propertyPath: m_Layer
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 606035153210520300, guid: ca822f2b25cfca14fa2092837a4fceff,
+        type: 3}
+      propertyPath: m_Layer
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 606035153678893414, guid: ca822f2b25cfca14fa2092837a4fceff,
+        type: 3}
+      propertyPath: m_Layer
+      value: 10
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ca822f2b25cfca14fa2092837a4fceff, type: 3}
 --- !u!4 &2738717879106766501 stripped
@@ -354,15 +534,45 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 2738717879853637091}
     m_Modifications:
+    - target: {fileID: 8422685604986692768, guid: 272cfce5660943a46b740b34a51081bb,
+        type: 3}
+      propertyPath: m_Layer
+      value: 10
+      objectReference: {fileID: 0}
     - target: {fileID: 8422685605149647777, guid: 272cfce5660943a46b740b34a51081bb,
         type: 3}
       propertyPath: <type>k__BackingField
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8422685605149647783, guid: 272cfce5660943a46b740b34a51081bb,
+        type: 3}
+      propertyPath: m_CastShadows
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8422685605149647783, guid: 272cfce5660943a46b740b34a51081bb,
+        type: 3}
+      propertyPath: m_LightProbeUsage
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8422685605149647800, guid: 272cfce5660943a46b740b34a51081bb,
         type: 3}
       propertyPath: m_Name
       value: WoodBlock_C
+      objectReference: {fileID: 0}
+    - target: {fileID: 8422685605149647800, guid: 272cfce5660943a46b740b34a51081bb,
+        type: 3}
+      propertyPath: m_Layer
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 8422685605149647802, guid: 272cfce5660943a46b740b34a51081bb,
+        type: 3}
+      propertyPath: GrabPhysics
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8422685605149647802, guid: 272cfce5660943a46b740b34a51081bb,
+        type: 3}
+      propertyPath: ParentHandModel
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8422685605149647803, guid: 272cfce5660943a46b740b34a51081bb,
         type: 3}
@@ -419,6 +629,16 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8422685605836801780, guid: 272cfce5660943a46b740b34a51081bb,
+        type: 3}
+      propertyPath: m_Layer
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 8422685606220159833, guid: 272cfce5660943a46b740b34a51081bb,
+        type: 3}
+      propertyPath: m_Layer
+      value: 10
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 272cfce5660943a46b740b34a51081bb, type: 3}
 --- !u!4 &2738717879597851197 stripped
@@ -434,10 +654,35 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 2738717879853637091}
     m_Modifications:
+    - target: {fileID: 6392995291315968900, guid: 84108a9e6c6e46b49aaee11fec455f7d,
+        type: 3}
+      propertyPath: m_Layer
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 6392995292916645109, guid: 84108a9e6c6e46b49aaee11fec455f7d,
+        type: 3}
+      propertyPath: m_CastShadows
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6392995292916645109, guid: 84108a9e6c6e46b49aaee11fec455f7d,
+        type: 3}
+      propertyPath: m_LightProbeUsage
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6392995292916645111, guid: 84108a9e6c6e46b49aaee11fec455f7d,
         type: 3}
       propertyPath: <type>k__BackingField
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6392995292916645112, guid: 84108a9e6c6e46b49aaee11fec455f7d,
+        type: 3}
+      propertyPath: GrabPhysics
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6392995292916645112, guid: 84108a9e6c6e46b49aaee11fec455f7d,
+        type: 3}
+      propertyPath: ParentHandModel
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6392995292916645113, guid: 84108a9e6c6e46b49aaee11fec455f7d,
         type: 3}
@@ -498,6 +743,21 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: WoodBlock_A
+      objectReference: {fileID: 0}
+    - target: {fileID: 6392995292916645118, guid: 84108a9e6c6e46b49aaee11fec455f7d,
+        type: 3}
+      propertyPath: m_Layer
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 6392995292924229788, guid: 84108a9e6c6e46b49aaee11fec455f7d,
+        type: 3}
+      propertyPath: m_Layer
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 6392995293227967893, guid: 84108a9e6c6e46b49aaee11fec455f7d,
+        type: 3}
+      propertyPath: m_Layer
+      value: 10
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 84108a9e6c6e46b49aaee11fec455f7d, type: 3}

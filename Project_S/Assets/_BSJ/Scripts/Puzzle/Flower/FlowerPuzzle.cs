@@ -23,9 +23,12 @@ public class FlowerPuzzle : MonoBehaviour
 
     public void EnterGroundTrigger()
     {
-        PlayFlowerParticle();
         rb.velocity = Vector3.zero;
+        rb.angularVelocity = Vector3.zero;
+        rb.constraints = RigidbodyConstraints.FreezeAll;
         transform.rotation = Quaternion.identity;
+        PlayFlowerParticle();
+        StartCoroutine(constraintsControl());
     }
 
     public void ExitGroundTrigger()
@@ -41,6 +44,12 @@ public class FlowerPuzzle : MonoBehaviour
     private void StopFlowerParticle()
     {
         particle.Stop();
+    }
+
+    private IEnumerator constraintsControl()
+    {
+        yield return new WaitForSecondsRealtime(0.5f);
+        rb.constraints = RigidbodyConstraints.None;
     }
 }
 

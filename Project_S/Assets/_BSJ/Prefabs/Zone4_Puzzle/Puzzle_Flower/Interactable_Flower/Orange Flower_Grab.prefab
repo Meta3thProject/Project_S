@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 178721652}
   - component: {fileID: 178721653}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: GrabTransform Right
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -70,7 +70,7 @@ GameObject:
   - component: {fileID: 666154576}
   - component: {fileID: 666154575}
   - component: {fileID: 666154574}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: RingHelper
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -214,7 +214,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1454231308}
   - component: {fileID: 1454231309}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: GrabTransform Left
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -275,7 +275,7 @@ GameObject:
   - component: {fileID: 1583639346}
   - component: {fileID: 2949553121039663659}
   - component: {fileID: -9044108313122732653}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Orange Flower_Grab
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -462,7 +462,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2faed4401b65ea544b235d878b0b758d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  <pieceName>k__BackingField: 0
+  <flowerName>k__BackingField: 0
 --- !u!1001 &5625706762604599607
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -549,6 +549,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Planting_VFX
+      objectReference: {fileID: 0}
+    - target: {fileID: 2119864009698443774, guid: c7287f0a3c7048540a0d451d296b8d0f,
+        type: 3}
+      propertyPath: m_Layer
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 2352067651047031746, guid: c7287f0a3c7048540a0d451d296b8d0f,
         type: 3}
