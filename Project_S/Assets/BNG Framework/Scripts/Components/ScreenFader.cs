@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -15,7 +15,7 @@ namespace BNG {
         public Color FadeColor = Color.black;
 
         [Tooltip("How fast to fade in / out")]
-        public float FadeInSpeed = 6f;
+        public float FadeInSpeed = 3f;
 
         public float FadeOutSpeed = 6f;
 
@@ -69,7 +69,6 @@ namespace BNG {
                 fadeObjectRect.pivot = new Vector2(0.5f, 0.5f);
                 fadeObjectRect.sizeDelta = new Vector2(0.2f, 0.2f);
                 fadeObjectRect.localScale = new Vector2(2f, 2f);
-
             }
         }
 
