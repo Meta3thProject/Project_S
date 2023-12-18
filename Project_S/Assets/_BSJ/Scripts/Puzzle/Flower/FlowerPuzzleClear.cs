@@ -30,6 +30,7 @@ public class FlowerPuzzleClear : MonoBehaviour
     public void PuzzleClear()
     {
         isClear = true;
+        StartCoroutine(StarManager.starManager.CallStar());
         Debug.Log("클리어!");
     }
 

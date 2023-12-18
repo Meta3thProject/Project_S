@@ -13,35 +13,46 @@ MonoBehaviour:
   m_Name: Bloom
   m_EditorClassIdentifier: 
   active: 1
+  m_AdvancedMode: 0
   threshold:
     m_OverrideState: 1
-    m_Value: 1.2
+    m_Value: 1
+    min: 0
   intensity:
     m_OverrideState: 1
-    m_Value: 0.8
+    m_Value: 1
+    min: 0
   scatter:
     m_OverrideState: 0
     m_Value: 0.7
+    min: 0
+    max: 1
   clamp:
     m_OverrideState: 0
     m_Value: 65472
+    min: 0
   tint:
     m_OverrideState: 0
     m_Value: {r: 1, g: 1, b: 1, a: 1}
+    hdr: 0
+    showAlpha: 0
+    showEyeDropper: 1
   highQualityFiltering:
     m_OverrideState: 0
     m_Value: 0
   skipIterations:
     m_OverrideState: 0
     m_Value: 1
+    min: 0
+    max: 16
   dirtTexture:
     m_OverrideState: 0
     m_Value: {fileID: 0}
-    dimension: 1
   dirtIntensity:
     m_OverrideState: 0
     m_Value: 0
---- !u!114 &-4349974925549911441
+    min: 0
+--- !u!114 &-7011558710299706105
 MonoBehaviour:
   m_ObjectHideFlags: 3
   m_CorrespondingSourceObject: {fileID: 0}
@@ -50,23 +61,31 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 66f335fb1ffd8684294ad653bf1c7564, type: 3}
-  m_Name: ColorAdjustments
+  m_Script: {fileID: 11500000, guid: 899c54efeace73346a0a16faa3afe726, type: 3}
+  m_Name: Vignette
   m_EditorClassIdentifier: 
   active: 1
-  postExposure:
-    m_OverrideState: 1
-    m_Value: 0.2
-  contrast:
+  m_AdvancedMode: 0
+  color:
     m_OverrideState: 0
-    m_Value: 0
-  colorFilter:
-    m_OverrideState: 1
-    m_Value: {r: 0.9019608, g: 1, b: 0.9899578, a: 1}
-  hueShift:
+    m_Value: {r: 0, g: 0, b: 0, a: 1}
+    hdr: 0
+    showAlpha: 0
+    showEyeDropper: 1
+  center:
     m_OverrideState: 0
-    m_Value: 0
-  saturation:
+    m_Value: {x: 0.5, y: 0.5}
+  intensity:
+    m_OverrideState: 1
+    m_Value: 0.25
+    min: 0
+    max: 1
+  smoothness:
+    m_OverrideState: 1
+    m_Value: 0.4
+    min: 0.01
+    max: 1
+  rounded:
     m_OverrideState: 0
     m_Value: 0
 --- !u!114 &11400000
@@ -82,10 +101,10 @@ MonoBehaviour:
   m_Name: SampleSceneProfile
   m_EditorClassIdentifier: 
   components:
+  - {fileID: 849379129802519247}
   - {fileID: -7893295128165547882}
-  - {fileID: -4349974925549911441}
-  - {fileID: 7865803583010466616}
---- !u!114 &7865803583010466616
+  - {fileID: -7011558710299706105}
+--- !u!114 &849379129802519247
 MonoBehaviour:
   m_ObjectHideFlags: 3
   m_CorrespondingSourceObject: {fileID: 0}
@@ -94,16 +113,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5485954d14dfb9a4c8ead8edb0ded5b1, type: 3}
-  m_Name: LiftGammaGain
+  m_Script: {fileID: 11500000, guid: 97c23e3b12dc18c42a140437e53d3951, type: 3}
+  m_Name: Tonemapping
   m_EditorClassIdentifier: 
   active: 1
-  lift:
+  m_AdvancedMode: 0
+  mode:
     m_OverrideState: 1
-    m_Value: {x: 0.8940453, y: 0.8821907, z: 1, w: 0}
-  gamma:
-    m_OverrideState: 1
-    m_Value: {x: 0.9280638, y: 0.8944325, z: 1, w: 0}
-  gain:
-    m_OverrideState: 1
-    m_Value: {x: 1, y: 0.9926304, z: 0.9489385, w: 0}
+    m_Value: 1

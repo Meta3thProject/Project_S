@@ -55,7 +55,7 @@ public class FirebaseManager : MonoBehaviour
     private FirebaseAuth auth;              // 로그인 | 회원가입 등에 사용 => 인증을 관리할 객체
     private FirebaseUser user;              // 인증이 완료된 유저 정보
 
-    [SerializeField] private GameObject loginObjects;        // 로그인 관련 오브젝트들
+    [SerializeField] private GameObject loginObjects;       // 로그인 관련 오브젝트들
     [SerializeField] private Button loginButton;            // 로그인 버튼
     [SerializeField] private Button registerButton;         // 회원가입 버튼
 
@@ -63,7 +63,8 @@ public class FirebaseManager : MonoBehaviour
     [SerializeField] private InputField passField;          // 비밀번호 입력받을 필드
     [SerializeField] private Text infoTextField;            // 상태 메시지 텍스트
 
-    [SerializeField] private GameObject loadingObjects;      // 로딩 관련 오브젝트들
+    [SerializeField] private GameObject loadingUIPannel;    // 로딩 UI 패널
+    [SerializeField] private GameObject loadingObjects;     // 로딩 관련 오브젝트들
     [SerializeField] private Text loadingTitleText;         // 로딩 타이틀 텍스트
     [SerializeField] private Text loadingGaugeText;         // 로딩 게이지 텍스트
     [SerializeField] private Text tipText;                  // 팁 텍스트
@@ -77,7 +78,7 @@ public class FirebaseManager : MonoBehaviour
     // 유저 데이터 클래스
     [SerializeField]
     private Userdata userData;
-
+    
     // 로그인 관련 캔버스
     [SerializeField]
     private Canvas loginCanvas;
@@ -108,6 +109,7 @@ public class FirebaseManager : MonoBehaviour
         infoTextField.text = "상태 : 대기 중 ...";
 
         // 로딩 관련 텍스트 캐싱받기
+        loadingUIPannel = transform.transform.GetChild(0).gameObject;
         loadingTitleText = loadingObjects.transform.GetChild(0).GetComponent<Text>();
         loadingGaugeText = loadingObjects.transform.GetChild(1).GetComponent<Text>();
         tipText = loadingObjects.transform.GetChild(1).GetComponent<Text>();
@@ -238,6 +240,7 @@ public class FirebaseManager : MonoBehaviour
             if (loadingGaugeCount > 99)
             {
                 AsyncLoad.allowSceneActivation = true;
+                loadingUIPannel.SetActive(false);
             }
         }
     }

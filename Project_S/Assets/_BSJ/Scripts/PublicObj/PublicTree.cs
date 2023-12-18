@@ -18,7 +18,6 @@ public class PublicTree : InteractableObject
 
     private void OnTriggerEnter(Collider other)
     {
-        Debug.Log("충돌됨?");
         if (isInteractionAble == false) { return; }
 
         if (other.CompareTag("Axe"))
@@ -63,7 +62,7 @@ public class PublicTree : InteractableObject
         }
 
         // hp가 0 이하가 되면 아이템을 드랍한다.
-        else
+        else if(currentHp <= 0)
         {
             itemDropSqeunce = DOTween.Sequence().SetAutoKill(false).
                 Append(transform.DOShakeScale(0.5f, 0.1f).SetEase(Ease.OutElastic)).

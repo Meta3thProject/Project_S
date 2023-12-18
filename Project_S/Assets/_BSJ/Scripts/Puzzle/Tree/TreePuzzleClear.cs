@@ -38,6 +38,7 @@ public class TreePuzzleClear : MonoBehaviour
     public void PuzzleClear()
     {
         isClear = true;
+        StartCoroutine(StarManager.starManager.CallStar());
         Debug.Log("나무 퍼즐 클리어!");
     }
 

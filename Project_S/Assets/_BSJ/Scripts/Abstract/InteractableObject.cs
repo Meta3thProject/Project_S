@@ -25,7 +25,7 @@ public abstract class InteractableObject : MonoBehaviour
     public bool isInteractionAble { get; protected set; }
 
     // 물체가 파괴되었을 때 드랍될 아이템
-    protected GameObject dropedItem;
+    [SerializeField] protected GameObject dropedItem;
 
     protected void Awake()
     {

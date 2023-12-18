@@ -8,6 +8,8 @@ public class AlphabetPuzzleClear : MonoBehaviour
     [field: SerializeField]
     public int[] clearCheck { get; private set; }
 
+    [SerializeField] private bool isClear = false;
+
     private ParticleSystem particle;
 
     private void Awake()
@@ -37,7 +39,13 @@ public class AlphabetPuzzleClear : MonoBehaviour
             }
         }
 
-        particle.Play();
-        Debug.Log("클리어!");
+        if(isClear == false)
+        {
+            isClear = true;
+            particle.Play();
+            StartCoroutine(StarManager.starManager. CallStar());
+            Debug.Log("클리어!");
+        }
+        
     }
 }

@@ -30,6 +30,7 @@ public class ChessPuzzleClear : MonoBehaviour
     public void PuzzleClear()
     {
         isClear = true;
+        StartCoroutine(StarManager.starManager.CallStar());
         Debug.Log("클리어!");
     }
 
