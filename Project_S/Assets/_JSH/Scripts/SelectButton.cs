@@ -16,9 +16,11 @@ public class SelectButton : MonoBehaviour
     // 상승량
     public int amount;
 
+    // 몇번째 선택지인지
+    public bool isFirst;
+
     public void RewardAndReset()
     {
         stat.AddPoint(target.ToString(), amount);
-
     }
 }

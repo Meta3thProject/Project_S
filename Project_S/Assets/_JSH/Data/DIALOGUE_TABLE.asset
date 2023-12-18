@@ -15,6 +15,477 @@ MonoBehaviour:
   SheetName: Assets/_JSH/Data/QUEST_DATA.xlsx
   WorksheetName: DIALOGUE_TABLE
   dataArray:
+  - id: 304100
+    npc_id: 300100
+    dialogue: "\uC548\uB155! \uB108\uB3C4 \uC778\uAC04\uC774 \uB418\uB824\uACE0 \uC654\uAD6C\uB098!"
+    link_dialog: 304101
+  - id: 304101
+    npc_id: 300100
+    dialogue: "\uC6B0\uB9AC \uC815\uB839\uB4E4\uC774 \uC778\uAC04\uC774 \uB418\uAE30
+      \uC704\uD574\uC11C\uB294<br>\uC778\uAC04 \uC138\uACC4\uB97C \uACBD\uD5D8\uD574
+      \uBD10\uC57C \uD558\uC9C0."
+    link_dialog: 304102
+  - id: 304102
+    npc_id: 300100
+    dialogue: "\uB098\uB294 \uB108\uAC00 \uC778\uAC04 \uC138\uACC4\uC5D0 \uC798 \uB3C4\uCC29\uD558\uAC8C\uB054
+      \uB3C4\uC640\uC904<br>\"\uD2F0\uD53C\" \uB77C\uACE0 \uD574!"
+    link_dialog: 304103
+  - id: 304103
+    npc_id: 300100
+    dialogue: "\uC778\uAC04\uACC4\uB85C \uAC00\uB824\uBA74 \uC2DC\uD5D8\uC744 \uBD10\uC57C
+      \uD558\uAC70\uB4E0."
+    link_dialog: 304104
+  - id: 304104
+    npc_id: 300100
+    dialogue: "\uC9C0\uAE08\uC740 \uC880 \uBA40\uB9AC \uC788\uC5B4\uC11C<br>\uB0B4
+      \uB9D0\uC774 \uC798 \uC548\uB4E4\uB9B4\uAE4C \uAC71\uC815\uC774\uB124."
+    link_dialog: 304105
+  - id: 304105
+    npc_id: 300100
+    dialogue: "\uB098\uD55C\uD14C \uAC00\uAE4C\uC774 \uC640\uC11C \uB9D0 \uC880 \uAC78\uC5B4\uC904\uB798?"
+    link_dialog: 304106
+  - id: 304106
+    npc_id: 300100
+    dialogue: "\uC774\uB3D9\uC740 \uC88C\uCE21 \uC2A4\uD2F1\uC73C\uB85C,<br>\uB9D0\uC744
+      \uAC78 \uB54C\uB294 \uB098\uB97C \uC870\uC900\uD574\uC11C<br>\uD2B8\uB9AC\uAC70\uB97C
+      \uB204\uB974\uBA74 \uB3FC!"
+    link_dialog: 304107
+  - id: 304107
+    npc_id: 300100
+    dialogue: "\uC544, \uC774\uB3D9 \uC2A4\uD2F1\uC744 \uB204\uB974\uBA74, \uC9E7\uC740
+      \uAC70\uB9AC\uB97C<br>\uC21C\uAC04\uC774\uB3D9 \uD558\uB294 \uBC29\uBC95\uC73C\uB85C<br>\uC774\uB3D9\uD560
+      \uC218 \uC788\uC5B4!"
+    link_dialog: 0
+  - id: 304108
+    npc_id: 300100
+    dialogue: "\uD760\uD760, \uC88B\uC544. \uC774\uC81C \uC798 \uB4E4\uB9AC\uACA0\uB124."
+    link_dialog: 304109
+  - id: 304109
+    npc_id: 300100
+    dialogue: "\uC6B0\uC120 \uC778\uAC04\uACC4\uB85C \uAC00\uB294 \uC2DC\uD5D8\uC7A5\uC740
+      \uC800 \uC55E\uC5D0 \uC788\uC5B4."
+    link_dialog: 304110
+  - id: 304110
+    npc_id: 300100
+    dialogue: "\uB0B4\uAC00 \uC548\uB0B4\uD574\uC904\uAC8C!<br>\uC774 \uC55E\uC73C\uB85C
+      \uCB49 \uAC00\uBA74 \uB418\uAC70\uB4E0!"
+    link_dialog: 304111
+  - id: 304111
+    npc_id: 300100
+    dialogue: "\uBA3C\uC800 \uAC00\uC788\uC744 \uD14C\uB2C8, \uCC9C\uCC9C\uD788 \uC640!"
+    link_dialog: 304112
+  - id: 304112
+    npc_id: 300100
+    dialogue: "\uC751? \uAE38\uC744 \uC783\uC73C\uBA74 \uC5B4\uB5BB\uAC8C \uD558\uB0D0\uACE0?"
+    link_dialog: 304113
+  - id: 304113
+    npc_id: 300100
+    dialogue: "\uADF8\uB7F4 \uB550 \uC9C0\uB3C4\uB97C \uD655\uC778\uD558\uBA74 \uB3FC!<br>\uC9C0\uB3C4\uB294
+      \uC67C\uCABD \uD5C8\uB9AC\uC5D0 \uC788\uC5B4."
+    link_dialog: 304114
+  - id: 304114
+    npc_id: 300100
+    dialogue: "\uC67C\uC190\uC73C\uB85C\uB4E0, \uC624\uB978\uC190\uC73C\uB85C\uB4E0,
+      \uC7A1\uC744 \uC218 \uC788\uC9C0.<br>\uC591\uC190\uB3C4 \uB418\uACE0!"
+    link_dialog: 304115
+  - id: 304115
+    npc_id: 300100
+    dialogue: "\uC9C0\uB3C4\uB97C \uB4E4\uACE0 \uC788\uB294 \uC0C1\uD0DC\uC5D0\uC11C
+      \uD2B8\uB9AC\uAC70 \uD0A4\uB97C \uB204\uB974\uBA74 \uC9C0\uB3C4\uB97C \uC804\uD658\uD560
+      \uC218 \uC788\uC9C0."
+    link_dialog: 304116
+  - id: 304116
+    npc_id: 300100
+    dialogue: "\uC544\uBB34\uD2BC \uBA3C\uC800 \uAC00\uC788\uC744\uAC8C!<br>\uC9C0\uB3C4\uB97C
+      \uBCF4\uACE0 \uB530\uB77C\uC640\uC11C \uB9D0\uC744 \uAC78\uC5B4\uC918!"
+    link_dialog: 0
+  - id: 304117
+    npc_id: 300100
+    dialogue: "\uC624, \uC0DD\uAC01\uBCF4\uB2E4 \uBE68\uB9AC \uC654\uAD6C\uB098.<br>\uC9C0\uB3C4\uAC00
+      \uCC38 \uD3B8\uB9AC\uD558\uC9C0?"
+    link_dialog: 304118
+  - id: 304118
+    npc_id: 300100
+    dialogue: "\uADF8\uB7F0\uB370 \uBB38\uC81C\uAC00 \uC0DD\uACBC\uC5B4.<br>\uC2DC\uD5D8\uC7A5\uC5D0
+      \uAC00\uB294 \uAE38\uC774 \uCEE4\uB2E4\uB780 \uB098\uBB34\uB85C \uB9C9\uD600
+      \uC788\uB124."
+    link_dialog: 304119
+  - id: 304119
+    npc_id: 300100
+    dialogue: "\uC6B0\uB9AC\uAC00 \uC9C1\uC811 \uB3C4\uB07C\uB85C \uBCA0\uC5B4\uC57C
+      \uD560 \uAC83 \uAC19\uC544!"
+    link_dialog: 304120
+  - id: 304120
+    npc_id: 300100
+    dialogue: "\uD558\uC9C0\uB9CC, \uBCF4\uB2E4\uC2DC\uD53C \uB098\uB294 \uC190\uBC1C\uC774
+      \uC5C6\uAC70\uB4E0<br>\uB108\uAC00 \uB9C8\uCE68 \uB3C4\uB07C\uB97C \uAC00\uC9C0\uACE0
+      \uC788\uB124!"
+    link_dialog: 304121
+  - id: 304121
+    npc_id: 300100
+    dialogue: "\uC5B4\uB514\uAE34, \uBC14\uB85C \uB124 \uC624\uB978\uCABD \uD5C8\uB9AC\uC5D0
+      \uC788\uC9C0."
+    link_dialog: 304122
+  - id: 304122
+    npc_id: 300100
+    dialogue: "\uB3C4\uB07C\uB97C \uC7A1\uC740 \uC190\uC73C\uB85C \uD2B8\uB9AC\uAC70\uB97C
+      \uB204\uB974\uACE0 \uC788\uC73C\uBA74<br>\uB3C4\uB07C\uB97C \uC0AC\uC6A9\uD560
+      \uC218 \uC788\uC5B4."
+    link_dialog: 304123
+  - id: 304123
+    npc_id: 300100
+    dialogue: "\uADF8 \uC0C1\uD0DC\uC5D0\uC11C \uB098\uBB34\uB97C \uBCA0\uBA74 \uC4F0\uB7EC\uC9C8
+      \uAC70\uC57C!<br>\uD55C \uC138 \uBC88 \uC815\uB3C4 \uD718\uB450\uB974\uBA74
+      \uB420 \uAC83 \uAC19\uC544."
+    link_dialog: 304124
+  - id: 304124
+    npc_id: 300100
+    dialogue: "\uB098\uBB34\uB97C \uBCA0\uBA74 \uB2E4\uC2DC \uB9D0\uC744 \uAC78\uC5B4\uC918!"
+    link_dialog: 0
+  - id: 304125
+    npc_id: 300100
+    dialogue: "\uB3C4\uB07C\uB294 \uB124 \uC624\uB978\uCABD \uD5C8\uB9AC\uC5D0 \uC788\uC5B4.<br>\uADF8\uB7A9
+      \uBC84\uD2BC\uC744 \uAFB9 \uB204\uB974\uBA74 \uC7A1\uC744 \uC218 \uC788\uC9C0."
+    link_dialog: 304122
+  - id: 304126
+    npc_id: 300100
+    dialogue: "\uC88B\uC558\uC5B4!<br>\uC774\uC81C \uC774 \uC55E\uC73C\uB85C \uC9C0\uB098\uAC08
+      \uC218 \uC788\uACA0\uB124."
+    link_dialog: 304127
+  - id: 304127
+    npc_id: 300100
+    dialogue: "\uC557, \uADF8\uB7EC\uACE0 \uBCF4\uB2C8 \uB098\uBB34\uAC00 \uC4F0\uB7EC\uC9C0\uBA74\uC11C<br>\uBB54\uAC00\uAC00
+      \uB5A8\uC5B4\uC84C\uC5B4!"
+    link_dialog: 304128
+  - id: 304128
+    npc_id: 300100
+    dialogue: "\uC774\uAC74\u2026 \uBAA9\uC7AC\uAD6C\uB098!<br>\uC77C\uB2E8 \uC8FC\uC6CC
+      \uB193\uB294\uAC8C \uC5B4\uB5A8\uAE4C?<br>\uC5B4\uB514\uC5D0 \uC4F0\uC77C \uC9C0
+      \uBAA8\uB974\uB2C8\uAE50 \uB9D0\uC774\uC57C."
+    link_dialog: 304129
+  - id: 304129
+    npc_id: 300100
+    dialogue: "\uC774\uB807\uAC8C \uB5A8\uC5B4\uC9C4 \uC544\uC774\uD15C\uC740 \uADF8\uB7A9
+      \uBC84\uD2BC\uC73C\uB85C<br>\uC9D1\uC744 \uC218 \uC788\uC9C0."
+    link_dialog: 304130
+  - id: 304130
+    npc_id: 300100
+    dialogue: "\uC544\uC774\uD15C\uC744 \uC9D1\uC740 \uC0C1\uD0DC\uC5D0\uC11C A \uBC84\uD2BC\uC744
+      \uB204\uB974\uBA74<br>\uB108\uB9CC\uC758 \uACF5\uAC04\uC5D0 \uC800\uC7A5\uD560
+      \uC218 \uC788\uC5B4!"
+    link_dialog: 304131
+  - id: 304131
+    npc_id: 300100
+    dialogue: "\uADF8\uB7FC, \uB098\uB294 \uC800 \uC55E\uC5D0\uC11C \uAE30\uB2E4\uB9AC\uACE0
+      \uC788\uC744\uAC8C."
+    link_dialog: 304132
+  - id: 304132
+    npc_id: 300100
+    dialogue: "\uBAA9\uC7AC \uC8FC\uC6CC \uC624\uB294 \uAC70.<br>\uC78A\uC5B4\uBC84\uB9AC\uBA74
+      \uC548 \uB3FC!"
+    link_dialog: 0
+  - id: 304133
+    npc_id: 300100
+    dialogue: "\uC5B4? \uBAA9\uC7AC\uB97C \uAE5C\uBE61\uD588\uAD6C\uB098!"
+    link_dialog: 304134
+  - id: 304134
+    npc_id: 300100
+    dialogue: "\uBAA9\uC7AC\uAC00 \uC5C6\uC73C\uBA74 \uC774 \uC55E\uC73C\uB85C \uB098\uC544\uAC08
+      \uC218 \uC5C6\uC5B4.<br>\uB2E4\uC2DC \uB3CC\uC544\uAC00\uC11C \uC8FC\uC6CC
+      \uC62C \uC218 \uC788\uC744\uAE4C?"
+    link_dialog: 304135
+  - id: 304135
+    npc_id: 300100
+    dialogue: "\uC8FC\uC6CC\uC624\uBA74 \uB098\uD55C\uD14C \uB9D0\uC744 \uB2E4\uC2DC
+      \uAC78\uC5B4\uC918!"
+    link_dialog: 0
+  - id: 304136
+    npc_id: 300100
+    dialogue: "\uC654\uAD6C\uB098!<br>\uC5EC\uAE30\uAC00 \uBC14\uB85C \uC778\uAC04\uACC4\uB85C
+      \uAC00\uB294 \uC2DC\uD5D8\uC7A5\uC774\uC57C."
+    link_dialog: 304137
+  - id: 304137
+    npc_id: 300100
+    dialogue: "\uC815\uB839\uC774 \uC544\uB2CC \uC790\uB4E4\uC740 \uB4E4\uC5B4\uC624\uC9C0
+      \uBABB\uD558\uB3C4\uB85D<br>\uD2B9\uBCC4\uD55C \uC7A5\uCE58\uAC00 \uC788\uB294
+      \uBAA8\uC591\uC774\uC57C."
+    link_dialog: 304138
+  - id: 304138
+    npc_id: 300100
+    dialogue: "\uC774 \uC7A5\uCE58\uB97C \uD480\uB824\uBA74 \uD683\uBD88\uC774 \uD544\uC694\uD558\uACA0\uB294\uAC78\u2026"
+    link_dialog: 304139
+  - id: 304139
+    npc_id: 300100
+    dialogue: "\uC624, \uB9C8\uCE68 \uC800\uAE30 \uAE30\uB984\uC774 \uC788\uB124.<br>\uAC00\uC9C0\uACE0
+      \uC788\uB294 \uBAA9\uC7AC\uC640 \uC870\uD569\uD560 \uC218 \uC788\uACA0\uB294\uB370!"
+    link_dialog: 304140
+  - id: 304140
+    npc_id: 300100
+    dialogue: "\uC544\uAE4C \uB108\uB9CC\uC758 \uACF5\uAC04\uC774 \uC788\uB2E4\uACE0
+      \uD588\uC5C8\uC9C0?<br>\uADF8 \uACF5\uAC04\uC744 \uBC14\uB85C \"\uC778\uBCA4\uD1A0\uB9AC\"
+      \uB77C\uACE0 \uD574."
+    link_dialog: 304141
+  - id: 304141
+    npc_id: 300100
+    dialogue: "\uC778\uBCA4\uD1A0\uB9AC\uC5D0\uC11C\uB294 \uB108\uAC00 \uAC00\uC9C4
+      \uC544\uC774\uD15C\uB4E4\uC744<br>\uD655\uC778\uD560 \uC218 \uC788\uC9C0."
+    link_dialog: 304142
+  - id: 304142
+    npc_id: 300100
+    dialogue: "\uC778\uBCA4\uD1A0\uB9AC\uB294 \uC544\uC774\uD15C\uC744 \uB4E4\uACE0\uC11C
+      \uB4E4\uC5B4\uAC08 \uC218 \uC788\uACE0,<br>\uB098\uC62C\uB54C\uB3C4 \uB4E4\uACE0\uC11C
+      \uB098\uC62C \uC218 \uC788\uC5B4!"
+    link_dialog: 304143
+  - id: 304143
+    npc_id: 300100
+    dialogue: "\uB610\uD55C, \uC778\uBCA4\uD1A0\uB9AC \uC548\uC5D0\uC11C<br>2\uAC1C\uC5D0\uC11C
+      3\uAC1C\uC758 \uC544\uC774\uD15C\uC73C\uB85C<br>\uB610 \uB2E4\uB978 \uC544\uC774\uD15C\uC744
+      \uB9CC\uB4E4 \uC218 \uC788\uC9C0"
+    link_dialog: 304144
+  - id: 304144
+    npc_id: 300100
+    dialogue: "\uB098\uB294 \uB0B4 \uB9C8\uBC95\uC73C\uB85C \uB124 \uC778\uBCA4\uD1A0\uB9AC\uC5D0<br>\uB4E4\uC5B4\uAC00
+      \uC788\uC744\uAC8C!"
+    link_dialog: 304145
+  - id: 304145
+    npc_id: 300100
+    dialogue: "\uC544, \uAE30\uB984\uC744 \uC778\uBCA4\uD1A0\uB9AC\uC5D0 \uAF2D \uAC00\uC9C0\uACE0
+      \uC640\uC57C \uD574!<br>\uC778\uBCA4\uD1A0\uB9AC\uB294 Y \uBC84\uD2BC\uC73C\uB85C
+      \uB4E4\uC5B4\uAC08 \uC218 \uC788\uC5B4!"
+    link_dialog: 0
+  - id: 304146
+    npc_id: 300100
+    dialogue: "\uC557, \uAE30\uB984\uC744 \uAE5C\uBE61\uD588\uAD6C\uB098!"
+    link_dialog: 304147
+  - id: 304147
+    npc_id: 300100
+    dialogue: "\uB2E4\uC2DC \uB098\uAC00\uC11C \uB4E4\uACE0\uC640\uC57C\uACA0\uB294\uAC78\u2026<br>Y
+      \uBC84\uD2BC\uC744 \uB204\uB974\uBA74 \uB2E4\uC2DC \uB098\uAC08 \uC218 \uC788\uC5B4."
+    link_dialog: 304148
+  - id: 304148
+    npc_id: 300100
+    dialogue: "\uAE30\uB984\uC744 \uAF2D \uB4E4\uACE0\uC640\uC57C\uD574!"
+    link_dialog: 0
+  - id: 304149
+    npc_id: 300100
+    dialogue: "\uC624, \uC654\uAD6C\uB098!"
+    link_dialog: 304150
+  - id: 304150
+    npc_id: 300100
+    dialogue: "\uC5EC\uAE30\uAC00 \uBC14\uB85C \uB108\uB9CC\uC758 \uACF5\uAC04<br>\uC778\uBCA4\uD1A0\uB9AC\uC57C!"
+    link_dialog: 304151
+  - id: 304151
+    npc_id: 300100
+    dialogue: "\uC55E\uC5D0 \uB098\uBB34\uC0C1\uC790 \uBCF4\uC774\uC9C0?<br>\uC800
+      \uC0C1\uC790\uAC00 \uBC14\uB85C \uB108\uAC00 \uAC00\uC9C0\uACE0 \uC788\uB294<br>\uC544\uC774\uD15C\uC774
+      \uB4E4\uC5B4\uC788\uB294 \uACF3\uC774\uC57C."
+    link_dialog: 304152
+  - id: 304152
+    npc_id: 300100
+    dialogue: "\uADF8 \uC606\uC5D0\uB294 \uB098\uBB34\uB098 \uB3CC\uBA69\uC774<br>\uC989,
+      \uC790\uC6D0 \uC544\uC774\uD15C\uC774 \uB4E4\uC5B4\uC788\uB294<br>\uC8FC\uBA38\uB2C8\uB77C\uACE0
+      \uD560 \uC218 \uC788\uC9C0. "
+    link_dialog: 304153
+  - id: 304153
+    npc_id: 300100
+    dialogue: "\uC800 \uC606\uC5D0 \uC788\uB294 \uD14C\uC774\uBE14\uC740<br>\uC870\uD569
+      \uD14C\uC774\uBE14\uC774\uC57C."
+    link_dialog: 304154
+  - id: 304154
+    npc_id: 300100
+    dialogue: "\uC870\uD569 \uD14C\uC774\uBE14\uC5D0 \uC7AC\uB8CC\uAC00 \uB418\uB294
+      \uC544\uC774\uD15C\uC744<br>\uD14C\uC774\uBE14 \uC704\uC5D0 \uC62C\uB824\uB193\uACE0"
+    link_dialog: 304155
+  - id: 304155
+    npc_id: 300100
+    dialogue: "\uB9DD\uCE58\uB97C \uB204\uB974\uBA74 \uC870\uD569\uC774 \uC9C4\uD589\uB3FC."
+    link_dialog: 304156
+  - id: 304156
+    npc_id: 300100
+    dialogue: "\uC6B0\uC120, \uC6B0\uB9AC\uD55C\uD14C \uD544\uC694\uD55C \uC544\uC774\uD15C\uC740<br>\"\uD683\uBD88\"\uC774\uB2C8\uAE4C
+      \uBAA9\uC7AC\uC640 \uAE30\uB984\uC774<br>\uD544\uC694\uD558\uACA0\uB124."
+    link_dialog: 304157
+  - id: 304157
+    npc_id: 300100
+    dialogue: "\uC870\uD569 \uD14C\uC774\uBE14\uC5D0<br>\uBAA9\uC7AC\uC640 \uAE30\uB984\uC744
+      \uC62C\uB824\uB193\uACE0 \uB9DD\uCE58\uB97C \uB204\uB974\uBA74"
+    link_dialog: 304158
+  - id: 304158
+    npc_id: 300100
+    dialogue: "\"\uD683\uBD88\" \uC544\uC774\uD15C\uC774 \uB4F1\uC7A5\uD560 \uAC70\uC57C!"
+    link_dialog: 304159
+  - id: 304159
+    npc_id: 300100
+    dialogue: "\uD587\uBD88\uC744 \uB9CC\uB4E4\uACE0 \uB098\uBA74<br>\uB9D0\uC744
+      \uAC78\uC5B4\uC918!"
+    link_dialog: 0
+  - id: 304160
+    npc_id: 300100
+    dialogue: "\uC74C, \uC544\uC9C1 \uD683\uBD88\uC774 \uC5C6\uB294 \uAC83 \uAC19\uC740\uB370?"
+    link_dialog: 304157
+  - id: 304161
+    npc_id: 300100
+    dialogue: "\uD683\uBD88\uC744 \uB9CC\uB4E4\uC5C8\uB124!<br>\uC774\uC81C Y \uBC84\uD2BC\uC744
+      \uB20C\uB7EC \uC778\uBCA4\uD1A0\uB9AC \uBC16\uC73C\uB85C \uB098\uAC00\uC790.<br>\uBB38
+      \uC55E\uC5D0\uC11C \uB9CC\uB098."
+    link_dialog: 0
+  - id: 304162
+    npc_id: 300100
+    dialogue: "\uD683\uBD88\uC744 \uAC00\uC838\uC654\uAD6C\uB098!"
+    link_dialog: 304163
+  - id: 304163
+    npc_id: 300100
+    dialogue: "\uADF8 \uD683\uBD88\uC740 B \uBC84\uD2BC\uC73C\uB85C<br>\uBD88\uB7EC\uB0BC
+      \uC218 \uC788\uC5B4."
+    link_dialog: 304164
+  - id: 304164
+    npc_id: 300100
+    dialogue: "\uD683\uBD88\uC744 \uC7A1\uB294 \uC911\uC5D0 \uD2B8\uB9AC\uAC70 \uD0A4\uB97C
+      \uB204\uB974\uBA74<br>\uD683\uBD88\uC758 \uBD88\uC744 \uD0A4\uACE0 \uB04C \uC218
+      \uC788\uC9C0."
+    link_dialog: 304165
+  - id: 304165
+    npc_id: 300100
+    dialogue: "B \uBC84\uD2BC\uC744 \uB204\uB974\uAC70\uB098<br>\uC190\uC5D0\uC11C
+      \uB193\uC73C\uBA74 \uD683\uBD88\uC744 \uB2E4\uC2DC \uB123\uC744 \uC218 \uC788\uC5B4!"
+    link_dialog: 304166
+  - id: 304166
+    npc_id: 300100
+    dialogue: "\uBD88\uC774 \uCF1C\uC838 \uC788\uB294 \uD683\uBD88\uB85C<br>\uB450\uAC1C\uC758
+      \uD654\uB85C\uC5D0 \uBD88\uC740 \uBD99\uC778 \uB2E4\uC74C<br>\uB178\uD06C\uB97C
+      \uD558\uBA74 \uBB38\uC774 \uC5F4\uB9B4\uAC70\uC57C."
+    link_dialog: 304167
+  - id: 304167
+    npc_id: 300100
+    dialogue: "\uB178\uD06C\uB294 \uC815\uB839\uB9CC\uC774 \uAC00\uC9C0\uACE0 \uC788\uB294
+      \uB9C8\uBC95\uC73C\uB85C \uD574\uC57C\uD574!"
+    link_dialog: 304168
+  - id: 304168
+    npc_id: 300100
+    dialogue: "\uC190\uC5D0 \uC544\uBB34\uAC83\uB3C4 \uC5C6\uB294 \uC0C1\uD0DC\uC5D0\uC11C<br>\uD2B8\uB9AC\uAC70
+      \uD0A4\uB97C \uAFB9 \uB204\uB974\uACE0 \uB193\uC73C\uBA74<br>\uB9C8\uBC95\uC744
+      \uBC1C\uC0AC\uD560 \uC218 \uC788\uC5B4."
+    link_dialog: 0
+  - id: 304169
+    npc_id: 300100
+    dialogue: "B \uBC84\uD2BC\uC73C\uB85C \uD683\uBD88\uC744 \uBD88\uB7EC\uB0B8 \uD6C4
+      \uC7A1\uC544\uC11C \uD2B8\uB9AC\uAC70 \uD0A4\uB85C \uBD88\uC744 \uD0A4\uC790!"
+    link_dialog: 304170
+  - id: 304170
+    npc_id: 300100
+    dialogue: "\uD654\uB85C\uC5D0 \uBD88\uC744 \uBD99\uC600\uB2E4\uBA74<br>\uB9E8
+      \uC190 \uC0C1\uD0DC\uC5D0\uC11C \uD2B8\uB9AC\uAC70 \uD0A4\uB97C \uAFB9~ \uB204\uB978
+      \uD6C4<br>\uB193\uC544\uC11C \uB178\uD06C\uB97C \uD574\uBCFC\uAE4C?"
+    link_dialog: 0
+  - id: 304171
+    npc_id: 300100
+    dialogue: "\uB4DC\uB514\uC5B4 \uBB38\uC774 \uC5F4\uB838\uC5B4!<br>\uC548\uC73C\uB85C
+      \uB4E4\uC5B4\uAC00\uBCF4\uC790\uAD6C."
+    link_dialog: 0
+  - id: 304172
+    npc_id: 300100
+    dialogue: "\uC778\uAC04\uC774 \uB418\uACE0 \uC2F6\uB2E4\uB294 \uADF8 \uC815\uB839\uC774
+      \uBC14\uB85C \uB108\uB0D0?"
+    link_dialog: 304173
+  - id: 304173
+    npc_id: 300101
+    dialogue: "\uBC18\uAC11\uB2E4!<br>\uC2DC\uD5D8\uC7A5\uC5D0 \uC628 \uAC83\uC744
+      \uD658\uC601\uD558\uC9C0!"
+    link_dialog: 304174
+  - id: 304174
+    npc_id: 300101
+    dialogue: "\uBC14\uB85C \uC778\uAC04 \uC138\uACC4\uB85C \uBCF4\uB0B4\uC904 \uC218
+      \uB294 \uC5C6\uACE0\u2026 \uD760\u2026"
+    link_dialog: 304175
+  - id: 304175
+    npc_id: 300101
+    dialogue: "\uADF8\uB798! \uB098\uC5D0\uAC8C \uC0AC\uACFC\uC640 \uBC14\uB098\uB098\uB97C<br>\uAC00\uC838\uC640
+      \uC900\uB2E4\uBA74 \uC2DC\uD5D8\uC744 \uD1B5\uACFC\uC2DC\uCF1C \uC8FC\uC9C0!"
+    link_dialog: 304176
+  - id: 304176
+    npc_id: 300101
+    dialogue: "\uBC14\uAD6C\uB2C8\uC5D0 \uC798 \uB2F4\uC544\uC11C \uAC00\uC838\uC624\uB77C\uACE0!"
+    link_dialog: 304177
+  - id: 304177
+    npc_id: 300101
+    dialogue: "\uCC38\uACE0\uB85C \uB9D0\uD558\uC790\uBA74<br>\uC774 \uC2DC\uD5D8\uC7A5\uACFC
+      \uAC19\uC740 \"\uD37C\uC990\"\uB4E4\uC740"
+    link_dialog: 304178
+  - id: 304178
+    npc_id: 300101
+    dialogue: "\uD55C \uBC88 \uAE68\uAE30 \uC804 \uAE4C\uC9C0\uB294<br>\uC808\uB300\uB85C
+      \uBC16\uC73C\uB85C \uB098\uAC08 \uC218 \uC5C6\uC9C0."
+    link_dialog: 304179
+  - id: 304179
+    npc_id: 300101
+    dialogue: "\uADF8 \uB9D0\uC740 \uC989,<br>\uB098\uC5D0\uAC8C \uC0AC\uACFC\uC640
+      \uBC14\uB098\uB098\uB97C \uC8FC\uAE30 \uC804\uAE4C\uC9C0<br>\uB108\uB294 \uB098\uAC08
+      \uC218 \uC5C6\uB2E4\uB294 \uB9D0\uC774\uB2E4!"
+    link_dialog: 304180
+  - id: 304180
+    npc_id: 300101
+    dialogue: "\uC790, \uC5B4\uC11C \uC0AC\uACFC\uC640 \uBC14\uB098\uB098\uAC00 \uB2F4\uAE34<br>\uACFC\uC77C
+      \uBC14\uAD6C\uB2C8\uB97C \uAC00\uC838\uC640\uB77C!"
+    link_dialog: 0
+  - id: 304181
+    npc_id: 300101
+    dialogue: "\uC624! \uC0AC\uACFC\uC640 \uBC14\uB098\uB098\uB97C \uAC00\uC838\uC654\uAD70!<br>\uADF8\uB7FC
+      \uC57D\uC18D\uB300\uB85C \uCD9C\uAD6C\uBB38\uC744 \uC5F4\uC5B4\uC8FC\uB3C4\uB85D
+      \uD558\uC9C0!"
+    link_dialog: 304182
+  - id: 304182
+    npc_id: 300101
+    dialogue: "\uC2DC\uD5D8\uC740 \uD1B5\uACFC\uB2E4!<br>\uADF8\uB7FC \uC798 \uAC00\uB77C!"
+    link_dialog: 0
+  - id: 304183
+    npc_id: 300101
+    dialogue: "\uC2DC\uD5D8\uC7A5 \uD1B5\uACFC\uB97C \uCD95\uD558\uD574!<br>\uC557!
+      \uADF8\uAC74 \uBCC4\uC774\uC796\uC544!"
+    link_dialog: 304184
+  - id: 304184
+    npc_id: 300100
+    dialogue: "\uC6B0\uB9AC \uAC19\uC740 \uC815\uB839\uC774 \uC778\uAC04\uC774 \uB418\uAE30
+      \uC704\uD574\uC11C\uB294<br>\uC778\uAC04 \uC138\uACC4\uC5D0\uC11C \uBCC4\uC744
+      \uBAA8\uC544\uC57C \uD574."
+    link_dialog: 304185
+  - id: 304185
+    npc_id: 300100
+    dialogue: "\uBCC4\uC740 \uC0AC\uB78C\uB4E4\uC744 \uB3C4\uC640\uC8FC\uAC70\uB098,<br>\uACF3\uACF3\uC5D0
+      \uC228\uACA8\uC838 \uC788\uB294 \uD37C\uC990\uC744 \uD480\uBA74<br>\uC5BB\uC744
+      \uC218 \uC788\uC5B4!"
+    link_dialog: 304186
+  - id: 304186
+    npc_id: 300100
+    dialogue: "\uD2B9\uC815 \uAC1C\uC218\uC758 \uBCC4\uC744 \uBAA8\uC544\uC57C<br>\uC9C0\uB098\uAC08
+      \uC218 \uC788\uB294 \uC7A5\uC18C\uB3C4 \uC788\uC9C0."
+    link_dialog: 304187
+  - id: 304187
+    npc_id: 300100
+    dialogue: "\uADF8\uB807\uB2E4\uACE0 \uBCC4\uC774 \uC18C\uBAA8\uB418\uC9C0\uB294
+      \uC54A\uC73C\uB2C8\uAE4C<br>\uAC71\uC815\uD558\uC9C0\uB9C8!"
+    link_dialog: 304188
+  - id: 304188
+    npc_id: 300100
+    dialogue: "\uC7A5\uC18C\uC5D0 \uAD00\uB828\uB41C \uBCC4\uC758 \uC815\uBCF4\uB294<br>\uC9C0\uB3C4\uC5D0\uC11C
+      \uD655\uC778\uD560 \uC218 \uC788\uC744\uAC70\uC57C."
+    link_dialog: 304189
+  - id: 304189
+    npc_id: 300100
+    dialogue: "\uC55E\uC73C\uB85C\uB294 \uBAA8\uB974\uB294 \uC0AC\uB78C\uB4E4\uC744<br>\uC794\uB729
+      \uB9CC\uB098\uAC8C \uB420\uD150\uB370. \uAE30\uBD84\uC774 \uC5B4\uB54C?"
+    link_dialog: 302100
+  - id: 304190
+    npc_id: 300100
+    dialogue: "\uB9DE\uC544, \uC815\uB9D0 \uC124\uB808\uB294 \uC77C\uC774\uC9C0!"
+    link_dialog: 304192
+  - id: 304191
+    npc_id: 300100
+    dialogue: "\uB108\uBB34 \uAC71\uC815\uD558\uC9C0\uB9C8! \uBD84\uBA85 \uC798\uD560\uAC70\uB2C8\uAE4C."
+    link_dialog: 304192
+  - id: 304192
+    npc_id: 300100
+    dialogue: "\uC870\uC2EC\uD788 \uAC00. \uC548\uB155!"
+    link_dialog: 0
   - id: 304501
     npc_id: 300501
     dialogue: "\uAC11\uC790\uAE30 \uC190\uB2D8\uC774 \uC774\uB807\uAC8C \uBAB0\uB824\uC624\uB2E4\uB2C8!<br>\uC218\uD504\uB97C

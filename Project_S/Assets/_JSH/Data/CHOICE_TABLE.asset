@@ -15,6 +15,15 @@ MonoBehaviour:
   SheetName: Assets/_JSH/Data/QUEST_DATA.xlsx
   WorksheetName: CHOICE_TABLE
   dataArray:
+  - id: 302100
+    choice1: "\uB108\uBB34 \uC124\uB808!"
+    link_dlg1: 304191
+    value1: 2
+    value2: 1
+    choice2: "\uC870\uAE08 \uAC71\uC815\uB3FC."
+    link_dlg2: 304192
+    value3: 1
+    value4: 1
   - id: 302501
     choice1: "\uC9ED\uC9E4\uD55C \uC18C\uAE08"
     link_dlg1: 304506
