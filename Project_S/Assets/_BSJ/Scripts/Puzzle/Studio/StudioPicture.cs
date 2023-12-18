@@ -52,12 +52,22 @@ public class StudioPicture : MonoBehaviour
     {
         if(_control)
         {
+            rb.velocity = Vector3.zero;
+            rb.angularVelocity = Vector3.zero;
+            rb.useGravity = false;
             rb.constraints = RigidbodyConstraints.FreezeAll;
+            StartCoroutine(constraintsControl());
         }
 
         else
         {
-            rb.constraints = RigidbodyConstraints.None;
+            rb.useGravity = true;
         }
+    }
+
+    IEnumerator constraintsControl()
+    {
+        yield return new WaitForSecondsRealtime(0.5f);
+        rb.constraints = RigidbodyConstraints.None;
     }
 }

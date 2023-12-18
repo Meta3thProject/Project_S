@@ -19,7 +19,9 @@ public class StudioFrameTrigger : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if(other.GetComponent<StudioPicture>() != null && isInterative == false)
+        if (isInterative) { return; }
+
+        if(other.GetComponent<StudioPicture>() != null)
         {
             isInterative = true;
             picture = other.GetComponent<StudioPicture>();
