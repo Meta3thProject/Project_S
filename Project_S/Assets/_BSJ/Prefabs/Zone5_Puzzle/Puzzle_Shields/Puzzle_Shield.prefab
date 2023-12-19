@@ -16747,7 +16747,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2847894017532704335}
-  m_LocalRotation: {x: -0.00025366378, y: 0.70709515, z: -0.00019204084, w: 0.70711845}
+  m_LocalRotation: {x: -0.00025302882, y: 0.7070945, z: -0.0001913343, w: 0.70711905}
   m_LocalPosition: {x: 23.79, y: -3.59, z: -0.36}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 1
@@ -20185,6 +20185,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Shield06
       objectReference: {fileID: 0}
+    - target: {fileID: 506489343982739006, guid: a175d9f7d85f63f4cb46618aa3eb4a51,
+        type: 3}
+      propertyPath: outlineTargets.Array.data[0].IsVisible
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a175d9f7d85f63f4cb46618aa3eb4a51, type: 3}
 --- !u!4 &6965481189523054023 stripped
@@ -20525,6 +20530,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 2847894018575579586}
     m_Modifications:
+    - target: {fileID: -2118319918764897669, guid: 350ecad0d41081d429462460f87c5f0d,
+        type: 3}
+      propertyPath: outlineTargets.Array.data[0].IsVisible
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8922354357020798659, guid: 350ecad0d41081d429462460f87c5f0d,
         type: 3}
       propertyPath: m_Name
@@ -20659,6 +20669,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7375858068674676429, guid: 3737266d0ee34e843b9282f5f4e268f6,
+        type: 3}
+      propertyPath: outlineTargets.Array.data[0].IsVisible
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3737266d0ee34e843b9282f5f4e268f6, type: 3}

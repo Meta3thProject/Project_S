@@ -6942,6 +6942,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Book03
       objectReference: {fileID: 0}
+    - target: {fileID: 7324269108109699522, guid: af9e20ef696111b418a95d2e970dcb10,
+        type: 3}
+      propertyPath: outlineTargets.Array.data[0].IsVisible
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: af9e20ef696111b418a95d2e970dcb10, type: 3}
 --- !u!4 &5471012633071728130 stripped
@@ -8147,6 +8152,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1190301155107174100}
     m_Modifications:
+    - target: {fileID: -764784257356417245, guid: 127306e740802aa47b8e9241f2c3f5ba,
+        type: 3}
+      propertyPath: outlineTargets.Array.data[0].IsVisible
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6349778633970785416, guid: 127306e740802aa47b8e9241f2c3f5ba,
         type: 3}
       propertyPath: m_Name
@@ -9537,6 +9547,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Book01
       objectReference: {fileID: 0}
+    - target: {fileID: 7042004217828777977, guid: 51fd0f3f3a045a245a22ea64be9ed4ba,
+        type: 3}
+      propertyPath: outlineTargets.Array.data[0].IsVisible
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 51fd0f3f3a045a245a22ea64be9ed4ba, type: 3}
 --- !u!4 &6348438603763699048 stripped
@@ -10559,6 +10574,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Book02
+      objectReference: {fileID: 0}
+    - target: {fileID: 8742296926491445297, guid: c90c4f9704ddf5f4da4f65e1186bff4e,
+        type: 3}
+      propertyPath: outlineTargets.Array.data[0].IsVisible
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c90c4f9704ddf5f4da4f65e1186bff4e, type: 3}

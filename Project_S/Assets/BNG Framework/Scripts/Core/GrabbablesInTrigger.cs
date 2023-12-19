@@ -216,7 +216,7 @@ namespace BNG {
                     }
                     else
                     {
-                        // Debug.Log("Something in between but very close : " + hit.collider.gameObject.name);
+                        //Debug.Log("Something in between but very close : " + hit.collider.gameObject.name);
                     }
                 }
             }
@@ -366,7 +366,7 @@ namespace BNG {
                     //if (grabObject.TryGetComponent<Outlinable>(out outlinable))
                     //{             
                     //    outlinable.enabled = true;
-                    //}
+                    //}                    
                 }
             }
             catch (System.Exception e)
