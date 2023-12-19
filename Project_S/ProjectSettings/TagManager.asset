@@ -9,6 +9,9 @@ TagManager:
   - CombineObj
   - Axe
   - Wood
+  - Box
+  - Tree
+  - Rope
   layers:
   - Default
   - TransparentFX
