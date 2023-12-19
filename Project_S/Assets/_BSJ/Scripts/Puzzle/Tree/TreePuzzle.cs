@@ -15,7 +15,6 @@ public class TreePuzzle : InteractableObject, IShakable
     private GameObject treeStump;
 
     private TreePuzzleClear puzzleClear;
-    private ParticleSystem treeHitEffect;
 
     [SerializeField] private float treeRespawnTime;
     private WaitForSecondsRealtime _treeRespawnTime;
@@ -31,7 +30,6 @@ public class TreePuzzle : InteractableObject, IShakable
         puzzleClear = transform.parent.transform.GetComponent<TreePuzzleClear>();
         tree = transform.GetChild(0).gameObject;
         treeStump = transform.GetChild(1).gameObject;
-        treeHitEffect = transform.GetChild(2).GetComponent<ParticleSystem>();
 
         treeStump.SetActive(false);
 
@@ -43,15 +41,17 @@ public class TreePuzzle : InteractableObject, IShakable
     {
         if (isInteractionAble == false) { return; }
 
-        // 상호작용 실행
-        InteractObject();
-
-        // 다음 상호작용 타이머 코루틴 시작
-        if (this.gameObject.activeSelf)
+        if(other.CompareTag("Axe"))
         {
-            StartCoroutine(WaitNextInteraction());
-        }
+            // 상호작용 실행
+            InteractObject();
 
+            // 다음 상호작용 타이머 코루틴 시작
+            if (this.gameObject.activeSelf)
+            {
+                StartCoroutine(WaitNextInteraction());
+            }
+        }
     }
 
     /// <summary>
@@ -72,9 +72,6 @@ public class TreePuzzle : InteractableObject, IShakable
         if (currentHp > 0)
         {
             transform.DOShakeScale(0.5f, 0.1f).SetEase(Ease.OutElastic);
-
-            // 이펙트 실행
-            treeHitEffect.Play();
         }
 
         // hp가 0 이하가 되면 나무 밑동을 활성화.
