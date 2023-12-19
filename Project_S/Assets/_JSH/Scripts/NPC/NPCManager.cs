@@ -6,8 +6,8 @@ public class NPCManager : GSingleton<NPCManager>
 {
     // 플레이어
     public GameObject player;
-    // 모든 NPC들
-    public List<NPCBase> npcs;
+    // 현재 상호작용 중인 NPC
+    public NPCBase interacted;
 
     // NPC 데이터
     public NPC_TABLE npcTable;
@@ -16,11 +16,12 @@ public class NPCManager : GSingleton<NPCManager>
     // 선택지 데이터
     public CHOICE_TABLE choiceTable;
 
+    // 모든 NPC들
+    public List<NPCBase> npcs;
     // 대사 Dictionary
-    Dictionary<int, Dialogue> idToDialogue;
+    public Dictionary<int, Dialogue> idToDialogue;
     // 선택지 Dictionary
-    Dictionary<int, Choice> idToChoices;
-
+    public Dictionary<int, Choice> idToChoices;
 
     // 대화창 캔버스
     public Canvas windowCanvas;
@@ -85,6 +86,8 @@ public class NPCManager : GSingleton<NPCManager>
         main.SetActive(true);
 
         oneOfOne.text = idToDialogue[id_].dialogue;
+
+        SetIDAfterDialogue();
     }
 
     public void ActivateChoices(int id_)
@@ -100,5 +103,40 @@ public class NPCManager : GSingleton<NPCManager>
         SelectButton button2 = twoOfTwo.transform.parent.GetComponent<SelectButton>();
         button2.target = (MBTI)idToChoices[id_].value3;
         button2.amount = idToChoices[id_].value4;
+    }
+
+    // 대화 진행용 함수
+    public void SetIDAfterDialogue()
+    {
+        // 0이 아니면
+        if (idToDialogue[interacted.printID].linkDialogue != 0)
+        {
+            // 다음 출력문ID 설정
+            interacted.printID = idToDialogue[interacted.printID].linkDialogue;
+        }
+        // 0이면
+        else
+        {
+            // 다음 출력문 설정
+            interacted.printID = QuestManager.Instance.idToQuest[interacted.questID].IngID;
+
+            // 퀘스트 시작
+            QuestManager.Instance.AcceptQuest(interacted.questID);
+
+            // 대사창 내림
+            PopDown();
+        }
+    }
+
+    // 선택지1 선택 후 대화 진행 함수
+    public void SetIDAfterChoice1()
+    {
+        interacted.printID = idToChoices[interacted.printID].linkDlg1;
+    }
+
+    // 선택지2 선택 후 대화 진행 함수
+    public void SetIDAfterChoice2()
+    {
+        interacted.printID = idToChoices[interacted.printID].linkDlg2;
     }
 }

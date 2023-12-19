@@ -80,6 +80,8 @@ public class PlayerController : MonoBehaviour
 
         if (Input.GetMouseButtonDown(0))
         {
+            NPCManager.Instance.interacted = NPCManager.Instance.npcs[NPCManager.Instance.npcs.IndexOf(target.GetComponent<NPCBase>())];
+
             Vector3 dirToTarget = (target.position - transform.position).normalized;
             dirToTarget.y = 0;
 

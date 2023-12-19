@@ -17,26 +17,27 @@ public class Quest
     /// <summary>
     /// 퀘스트 제목
     /// </summary>
-    public string title;
+    private string title;
 
     /// <summary>
     /// 퀘스트를 주는 NPC
     /// </summary>
-    public int startNPC;
+    private int startNPC;
     /// <summary>
     /// 퀘스트 완료 NPC
     /// </summary>
-    public int endNPC;
+    private int endNPC;
 
     // { 완료를 위해 체크해야함
     /// <summary>
     /// 완료 체크를 위한 아이템ID 첫번째
     /// </summary>
-    public int value1;
+    private int value1;
     /// <summary>
-    /// 완료 체크를 위한 아이템ID 두번째
+    /// 숫자가 100을 못 넘으면 첫번째 아이템의 갯수
+    /// 넘으면 완료 체크를 위한 아이템ID 두번째
     /// </summary>
-    public int value2;
+    private int value2;
     // } 완료를 위해 체크해야함
 
     /// <summary>
@@ -46,25 +47,50 @@ public class Quest
     /// 3: 대화형
     /// 4: 퍼즐형
     /// </summary>
-    public QuestType type;
+    private QuestType type;
 
     /// <summary>
     /// 수락 X 완료 X 출력문 ID
     /// </summary>
-    public int beforeID;
+    private int beforeID;
     /// <summary>
     /// 수락 O 완료 X 출력문 ID
     /// </summary>
-    public int ingID;
+    private int ingID;
     /// <summary>
     /// 수락 O 완료 O 출력문 ID
     /// </summary>
-    public int completeID;
+    private int completeID;
 
     /// <summary>
     /// 퀘스트 완료 보상 아이템 ID
     /// </summary>
-    public int rewardID;
+    private int rewardID;
+
+    /// <summary>
+    /// 수락한 퀘스트인지 체크
+    /// </summary>
+    private bool isAccepted;
+    /// <summary>
+    /// 완료된 퀘스트인지 체크
+    /// </summary>
+    private bool isCompleted;
+
+    public int EndNPC { get { return endNPC; } }
+
+    public int Value1 { get { return value1; } }
+    public int Value2 { get { return value2; } }
+
+    public QuestType Type { get { return type; } }
+
+    public int BeforeID { get { return beforeID; } }
+    public int IngID { get { return ingID; } }
+    public int CompleteID { get { return completeID; } }
+
+    public int RewardID { get { return rewardID; } }
+
+    public bool IsAccepted { get { return isAccepted; } }
+    public bool IsCompleted { get { return isCompleted; } }
 
     public Quest(QUEST_TABLEData data_)
     {
@@ -83,5 +109,19 @@ public class Quest
         completeID = data_.COMPLETE_DIALOGUE;
 
         rewardID = data_.REWARD;
+
+        isAccepted = false;
+        isCompleted = false;
+    }
+
+    public void Accept()
+    {
+        isAccepted = true;
+    }
+
+    public void Complete()
+    {
+        isAccepted = false;
+        isCompleted = true;
     }
 }

@@ -15,6 +15,105 @@ MonoBehaviour:
   SheetName: Assets/_JSH/Data/QUEST_DATA.xlsx
   WorksheetName: QUEST_TABLE
   dataArray:
+  - id: 301100
+    quest_title: "\uC774\uB3D9\uBC95 \uC775\uD788\uAE30"
+    start_npc: 300100
+    end_npc: 300100
+    quest_type: 3
+    value1: 0
+    value2: 0
+    before_dialogue: 304100
+    doing_dialogue: 0
+    complete_dialogue: 304108
+    reward: 0
+  - id: 301101
+    quest_title: "\uC9C0\uB3C4 \uC0AC\uC6A9\uBC95 \uC775\uD788\uAE30"
+    start_npc: 300100
+    end_npc: 300100
+    quest_type: 3
+    value1: 0
+    value2: 0
+    before_dialogue: 0
+    doing_dialogue: 0
+    complete_dialogue: 304117
+    reward: 0
+  - id: 301102
+    quest_title: "\uB3C4\uB07C \uC0AC\uC6A9\uBC95 \uC775\uD788\uAE30"
+    start_npc: 300100
+    end_npc: 300100
+    quest_type: 4
+    value1: 0
+    value2: 0
+    before_dialogue: 0
+    doing_dialogue: 304125
+    complete_dialogue: 304126
+    reward: 0
+  - id: 301103
+    quest_title: "\uC544\uC774\uD15C \uC90D\uAE30 \uC775\uD788\uAE30"
+    start_npc: 300100
+    end_npc: 300100
+    quest_type: 1
+    value1: 100002
+    value2: 1
+    before_dialogue: 0
+    doing_dialogue: 304133
+    complete_dialogue: 304136
+    reward: 0
+  - id: 301104
+    quest_title: "\uC778\uBCA4\uD1A0\uB9AC \uC774\uB3D9\uD574\uBCF4\uAE30"
+    start_npc: 300100
+    end_npc: 300100
+    quest_type: 1
+    value1: 100004
+    value2: 1
+    before_dialogue: 0
+    doing_dialogue: 304146
+    complete_dialogue: 304150
+    reward: 0
+  - id: 301105
+    quest_title: "\uC870\uD569\uD574\uBCF4\uAE30"
+    start_npc: 300100
+    end_npc: 300100
+    quest_type: 1
+    value1: 100005
+    value2: 1
+    before_dialogue: 0
+    doing_dialogue: 304160
+    complete_dialogue: 304162
+    reward: 0
+  - id: 301106
+    quest_title: "\uC694\uC815\uC758 \uC9D1 \uBB38 \uC5F4\uAE30"
+    start_npc: 300100
+    end_npc: 300100
+    quest_type: 4
+    value1: 0
+    value2: 0
+    before_dialogue: 304163
+    doing_dialogue: 304170
+    complete_dialogue: 304172
+    reward: 0
+  - id: 301107
+    quest_title: "\uB9C8\uC9C0\uB9C9 \uD14C\uC2A4\uD2B8"
+    start_npc: 300101
+    end_npc: 300101
+    quest_type: 1
+    value1: 101003
+    value2: 1
+    before_dialogue: 304173
+    doing_dialogue: 304181
+    complete_dialogue: 304182
+    reward: 0
+  - id: 301108
+    quest_title: "\uB5A0\uB098\uAE30 \uC804\uC5D0"
+    start_npc: 300100
+    end_npc: 300100
+    quest_type: 3
+    value1: 0
+    value2: 0
+    before_dialogue: 304184
+    doing_dialogue: 0
+    complete_dialogue: 304193
+    reward: 0
   - id: 301501
     quest_title: "\uC218\uD504\uB97C \uC644\uC131\uD574\uB77C"
     start_npc: 300501
