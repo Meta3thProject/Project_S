@@ -8,12 +8,12 @@ public class Axe : GrabbableEvents
     public float axeActivateSpeed = 10f;
 
     public AudioSource CollisionAudio;
-    public bool Colliding = false;
-
+    
     private bool isBladeOn = false;
+
     private BoxCollider bladeCollider = default;
 
-    private GameObject obj = default;
+    private GameObject effect = default;
 
     // Start is called before the first frame update
     void Start()
@@ -61,23 +61,22 @@ public class Axe : GrabbableEvents
     {        
         if(other.transform.CompareTag("Damageable")) 
         {
-            input.VibrateController(0.2f, 0.5f, 0.1f, thisGrabber.HandSide);
-            Debug.LogFormat("Effect");
-            if(obj == null && obj == default)
+            input.VibrateController(0.2f, 0.8f, 0.1f, thisGrabber.HandSide);
+            if(effect == null && effect == default)
             {
-                obj = Instantiate(ResourceManager.effects["SwordBlock"], other.ClosestPointOnBounds(this.transform.position),Quaternion.identity);
+                effect = Instantiate(ResourceManager.effects["SwordBlock"], other.ClosestPointOnBounds(this.transform.position),Quaternion.identity);
             }
             else
             {
-                obj.transform.position = other.ClosestPointOnBounds(this.transform.position);
+                effect.transform.position = other.ClosestPointOnBounds(this.transform.position);
                 Vector3 hitNormal = this.transform.position - other.transform.position;
-                obj.transform.up = hitNormal.normalized;
+                effect.transform.up = hitNormal.normalized;
             }
-            if(obj.activeInHierarchy)
+            if(effect.activeInHierarchy)
             {
-                obj.SetActive(false);
+                effect.SetActive(false);
             }
-            obj.SetActive(true);
+            effect.SetActive(true);
         }
     }
 }
