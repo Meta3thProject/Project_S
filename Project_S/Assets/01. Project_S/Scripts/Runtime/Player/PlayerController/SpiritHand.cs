@@ -4,6 +4,9 @@ using UnityEngine;
 
 public class SpiritHand : MonoBehaviour
 {
+    // 타입을 나누기 위해 열어둠
+    public HandControl handControl = default;
+
     private InputBridge input = default;
     private Grabber grabber = default;
     private GameObject projectilePointer = default;
@@ -12,8 +15,6 @@ public class SpiritHand : MonoBehaviour
     private LineRenderer lineRenderer = default;
     private Vector3 defaultPosition = new Vector3(0f,0f,10f);
 
-    // 타입을 나누기 위해 열어둠
-    public HandControl handControl = default;
     
     
     private float chargeTime = default;
@@ -21,6 +22,7 @@ public class SpiritHand : MonoBehaviour
 
     private bool isHandEnabled = false;
     private bool isCharged = false;
+    private bool isShooting = false;
     
     // Start is called before the first frame update
  
@@ -40,24 +42,10 @@ public class SpiritHand : MonoBehaviour
 
         spiritProjectile = Instantiate(ResourceManager.objects["Projectile"], projectilePointer.transform);
         projectilePointer.SetActive(isHandEnabled);
+
+        isShooting = false;
     }
 
-
-    // Update is called once per frame
-    //void Update()
-    //{
-    //    if (grabber.HeldGrabbable != null )
-    //    {
-    //        return;
-    //    } // if : 빈 손이 아니라면 return 
-
-    //    isHandEnabled = CheckTriggerDown();
-
-    //    ActiveSpiritHand();
-              
-    //}
-
-    // Test : 가장 늦은 업데이트 실행으로 잡고 있는 오브젝트가 없을 떄만 실행할 수 있도록 테스트 
     void LateUpdate()
     {
         if (grabber.HeldGrabbable != null)
@@ -67,11 +55,15 @@ public class SpiritHand : MonoBehaviour
 
         isHandEnabled = CheckTriggerDown();
 
-        ActiveSpiritHand();
+        if(!isShooting)
+        {
+            ActiveSpiritHand();
+        }
 
     }
     private void ActiveSpiritHand()
     {
+        
         if (isHandEnabled)
         {
 
@@ -119,7 +111,7 @@ public class SpiritHand : MonoBehaviour
         projectilePointer.SetActive(isHandEnabled);
 
     }       // ActivePointer()
-    // TEST : 임시 
+
     private void ChargeTimer()
     {
         chargeTime += Time.deltaTime;
@@ -136,6 +128,7 @@ public class SpiritHand : MonoBehaviour
         {
             spiritProjectile.transform.SetParent(null);
             spiritProjectile.GetComponent<Rigidbody>().AddForce(projectilePointer.transform.forward * 5f, ForceMode.Impulse);
+            isShooting = true;
             isCharged = false;
             StartCoroutine(WaitForShoot());
         }
@@ -150,6 +143,7 @@ public class SpiritHand : MonoBehaviour
             yield return null;
         }
         SetProjectile();
+        isShooting = false;
     }       // WaitForShoot()
 
     private void SetProjectile()
