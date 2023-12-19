@@ -1,23 +1,19 @@
 using BNG;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class Axe : GrabbableEvents
 {
     Grabbable grabbable;
-
-
-    private bool isBladeOn = false;
-    private BoxCollider bladeCollider = default;
-    private GameObject bladeFX = default;
-    
-
-    public float LaserLength = 1f;
+        
     public float axeActivateSpeed = 10f;
 
     public AudioSource CollisionAudio;
-    public bool Colliding = false;
+    
+    private bool isBladeOn = false;
+
+    private BoxCollider bladeCollider = default;
+
+    private GameObject effect = default;
 
     // Start is called before the first frame update
     void Start()
@@ -28,9 +24,9 @@ public class Axe : GrabbableEvents
     void Init()
     {
         grabbable = GetComponent<Grabbable>();
-        bladeFX = this.gameObject.GetChildObj("BladeFX");
         bladeCollider = this.GetComponent<BoxCollider>();
-
+        
+        
     }
     void Update()
     {
@@ -52,7 +48,7 @@ public class Axe : GrabbableEvents
 
     private void ActiveBlade()
     {
-        bladeFX.SetActive(isBladeOn);
+
     }
     public override void OnTriggerDown()
     {
@@ -61,19 +57,28 @@ public class Axe : GrabbableEvents
         base.OnTriggerDown();
     }
 
-    //void checkCollision()
-    //{
-
-    //    Colliding = false;
-
-    //    if (axeEnabled == false && !axeSwitchOn)
-    //    {
-
-    //        //CollisionParticle.Pause();
-    //        return;
-    //    }
-
-    //}
+    private void OnTriggerEnter(Collider other)
+    {        
+        if(other.transform.CompareTag("Damageable")) 
+        {
+            input.VibrateController(0.2f, 0.8f, 0.1f, thisGrabber.HandSide);
+            if(effect == null && effect == default)
+            {
+                effect = Instantiate(ResourceManager.effects["SwordBlock"], other.ClosestPointOnBounds(this.transform.position),Quaternion.identity);
+            }
+            else
+            {
+                effect.transform.position = other.ClosestPointOnBounds(this.transform.position);
+                Vector3 hitNormal = this.transform.position - other.transform.position;
+                effect.transform.up = hitNormal.normalized;
+            }
+            if(effect.activeInHierarchy)
+            {
+                effect.SetActive(false);
+            }
+            effect.SetActive(true);
+        }
+    }
 }
 
 
