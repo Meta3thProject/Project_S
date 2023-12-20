@@ -12,6 +12,7 @@ TagManager:
   - Box
   - Tree
   - Rope
+  - SpiritHand
   layers:
   - Default
   - TransparentFX
@@ -27,7 +28,7 @@ TagManager:
   - 
   - Can'tSee
   - 
-  - 
+  - IceCube
   - 
   - 
   - 
