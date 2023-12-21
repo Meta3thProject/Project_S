@@ -114,6 +114,17 @@ MonoBehaviour:
     doing_dialogue: 0
     complete_dialogue: 304193
     reward: 0
+  - id: 301207
+    quest_title: "\uAF43\uC73C\uB85C \uB9CC\uB4E0 \uC637"
+    start_npc: 300207
+    end_npc: 300207
+    quest_type: 4
+    value1: 0
+    value2: 0
+    before_dialogue: 304247
+    doing_dialogue: 304250
+    complete_dialogue: 304251
+    reward: 0
   - id: 301501
     quest_title: "\uC218\uD504\uB97C \uC644\uC131\uD574\uB77C"
     start_npc: 300501
