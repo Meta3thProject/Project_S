@@ -13,6 +13,8 @@ TagManager:
   - Tree
   - Rope
   - SpiritHand
+  - Damageable
+  - Torch
   layers:
   - Default
   - TransparentFX
