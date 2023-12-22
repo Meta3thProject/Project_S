@@ -9,5 +9,6 @@ public static class RDefine
     public const string PATH_EFFECTS = "Effects";
     public const string PATH_ITEMS = "Items";
     public const string PATH_OBJECTS = "Objects";
+    public const string PATH_SPRITES = "Sprites";
     #endregion
 }
