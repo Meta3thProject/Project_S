@@ -15,38 +15,36 @@ public class SpiritHand : MonoBehaviour
     private LineRenderer lineRenderer = default;
     private Vector3 defaultPosition = new Vector3(0f,0f,10f);
 
-    
+    private RaycastHit npcHit = default;
     
     private float chargeTime = default;
     private float maxChargeTime = 1f;
 
+    
     private bool isHandEnabled = false;
     private bool isCharged = false;
     private bool isShooting = false;
-    
+
     // Start is called before the first frame update
  
     void Start()
     {
         Init();
-
     }
     void Init()
     {
         input = InputBridge.Instance;
 
-        grabber = GetComponentInChildren<Grabber>();
-        
+        grabber = GetComponentInChildren<Grabber>();        
         projectilePointer = this.gameObject.GetChildObj("ProjectilePointer");
         lineRenderer = projectilePointer.GetComponent<LineRenderer>();
 
         spiritProjectile = Instantiate(ResourceManager.objects["Projectile"], projectilePointer.transform);
         projectilePointer.SetActive(isHandEnabled);
 
-        isShooting = false;
     }
 
-    void LateUpdate()
+    void Update()
     {
         if (grabber.HeldGrabbable != null)
         {            
@@ -54,8 +52,9 @@ public class SpiritHand : MonoBehaviour
         } // if : 빈 손이 아니라면 return 
 
         isHandEnabled = CheckTriggerDown();
+        
 
-        if(!isShooting)
+        if (!isShooting)
         {
             ActiveSpiritHand();
         }
@@ -66,16 +65,12 @@ public class SpiritHand : MonoBehaviour
         
         if (isHandEnabled)
         {
-
             grabber.ForceRelease = true;
             grabber.HideHandGraphics();
             
             ActivePointer();            
             ChargeTimer();
             
-
-            // TODO : 정령의 손 충전 중 그랩 가능 한것 방지할 것 
-
         }
         else if (!isHandEnabled)
         {
@@ -87,7 +82,6 @@ public class SpiritHand : MonoBehaviour
             ShootProjectile();
         }
     }       // ActiveSpiritHand()
-
 
     private Vector3 GetRayDistance()
     {                
@@ -119,8 +113,6 @@ public class SpiritHand : MonoBehaviour
         {
             isCharged = true;
         }
-
-
     }       // ChargeTimer()
     private void ShootProjectile()
     {
@@ -172,8 +164,8 @@ public class SpiritHand : MonoBehaviour
 
     private HandControl GetHandController(HandControl handControl_)
     {
-        HandControl Trigger = handControl_;
+        HandControl trigger = handControl_;
   
-        return Trigger;
+        return trigger;
     }       // GetHandController()
 }

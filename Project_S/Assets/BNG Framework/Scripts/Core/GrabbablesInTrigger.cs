@@ -72,8 +72,6 @@ namespace BNG {
         // TEST : 
         // HSJ_
         private Outlinable outlinable;
-        private ControllerHand controllerHand;
-        private Grabber grabber;
 
         void Start()
         {
@@ -86,12 +84,7 @@ namespace BNG {
                 _eyeTransform = Camera.main.transform;
             }
 
-            // TEST:
-            // HSJ_ 231213
-            if (this.TryGetComponent<Grabber>(out grabber))
-            {
-                controllerHand = grabber.HandSide;
-            }
+          
 
         }
 
@@ -363,10 +356,7 @@ namespace BNG {
                 {
 
                     ValidRemoteGrabbables.Add(col, grabObject);
-                    //if (grabObject.TryGetComponent<Outlinable>(out outlinable))
-                    //{             
-                    //    outlinable.enabled = true;
-                    //}
+
                 }
             }
             catch (System.Exception e)
@@ -386,7 +376,6 @@ namespace BNG {
 
         }
 
-        // TEST : To active Outline
         // HSJ_  231213
         private void ActiveOutline(Grabbable grabObject, bool isOn)
         {
@@ -394,7 +383,7 @@ namespace BNG {
             {
                 outlinable.enabled = isOn;
             }
-        }
+        }       // ActiveOutline()
 
         void OnTriggerEnter(Collider other)
         {

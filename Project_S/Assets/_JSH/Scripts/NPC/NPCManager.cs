@@ -69,7 +69,7 @@ public class NPCManager : GSingleton<NPCManager>
 
     public void PopUp(Vector3 dir_)
     {
-        windowCanvas.GetComponent<RectTransform>().position = (dir_ * 2) + player.transform.position;
+        windowCanvas.GetComponent<RectTransform>().position = (dir_ * 4) + player.transform.position;
         windowCanvas.GetComponent<RectTransform>().forward = dir_;
     }
 
