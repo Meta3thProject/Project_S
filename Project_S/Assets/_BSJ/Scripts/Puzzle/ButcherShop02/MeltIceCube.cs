@@ -138,36 +138,7 @@ public class MeltIceCube : MonoBehaviour
         // 작은 사이즈에서 사이즈 변경 시 초기화
         if (nowSize >= 3)
         {
-            // 토치 터치 끄기
-            isTorchTouch = false;
-
-            // 최종적으로 녹았는지 체크
-            isFinalMelt = true;
-
-            // 현재 녹는 시간 초기화
-            meltingTime = 0f;
-
-            // 메쉬 렌더러 끄기
-            foreach (MeshRenderer mr in meshes)
-            {
-                mr.enabled = false;
-            }
-
-            // 사이즈 초기화
-            transform.localScale = bigScale;
-            InIceItem.localScale = Vector3.one;
-            nowSize = 0;
-
-            // 녹는 이펙트 플레이
-            finalMeltParticle.transform.rotation = Quaternion.Euler(-90f, 0f, 0f);
-            finalMeltParticle.transform.position = this.transform.position;
-            finalMeltParticle.Play();
-
-            // 상호작용 멈춤
-            rb.isKinematic = true;
-
-            // 코루틴 활성화
-            StartCoroutine(ActiveMeshRenderer());
+            ResetMeltCube();
         }
 
         // 사이즈 변경
@@ -193,30 +164,6 @@ public class MeltIceCube : MonoBehaviour
         }
     }
 
-    /// <summary>
-    /// 재생성 트리거에 닿았을 때 실행할 메서드.
-    /// </summary>
-    /// <param name="_Position">트리거의 포지션</param>
-    public void EnterIceTrigger(Vector3 _Position)
-    {
-        rb.useGravity = false;
-        rb.velocity = Vector3.zero;
-        rb.angularVelocity = Vector3.zero;
-        rb.constraints = RigidbodyConstraints.FreezeAll;
-        rb.rotation = Quaternion.identity;
-        rb.position = _Position;
-
-        StartCoroutine(RemoveConstraints());
-    }
-
-    // Constraints 제거하는 코루틴
-    IEnumerator RemoveConstraints()
-    {
-        yield return new WaitForSecondsRealtime(0.5f);
-
-        rb.constraints = RigidbodyConstraints.None;
-    }
-
     // MeshRenderer를 잠시 뒤에 켜주는 코루틴
     IEnumerator ActiveMeshRenderer()
     {
@@ -238,4 +185,75 @@ public class MeltIceCube : MonoBehaviour
         // 녹았음 체크 false로 변경
         isFinalMelt = false;
     }
+
+    /// <summary>
+    /// 틀린 값으로 바구니에 들어갈 때 튀어나오는 메서드.
+    /// </summary>
+    public void SpitOutToPot(Transform _targetTransform, float _speed)
+    {
+        Vector3 Direction = _targetTransform.position - transform.position;
+        rb.AddForce(Direction * _speed, ForceMode.Impulse);
+    }
+
+    /// <summary>
+    /// 녹는 얼음을 초기화하는 메서드.
+    /// </summary>
+    public void ResetMeltCube()
+    {
+        // 토치 터치 끄기
+        isTorchTouch = false;
+
+        // 최종적으로 녹았는지 체크
+        isFinalMelt = true;
+
+        // 현재 녹는 시간 초기화
+        meltingTime = 0f;
+
+        // 메쉬 렌더러 끄기
+        foreach (MeshRenderer mr in meshes)
+        {
+            mr.enabled = false;
+        }
+
+        // 사이즈 초기화
+        transform.localScale = bigScale;
+        InIceItem.localScale = Vector3.one;
+        nowSize = 0;
+
+        // 녹는 이펙트 플레이
+        finalMeltParticle.transform.rotation = Quaternion.Euler(-90f, 0f, 0f);
+        finalMeltParticle.transform.position = this.transform.position;
+        finalMeltParticle.Play();
+
+        // 상호작용 멈춤
+        rb.isKinematic = true;
+
+        // 코루틴 활성화
+        StartCoroutine(ActiveMeshRenderer());
+    }
+
+    // LEGACY:
+    ///// <summary>
+    ///// 재생성 트리거에 닿았을 때 실행할 메서드.
+    ///// </summary>
+    ///// <param name="_Position">트리거의 포지션</param>
+    //public void EnterIceTrigger(Vector3 _Position)
+    //{
+    //    rb.useGravity = false;
+    //    rb.velocity = Vector3.zero;
+    //    rb.angularVelocity = Vector3.zero;
+    //    rb.constraints = RigidbodyConstraints.FreezeAll;
+    //    rb.rotation = Quaternion.identity;
+    //    rb.position = _Position;
+
+    //    StartCoroutine(RemoveConstraints());
+    //}
+
+    //// Constraints 제거하는 코루틴
+    //IEnumerator RemoveConstraints()
+    //{
+    //    yield return new WaitForSecondsRealtime(0.5f);
+
+    //    rb.constraints = RigidbodyConstraints.None;
+    //}
 }
