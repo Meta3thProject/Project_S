@@ -30,7 +30,7 @@ public class StarManager : MonoBehaviour
     }
 
     /// <summary>
-    /// º°À» »ı¼ºÇÏ´Â µÎÆ®À© ½ÃÄö½º.
+    /// ë³„ì„ ìƒì„±í•˜ëŠ” ë‘íŠ¸ìœˆ ì‹œí€€ìŠ¤.
     /// </summary>
     private void CallStarSequence()
     {
@@ -43,7 +43,7 @@ public class StarManager : MonoBehaviour
     }
 
     /// <summary>
-    /// º°À» µ¹¸®´Â µÎÆ®À© ½ÃÄö½º
+    /// ë³„ì„ ëŒë¦¬ëŠ” ë‘íŠ¸ìœˆ ì‹œí€€ìŠ¤
     /// </summary>
     private void SpiralStarSequence()
     {
@@ -58,7 +58,7 @@ public class StarManager : MonoBehaviour
     }
 
     /// <summary>
-    /// º°À» »ı¼ºÇÏ´Â ÄÚ·çÆ¾.
+    /// ë³„ì„ ìƒì„±í•˜ëŠ” ì½”ë£¨í‹´.
     /// </summary>
     /// <returns></returns>
     public IEnumerator CallStar()

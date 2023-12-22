@@ -64,7 +64,7 @@ namespace BNG {
         }
 
         private void ObjectHit(Collider colliderHit) {
-            //  We will let this grabber know we have remote objects available            
+            //  We will let this grabber know we have remote objects available
             if (ParentGrabber == null) {
                 return;
             }
@@ -83,6 +83,7 @@ namespace BNG {
 
             // Check for Grabbable Child Object Last
              if (_lastColliderHit.gameObject.TryGetComponent(out GrabbableChild gc)) {
+                Debug.LogFormat("{0} ??", _lastColliderHit.gameObject.name);
                 ParentGrabber.AddValidRemoteGrabbable(_lastColliderHit, gc.ParentGrabbable);
                 return;
             }

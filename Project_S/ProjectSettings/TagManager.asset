@@ -12,6 +12,9 @@ TagManager:
   - Box
   - Tree
   - Rope
+  - SpiritHand
+  - Damageable
+  - Torch
   layers:
   - Default
   - TransparentFX
@@ -27,7 +30,7 @@ TagManager:
   - 
   - Can'tSee
   - 
-  - 
+  - IceCube
   - 
   - 
   - 

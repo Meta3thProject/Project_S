@@ -337,6 +337,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 6596363506926141543}
     m_Modifications:
+    - target: {fileID: -7866360631232966493, guid: b90611dc22f785540bff192a62bb76ef,
+        type: 3}
+      propertyPath: outlineTargets.Array.data[0].IsVisible
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 644280597171570817, guid: b90611dc22f785540bff192a62bb76ef,
         type: 3}
       propertyPath: Grabtype
@@ -467,6 +472,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 6596363506926141543}
     m_Modifications:
+    - target: {fileID: -5578702524350102316, guid: 181ee1a60685e8644a928b89ce97ef67,
+        type: 3}
+      propertyPath: outlineTargets.Array.data[0].IsVisible
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3422797421901104706, guid: 181ee1a60685e8644a928b89ce97ef67,
         type: 3}
       propertyPath: m_LightProbeUsage
@@ -966,6 +976,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 6596363506926141543}
     m_Modifications:
+    - target: {fileID: 1508890554746997177, guid: fe6272ee66dce094c9b420368d7dcb53,
+        type: 3}
+      propertyPath: outlineTargets.Array.data[0].IsVisible
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2786877849771685436, guid: fe6272ee66dce094c9b420368d7dcb53,
         type: 3}
       propertyPath: m_Name
