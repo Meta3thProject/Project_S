@@ -90,6 +90,17 @@ public class NPCManager : GSingleton<NPCManager>
         SetIDAfterDialogue();
     }
 
+    /// <summary>
+    /// 데이터 테이블이 없는 NPC를 위한 임시 함수
+    /// </summary>
+    /// <param name="text_"></param>
+    public void ActivateMain(string text_)
+    {
+        main.SetActive(true);
+
+        oneOfOne.text = text_;
+    }
+
     public void ActivateChoices(int id_)
     {
         twoChoices.SetActive(true);

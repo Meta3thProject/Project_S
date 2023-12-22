@@ -486,6 +486,35 @@ MonoBehaviour:
     npc_id: 300100
     dialogue: "\uC870\uC2EC\uD788 \uAC00. \uC548\uB155!"
     link_dialog: 0
+  - id: 304247
+    npc_id: 300207
+    dialogue: "\uC804\uC2DC\uD68C\uC5D0 \uCD9C\uD488\uD560<br>\uC637\uC774 \uD544\uC694\uD574!<br>\uC8FC\uC81C\uB294
+      \uAF43\uC774\uC57C."
+    link_dialog: 304248
+  - id: 304248
+    npc_id: 300207
+    dialogue: "3\uAC1C\uC911\uC5D0 2\uAC1C\uB294 \uC774\uBBF8 \uB9CC\uB4E4\uC5C8\uB294\uB370<br>\uD558\uB098\uB97C
+      \uC544\uC9C1 \uBABB\uB9CC\uB4E4\uC5C8\uB124."
+    link_dialog: 304249
+  - id: 304249
+    npc_id: 300207
+    dialogue: "\uC5EC\uAE30 \uC637\uAC10\uC744 \uC904\uD14C\uB2C8\uAE4C<br>\uB098\uB97C
+      \uB3C4\uC640\uC8FC\uC9C0 \uC54A\uC744\uB798?"
+    link_dialog: 0
+  - id: 304250
+    npc_id: 300207
+    dialogue: "\uC5B4\uB5A4 \uC0C9\uC758 \uC637\uAC10\uC774 \uC88B\uC744\uAE4C\u2026"
+    link_dialog: 0
+  - id: 304251
+    npc_id: 300207
+    dialogue: "\uC815\uB9D0 \uBA4B\uC9C4 \uC0C9\uC778\uAC78!<br>\uC774\uB300\uB85C
+      \uC804\uC2DC\uD68C\uC5D0 <br>\uCD9C\uD488\uD558\uBA74 \uB418\uACA0\uB2E4."
+    link_dialog: 304252
+  - id: 304252
+    npc_id: 300207
+    dialogue: "\uBA4B\uC9C4 \uC0C9\uC758 \uC637\uAC10\uC744<br>\uB9CC\uB4E4\uC5B4\uC918\uC11C
+      \uACE0\uB9C8\uC6CC!"
+    link_dialog: 0
   - id: 304501
     npc_id: 300501
     dialogue: "\uAC11\uC790\uAE30 \uC190\uB2D8\uC774 \uC774\uB807\uAC8C \uBAB0\uB824\uC624\uB2E4\uB2C8!<br>\uC218\uD504\uB97C
