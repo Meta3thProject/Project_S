@@ -1,93 +1,124 @@
-using System.Collections;
-using System.Collections.Generic;
-using Unity.VisualScripting;
+using BNG;
+using EPOOutline;
 using UnityEngine;
 
+
+// 손 자체에 있는게 좋아보이는데... 
 public class PlayerController : MonoBehaviour
 {
-    // TEST: 이동과 상호작용만 구현
-    private Rigidbody rb;
 
+    private InputBridge input = default;
+
+    private Transform leftHand = default;
+    private Transform rightHand = default;
+    
+    private RaycastHit leftHit = default;
+    private RaycastHit rightHit = default;
+
+    private Collider prevRayHitLeft = default;
+    private Collider prevRayHitRight = default;
+
+    private Collider curRayHitLeft = default;
+    private Collider curRayHitRight = default;
+
+    private SpiritHand leftSpiritHand = default;
+    private SpiritHand rightSpiritHand = default;
+
+    private readonly float rayDistance = 5f;
     private void Awake()
-    {
-        rb = GetComponent<Rigidbody>();
+    {        
+        Init();
     }
 
     private void Update()
     {
-        DetectNPC();
+        InteractNpc();
     }
 
-    private void FixedUpdate()
+    private void Init()
     {
-        // MoveSelf();
-    }
+        input = InputBridge.Instance;
+        leftHand = gameObject.GetChildObj("LeftController").transform;
+        rightHand = gameObject.GetChildObj("RightController").transform;
+        leftSpiritHand = leftHand.GetComponent<SpiritHand>();   
+        rightSpiritHand = rightHand.GetComponent<SpiritHand>();
 
-    public void MoveSelf()
-    {
-        float horizontalInput = Input.GetAxis("Horizontal"); // 수평 입력
-        float verticalInput = Input.GetAxis("Vertical"); // 수직 입력
+        leftHit = new RaycastHit();
+        rightHit = new RaycastHit();
+    }       // Init()
 
-        Vector3 movement = transform.forward * verticalInput + transform.right * horizontalInput; // 이동 방향 벡터 생성
+    // TODO : Refactoring needed
+    private void InteractNpc()
+    {                
 
-        rb.AddForce(movement * 5.0f); // Rigidbody에 힘을 가해서 이동시키기
-    }
-
-    [HideInInspector]
-    public float viewAngle = 90f; // 시야각 설정
-    [HideInInspector]
-    public float viewRadius = 2f; // 시야 반경 설정
-
-    public void DetectNPC()
-    {
-        Collider[] targetsInViewRadius = Physics.OverlapSphere(transform.position, viewRadius, 1 << LayerMask.NameToLayer("Water"));
-
-        if (targetsInViewRadius.Length <= 0)
+        if (Physics.Raycast(leftHand.transform.position, leftHand.transform.forward, out leftHit, rayDistance, LayerMask.GetMask("NPC")))
         {
-            NPCManager.Instance.PopDown();
-            return;
-        }
-
-        Transform target = default;
-
-        for (int i = 0; i < targetsInViewRadius.Length; i++)
-        {
-            Transform targetTemp = targetsInViewRadius[i].transform;
-
-            target = targetTemp;
-
-            Vector3 dirToTemp = (targetTemp.position - transform.position).normalized;
-
-            if (Vector3.Angle(transform.forward, dirToTemp) < viewAngle / 2)
+            GetHitNpc(leftHit.collider, ref prevRayHitLeft, ref curRayHitLeft);
+            leftSpiritHand.enabled = false;
+            if (input.LeftTriggerDown)
             {
+                GetNpcDialog(curRayHitLeft);
 
-                if (target == default)
-                {
-                    target = targetTemp;
-                }
-                else
-                {
-                    float dstToTemp = Vector3.Distance(transform.position, targetTemp.position);
-                    float dstToTarget = Vector3.Distance(transform.position, target.position);
-
-                    if (dstToTarget > dstToTemp)
-                    {
-                        target = targetTemp;
-                    }
-                }
+            }
+        }       // if : 좌측 컨트롤러 Ray처리
+        else
+        {
+            if(prevRayHitLeft != null)
+            {
+                leftSpiritHand.enabled = true;
+                ActiveOutLine(prevRayHitLeft, false);
             }
         }
 
-        if (Input.GetMouseButtonDown(0))
+        if (Physics.Raycast(rightHand.transform.position, rightHand.transform.forward, out rightHit, rayDistance, LayerMask.GetMask("NPC")))
         {
-            NPCManager.Instance.interacted = NPCManager.Instance.npcs[NPCManager.Instance.npcs.IndexOf(target.GetComponent<NPCBase>())];
+            GetHitNpc(rightHit.collider,ref prevRayHitRight, ref curRayHitRight);
+            rightSpiritHand.enabled = false;
+            if (input.RightTriggerDown)
+            {
+                GetNpcDialog(curRayHitRight);
+            }
+        }       // if : 우측 컨트롤러 Ray처리
+        else
+        {
+            if (prevRayHitRight != null)
+            {
+                rightSpiritHand.enabled = true;
+                ActiveOutLine(prevRayHitRight, false);
+            }
+        }       
+    }       // CheckNpc()       
 
-            Vector3 dirToTarget = (target.position - transform.position).normalized;
-            dirToTarget.y = 0;
+    private void GetNpcDialog(Collider curHitCollider_)
+    {
+        NPCManager.Instance.interacted = NPCManager.Instance.npcs[NPCManager.Instance.npcs.IndexOf(curHitCollider_.GetComponent<NPCBase>())];
 
-            NPCManager.Instance.PopUp(dirToTarget);
-            target.GetComponent<INPCBehaviour>().PopUpDialog();
+        Vector3 dirToTarget = (curRayHitRight.transform.position - transform.position).normalized;
+        dirToTarget.y = 0;
+
+        NPCManager.Instance.PopUp(dirToTarget);
+        curHitCollider_.GetComponent<INPCBehaviour>().PopUpDialog();
+    }       // GetNpcDialog()
+        
+    private void GetHitNpc(Collider hitCollider_,ref Collider prevRayhit_, ref Collider curRayhit_)
+    {
+         curRayhit_ = hitCollider_;
+        ActiveOutLine(curRayhit_, true);
+
+        if(curRayhit_ != prevRayhit_ && prevRayhit_ != null)
+        {
+            ActiveOutLine(prevRayhit_, false);
         }
-        else { return; }
-    }
+        prevRayhit_ = hitCollider_;
+
+    }       // GetHitNpc()
+
+    private void ActiveOutLine(Collider hitCollider_, bool isOn)
+    {
+        if(hitCollider_.TryGetComponent<Outlinable>(out Outlinable outlinable))
+        {
+            outlinable.enabled = isOn;
+        }
+    }       // ActiveOutLine()
+
 }

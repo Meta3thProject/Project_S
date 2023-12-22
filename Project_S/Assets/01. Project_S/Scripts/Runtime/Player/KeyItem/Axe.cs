@@ -59,25 +59,25 @@ public class Axe : GrabbableEvents
 
     private void OnTriggerEnter(Collider other)
     {        
-        if(other.transform.CompareTag("Damageable")) 
-        {
-            input.VibrateController(0.2f, 0.8f, 0.1f, thisGrabber.HandSide);
-            if(effect == null && effect == default)
-            {
-                effect = Instantiate(ResourceManager.effects["SwordBlock"], other.ClosestPointOnBounds(this.transform.position),Quaternion.identity);
-            }
-            else
-            {
-                effect.transform.position = other.ClosestPointOnBounds(this.transform.position);
-                Vector3 hitNormal = this.transform.position - other.transform.position;
-                effect.transform.up = hitNormal.normalized;
-            }
-            if(effect.activeInHierarchy)
-            {
-                effect.SetActive(false);
-            }
-            effect.SetActive(true);
-        }
+        //if(other.transform.CompareTag("Default")) 
+        //{
+        //    input.VibrateController(0.2f, 0.8f, 0.1f, thisGrabber.HandSide);
+        //    if(effect == null && effect == default)
+        //    {
+        //        effect = Instantiate(ResourceManager.effects["SwordBlock"], other.ClosestPointOnBounds(this.transform.position),Quaternion.identity);
+        //    }
+        //    else
+        //    {
+        //        effect.transform.position = other.ClosestPointOnBounds(this.transform.position);
+        //        Vector3 hitNormal = this.transform.position - other.transform.position;
+        //        effect.transform.up = hitNormal.normalized;
+        //    }
+        //    if(effect.activeInHierarchy)
+        //    {
+        //        effect.SetActive(false);
+        //    }
+        //    effect.SetActive(true);
+        //}
     }
 }
 

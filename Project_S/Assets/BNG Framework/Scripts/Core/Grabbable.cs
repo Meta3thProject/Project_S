@@ -5,10 +5,11 @@ using System.Linq;
 using UnityEngine;
 
 namespace BNG {
-    
+
     /// <summary>
     /// An object that can be picked up by a Grabber
     /// </summary>
+
     public class Grabbable : MonoBehaviour {
 
         /// <summary>

@@ -555,7 +555,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 41d0df6a3b401c64583949696b1dba43, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  PhysicsCheckType: 0
+  PhysicsCheckType: 2
   TriggerRequiresRaycast: 1
   RaycastLength: 20
   SphereCastLength: 20
@@ -27263,7 +27263,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 41d0df6a3b401c64583949696b1dba43, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  PhysicsCheckType: 0
+  PhysicsCheckType: 2
   TriggerRequiresRaycast: 1
   RaycastLength: 20
   SphereCastLength: 20
@@ -42710,6 +42710,7 @@ GameObject:
   - component: {fileID: 8633160051477211789}
   - component: {fileID: 1481816385}
   - component: {fileID: 1481816386}
+  - component: {fileID: 464296882}
   m_Layer: 9
   m_Name: PlayerController
   m_TagString: Player
@@ -43137,6 +43138,18 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 9fa1371666f5ba94faf5a6a40b3a0849, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &464296882
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5999191482521858072}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 20817973959e7b04488e336b8dd33aac, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &6005553173730817273
@@ -54004,7 +54017,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   FadeOnSceneLoaded: 1
-  FadeColor: {r: 0, g: 0, b: 0, a: 0.9882353}
+  FadeColor: {r: 0, g: 0, b: 0, a: 1}
   FadeInSpeed: 2
   FadeOutSpeed: 1
   SceneFadeInDelay: 0.5
@@ -65243,7 +65256,7 @@ PrefabInstance:
     - target: {fileID: 4199356647246366888, guid: 79d6eb9496d140a4c953d23ac9677d1c,
         type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 0.00007165179
+      value: 0.0015673209
       objectReference: {fileID: 0}
     - target: {fileID: 6964145604628399120, guid: 79d6eb9496d140a4c953d23ac9677d1c,
         type: 3}
@@ -65253,7 +65266,7 @@ PrefabInstance:
     - target: {fileID: 6964145604628399120, guid: 79d6eb9496d140a4c953d23ac9677d1c,
         type: 3}
       propertyPath: m_Value
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7965783791829060510, guid: 79d6eb9496d140a4c953d23ac9677d1c,
         type: 3}

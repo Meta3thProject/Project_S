@@ -4,6 +4,9 @@ using UnityEngine;
 
 public class SpiritHand : MonoBehaviour
 {
+    // 타입을 나누기 위해 열어둠
+    public HandControl handControl = default;
+
     private InputBridge input = default;
     private Grabber grabber = default;
     private GameObject projectilePointer = default;
@@ -12,53 +15,36 @@ public class SpiritHand : MonoBehaviour
     private LineRenderer lineRenderer = default;
     private Vector3 defaultPosition = new Vector3(0f,0f,10f);
 
-    // 타입을 나누기 위해 열어둠
-    public HandControl handControl = default;
-    
+    private RaycastHit npcHit = default;
     
     private float chargeTime = default;
     private float maxChargeTime = 1f;
 
+    
     private bool isHandEnabled = false;
     private bool isCharged = false;
-    
+    private bool isShooting = false;
+
     // Start is called before the first frame update
  
     void Start()
     {
         Init();
-
     }
     void Init()
     {
         input = InputBridge.Instance;
 
-        grabber = GetComponentInChildren<Grabber>();
-        
+        grabber = GetComponentInChildren<Grabber>();        
         projectilePointer = this.gameObject.GetChildObj("ProjectilePointer");
         lineRenderer = projectilePointer.GetComponent<LineRenderer>();
 
         spiritProjectile = Instantiate(ResourceManager.objects["Projectile"], projectilePointer.transform);
         projectilePointer.SetActive(isHandEnabled);
+
     }
 
-
-    // Update is called once per frame
-    //void Update()
-    //{
-    //    if (grabber.HeldGrabbable != null )
-    //    {
-    //        return;
-    //    } // if : 빈 손이 아니라면 return 
-
-    //    isHandEnabled = CheckTriggerDown();
-
-    //    ActiveSpiritHand();
-              
-    //}
-
-    // Test : 가장 늦은 업데이트 실행으로 잡고 있는 오브젝트가 없을 떄만 실행할 수 있도록 테스트 
-    void LateUpdate()
+    void Update()
     {
         if (grabber.HeldGrabbable != null)
         {            
@@ -66,24 +52,25 @@ public class SpiritHand : MonoBehaviour
         } // if : 빈 손이 아니라면 return 
 
         isHandEnabled = CheckTriggerDown();
+        
 
-        ActiveSpiritHand();
+        if (!isShooting)
+        {
+            ActiveSpiritHand();
+        }
 
     }
     private void ActiveSpiritHand()
     {
+        
         if (isHandEnabled)
         {
-
             grabber.ForceRelease = true;
             grabber.HideHandGraphics();
             
             ActivePointer();            
             ChargeTimer();
             
-
-            // TODO : 정령의 손 충전 중 그랩 가능 한것 방지할 것 
-
         }
         else if (!isHandEnabled)
         {
@@ -95,7 +82,6 @@ public class SpiritHand : MonoBehaviour
             ShootProjectile();
         }
     }       // ActiveSpiritHand()
-
 
     private Vector3 GetRayDistance()
     {                
@@ -119,7 +105,7 @@ public class SpiritHand : MonoBehaviour
         projectilePointer.SetActive(isHandEnabled);
 
     }       // ActivePointer()
-    // TEST : 임시 
+
     private void ChargeTimer()
     {
         chargeTime += Time.deltaTime;
@@ -127,8 +113,6 @@ public class SpiritHand : MonoBehaviour
         {
             isCharged = true;
         }
-
-
     }       // ChargeTimer()
     private void ShootProjectile()
     {
@@ -136,6 +120,7 @@ public class SpiritHand : MonoBehaviour
         {
             spiritProjectile.transform.SetParent(null);
             spiritProjectile.GetComponent<Rigidbody>().AddForce(projectilePointer.transform.forward * 5f, ForceMode.Impulse);
+            isShooting = true;
             isCharged = false;
             StartCoroutine(WaitForShoot());
         }
@@ -150,6 +135,7 @@ public class SpiritHand : MonoBehaviour
             yield return null;
         }
         SetProjectile();
+        isShooting = false;
     }       // WaitForShoot()
 
     private void SetProjectile()
@@ -178,8 +164,8 @@ public class SpiritHand : MonoBehaviour
 
     private HandControl GetHandController(HandControl handControl_)
     {
-        HandControl Trigger = handControl_;
+        HandControl trigger = handControl_;
   
-        return Trigger;
+        return trigger;
     }       // GetHandController()
 }
