@@ -21,6 +21,9 @@ MonoBehaviour:
   - id: 300101
     npc_name: "\uACFC\uC77C \uC560\uD638\uAC00 \uC544\uC800\uC528"
     npc_initial_quest: 301107
+  - id: 300207
+    npc_name: "\uACE0\uBBFC\uC911\uC778 \uC7AC\uBD09\uC0AC"
+    npc_initial_quest: 301207
   - id: 300501
     npc_name: "\uC218\uD504 \uAC00\uAC8C \uC8FC\uC778"
     npc_initial_quest: 301501
