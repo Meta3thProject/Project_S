@@ -107,12 +107,12 @@ public class NPCManager : GSingleton<NPCManager>
 
         oneOfTwo.text = idToChoices[id_].choice1;
         SelectButton button1 = oneOfTwo.transform.parent.GetComponent<SelectButton>();
-        button1.target = (MBTI)idToChoices[id_].value1;
+        button1.target = idToChoices[id_].value1;
         button1.amount = idToChoices[id_].value2;
 
         twoOfTwo.text = idToChoices[id_].choice2;
         SelectButton button2 = twoOfTwo.transform.parent.GetComponent<SelectButton>();
-        button2.target = (MBTI)idToChoices[id_].value3;
+        button2.target = idToChoices[id_].value3;
         button2.amount = idToChoices[id_].value4;
     }
 
@@ -128,11 +128,21 @@ public class NPCManager : GSingleton<NPCManager>
         // 0이면
         else
         {
-            // 다음 출력문 설정
-            interacted.printID = QuestManager.Instance.idToQuest[interacted.questID].IngID;
-
-            // 퀘스트 시작
-            QuestManager.Instance.AcceptQuest(interacted.questID);
+            // 수락 체크
+            if (QuestManager.Instance.idToQuest[interacted.questID].IsAccepted == false)
+            {
+                // 퀘스트 수락
+                QuestManager.Instance.AcceptQuest(interacted.questID);
+                // 진행 중 대사로 변경
+                interacted.printID = QuestManager.Instance.idToQuest[interacted.questID].IngID;
+            }
+            else
+            {
+                // 퀘스트 완료 체크 함수
+                // 완료 체크
+                // 완료 시 대사로 변경
+                // 진행 중 대사로 변경
+            }
 
             // 대사창 내림
             PopDown();

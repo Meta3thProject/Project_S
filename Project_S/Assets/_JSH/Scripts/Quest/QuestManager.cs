@@ -5,8 +5,13 @@ using UnityEngine;
 public class QuestManager : GSingleton<QuestManager>
 {
     // 퀘스트 데이터
-    // 301100 ~ 301108 까지 튜토리얼(쭉 이어짐)
     public QUEST_TABLE questTable;
+    public enum Tutorial
+    {
+        // 301100 ~ 301108 까지 튜토리얼
+        Yes = 301100,
+        No = 301109
+    }
 
     // 퀘스트 Dictionary
     public Dictionary<int, Quest> idToQuest;
@@ -51,7 +56,7 @@ public class QuestManager : GSingleton<QuestManager>
         {
             switch (currQuest.Type)
             {
-                case QuestType.Delivery1:
+                case QuestType.Delivery1:                                                       // 소지품 생기면 이후 수정
                     if (InventoryFake.Instance.fakeItems[currQuest.Value1] >= currQuest.Value2)
                     {
                         //CompleteQuest()
@@ -59,10 +64,23 @@ public class QuestManager : GSingleton<QuestManager>
                     else { /* Do Nothing */ }
                     break;
                 case QuestType.Delivery2:
+                    if (InventoryFake.Instance.fakeItems[currQuest.Value1] >= 1 &&
+                        InventoryFake.Instance.fakeItems[currQuest.Value2] >= 1)
+                    {
+                        //CompleteQuest()
+                    }
+                    else { /* Do Nothing */ }
                     break;
                 case QuestType.Conversation:
+                    // 대화를 다 보고
+                    // 다시 말을 걸면
+                    // 클리어
                     break;
                 case QuestType.Puzzle:
+                    // 대화을 다 보고
+                    // 퍼즐을 푼 뒤에
+                    // 말을 걸면
+                    // 클리어
                     break;
             }
         }
