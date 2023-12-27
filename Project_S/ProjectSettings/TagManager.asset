@@ -15,6 +15,7 @@ TagManager:
   - SpiritHand
   - Damageable
   - Torch
+  - FireOff
   layers:
   - Default
   - TransparentFX
@@ -33,7 +34,7 @@ TagManager:
   - IceCube
   - 
   - 
-  - 
+  - LastCamera
   - 
   - 
   - 
