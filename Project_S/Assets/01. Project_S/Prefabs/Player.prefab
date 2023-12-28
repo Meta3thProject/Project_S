@@ -42708,7 +42708,6 @@ GameObject:
   - component: {fileID: 5642438726806191757}
   - component: {fileID: 5642438727883256339}
   - component: {fileID: 8633160051477211789}
-  - component: {fileID: 1481816385}
   - component: {fileID: 1481816386}
   - component: {fileID: 464296882}
   m_Layer: 9
@@ -43115,19 +43114,6 @@ CapsuleCollider:
   m_Height: 1
   m_Direction: 1
   m_Center: {x: 0, y: -0.1, z: 0}
---- !u!114 &1481816385
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5999191482521858072}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e4f739a5ec4c9db4e9ce06ff5fb6ff81, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  invenPos: {fileID: 0}
 --- !u!114 &1481816386
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -54046,7 +54032,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a79441f348de89743a2939f4d699eac1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_RenderShadows: 1
+  m_RenderShadows: 0
   m_RequiresDepthTextureOption: 2
   m_RequiresOpaqueTextureOption: 2
   m_CameraType: 0
@@ -54054,7 +54040,7 @@ MonoBehaviour:
   m_RendererIndex: -1
   m_VolumeLayerMask:
     serializedVersion: 2
-    m_Bits: 1
+    m_Bits: 4294967295
   m_VolumeTrigger: {fileID: 0}
   m_VolumeFrameworkUpdateModeOption: 2
   m_RenderPostProcessing: 1
@@ -61159,7 +61145,7 @@ LineRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8737316526772632958}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
@@ -65261,7 +65247,7 @@ PrefabInstance:
     - target: {fileID: 6964145604628399120, guid: 79d6eb9496d140a4c953d23ac9677d1c,
         type: 3}
       propertyPath: m_Size
-      value: 0.99999815
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6964145604628399120, guid: 79d6eb9496d140a4c953d23ac9677d1c,
         type: 3}
