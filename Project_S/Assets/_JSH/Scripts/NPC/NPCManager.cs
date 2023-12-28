@@ -116,7 +116,84 @@ public class NPCManager : GSingleton<NPCManager>
         button2.amount = idToChoices[id_].value4;
     }
 
-    // 대화 진행용 함수
+    // 퀘스트 ID에 따라 진행 방법이 달라짐
+    public void SetIDByQuestType()
+    {
+        // 상호작용 중인 NPC가 가진 퀘스트 타입
+        switch (QuestManager.Instance.idToQuest[interacted.questID].Type)
+        {
+            case QuestType.Delivery1:
+            case QuestType.Delivery2:
+                // 수락하지 않은 퀘스트이고 완료하지 않은 퀘스트라면
+                if (QuestManager.Instance.idToQuest[interacted.questID].IsAccepted == false &&
+                    QuestManager.Instance.idToQuest[interacted.questID].IsCompleted == false)
+                {
+                    // 퀘스트 수락
+                    QuestManager.Instance.AcceptQuest(interacted.questID);
+                }
+                // 수락한 퀘스트라면
+                else if (QuestManager.Instance.idToQuest[interacted.questID].IsAccepted == true)
+                {
+                    QuestManager.Instance.CompleteCheck(interacted.questID);
+                }
+
+                // 완료하지 않은 퀘스트라면
+                if (QuestManager.Instance.idToQuest[interacted.questID].IsCompleted == false)
+                {
+                    interacted.printID = QuestManager.Instance.idToQuest[interacted.questID].IngID;
+                }
+                // 완료한 퀘스트라면
+                else
+                {
+                    interacted.printID = QuestManager.Instance.idToQuest[interacted.questID].CompleteID;
+                }
+
+                break;
+            case QuestType.Conversation:
+                // 완료한 퀘스트라면
+                if (QuestManager.Instance.idToQuest[interacted.questID].IsCompleted == false)
+                {
+                    // 대화형은 끝까지 대화하면 완료이므로
+                    QuestManager.Instance.CompleteQuest(interacted.questID);
+
+                    // 완료 출력문ID 설정
+                    interacted.printID = QuestManager.Instance.idToQuest[interacted.questID].CompleteID;
+                }
+                // 완료하지 않은 퀘스트라면
+                else
+                {
+                    // 퀘스트 완료 처리 없이 출력문ID만 설정
+                    interacted.printID = QuestManager.Instance.idToQuest[interacted.questID].CompleteID;
+                }
+
+                break;
+            case QuestType.Puzzle:
+                // 수락하지 않은 퀘스트이고 완료하지 않은 퀘스트라면
+                if (QuestManager.Instance.idToQuest[interacted.questID].IsAccepted == false &&
+                    QuestManager.Instance.idToQuest[interacted.questID].IsCompleted == false)
+                {
+                    // 퀘스트 수락
+                    QuestManager.Instance.AcceptQuest(interacted.questID);
+                }
+
+                // 완료 체크는 NPC가 한다
+
+                // 완료하지 않은 퀘스트라면
+                if (QuestManager.Instance.idToQuest[interacted.questID].IsCompleted == false)
+                {
+                    interacted.printID = QuestManager.Instance.idToQuest[interacted.questID].IngID;
+                }
+                // 완료한 퀘스트라면
+                else
+                {
+                    interacted.printID = QuestManager.Instance.idToQuest[interacted.questID].CompleteID;
+                }
+
+                break;
+        }
+    }
+
+    // 대화 진행 함수
     public void SetIDAfterDialogue()
     {
         // 0이 아니면
@@ -128,21 +205,8 @@ public class NPCManager : GSingleton<NPCManager>
         // 0이면
         else
         {
-            // 수락 체크
-            if (QuestManager.Instance.idToQuest[interacted.questID].IsAccepted == false)
-            {
-                // 퀘스트 수락
-                QuestManager.Instance.AcceptQuest(interacted.questID);
-                // 진행 중 대사로 변경
-                interacted.printID = QuestManager.Instance.idToQuest[interacted.questID].IngID;
-            }
-            else
-            {
-                // 퀘스트 완료 체크 함수
-                // 완료 체크
-                // 완료 시 대사로 변경
-                // 진행 중 대사로 변경
-            }
+            // 타입별로 다르게 진행
+            SetIDByQuestType();
 
             // 대사창 내림
             PopDown();
