@@ -3,7 +3,7 @@ using EPOOutline;
 using UnityEngine;
 
 
-// 손 자체에 있는게 좋아보이는데... 
+// 스크립트 이름 변경해야함 NPC Dialog 관련
 public class PlayerController : MonoBehaviour
 {
 
@@ -21,9 +21,6 @@ public class PlayerController : MonoBehaviour
     private Collider curRayHitLeft = default;
     private Collider curRayHitRight = default;
 
-    private SpiritHand leftSpiritHand = default;
-    private SpiritHand rightSpiritHand = default;
-
     private readonly float rayDistance = 5f;
     private void Awake()
     {        
@@ -40,8 +37,6 @@ public class PlayerController : MonoBehaviour
         input = InputBridge.Instance;
         leftHand = gameObject.GetChildObj("LeftController").transform;
         rightHand = gameObject.GetChildObj("RightController").transform;
-        leftSpiritHand = leftHand.GetComponent<SpiritHand>();   
-        rightSpiritHand = rightHand.GetComponent<SpiritHand>();
 
         leftHit = new RaycastHit();
         rightHit = new RaycastHit();
@@ -54,9 +49,8 @@ public class PlayerController : MonoBehaviour
         if (Physics.Raycast(leftHand.transform.position, leftHand.transform.forward, out leftHit, rayDistance, LayerMask.GetMask("NPC")))
         {
             GetHitNpc(leftHit.collider, ref prevRayHitLeft, ref curRayHitLeft);
-            leftSpiritHand.enabled = false;
-            if (input.LeftTriggerDown)
-            {
+            if (input.XButtonDown)
+            {            
                 GetNpcDialog(curRayHitLeft);
 
             }
@@ -65,7 +59,6 @@ public class PlayerController : MonoBehaviour
         {
             if(prevRayHitLeft != null)
             {
-                leftSpiritHand.enabled = true;
                 ActiveOutLine(prevRayHitLeft, false);
             }
         }
@@ -73,8 +66,7 @@ public class PlayerController : MonoBehaviour
         if (Physics.Raycast(rightHand.transform.position, rightHand.transform.forward, out rightHit, rayDistance, LayerMask.GetMask("NPC")))
         {
             GetHitNpc(rightHit.collider,ref prevRayHitRight, ref curRayHitRight);
-            rightSpiritHand.enabled = false;
-            if (input.RightTriggerDown)
+            if (input.AButtonDown)
             {
                 GetNpcDialog(curRayHitRight);
             }
@@ -83,7 +75,6 @@ public class PlayerController : MonoBehaviour
         {
             if (prevRayHitRight != null)
             {
-                rightSpiritHand.enabled = true;
                 ActiveOutLine(prevRayHitRight, false);
             }
         }       
