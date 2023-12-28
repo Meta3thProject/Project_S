@@ -2,13 +2,12 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class HiddenPuzzleClear : MonoBehaviour
+public class HiddenPuzzleClear : PuzzleClear
 {
+    const int PUZZLEINDEX = 17;
     const int PUZZLECOUNT = 4;
 
     [field: SerializeField] public int[] clearCheck { get; private set; }
-
-    [field: SerializeField] public bool isClear { get; private set; }
 
     private void Awake()
     {
@@ -27,11 +26,25 @@ public class HiddenPuzzleClear : MonoBehaviour
         clearCheck[_indexNumber] = 0;
     }
 
-    public void PuzzleClear()
+    /// <summary>
+    /// 게임 중에 퍼즐이 클리어됐을 경우 호출하는 메서드.
+    /// </summary>
+    public void InGamePuzzleClear()
     {
         isClear = true;
         StartCoroutine(StarManager.starManager.CallStar());
-        Debug.Log("클리어!");
+
+        PuzzleManager.instance.puzzles[PUZZLEINDEX] = true;
+    }
+
+    /// <summary>
+    /// 게임을 시작할 때 DB에서 클리어가 되었을 때 호출하는 메서드.
+    /// </summary>
+    public void PuzzleClearUpdateFromDB()
+    {
+        isClear = true;
+
+        PuzzleManager.instance.puzzles[PUZZLEINDEX] = true;
     }
 
     private void CheckClearArray()
@@ -46,7 +59,7 @@ public class HiddenPuzzleClear : MonoBehaviour
 
         if (isClear == false)
         {
-            PuzzleClear();
+            InGamePuzzleClear();
         }
     }
 }

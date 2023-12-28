@@ -2,15 +2,15 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public enum AlphabetBlockType
+public enum LetterBlockType
 {
     C, A, T, D, O
 }
 
-public class AlphabetBlock : MonoBehaviour
+public class LetterBlock : MonoBehaviour
 {
     [field: SerializeField]
-    public AlphabetBlockType type { get; private set; }
+    public LetterBlockType type { get; private set; }
 
     private Rigidbody rb;
 
@@ -19,7 +19,10 @@ public class AlphabetBlock : MonoBehaviour
         rb = GetComponent<Rigidbody>();
     }
 
-    public void EnterAlphabetTrigger()
+    /// <summary>
+    /// 해당 트리거에에 딱 맞게 들어가게 하는 메서드.
+    /// </summary>
+    public void EnterLetterTrigger()
     {
         rb.velocity = Vector3.zero;
         rb.angularVelocity = Vector3.zero;
@@ -28,6 +31,10 @@ public class AlphabetBlock : MonoBehaviour
         StartCoroutine(constraintsControl());
     }
 
+    /// <summary>
+    /// 0.5초 뒤에 constraints를 끄는 코루틴.
+    /// </summary>
+    /// <returns></returns>
     private IEnumerator constraintsControl()
     {
         yield return new WaitForSecondsRealtime(0.5f);

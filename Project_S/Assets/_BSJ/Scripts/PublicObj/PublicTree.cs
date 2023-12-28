@@ -6,8 +6,6 @@ using DG.Tweening;
 
 public class PublicTree : InteractableObject
 {
-    [SerializeField] private ParticleSystem treeHitEffect;
-
     private void Awake()
     {
         // 초기 셋팅
@@ -57,7 +55,6 @@ public class PublicTree : InteractableObject
     {
         if (currentHp > 0)
         {
-            treeHitEffect.Play();
             transform.DOShakeScale(0.5f, 0.1f).SetEase(Ease.OutElastic);
         }
 
