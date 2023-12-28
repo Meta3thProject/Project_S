@@ -35,7 +35,7 @@ EditorBuildSettings:
   - enabled: 0
     path: Assets/_JSH/Scenes/JKSceneCopy.unity
     guid: 9e7c235feb8e1134894061997e53dca0
-  - enabled: 1
+  - enabled: 0
     path: Assets/01. Project_S/Scene/MainScene.unity
     guid: 17e9de9028beec24ca8697637fb6d53f
   - enabled: 1
