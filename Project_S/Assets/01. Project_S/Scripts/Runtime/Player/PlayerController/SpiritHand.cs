@@ -14,8 +14,6 @@ public class SpiritHand : MonoBehaviour
 
     private LineRenderer lineRenderer = default;
     private Vector3 defaultPosition = new Vector3(0f,0f,10f);
-
-    private RaycastHit npcHit = default;
     
     private float chargeTime = default;
     private float maxChargeTime = 1f;
@@ -53,7 +51,6 @@ public class SpiritHand : MonoBehaviour
 
         isHandEnabled = CheckTriggerDown();
         
-
         if (!isShooting)
         {
             ActiveSpiritHand();

@@ -1,8 +1,6 @@
 using BNG;
 using System.Collections;
 using UnityEngine;
-using UnityEngine.InputSystem;
-using UnityEngine.InputSystem.XR;
 
 public class InventoryTeleport : MonoBehaviour
 {
