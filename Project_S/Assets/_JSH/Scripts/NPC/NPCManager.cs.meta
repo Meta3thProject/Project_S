@@ -3,7 +3,18 @@ guid: 8bb59af57059515419963194c423a477
 MonoImporter:
   externalObjects: {}
   serializedVersion: 2
-  defaultReferences: []
+  defaultReferences:
+  - player: {instanceID: 0}
+  - interacted: {instanceID: 0}
+  - npcTable: {fileID: 11400000, guid: fa9f09195cdf4514f80f623bc0b8c723, type: 2}
+  - dialogueTable: {instanceID: 0}
+  - choiceTable: {instanceID: 0}
+  - windowCanvas: {instanceID: 0}
+  - main: {instanceID: 0}
+  - oneOfOne: {instanceID: 0}
+  - twoChoices: {instanceID: 0}
+  - oneOfTwo: {instanceID: 0}
+  - twoOfTwo: {instanceID: 0}
   executionOrder: 100
   icon: {instanceID: 0}
   userData: 

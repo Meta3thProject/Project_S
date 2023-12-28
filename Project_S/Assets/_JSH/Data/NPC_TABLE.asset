@@ -39,3 +39,6 @@ MonoBehaviour:
   - id: 300506
     npc_name: "\uC74C\uB8CC\uC218 \uAC00\uAC8C \uC190\uB2D8"
     npc_initial_quest: 301506
+  - id: 300600
+    npc_name: "\uC5EC\uC2E0\uB2D8"
+    npc_initial_quest: 301507
