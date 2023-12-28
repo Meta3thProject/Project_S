@@ -19,14 +19,14 @@ public class StarUp : MonoBehaviour
         
     }
 
-    private void OnTriggerEnter(Collider other)
-    {
-        if (other.gameObject.CompareTag("Player") && isClear == false)
-        {
-            Debug.Log("트리거접촉함");
-            StartCoroutine(StarManager.starManager.CallStar());
-            StarColor.sprite = ResourceManager.sprites["Star"];
-            isClear = true;
-        }
-    }
+    //private void OnTriggerEnter(Collider other)
+    //{
+    //    if (other.gameObject.CompareTag("Player") && isClear == false)
+    //    {
+    //        Debug.Log("트리거접촉함");
+    //        StartCoroutine(StarManager.starManager.CallStar());
+    //        StarColor.sprite = ResourceManager.sprites["Star"];
+    //        isClear = true;
+    //    }
+    //}
 }
