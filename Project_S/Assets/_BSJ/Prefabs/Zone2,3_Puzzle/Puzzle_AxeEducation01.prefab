@@ -14987,6 +14987,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4464635247888542095}
+  - component: {fileID: 517313331}
   m_Layer: 0
   m_Name: Puzzle_AxeEducation01
   m_TagString: Untagged
@@ -15014,6 +15015,19 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &517313331
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4464635247888542094}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2154c679c2d09aa42baa33ea3ef14b82, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ItemsOnTable: []
 --- !u!1 &4760387986819400943
 GameObject:
   m_ObjectHideFlags: 0
@@ -19905,7 +19919,7 @@ GameObject:
   - component: {fileID: 1478379807030152892}
   - component: {fileID: 7202660601444335544}
   - component: {fileID: 1762406417287381081}
-  - component: {fileID: 5031447585167897616}
+  - component: {fileID: 13129841}
   m_Layer: 0
   m_Name: Table_Trigger
   m_TagString: Untagged
@@ -19991,7 +20005,7 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &5031447585167897616
+--- !u!114 &13129841
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -20000,10 +20014,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 5031447585167897619}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2154c679c2d09aa42baa33ea3ef14b82, type: 3}
+  m_Script: {fileID: 11500000, guid: 836794495a99c6045b51d473bc2f4600, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ItemsOnTable: []
 --- !u!1 &5740026849437343851
 GameObject:
   m_ObjectHideFlags: 0

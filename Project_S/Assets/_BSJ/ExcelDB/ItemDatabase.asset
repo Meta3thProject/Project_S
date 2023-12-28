@@ -1,0 +1,430 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0e7a230723bb0844ab596decbdf85e11, type: 3}
+  m_Name: ItemDatabase
+  m_EditorClassIdentifier: 
+  SheetName: Assets/_BSJ/ExcelDB/ItemDatabase.xlsx
+  WorksheetName: ItemDatabase
+  dataArray:
+  - id: 100000
+    description: "\uB3C4\uB07C"
+    itme_name: "\uC815\uB839\uC758 \uB3C4\uB07C"
+    item_type: 3
+    amount: 1
+    combination: 0
+    model: Model_Item_Axe
+  - id: 100001
+    description: "\uC9C0\uB3C4"
+    itme_name: "\uB9C8\uBC95 \uC9C0\uB3C4"
+    item_type: 3
+    amount: 1
+    combination: 0
+    model: Model_Item_Map
+  - id: 100002
+    description: "\uBAA9\uC7AC"
+    itme_name: "\uBAA9\uC7AC"
+    item_type: 0
+    amount: 5
+    combination: 1
+    model: Model_Item_Tree
+  - id: 100003
+    description: "\uB3CC\uBA69\uC774"
+    itme_name: "\uB3CC\uBA69\uC774"
+    item_type: 0
+    amount: 5
+    combination: 1
+    model: Model_Item_Stone
+  - id: 100004
+    description: "\uAE30\uB984"
+    itme_name: "\uAE30\uB984"
+    item_type: 2
+    amount: 1
+    combination: 1
+    model: Model_Item_Pil
+  - id: 100005
+    description: "\uD683\uBD88"
+    itme_name: "\uD683\uBD88"
+    item_type: 3
+    amount: 1
+    combination: 0
+    model: Model_Item_Torch
+  - id: 101000
+    description: "\uACFC\uC77C"
+    itme_name: "\uC0AC\uACFC"
+    item_type: 1
+    amount: 1
+    combination: 1
+    model: Model_Puzzle_Apple
+  - id: 101001
+    description: "\uACFC\uC77C"
+    itme_name: "\uBC14\uB098\uB098"
+    item_type: 1
+    amount: 1
+    combination: 1
+    model: Model_Puzzle_Banana
+  - id: 101002
+    description: "\uACFC\uC77C"
+    itme_name: "\uBC14\uAD6C\uB2C8"
+    item_type: 1
+    amount: 1
+    combination: 1
+    model: Model_Puzzle_Basket1
+  - id: 101003
+    description: "\uACFC\uC77C"
+    itme_name: "\uACFC\uC77C \uBC14\uAD6C\uB2C8 "
+    item_type: 1
+    amount: 1
+    combination: 0
+    model: Model_Puzzle_Basket2
+  - id: 102004
+    description: "\uD683\uBD88 \uD559\uC2B53"
+    itme_name: "\uC0DD\uACE0\uAE30"
+    item_type: 1
+    amount: 10
+    combination: 1
+    model: Model_Puzzle_RawMeat
+  - id: 102005
+    description: "\uD683\uBD88 \uD559\uC2B53"
+    itme_name: "\uAD6C\uC6B4 \uACE0\uAE30"
+    item_type: 1
+    amount: 10
+    combination: 0
+    model: Model_Puzzle_CookedMeat
+  - id: 103000
+    description: "\uC81C\uBE75 \uAD50\uC2E4"
+    itme_name: "\uC0DD\uD06C\uB9BC"
+    item_type: 1
+    amount: 1
+    combination: 1
+    model: Model_Puzzle_Cream
+  - id: 103001
+    description: "\uC0DD\uC120 \uAD6C\uC774"
+    itme_name: "\uC0DD\uC120"
+    item_type: 1
+    amount: 1
+    combination: 1
+    model: Model_Puzzle_RawFish
+  - id: 103002
+    description: "\uC0DD\uC120 \uAD6C\uC774"
+    itme_name: "\uC694\uB9AC\uB41C \uC0DD\uC120"
+    item_type: 1
+    amount: 1
+    combination: 1
+    model: Model_Puzzle_CookedFish
+  - id: 103003
+    description: "\uC0DD\uC120 \uAD6C\uC774"
+    itme_name: "\uB808\uBAAC"
+    item_type: 1
+    amount: 1
+    combination: 1
+    model: Model_Puzzle_Lemon
+  - id: 103004
+    description: "\uC0DD\uC120 \uAD6C\uC774"
+    itme_name: "\uC644\uBCBD\uD558\uAC8C \uC694\uB9AC\uB41C \uC0DD\uC120"
+    item_type: 1
+    amount: 1
+    combination: 0
+    model: Model_Puzzle_RawFish
+  - id: 103005
+    description: "\uC2DC\uACC4 \uACE0\uCE58\uAE30"
+    itme_name: "\uACE0\uC7A5\uB09C \uC2DC\uACC4"
+    item_type: 1
+    amount: 1
+    combination: 1
+    model: Model_Puzzle_BrokenClock
+  - id: 103006
+    description: "\uC2DC\uACC4 \uACE0\uCE58\uAE30"
+    itme_name: "\uC2DC\uACC4\uCD94"
+    item_type: 1
+    amount: 5
+    combination: 1
+    model: Model_Puzzle_Pendulum
+  - id: 103007
+    description: "\uC2DC\uACC4 \uACE0\uCE58\uAE30"
+    itme_name: "\uACE0\uCE5C \uC2DC\uACC4"
+    item_type: 1
+    amount: 1
+    combination: 0
+    model: Model_Puzzle_Clock
+  - id: 103008
+    description: "Zone2 \uD788\uB4E0"
+    itme_name: "\uACF5\uC608\uC6A9 \uB098\uBB34 \uD050\uBE0C"
+    item_type: 1
+    amount: 1
+    combination: 1
+    model: Model_Puzzle_Woodcube
+  - id: 103009
+    description: "Zone2 \uD788\uB4E0"
+    itme_name: "\uC870\uAC01\uCE7C"
+    item_type: 1
+    amount: 1
+    combination: 1
+    model: Model_Puzzle_CarvingKnife
+  - id: 103010
+    description: "Zone2 \uD788\uB4E0"
+    itme_name: "\uD770\uC0C9 \uD038"
+    item_type: 1
+    amount: 1
+    combination: 0
+    model: Model_Puzzle_Queen
+  - id: 103011
+    description: "Zone2 \uD018\uC2A4\uD2B81 E"
+    itme_name: "\uB178\uB791 \uAD6C\uB450"
+    item_type: 2
+    amount: 1
+    combination: 0
+    model: Model_Puzzle_YShoes
+  - id: 103012
+    description: "Zone2 \uD018\uC2A4\uD2B81 I"
+    itme_name: "\uAC80\uC740 \uAD6C\uB450"
+    item_type: 2
+    amount: 1
+    combination: 0
+    model: Model_Puzzle_BShoes
+  - id: 103013
+    description: "Zone2 \uD018\uC2A4\uD2B82 T"
+    itme_name: "\uD654\uBD84"
+    item_type: 2
+    amount: 1
+    combination: 0
+    model: Model_Puzzle_FlowerPot
+  - id: 103014
+    description: "Zone2 \uD018\uC2A4\uD2B82 F"
+    itme_name: "\uAF43\uB2E4\uBC1C"
+    item_type: 2
+    amount: 1
+    combination: 0
+    model: Model_Puzzle_Bouquet
+  - id: 103015
+    description: "Zone3 \uD018\uC2A4\uD2B81 E"
+    itme_name: "\uC18C\uB3C5\uC57D"
+    item_type: 2
+    amount: 1
+    combination: 0
+    model: Model_Puzzle_Disinfection
+  - id: 103016
+    description: "Zone3 \uD018\uC2A4\uD2B81 I"
+    itme_name: "\uB864\uB9AC\uD31D \uC0AC\uD0D5"
+    item_type: 2
+    amount: 1
+    combination: 0
+    model: Model_Puzzle_Lollipop
+  - id: 103017
+    description: "Zone2 \uD018\uC2A4\uD2B82 T"
+    itme_name: "\uCF58\uC11C\uD2B8 \uD2F0\uCF13"
+    item_type: 2
+    amount: 1
+    combination: 0
+    model: Model_Puzzle_Ticket
+  - id: 103018
+    description: "Zone2 \uD018\uC2A4\uD2B82 F"
+    itme_name: "\uBCA0\uC2A4\uD2B8 \uC140\uB7EC \uC18C\uC124 \uCC45"
+    item_type: 2
+    amount: 1
+    combination: 0
+    model: Model_Puzzle_Book4
+  - id: 104000
+    description: "\uACE0\uC591\uC774 \uD37C\uC990"
+    itme_name: "\uBC27\uC904"
+    item_type: 1
+    amount: 1
+    combination: 1
+    model: Model_Puzzle_Rope
+  - id: 104001
+    description: "\uACE0\uC591\uC774 \uD37C\uC990"
+    itme_name: "\uC0AC\uB2E4\uB9AC"
+    item_type: 1
+    amount: 1
+    combination: 0
+    model: Model_Puzzle_Ladder
+  - id: 104002
+    description: "\uC637 \uD37C\uC990"
+    itme_name: "\uAC80\uC740 \uAF43"
+    item_type: 1
+    amount: 1
+    combination: 1
+    model: Model_Puzzle_BFlower
+  - id: 104003
+    description: "\uC637 \uD37C\uC990"
+    itme_name: "\uB178\uB780 \uAF43"
+    item_type: 1
+    amount: 1
+    combination: 1
+    model: Model_Puzzle_YFlower
+  - id: 104004
+    description: "\uC637 \uD37C\uC990"
+    itme_name: "\uC2E4"
+    item_type: 1
+    amount: 1
+    combination: 1
+    model: Model_Puzzle_Thread
+  - id: 104005
+    description: "\uC637 \uD37C\uC990"
+    itme_name: "\uC637\uAC10"
+    item_type: 1
+    amount: 1
+    combination: 1
+    model: Model_Puzzle_Fabric
+  - id: 104006
+    description: "\uC637 \uD37C\uC990"
+    itme_name: "\uAC80\uC740 \uC637\uAC10"
+    item_type: 1
+    amount: 1
+    combination: 0
+    model: Model_Puzzle_BFabric
+  - id: 104007
+    description: "\uC637 \uD37C\uC990"
+    itme_name: "\uB178\uB780 \uC637\uAC10"
+    item_type: 1
+    amount: 1
+    combination: 0
+    model: Model_Puzzle_YFabric
+  - id: 104008
+    description: "\uC228\uBC14\uAF2D\uC9C8 \uD37C\uC990"
+    itme_name: "\uB178\uB780 \uAF43 \uBC14\uAD6C\uB2C8"
+    item_type: 1
+    amount: 1
+    combination: 0
+    model: Model_Puzzle_YFlowerBasket
+  - id: 104009
+    description: "\uC228\uBC14\uAF2D\uC9C8 \uD37C\uC990"
+    itme_name: "\uAC80\uC740 \uAF43 \uBC14\uAD6C\uB2C8"
+    item_type: 1
+    amount: 1
+    combination: 0
+    model: Model_Puzzle_BFlowerBasket
+  - id: 105000
+    description: "\uC74C\uB8CC\uC218"
+    itme_name: "\uD0C4\uC0B0\uC218"
+    item_type: 1
+    amount: 1
+    combination: 1
+    model: Model_Puzzle_SparklingWater
+  - id: 105001
+    description: "\uC74C\uB8CC\uC218"
+    itme_name: "\uD65C\uAE30 \uC624\uB80C\uC9C0 \uAC00\uB8E8"
+    item_type: 1
+    amount: 1
+    combination: 1
+    model: Model_Puzzle_OrangePowder
+  - id: 105002
+    description: "\uC74C\uB8CC\uC218"
+    itme_name: "\uACE0\uC694 \uB808\uBAAC \uAC00\uB8E8"
+    item_type: 1
+    amount: 1
+    combination: 1
+    model: Model_Puzzle_LemonPowder
+  - id: 105003
+    description: "\uC74C\uB8CC\uC218 E"
+    itme_name: "\uD65C\uAE30\uCC28\uC9C0\uB294 \uC8FC\uC2A4"
+    item_type: 1
+    amount: 1
+    combination: 0
+    model: Model_Puzzle_OrangeJuice
+  - id: 105004
+    description: "\uC74C\uB8CC\uC218 I"
+    itme_name: "\uACE0\uC694\uD574\uC9C0\uB294 \uC8FC\uC2A4"
+    item_type: 1
+    amount: 1
+    combination: 0
+    model: Model_Puzzle_LemonJuice
+  - id: 105005
+    description: "\uB3C4\uAD6C\uC810 T"
+    itme_name: "\uC758\uACAC\uC774 \uC815\uB9AC\uB41C \uC885\uC774"
+    item_type: 1
+    amount: 1
+    combination: 0
+    model: Model_Puzzle_Memo3
+  - id: 105006
+    description: "\uB3C4\uAD6C\uC810 F"
+    itme_name: "\uD654\uD574\uB97C \uC704\uD55C \uAF43"
+    item_type: 1
+    amount: 1
+    combination: 0
+    model: Model_Puzzle_RedFlower
+  - id: 105007
+    description: "\uD5A5\uC218 \uAC00\uAC8C"
+    itme_name: "\uBE68\uAC04 \uD5A5\uC218"
+    item_type: 1
+    amount: 1
+    combination: 1
+    model: Model_Puzzle_RedPerfume
+  - id: 105008
+    description: "\uD5A5\uC218 \uAC00\uAC8C"
+    itme_name: "\uB178\uB780 \uD5A5\uC218"
+    item_type: 1
+    amount: 1
+    combination: 1
+    model: Model_Puzzle_YellowPerfume
+  - id: 105009
+    description: "\uD5A5\uC218 \uAC00\uAC8C"
+    itme_name: "\uC8FC\uD669 \uD5A5\uC218"
+    item_type: 1
+    amount: 1
+    combination: 0
+    model: Model_Puzzle_OrangePerfume
+  - id: 106000
+    description: "\uB3D9\uBB3C \uBC15\uC81C \uAC00\uAC8C F"
+    itme_name: "\uB9C8\uCDE8\uCD1D"
+    item_type: 2
+    amount: 1
+    combination: 0
+    model: Model_Puzzle_Tranquilizer
+  - id: 106001
+    description: "\uB3D9\uBB3C \uBC15\uC81C \uAC00\uAC8C T"
+    itme_name: "\uB36B"
+    item_type: 2
+    amount: 1
+    combination: 0
+    model: Model_Puzzle_Trap
+  - id: 106002
+    description: "\uC591\uBCF5 \uAC00\uAC8C E"
+    itme_name: "\uB178\uB780\uC0C9 \uC591\uBCF5"
+    item_type: 2
+    amount: 1
+    combination: 0
+    model: Model_Puzzle_Ysuit
+  - id: 106003
+    description: "\uC591\uBCF5 \uAC00\uAC8C I"
+    itme_name: "\uAC80\uC740\uC0C9 \uC591\uBCF5"
+    item_type: 2
+    amount: 1
+    combination: 0
+    model: Model_Puzzle_Bsuit
+  - id: 0
+    description: 
+    itme_name: 
+    item_type: 0
+    amount: 0
+    combination: 0
+    model: 
+  - id: 0
+    description: 
+    itme_name: 
+    item_type: 0
+    amount: 0
+    combination: 0
+    model: 
+  - id: 0
+    description: 
+    itme_name: 
+    item_type: 0
+    amount: 0
+    combination: 0
+    model: 
+  - id: 0
+    description: 
+    itme_name: 
+    item_type: 0
+    amount: 0
+    combination: 0
+    model: 

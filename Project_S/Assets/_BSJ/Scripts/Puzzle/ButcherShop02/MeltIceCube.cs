@@ -45,7 +45,7 @@ public class MeltIceCube : MonoBehaviour
     // 얼음 안의 아이템
     private Transform InIceItem;
 
-    // 토치 스크립트
+    // 토치 스크립트의 트리거를 받아올 변수
     private SphereCollider sphereCollider;
 
     private void Awake()
