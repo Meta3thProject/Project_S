@@ -37,8 +37,9 @@ public class Dish : MonoBehaviour
         if (other.name == "Apple")
         {
             isAppleOn = false;
-            checker.CheckMatchNumber();
+            // 순서먼저 체크
             checker.CheckInOrder(myIdx);
+            checker.CheckMatchNumber();
         }
     }
 }

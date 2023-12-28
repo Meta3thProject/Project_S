@@ -15,66 +15,291 @@ MonoBehaviour:
   SheetName: Assets/_JSH/Data/QUEST_DATA.xlsx
   WorksheetName: CHOICE_TABLE
   dataArray:
+  - id: 302000
+    choice1: "\uC2A4\uC2A4\uB85C\uB97C \uD1B5\uD574"
+    link_dlg1: 304004
+    value1: 1
+    value2: 2
+    choice2: "\uC0AC\uB78C\uB4E4\uC744 \uD1B5\uD574"
+    link_dlg2: 304004
+    value3: 2
+    value4: 2
+  - id: 302001
+    choice1: "\uC0AC\uC9C4 \uAC19\uC740 \uADF8\uB9BC"
+    link_dlg1: 304010
+    value1: 4
+    value2: 2
+    choice2: "\uC758\uBBF8\uAC00 \uAE4A\uC740 \uADF8\uB9BC"
+    link_dlg2: 304010
+    value3: 3
+    value4: 2
+  - id: 302002
+    choice1: "\uACF5\uAC10 \uAC00\uB4DD<br>\uB530\uB4EF\uD55C \uBAA8\uC2B5"
+    link_dlg1: 304016
+    value1: 5
+    value2: 2
+    choice2: "\uBB38\uC81C\uB97C \uD574\uACB0\uD574<br>\uBA4B\uC9C4 \uBAA8\uC2B5"
+    link_dlg2: 304016
+    value3: 6
+    value4: 2
+  - id: 302003
+    choice1: "\uC54C\uCC28\uAC8C<br>\uACC4\uD68D \uC9DC\uAE30"
+    link_dlg1: 304022
+    value1: 8
+    value2: 2
+    choice2: "\uC5EC\uD589 \uAE30\uBD84<br>\uB9CC\uB07D\uD558\uAE30"
+    link_dlg2: 304022
+    value3: 7
+    value4: 2
   - id: 302100
     choice1: "\uB108\uBB34 \uC124\uB808!"
-    link_dlg1: 304191
+    link_dlg1: 304179
     value1: 2
     value2: 1
     choice2: "\uC870\uAE08 \uAC71\uC815\uB3FC."
-    link_dlg2: 304192
+    link_dlg2: 304180
     value3: 1
     value4: 1
-  - id: 302501
-    choice1: "\uC9ED\uC9E4\uD55C \uC18C\uAE08"
-    link_dlg1: 304506
-    value1: 4
+  - id: 302200
+    choice1: "\uD63C\uC790\uC11C \uD558\uB294 \uAC8C\uC784"
+    link_dlg1: 304204
+    value1: 1
     value2: 2
-    choice2: "\uC2E0\uAE30\uD55C \uB9DB\uC744 \uB0B4\uB294 \uC591\uB150"
-    link_dlg2: 304507
-    value3: 3
+    choice2: "\uB2E4\uAC19\uC774 \uD558\uB294 \uAC8C\uC784"
+    link_dlg2: 304205
+    value3: 2
     value4: 2
-  - id: 302502
-    choice1: "\uD63C\uC790\uC11C \uD560\uAC8C\uC694."
-    link_dlg1: 304512
+  - id: 302201
+    choice1: "\uD63C\uC790 \uC9D1\uC911\uD574\uC11C<br>\uAD6C\uACBD\uD574\uC694."
+    link_dlg1: 304210
     value1: 1
     value2: 1
-    choice2: "\uC0AC\uB78C\uC774 \uB9CE\uC744\uC218\uB85D \uC88B\uC544\uC694."
-    link_dlg2: 304513
+    choice2: "\uCE5C\uAD6C\uB4E4\uACFC \uD568\uAED8<br>\uAD6C\uACBD\uD574\uC694."
+    link_dlg2: 304211
     value3: 2
     value4: 1
-  - id: 302503
-    choice1: "\uC65C \uADF8\uB7F0\uB300\uC694?"
-    link_dlg1: 304518
-    value1: 6
+  - id: 302202
+    choice1: "\uC18C\uC218\uC758 \uC774\uC6C3\uB4E4\uB9CC<br>\uCD08\uB300\uD574\uC694."
+    link_dlg1: 304216
+    value1: 1
     value2: 3
-    choice2: "\uB2F9\uD669\uD558\uC168\uACA0\uC5B4\uC694."
-    link_dlg2: 304519
-    value3: 5
+    choice2: "\uB3D9\uB124 \uBAA8\uB4E0 \uC0AC\uB78C\uC744<br>\uCD08\uB300\uD574\uC694."
+    link_dlg2: 304217
+    value3: 2
     value4: 3
-  - id: 302504
-    choice1: "\uC0B4 \uBB3C\uD488\uC744 \uBBF8\uB9AC \uC815\uD574\uB194\uC694."
-    link_dlg1: 304524
-    value1: 8
+  - id: 302203
+    choice1: "\uD63C\uC790\uC11C \uBA39\uC744<br>\uACE0\uAE30\uB97C \uC0AC\uB824\uAD6C\uC694."
+    link_dlg1: 304220
+    value1: 1
     value2: 2
-    choice2: "\uC0AC\uACE0 \uC2F6\uC744 \uB54C \uC0AC\uC694."
-    link_dlg2: 304525
-    value3: 7
+    choice2: "\uACE0\uAE30 \uD30C\uD2F0\uB97C<br>\uC5F4\uAC70\uC5D0\uC694!"
+    link_dlg2: 304221
+    value3: 2
     value4: 2
-  - id: 302505
-    choice1: "\uD654\uD574\uB97C \uC704\uD55C \uAF43"
-    link_dlg1: 304533
+  - id: 302204
+    choice1: "\uAC80\uC740\uC0C9 \uAD6C\uB450"
+    link_dlg1: 304227
+    value1: 1
+    value2: 1
+    choice2: "\uB178\uB780\uC0C9 \uAD6C\uB450"
+    link_dlg2: 304228
+    value3: 2
+    value4: 1
+  - id: 302205
+    choice1: "\uAC80\uC740\uC0C9 \uC591\uBCF5"
+    link_dlg1: 304235
+    value1: 1
+    value2: 1
+    choice2: "\uB178\uB780\uC0C9 \uC591\uBCF5"
+    link_dlg2: 304236
+    value3: 2
+    value4: 1
+  - id: 302206
+    choice1: "\uD65C\uAE30\uCC28\uC9C0\uB294 \uC8FC\uC2A4"
+    link_dlg1: 304243
+    value1: 1
+    value2: 1
+    choice2: "\uACE0\uC694\uD574\uC9C0\uB294 \uC8FC\uC2A4"
+    link_dlg2: 304244
+    value3: 2
+    value4: 1
+  - id: 302300
+    choice1: "\uBC14\uB2E4\uB098 \uC591\uC2DD\uC7A5"
+    link_dlg1: 304304
+    value1: 4
+    value2: 3
+    choice2: "\uBA3C \uD574\uC591\uC5D0\uC11C<br>\uAC00\uC871\uC744 \uB5A0\uB098\u2026"
+    link_dlg2: 304305
+    value3: 3
+    value4: 3
+  - id: 302301
+    choice1: "\uC591\uCD08\uB97C<br>\uC774\uC6A9\uD574\uC694."
+    link_dlg1: 304311
+    value1: 4
+    value2: 1
+    choice2: "\uBC18\uB527\uBD88\uC774\uB97C<br>\uC774\uC6A9\uD574\uC694."
+    link_dlg2: 304312
+    value3: 3
+    value4: 1
+  - id: 302302
+    choice1: "\uBAB8\uC774 \uC720\uC5F0\uD574\uC11C"
+    link_dlg1: 304316
+    value1: 4
+    value2: 2
+    choice2: "\uBAB8\uC774 \uC561\uCCB4\uB77C\uC11C"
+    link_dlg2: 304317
+    value3: 3
+    value4: 2
+  - id: 302303
+    choice1: "\uC9ED\uC9E4\uD55C \uC18C\uAE08"
+    link_dlg1: 304324
+    value1: 4
+    value2: 2
+    choice2: "\uC2E0\uAE30\uD55C \uB9DB \uC591\uB150"
+    link_dlg2: 304325
+    value3: 3
+    value4: 2
+  - id: 302400
+    choice1: "\uD798\uB4DC\uC2DC\uACA0\uC5B4\uC694."
+    link_dlg1: 304402
     value1: 5
     value2: 2
-    choice2: "\uC758\uACAC \uC815\uB9AC\uB97C \uC704\uD55C \uC885\uC774"
-    link_dlg2: 304534
+    choice2: "\uD6C8\uB828\uC0DD\uC744 \uC721\uC131\uD574\uC694."
+    link_dlg2: 304403
     value3: 6
     value4: 2
-  - id: 302506
-    choice1: "\uD65C\uAE30\uCC2C \uC624\uB80C\uC9C0 \uC8FC\uC2A4"
-    link_dlg1: 304542
+  - id: 302401
+    choice1: "\uB3C4\uC790\uAE30\uB97C<br>\uCE58\uC6CC\uC57C \uD574\uC694"
+    link_dlg1: 304411
+    value1: 6
+    value2: 2
+    choice2: "\uC6B0\uB294 \uC544\uC774\uB97C<br>\uB2EC\uB798\uC918\uC694"
+    link_dlg2: 304412
+    value3: 5
+    value4: 2
+  - id: 302402
+    choice1: "\uC0AC\uC9C4\uC740 \uACB0\uACFC\uBB3C\uC774<br>\uC911\uC694\uD574\uC694."
+    link_dlg1: 304417
+    value1: 6
+    value2: 1
+    choice2: "\uCC0D\uB294 \uACFC\uC815\uC774<br>\uC911\uC694\uD574\uC694."
+    link_dlg2: 304418
+    value3: 5
+    value4: 1
+  - id: 302403
+    choice1: "\uB09C\uB85C\uC5D0<br>\uAC00\uAE4C\uC774 \uBD99\uC5B4\uC694."
+    link_dlg1: 304424
+    value1: 6
+    value2: 3
+    choice2: "\uB9DE\uC544\uC694<br>\uC544\uC9C1\uB3C4 \uCD94\uC6CC\uC694."
+    link_dlg2: 304425
+    value3: 5
+    value4: 3
+  - id: 302404
+    choice1: "\uB9C8\uCDE8\uC81C"
+    link_dlg1: 304433
+    value1: 5
+    value2: 1
+    choice2: "\uB36B"
+    link_dlg2: 304434
+    value3: 6
+    value4: 1
+  - id: 302405
+    choice1: "\uD654\uBD84"
+    link_dlg1: 304440
+    value1: 6
+    value2: 1
+    choice2: "\uAF43\uB2E4\uBC1C"
+    link_dlg2: 304441
+    value3: 5
+    value4: 1
+  - id: 302406
+    choice1: "\uC18C\uB3C5\uC57D"
+    link_dlg1: 304447
+    value1: 6
+    value2: 1
+    choice2: "\uB864\uB9AC\uD31D \uC0AC\uD0D5"
+    link_dlg2: 304448
+    value3: 5
+    value4: 1
+  - id: 302407
+    choice1: "\uACE0\uC591\uC774\uC5D0\uAC8C \uB208\uC744<br>\uB54C\uBA74 \uC548\uB3FC\uC694."
+    link_dlg1: 304453
+    value1: 6
+    value2: 1
+    choice2: "\uCC3E\uC544\uC11C<br>\uB2E4\uD589\uC774\uC5D0\uC694."
+    link_dlg2: 304454
+    value3: 5
+    value4: 1
+  - id: 302500
+    choice1: "\uC0B4 \uBB3C\uD488\uC744 \uBBF8\uB9AC<br>\uC815\uD574\uB194\uC694."
+    link_dlg1: 304501
+    value1: 8
+    value2: 2
+    choice2: "\uC0AC\uACE0 \uC2F6\uC744 \uB54C<br>\uC0AC\uC694."
+    link_dlg2: 304502
+    value3: 7
+    value4: 2
+  - id: 302501
+    choice1: "\uBBF8\uB9AC \uBBF8\uB9AC<br>\uC0AC\uB194\uC694."
+    link_dlg1: 304508
+    value1: 8
+    value2: 3
+    choice2: "\uB2E4 \uBA39\uC744\uB54C\uB9C8\uB2E4<br>\uC0AC\uC694."
+    link_dlg2: 304509
+    value3: 7
+    value4: 3
+  - id: 302502
+    choice1: "\uCE74\uD14C\uACE0\uB9AC\uD654 \uD574\uC11C<br>\uC815\uB9AC\uD574\uC694."
+    link_dlg1: 304513
+    value1: 8
+    value2: 2
+    choice2: "\uB290\uB08C\uB300\uB85C<br>\uC815\uB9AC\uD574\uC694."
+    link_dlg2: 304514
+    value3: 7
+    value4: 2
+  - id: 302503
+    choice1: "\uB8E8\uD2B8\uB97C \uC815\uD574\uC11C<br>\uCC3E\uC544\uC694."
+    link_dlg1: 304519
+    value1: 8
+    value2: 1
+    choice2: "\uAC10\uC73C\uB85C<br>\uCC3E\uC544\uC694."
+    link_dlg2: 304520
+    value3: 7
+    value4: 1
+  - id: 302600
+    choice1: "\uC0AC\uB78C\uB4E4\uACFC \uB9CC\uB098<br>\uC88B\uC558\uC5B4\uC694."
+    link_dlg1: 304603
     value1: 2
     value2: 1
-    choice2: "\uCC28\uBD84\uD55C \uB808\uBAAC \uC8FC\uC2A4"
-    link_dlg2: 304543
+    choice2: "\uC5EC\uB7EC\uAC00\uC9C0 \uD0D0\uD5D8\uC774<br>\uC88B\uC558\uC5B4\uC694."
+    link_dlg2: 304603
     value3: 1
+    value4: 1
+  - id: 302601
+    choice1: "\uBE68\uB9AC \uC778\uAC04\uC774<br>\uB418\uACE0 \uC2F6\uC5C8\uC5B4\uC694."
+    link_dlg1: 304607
+    value1: 6
+    value2: 1
+    choice2: "\uC0AC\uB78C\uB4E4\uC744 \uB354<br>\uB3C4\uC6B0\uACE0 \uC2F6\uC5C8\uC5B4\uC694."
+    link_dlg2: 304607
+    value3: 5
+    value4: 1
+  - id: 302602
+    choice1: "\uC0DD\uAC01\uB3C4<br>\uBABB\uD588\uC5B4\uC694."
+    link_dlg1: 304612
+    value1: 4
+    value2: 1
+    choice2: "\uADF8\uB7F4 \uAC70 \uAC19\uAE34<br>\uD588\uC5B4\uC694."
+    link_dlg2: 304612
+    value3: 3
+    value4: 1
+  - id: 302603
+    choice1: "\uACC4\uD68D\uC801\uC778 \uC0AC\uB78C\uC774<br>\uB418\uACE0 \uC2F6\uC5B4\uC694."
+    link_dlg1: 304618
+    value1: 8
+    value2: 1
+    choice2: "\uC790\uC720\uB85C\uC6B4 \uC0AC\uB78C\uC774<br>\uB418\uACE0 \uC2F6\uC5B4\uC694."
+    link_dlg2: 304618
+    value3: 7
     value4: 1
