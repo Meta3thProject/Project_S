@@ -6,7 +6,7 @@ using UnityEngine.Tilemaps;
 public class FireBase : MonoBehaviour
 {
     // 직렬화로 할당
-    public FireBasePuzzle puzzle;
+    public BuildTestPuzzle puzzle;
 
     private void OnTriggerEnter(Collider other)
     {

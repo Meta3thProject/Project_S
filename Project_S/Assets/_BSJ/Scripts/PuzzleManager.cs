@@ -1,3 +1,5 @@
+using Firebase.Database;
+using Firebase.Extensions;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -35,6 +37,9 @@ public class PuzzleManager : MonoBehaviour
     [field: SerializeField] public ButcherShop03Clear butcherShop03Clear { get; private set; }
     [field: SerializeField] public HiddenPuzzleClear hiddenPuzzleClear { get; private set; }
     // TODO : 추후 개발 될 퍼즐이 더 추가될 예정 ...
+
+    // 파이어 베이스
+    private DatabaseReference reference;    // 루트 레퍼런스
 
     private void Awake()
     {

@@ -5,7 +5,7 @@ using UnityEngine;
 public class TargetMark : MonoBehaviour
 {
     // { 직렬화로 할당
-    public FireBasePuzzle puzzle;
+    public BuildTestPuzzle puzzle;
     // 3번째 firebase
     public GameObject fireBase;
     // } 직렬화로 할당

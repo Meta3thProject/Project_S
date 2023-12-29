@@ -5,7 +5,7 @@ using UnityEngine;
 public class Upon3treePuzzleClear : MonoBehaviour
 {
     // 이 퍼즐의 번호는 0번 입니다.
-    const int PUZZLEINDEX = 0;
+    private int PUZZLEINDEX = 0;
 
     // 퍼즐의 클리어 여부
     public bool _isClear;
@@ -29,6 +29,9 @@ public class Upon3treePuzzleClear : MonoBehaviour
 
         // 별 구역의 클리어 체크
         PuzzleManager.instance.CheckPuzzleClear(PUZZLEINDEX, true);
+
+        // 파이어베이스 RDB에 업데이트
+        FirebaseManager.instance.PuzzleClearUpdateToDB(PUZZLEINDEX, true);
     }
 
 

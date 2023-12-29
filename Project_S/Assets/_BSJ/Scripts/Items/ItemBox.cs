@@ -102,8 +102,8 @@ public class ItemBox : MonoBehaviour
             default: break;
         }
 
-        // 자동저장
-        FirebaseManager.instance.UpdateFirebaseInventory(_itemTypeIDX);
+        // 자동저장 LEGACY : BSJ 231229
+        // FirebaseManager.instance.UpdateFirebaseInventory(_itemTypeIDX);
 
         // 아이템 갯수 텍스트 업데이트
         UpdateCountText(itemCount);
@@ -227,8 +227,9 @@ public class ItemBox : MonoBehaviour
         // 새로운 아이템을 생성해서 리턴
         GameObject newItem = Instantiate(itemPrefab);
 
-        // 파이어 베이스 업데이트
-        FirebaseManager.instance.UpdateFirebaseInventory(_itemTypeIDX);
+        // LEGACY : BSJ 231229
+        // 파이어 베이스 업데이트 
+        // FirebaseManager.instance.UpdateFirebaseInventory(_itemTypeIDX);
         return newItem;
     }
 

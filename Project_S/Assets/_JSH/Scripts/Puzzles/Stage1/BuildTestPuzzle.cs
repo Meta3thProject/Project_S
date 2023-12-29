@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class FireBasePuzzle : MonoBehaviour
+public class BuildTestPuzzle : MonoBehaviour
 {
     // 직렬화로 순서대로 할당
     public List<GameObject> fireBaseList;
