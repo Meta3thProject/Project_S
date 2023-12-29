@@ -23,8 +23,11 @@ public class StatueTrigger : MonoBehaviour
 
     private void Awake()
     {
+        // 이 퍼즐의 인덱스는 8번입니다.
+        taxidermyClear = transform.root.GetChild(8).GetComponent<TaxidermyClear>();
+
         _Eulur = Quaternion.Euler(rotationValueX, rotationValueY, rotationValueZ);
-        taxidermyClear = transform.parent.parent.GetComponent<TaxidermyClear>();
+
         circle_Image = transform.GetChild(0).GetChild(0).GetComponent<Image>();
         _TargetPositionChange = transform.GetChild(1).GetComponent<Transform>();
     }
@@ -33,6 +36,7 @@ public class StatueTrigger : MonoBehaviour
     {
         if (isInterative) { return; }
 
+        // Taxidermy 스크립트가 존재한다면.
         if (other.GetComponent<Taxidermy>() != null)
         {
             isInterative = true;
@@ -41,6 +45,7 @@ public class StatueTrigger : MonoBehaviour
 
             taxidermy.EnterFrameTrigger(_Eulur, _TargetPositionChange.position);
 
+            // 타입이 같다면 퍼즐 클리어 체크
             if (taxidermy.TaxidermyType == taxidermyTriggerType)
             {
                 taxidermyClear.IncreaseClearCheck((int)taxidermyTriggerType);
@@ -58,6 +63,7 @@ public class StatueTrigger : MonoBehaviour
 
             taxidermy.ExitFrameTrigger();
 
+            // 타입이 같다면 퍼즐 클리어 해제
             if (taxidermy.TaxidermyType == taxidermyTriggerType)
             {
                 taxidermyClear.DecreaseClearCheck((int)taxidermyTriggerType);

@@ -3009,6 +3009,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 577091113617875567}
+  - component: {fileID: 611458840}
   m_Layer: 0
   m_Name: Puzzle_Pot
   m_TagString: Untagged
@@ -3035,6 +3036,19 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &611458840
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 577091113617875564}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0594262bc94bbed4d97e76ad91a5a39a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _isClear: 0
 --- !u!1 &577586810518976206
 GameObject:
   m_ObjectHideFlags: 0
@@ -22462,7 +22476,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4525442766025162845}
-  - component: {fileID: 4525442766025162844}
   m_Layer: 0
   m_Name: Pot_Puzzle
   m_TagString: Untagged
@@ -22498,19 +22511,6 @@ Transform:
   m_Father: {fileID: 577091113617875567}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &4525442766025162844
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4200770877047211692}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0594262bc94bbed4d97e76ad91a5a39a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  <isClear>k__BackingField: 0
 --- !u!1 &7495409751719162432
 GameObject:
   m_ObjectHideFlags: 0

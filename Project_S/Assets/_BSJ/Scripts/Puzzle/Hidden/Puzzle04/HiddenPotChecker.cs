@@ -15,9 +15,10 @@ public class HiddenPotChecker : MonoBehaviour
 
     private void Awake()
     {
-        flowerPuzzleClearArray = new int[FLOWERCOUNT] { 0, 0, 0 };
+        // 이 퍼즐의 인덱스는 17번입니다.
+        hiddenPuzzleClear = transform.root.GetChild(17).GetComponent<HiddenPuzzleClear>();
 
-        hiddenPuzzleClear = transform.root.GetComponent<HiddenPuzzleClear>();
+        flowerPuzzleClearArray = new int[FLOWERCOUNT] { 0, 0, 0 };
     }
 
     /// <summary>

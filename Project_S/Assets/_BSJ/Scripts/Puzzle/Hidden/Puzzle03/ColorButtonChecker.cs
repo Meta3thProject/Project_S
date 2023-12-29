@@ -25,9 +25,10 @@ public class ColorButtonChecker : MonoBehaviour
 
     private void Awake()
     {
-        buttonPuzzleClearArray = new int[BUTTONCOUNT] { 0, 0, 0 };
+        // 이 퍼즐의 인덱스 번호는 17번입니다.
+        hiddenPuzzleClear = transform.root.GetChild(17).GetComponent<HiddenPuzzleClear>();
 
-        hiddenPuzzleClear = transform.root.GetComponent<HiddenPuzzleClear>();
+        buttonPuzzleClearArray = new int[BUTTONCOUNT] { 0, 0, 0 };
     }
 
     /// <summary>

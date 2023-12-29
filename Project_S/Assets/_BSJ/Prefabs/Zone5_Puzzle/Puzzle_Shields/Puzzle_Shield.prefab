@@ -16733,6 +16733,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2847894017532704334}
+  - component: {fileID: 2037508998}
   m_Layer: 0
   m_Name: Puzzle_Shield
   m_TagString: Untagged
@@ -16758,6 +16759,20 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: -0.005, y: 89.998, z: -0.036}
+--- !u!114 &2037508998
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2847894017532704335}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6a198c9d264c72b439330a21eb7a6a59, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  <clearCheck>k__BackingField: 
+  _isClear: 0
 --- !u!1 &2847894017873443489
 GameObject:
   m_ObjectHideFlags: 0
@@ -16938,9 +16953,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2847894018575579586}
-  - component: {fileID: 2847894018575579613}
   m_Layer: 0
-  m_Name: Shield_Puzzle_Clear
+  m_Name: Shield_Puzzle
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -16972,20 +16986,6 @@ Transform:
   m_Father: {fileID: 2847894017532704334}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &2847894018575579613
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2847894018575579587}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6a198c9d264c72b439330a21eb7a6a59, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  <clearCheck>k__BackingField: 
-  <isClear>k__BackingField: 0
 --- !u!1 &2847894018780338260
 GameObject:
   m_ObjectHideFlags: 0

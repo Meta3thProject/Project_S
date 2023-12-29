@@ -2,17 +2,18 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class AxeEduTrigger : MonoBehaviour
+public class Upon3treeTrigger : MonoBehaviour
 {
     // 탁자 위에 올라온 오브젝트를 담아두는 리스트
     [SerializeField] List<GameObject> ItemsOnTable = new List<GameObject>();
 
     // 퍼즐 클리어 스크립트
-    Upon3treePuzzleClear axeEduPuzzleClear;
+    Upon3treePuzzleClear upon3treePuzzleClear;
 
     private void Awake()
     {
-        axeEduPuzzleClear = transform.root.GetComponent<Upon3treePuzzleClear>();
+        // 이 퍼즐의 인덱스 번호는 0번입니다.
+        upon3treePuzzleClear = transform.root.GetChild(0).GetComponent<Upon3treePuzzleClear>();
     }
 
     private void OnTriggerEnter(Collider other)
@@ -25,7 +26,7 @@ public class AxeEduTrigger : MonoBehaviour
             // 나무가 3개 이상이면 클리어
             if (ItemsOnTable.Count >= 3)
             {
-                axeEduPuzzleClear.PuzzleClear();
+                upon3treePuzzleClear.PuzzleClear();
             }
         }
     }

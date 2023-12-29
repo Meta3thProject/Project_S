@@ -27,13 +27,6 @@ public abstract class InteractableObject : MonoBehaviour
     // 물체가 파괴되었을 때 드랍될 아이템
     [SerializeField] protected GameObject dropedItem;
 
-    protected void Awake()
-    {
-        currentHp = maxHp;
-        isInteractionAble = true;
-        interactTime = new WaitForSeconds(nextInteractionTime);
-    }
-
     protected void OnDisable()
     {
         isInteractionAble = true;

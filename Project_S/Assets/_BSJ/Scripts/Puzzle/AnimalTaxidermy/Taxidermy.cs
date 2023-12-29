@@ -21,7 +21,7 @@ public class Taxidermy : MonoBehaviour
     }
 
     /// <summary>
-    /// 사진관 프레임의 트리거에 닿았을 때 작동하는 메소드.
+    /// 동물 박제 퍼즐 프레임에 닿았을 때 작동하는 메소드.
     /// </summary>
     public void EnterFrameTrigger(Quaternion _Euler, Vector3 _position)
     {
@@ -35,7 +35,7 @@ public class Taxidermy : MonoBehaviour
     }
 
     /// <summary>
-    /// 사진관 프레임의 트리거에서 나왔을 때 작동하는 메소드.
+    /// 동물 박제 퍼즐 프레임에서 나왔을 때 작동하는 메소드.
     /// </summary>
     public void ExitFrameTrigger()
     {

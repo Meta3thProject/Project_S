@@ -30,13 +30,13 @@ public class ButcherShop03Trigger : MonoBehaviour
 
     private void Awake()
     {
+        // 이 퍼즐의 인덱스는 16번입니다.
+        butcherShop03Clear = transform.root.GetChild(16).GetComponent<ButcherShop03Clear>();
+
         // 고기 정답 캐싱
         PorkCountAnswer = transform.parent.parent.GetChild(0).GetChild(0).childCount;
         MeatCountAnswer = transform.parent.parent.GetChild(0).GetChild(1).childCount;
         ChickenCountAnswer = transform.parent.parent.GetChild(0).GetChild(2).childCount;
-
-        // ButcherShop03Clear 캐싱
-        butcherShop03Clear = transform.parent.parent.GetChild(1).GetComponent<ButcherShop03Clear>();
 
         // Text 캐싱
         porkCountText = transform.GetChild(0).GetChild(0).GetComponent<TMP_Text>();

@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class SpotTrigger : MonoBehaviour
 {
-    ButcherShopManager shopManager;
+    ButcherShop01Clear butcherShop01Clear;
 
     [Header("고기 갯수 정답")]
     [SerializeField] private int chickenAnswer;
@@ -26,8 +26,10 @@ public class SpotTrigger : MonoBehaviour
 
     private void Awake()
     {
+        // 이 퍼즐의 인덱스는 12번입니다.
+        butcherShop01Clear = transform.root.GetChild(12).GetComponent<ButcherShop01Clear>();
+
         AnswerCheck = 0;
-        shopManager = transform.parent.GetComponent<ButcherShopManager>();
         _particleSystem = transform.GetChild(0).GetComponent<ParticleSystem>();
     }
 
@@ -63,7 +65,7 @@ public class SpotTrigger : MonoBehaviour
         }
 
         // 정답 체크
-        if(nowCounting == shopManager.iceCubeCount)
+        if(nowCounting == butcherShop01Clear.iceCubeCount)
         {
             if(chickenAnswer == chickenCount)
             {
@@ -85,19 +87,19 @@ public class SpotTrigger : MonoBehaviour
         if (AnswerCheck == 3)
         {
             // 클리어 했음을 표시하는 메서드 호출
-            shopManager.ClearText();
+            butcherShop01Clear.ClearText();
 
             // 이미 퍼즐을 클리어 했으면 리턴
-            if (shopManager.isButcherShopClear) { return; }
+            if (butcherShop01Clear._isClear) { return; }
 
             // 퍼즐을 완전히 클리어 했다는 메서드 호출
-            shopManager.ButcherShopClear();
+            butcherShop01Clear.ButcherShopClear();
         }
 
         else
         {
             // 클리어하지 못했음을 표시하는 메서드 호출
-            shopManager.NoClearText();
+            butcherShop01Clear.NoClearText();
         }
     }
 

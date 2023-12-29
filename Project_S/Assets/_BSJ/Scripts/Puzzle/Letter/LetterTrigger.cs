@@ -15,7 +15,8 @@ public class LetterTrigger : MonoBehaviour
 
     private void Awake()
     {
-        letterClear = transform.root.GetComponent<LetterPuzzleClear>();
+        // 이 퍼즐의 인덱스는 1번입니다.
+        letterClear = transform.root.GetChild(1).GetComponent<LetterPuzzleClear>();
     }
 
     private void OnTriggerEnter(Collider other)
@@ -25,7 +26,7 @@ public class LetterTrigger : MonoBehaviour
         {
             // 위치를 딱 맞춰주는 로직
             letterBlock = other.GetComponent<LetterBlock>();
-            // letterBlock.transform.position = new Vector3(transform.position.x, letterBlock.transform.position.y, transform.position.z);
+            letterBlock.transform.position = new Vector3(transform.position.x, letterBlock.transform.position.y, transform.position.z);
 
             // 타입이 같다면,
             if (letterBlock.type == letterType)

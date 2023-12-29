@@ -4,14 +4,19 @@ using UnityEngine;
 
 public class BookSortTrigger : MonoBehaviour
 {
+    // 트리거의 책 타입
     [SerializeField] private BookType bookType;
 
-    private BookSortPuzzleClear bookSortPuzzleClear;
+    // 책 스크립트
     private BookSortPuzzle bookSortPuzzle;
+
+    // 퍼즐 클리어 스크립트
+    private BookSortPuzzleClear bookSortPuzzleClear;
 
     private void Awake()
     {
-        bookSortPuzzleClear = transform.parent.GetComponent<BookSortPuzzleClear>();
+        // 이 퍼즐의 번호는 4번입니다.
+        bookSortPuzzleClear = transform.root.GetChild(4).GetComponent<BookSortPuzzleClear>();
     }
 
     private void OnTriggerEnter(Collider other)

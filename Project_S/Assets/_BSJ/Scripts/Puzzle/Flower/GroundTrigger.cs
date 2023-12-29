@@ -11,7 +11,8 @@ public class GroundTrigger : MonoBehaviour
 
     private void Awake()
     {
-        puzzleClear = transform.parent.GetComponent<FlowerPuzzleClear>();
+        // 이 퍼즐의 인덱스는 2번입니다.
+        puzzleClear = transform.root.GetChild(2).GetComponent<FlowerPuzzleClear>();
     }
 
     private void OnTriggerEnter(Collider other)

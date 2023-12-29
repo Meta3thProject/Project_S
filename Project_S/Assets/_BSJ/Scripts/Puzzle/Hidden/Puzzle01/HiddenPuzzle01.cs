@@ -26,6 +26,9 @@ public class HiddenPuzzle01 : MonoBehaviour
 
     private void Awake()
     {
+        // 이 퍼즐의 인덱스는 17번입니다.
+        hiddenPuzzleClear = transform.root.GetChild(17).GetComponent<HiddenPuzzleClear>();
+
         // 그림 오브젝트 캐싱
         falseMirrorPicture = transform.GetChild(0).GetChild(0).gameObject;
         trueMirrorPicture = transform.GetChild(0).GetChild(1).gameObject;
@@ -34,9 +37,6 @@ public class HiddenPuzzle01 : MonoBehaviour
         isTweening = false;
         isPictureMirror = false;
         ChangePicture(isPictureMirror);
-
-        // 클리어 스크립트 캐싱
-        hiddenPuzzleClear = transform.root.GetComponent<HiddenPuzzleClear>();
     }
 
     private void OnTriggerEnter(Collider other)

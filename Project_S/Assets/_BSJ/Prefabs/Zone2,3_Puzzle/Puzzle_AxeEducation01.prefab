@@ -15027,7 +15027,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2154c679c2d09aa42baa33ea3ef14b82, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ItemsOnTable: []
+  _isClear: 0
 --- !u!1 &4760387986819400943
 GameObject:
   m_ObjectHideFlags: 0
@@ -19919,7 +19919,7 @@ GameObject:
   - component: {fileID: 1478379807030152892}
   - component: {fileID: 7202660601444335544}
   - component: {fileID: 1762406417287381081}
-  - component: {fileID: 13129841}
+  - component: {fileID: 2337998213464967402}
   m_Layer: 0
   m_Name: Table_Trigger
   m_TagString: Untagged
@@ -20005,7 +20005,7 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &13129841
+--- !u!114 &2337998213464967402
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -20017,6 +20017,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 836794495a99c6045b51d473bc2f4600, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  ItemsOnTable: []
 --- !u!1 &5740026849437343851
 GameObject:
   m_ObjectHideFlags: 0
@@ -20287,25 +20288,6 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 126
   m_CollisionDetection: 0
---- !u!114 &4464635246272550117
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2965226140000523681}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5f82976611648b642b2752737e9f590f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  <maxHp>k__BackingField: 3
-  <currentHp>k__BackingField: 0
-  <nextInteractionTime>k__BackingField: 1
-  <isInteractionAble>k__BackingField: 1
-  dropedItem: {fileID: 2484756981875118997, guid: d00a28034fb53d84d9b67f2efec37814,
-    type: 3}
-  treeHitEffect: {fileID: 0}
 --- !u!4 &2967183507750403435 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1501985350378039693, guid: a77f2837738486140a53277fb25ca3d9,
@@ -20554,25 +20536,6 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 126
   m_CollisionDetection: 0
---- !u!114 &4464635247655385102
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2965226139783756100}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5f82976611648b642b2752737e9f590f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  <maxHp>k__BackingField: 3
-  <currentHp>k__BackingField: 0
-  <nextInteractionTime>k__BackingField: 1
-  <isInteractionAble>k__BackingField: 1
-  dropedItem: {fileID: 2484756981875118997, guid: d00a28034fb53d84d9b67f2efec37814,
-    type: 3}
-  treeHitEffect: {fileID: 0}
 --- !u!4 &2967183505943974286 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1501985350378039693, guid: a77f2837738486140a53277fb25ca3d9,

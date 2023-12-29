@@ -11,7 +11,8 @@ public class ChessCheckTrigger : MonoBehaviour
 
     private void Awake()
     {
-        puzzleClear = transform.parent.GetComponent<ChessPuzzleClear>();
+        // 이 퍼즐의 인덱스는 3번입니다.
+        puzzleClear = transform.root.GetChild(3).GetComponent<ChessPuzzleClear>();
     }
 
     private void OnTriggerEnter(Collider other)

@@ -227,6 +227,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 415364495867668328}
+  - component: {fileID: 3573866025327423256}
   m_Layer: 0
   m_Name: Puzzle_Flower
   m_TagString: Untagged
@@ -255,6 +256,20 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &3573866025327423256
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 415364495867668329}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b84bd8e1218f4fb4a992d67edef48987, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _isClear: 0
+  <clearCheck>k__BackingField: 
 --- !u!1 &988654070452799539
 GameObject:
   m_ObjectHideFlags: 0
@@ -5262,7 +5277,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4629701622268001506}
-  - component: {fileID: 2315284766770199529}
   m_Layer: 0
   m_Name: Puzzle_Flower_Clear
   m_TagString: Untagged
@@ -5287,20 +5301,6 @@ Transform:
   m_Father: {fileID: 415364495867668328}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &2315284766770199529
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3473673679839995359}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b84bd8e1218f4fb4a992d67edef48987, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  <clearCheck>k__BackingField: 
-  <isClear>k__BackingField: 0
 --- !u!1 &3479467314670809668
 GameObject:
   m_ObjectHideFlags: 0
@@ -10595,7 +10595,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 75dafccf3eac81f48b0b53a4d0823def, type: 2}
+  - {fileID: 2100000, guid: 06919a43896f6f3469987ce753c21d1b, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0

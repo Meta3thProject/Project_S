@@ -4,62 +4,78 @@ using UnityEngine;
 
 public class HiddenPuzzleClear : PuzzleClear
 {
-    const int PUZZLEINDEX = 17;
-    const int PUZZLECOUNT = 4;
+    const int PUZZLEINDEX = 17;     // 이 퍼즐의 번호는 17번입니다.
+    const int PUZZLECOUNT = 4;      // 퍼즐의 요소는 4개 입니다.
 
+    // 퍼즐 클리어 배열
     [field: SerializeField] public int[] clearCheck { get; private set; }
+
+    // 퍼즐의 클리어 여부
+    public bool _isClear;
 
     private void Awake()
     {
         clearCheck = new int[PUZZLECOUNT] { 0, 0, 0, 0 };
-        isClear = false;
+        _isClear = false;
     }
 
+    /// <summary>
+    /// 퍼즐 배열의 요소를 1로 만드는 함수
+    /// </summary>
+    /// <param name="_indexNumber">배열의 요소 인덱스</param>
     public void IncreaseClearCheck(int _indexNumber)
     {
+        // 이미 클리어가 되었다면 리턴
+        if (_isClear) { return; }
+
         clearCheck[_indexNumber] = 1;
         CheckClearArray();
     }
 
+    /// <summary>
+    /// 퍼즐 배열의 요소를 0으로 만드는 메서드
+    /// </summary>
+    /// <param name="_indexNumber">배열의 요소 인덱스</param>
     public void DecreaseClearCheck(int _indexNumber)
     {
+        // 이미 클리어가 되었다면 리턴
+        if (_isClear) { return; }
+
         clearCheck[_indexNumber] = 0;
     }
 
     /// <summary>
-    /// 게임 중에 퍼즐이 클리어됐을 경우 호출하는 메서드.
+    /// 퍼즐을 클리어 했는지 체크하는 메서드
     /// </summary>
-    public void InGamePuzzleClear()
+    public void CheckClearArray()
     {
-        isClear = true;
-        StartCoroutine(StarManager.starManager.CallStar());
+        // 이미 클리어가 되었다면 리턴
+        if (_isClear) { return; }
 
-        PuzzleManager.instance.puzzles[PUZZLEINDEX] = true;
-    }
+        // 퍼즐의 요소가 0인지 체크하기 위한 변수.
+        int noClearCheckCount = 0;
 
-    /// <summary>
-    /// 게임을 시작할 때 DB에서 클리어가 되었을 때 호출하는 메서드.
-    /// </summary>
-    public void PuzzleClearUpdateFromDB()
-    {
-        isClear = true;
-
-        PuzzleManager.instance.puzzles[PUZZLEINDEX] = true;
-    }
-
-    private void CheckClearArray()
-    {
-        foreach (int i in clearCheck)
+        foreach(int clearIndex in clearCheck)
         {
-            if (i == 0)
+            // 퍼즐의 요소가 0이면 (클리어되지 않았다면) 클리어 카운트를 1 증가시킵니다.
+            if (clearIndex == 0)
             {
-                return;
+                noClearCheckCount++;
+                break;
             }
         }
 
-        if (isClear == false)
+        // 퍼즐 클리어가 되지 않은 0번이 없기 때문에 클리어
+        if(noClearCheckCount == 0)
         {
-            InGamePuzzleClear();
+            // 퍼즐 클리어 체크
+            _isClear = true;
+
+            // 별의 총 갯수 증가
+            StartCoroutine(StarManager.starManager.CallStar());
+
+            // 별 구역의 클리어 체크
+            PuzzleManager.instance.CheckPuzzleClear(PUZZLEINDEX, true);
         }
     }
 }

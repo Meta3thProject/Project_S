@@ -46,7 +46,8 @@ public class ButcherShop02Trigger : MonoBehaviour
 
     private void Awake()
     {
-        butcherShop02Clear = transform.parent.GetComponent<ButcherShop02Clear>();
+        // 이 퍼즐의 인덱스는 15번입니다.
+        butcherShop02Clear = transform.root.GetChild(15).GetComponent<ButcherShop02Clear>();
 
         // 이펙트 캐싱
         CorrectParticle = transform.GetChild(0).GetComponent<ParticleSystem>();

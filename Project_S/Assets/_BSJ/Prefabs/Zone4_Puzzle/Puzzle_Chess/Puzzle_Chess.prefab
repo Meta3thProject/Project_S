@@ -119,6 +119,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6596363507022438055}
+  - component: {fileID: 1498667865}
   m_Layer: 0
   m_Name: Puzzle_Chess
   m_TagString: Untagged
@@ -144,6 +145,20 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1498667865
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6596363507022438048}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e53b6030b34bc5f49a9aed6aac95838a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _isClear: 0
+  <clearCheck>k__BackingField: 
 --- !u!1 &6596363507695750901
 GameObject:
   m_ObjectHideFlags: 0
@@ -949,26 +964,6 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 6596363508401338525}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &6596363508401501315 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 166942, guid: 31270e9f38d5e7a448ae050b9633fce3,
-    type: 3}
-  m_PrefabInstance: {fileID: 6596363508401338525}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &6596363508663468627
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6596363508401501315}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e53b6030b34bc5f49a9aed6aac95838a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  <clearCheck>k__BackingField: 
-  <isClear>k__BackingField: 0
 --- !u!1001 &9017903045566408313
 PrefabInstance:
   m_ObjectHideFlags: 0

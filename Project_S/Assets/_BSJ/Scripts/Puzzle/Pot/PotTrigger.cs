@@ -4,12 +4,14 @@ using UnityEngine;
 
 public class PotTrigger : MonoBehaviour
 {
+    // 퍼즐 클리어 스크립트
     PotPuzzleClear potPuzzleClear;
     PotPuzzle potPuzzle;
 
     private void Awake()
     {
-        potPuzzleClear = transform.parent.GetComponent<PotPuzzleClear>();
+        // 이 퍼즐의 인덱스는 11번입니다.
+        potPuzzleClear = transform.root.GetChild(11).GetComponent<PotPuzzleClear>();
     }
 
     private void OnTriggerEnter(Collider other)
@@ -18,10 +20,11 @@ public class PotTrigger : MonoBehaviour
         {
             potPuzzle = other.GetComponent<PotPuzzle>();
 
+            // 도자기의 타입이 같으면 클리어 체크
             if(potPuzzle.potType == PotType.AnswerPot)
             {
                 potPuzzle.EnterTrigger(transform.position);
-                potPuzzleClear.CheckClear();
+                potPuzzleClear.CheckClearArray();
             }
         }
     }

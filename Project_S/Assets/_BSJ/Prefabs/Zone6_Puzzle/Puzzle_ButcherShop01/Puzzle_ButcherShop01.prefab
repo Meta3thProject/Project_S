@@ -28,7 +28,7 @@ Transform:
   m_GameObject: {fileID: 8787973474646233580}
   m_LocalRotation: {x: -0, y: -0, z: 0.7071068, w: 0.7071068}
   m_LocalPosition: {x: -0.58, y: 0.6569977, z: 1.1149979}
-  m_LocalScale: {x: 3.052835, y: 0.40228873, z: -0.20047976}
+  m_LocalScale: {x: 3.052835, y: 0.40228873, z: 0.2}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 8787973476529976849}
@@ -435,7 +435,7 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 2, y: 2, z: 2}
+  m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &8787973474917855012
 GameObject:
@@ -544,6 +544,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8787973474964996165}
+  - component: {fileID: 1089274189}
   m_Layer: 0
   m_Name: Puzzle_ButcherShop01
   m_TagString: Untagged
@@ -558,7 +559,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8787973474964996164}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 3.43, y: 12.2, z: 0.35}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -573,6 +574,27 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1089274189
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8787973474964996164}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d67bdcb73d5da5d4998dd7d2d049c116, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _isClear: 0
+  <iceCubeCount>k__BackingField: 0
+  iceCube: []
+  iceCubeStartPosition: []
+  leftLever: {fileID: 8787973475930176579}
+  RightLever: {fileID: 8787973476395163015}
+  spotTrigger: {fileID: 8738960811500892290}
+  _canvasObj: {fileID: 8787973475489433666}
+  _tmp_Text: {fileID: 8787973475116559357}
 --- !u!1 &8787973474986202602
 GameObject:
   m_ObjectHideFlags: 0
@@ -873,9 +895,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8787973475098862173}
-  - component: {fileID: 8787973475098862174}
   m_Layer: 0
-  m_Name: BucherShop_Manager
+  m_Name: BucherShop
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -899,27 +920,6 @@ Transform:
   m_Father: {fileID: 8787973474964996165}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &8787973475098862174
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8787973475098862172}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d67bdcb73d5da5d4998dd7d2d049c116, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  isButcherShopClear: 0
-  <iceCubeCount>k__BackingField: 0
-  iceCube: []
-  iceCubeStartPosition: []
-  leftLever: {fileID: 8787973475930176579}
-  RightLever: {fileID: 8787973476395163015}
-  spotTrigger: {fileID: 8738960811500892290}
-  _canvasObj: {fileID: 8787973475489433666}
-  _tmp_Text: {fileID: 8787973475116559357}
 --- !u!1 &8787973475116559331
 GameObject:
   m_ObjectHideFlags: 0
@@ -1151,7 +1151,7 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 2, y: 2, z: 2}
+  m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &8787973475320230544
 GameObject:
@@ -1248,7 +1248,7 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 2, y: 2, z: 2}
+  m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &8787973475416916726
 GameObject:
@@ -2099,7 +2099,7 @@ Transform:
   m_GameObject: {fileID: 8787973476066995517}
   m_LocalRotation: {x: -0, y: -0, z: 0.7071068, w: 0.7071068}
   m_LocalPosition: {x: -0.58798796, y: 0.6349945, z: -2.1439972}
-  m_LocalScale: {x: 3.052835, y: 0.40228873, z: -0.20047976}
+  m_LocalScale: {x: 3.052835, y: 0.40228873, z: 0.2}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 8787973476529976849}
@@ -2360,7 +2360,7 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 2, y: 2, z: 2}
+  m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &8787973476256279781
 GameObject:
@@ -2774,8 +2774,8 @@ MonoBehaviour:
   onButtonDown:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 8787973475098862174}
-        m_TargetAssemblyTypeName: ButcherShopManager, Assembly-CSharp
+      - m_Target: {fileID: 1089274189}
+        m_TargetAssemblyTypeName: ButcherShop01Clear, Assembly-CSharp
         m_MethodName: PutItem
         m_Mode: 1
         m_Arguments:
@@ -3519,8 +3519,8 @@ MonoBehaviour:
   onButtonDown:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 8787973475098862174}
-        m_TargetAssemblyTypeName: ButcherShopManager, Assembly-CSharp
+      - m_Target: {fileID: 1089274189}
+        m_TargetAssemblyTypeName: ButcherShop01Clear, Assembly-CSharp
         m_MethodName: ResetItem
         m_Mode: 1
         m_Arguments:
@@ -3823,7 +3823,7 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 2, y: 2, z: 2}
+  m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!1001 &8738960811500892295
 PrefabInstance:

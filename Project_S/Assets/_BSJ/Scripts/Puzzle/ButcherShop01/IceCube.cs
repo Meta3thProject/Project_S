@@ -13,14 +13,14 @@ public class IceCube : MonoBehaviour
 
     [SerializeField] private List<MeshRenderer> _meshRenderers;
 
-    private ButcherShopManager butcherShopManager;
+    private ButcherShop01Clear butcherShop01Clear;
     private ParticleSystem _particleSystem;
     private Rigidbody _rigidBody;
 
     private void Awake()
     {
-        // 매니저 캐싱
-        butcherShopManager = transform.parent.parent.GetComponent<ButcherShopManager>();
+        // 이 퍼즐의 인덱스 번호는 12번입니다.
+        butcherShop01Clear = transform.root.GetChild(12).GetComponent<ButcherShop01Clear>();
 
         // 이펙트 캐싱
         _particleSystem = transform.GetChild(0).GetComponent<ParticleSystem>();
@@ -54,7 +54,7 @@ public class IceCube : MonoBehaviour
         if(collision.collider.CompareTag("SpiritHand"))
         {
             // 고기의 총 갯수 --
-            butcherShopManager.iceCubeCount--;
+            butcherShop01Clear.iceCubeCount--;
 
             // 메쉬렌더러 안보이게 하기.
             foreach (MeshRenderer renderer in _meshRenderers)

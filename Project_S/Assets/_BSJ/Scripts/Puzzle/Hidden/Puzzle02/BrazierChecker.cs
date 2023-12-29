@@ -26,14 +26,14 @@ public class BrazierChecker : MonoBehaviour
 
     private void Awake()
     {
+        // 이 퍼즐의 인덱스 번호는 17번입니다.
+        hiddenPuzzleClear = transform.root.GetChild(17).GetComponent<HiddenPuzzleClear>();
+
         // 정답은 미리 협의된 2, 3번이 정답으로 설정
         answerBrazier00 = false;
         answerBrazier01 = true;
         answerBrazier02 = true;
         answerBrazier03 = false;
-
-        // 클리어 스크립트 캐싱
-        hiddenPuzzleClear = transform.root.GetComponent<HiddenPuzzleClear>();
     }
 
     /// <summary>

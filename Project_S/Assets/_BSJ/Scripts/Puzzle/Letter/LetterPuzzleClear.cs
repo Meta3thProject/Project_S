@@ -5,11 +5,11 @@ using static UnityEngine.ParticleSystem;
 
 public class LetterPuzzleClear : MonoBehaviour
 {
-    // 이 퍼즐의 번호는 1번 입니다.
-    const int PUZZLEINDEX = 1;
+    const int PUZZLEINDEX = 1;      // 이 퍼즐의 번호는 1번 입니다.
+    const int PUZZLECOUNT = 3;      // 퍼즐의 배열의 요소는 3개입니다.
 
     // 퍼즐의 클리어 여부
-    public bool _isClear = false;
+    public bool _isClear;
 
     // 퍼즐의 클리어 배열
     [field: SerializeField] public int[] clearCheck { get; private set; }
@@ -19,8 +19,11 @@ public class LetterPuzzleClear : MonoBehaviour
 
     private void Awake()
     {
-        clearCheck = new int[3] { 0, 0, 0 };
-        particle = transform.GetChild(3).GetComponent<ParticleSystem>();
+        // 퍼즐의 클리어 여부 [거짓으로 초기화]
+        _isClear = false;
+
+        clearCheck = new int[PUZZLECOUNT] { 0, 0, 0 };
+        particle = transform.GetChild(0).GetComponent<ParticleSystem>();
     }
 
     /// <summary>
