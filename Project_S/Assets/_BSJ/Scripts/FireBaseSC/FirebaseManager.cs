@@ -39,10 +39,10 @@ public class FirebaseManager : MonoBehaviour
     // } 키 값 상수
 
     // 파이어 베이스
-    private DatabaseReference reference;    // 루트 레퍼런스
-    private FirebaseAuth auth;              // 로그인 | 회원가입 등에 사용 => 인증을 관리할 객체
-    private FirebaseUser user;              // 인증이 완료된 유저 정보
-    private string userID;                     // 인증이 완료된 유저 ID
+    private DatabaseReference reference;        // 루트 레퍼런스
+    private FirebaseAuth auth;                  // 로그인 | 회원가입 등에 사용 => 인증을 관리할 객체
+    private FirebaseUser user;                  // 인증이 완료된 유저 정보
+    private string userID;                      // 인증이 완료된 유저 ID
 
     [SerializeField] private GameObject loginObjects;       // 로그인 관련 오브젝트들
     [SerializeField] private Button loginButton;            // 로그인 버튼
@@ -180,6 +180,10 @@ public class FirebaseManager : MonoBehaviour
                 if (task.IsCompleted)
                 {
                     AuthResult result = task.Result;
+
+                    // 유저 아이디 받아오기
+                    userID = task.Result.User.UserId.ToString();
+
                     infoTextField.text = "상태 : 로그인 성공!!!";
                     Debug.Log($"로그인 성공 : {emailField.text}, {result.User.UserId}");
                     loginButton.interactable = true;
@@ -187,6 +191,8 @@ public class FirebaseManager : MonoBehaviour
                     // 로딩 관련 UI 활성화
                     loginObjects.gameObject.SetActive(false);
                     loadingObjects.gameObject.SetActive(true);
+
+                    // 비동기 로딩 실행
                     StartCoroutine(LoadTitleText());
                     StartCoroutine(LoadSceneAsync());
                 }
@@ -285,36 +291,6 @@ public class FirebaseManager : MonoBehaviour
     /// <param name="_value">클리어 여부</param>
     public void PuzzleClearUpdateToDB(int _key, bool _value)
     {
-        if (FirebaseManager.instance == null)
-        {
-            Debug.LogError("FirebaseManager 인스턴스가 설정되지 않았습니다.");
-            return;
-        }
-
-        if (User == null)
-        {
-            Debug.LogError("User가 설정되지 않았습니다.");
-            return;
-        }
-
-        if (userID == null)
-        {
-            Debug.LogError("userData가 설정되지 않았습니다.");
-            return;
-        }
-
-        if (Puzzle == null)
-        {
-            Debug.LogError("Puzzle이 설정되지 않았습니다.");
-            return;
-        }
-
-        if (FirebaseDatabase.DefaultInstance == null)
-        {
-            Debug.LogError("FirebaseDatabase가 설정되지 않았습니다.");
-            return;
-        }
-
         // 레퍼런스 초기화
         reference = FirebaseDatabase.DefaultInstance.RootReference;
 
@@ -335,6 +311,39 @@ public class FirebaseManager : MonoBehaviour
         });
 
         // 레퍼런스 초기화
+        reference = FirebaseDatabase.DefaultInstance.RootReference;
+    }
+
+    /// <summary>
+    /// RDB에서 퍼즐 클리어의 여부를 인게임내로 가져오는 메서드.
+    /// </summary>
+    public void PuzzleClearUpdateFromDB()
+    {
+        // 레퍼런스 초기화 (초기화 안하면 새로 덮어 씌워짐)
+        reference = FirebaseDatabase.DefaultInstance.RootReference;
+
+        //데이터 가져오기(유저 ID를 찾아서 스냅샷으로 가져옴)
+        reference = FirebaseDatabase.DefaultInstance.GetReference(User).Child(userID).Child(Puzzle);
+
+        reference.GetValueAsync().ContinueWithOnMainThread(task =>
+        {
+            // 정상적으로 데이터를 가져왔다면?
+            if (task.IsCompleted)
+            {
+                DataSnapshot snapshot = task.Result;
+                
+                // 인 게임내의 퍼즐 매니저에 데이터 캐싱하기
+                foreach(var data in snapshot.Children) 
+                {
+                    int _key = Convert.ToInt32(data.Key);
+                    bool _value = Convert.ToBoolean(data.Value);
+
+                    PuzzleManager.instance.CheckPuzzleClear(_key, _value);
+                }
+            }
+        });
+
+        // 레퍼런스 초기화 (초기화 안하면 새로 덮어 씌워짐)
         reference = FirebaseDatabase.DefaultInstance.RootReference;
     }
 

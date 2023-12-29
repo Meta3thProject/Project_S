@@ -7,22 +7,13 @@ public class Upon3treePuzzleClear : MonoBehaviour
     // 이 퍼즐의 번호는 0번 입니다.
     private int PUZZLEINDEX = 0;
 
-    // 퍼즐의 클리어 여부
-    public bool _isClear;
-
-    private void Awake()
-    {
-        // 퍼즐의 클리어 여부 [거짓으로 초기화]
-        _isClear = false;
-    }
-
     public void PuzzleClear()
     {
         // 이미 퍼즐을 클리어 했다면 리턴.
-        if (_isClear) { return; }
+        if (PuzzleManager.instance.puzzles[0] == true) { return; }
 
         // 퍼즐 클리어 체크
-        _isClear = true;
+        PuzzleManager.instance.puzzles[0] = true;
 
         // 별의 총 갯수 증가
         StartCoroutine(StarManager.starManager.CallStar());

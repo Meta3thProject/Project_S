@@ -68,6 +68,12 @@ public class PuzzleManager : MonoBehaviour
         shieldPuzzleClear._isClear = true;
     }
 
+    private void Start()
+    {
+        // 퍼즐 DB 받아오기
+        FirebaseManager.instance.PuzzleClearUpdateFromDB();
+    }
+
     /// <summary>
     /// 퍼즐의 클리어 여부를 판단해서 퍼즐클리어 배열과 딕셔너리를 업데이트하는 함수
     /// </summary>
