@@ -46,10 +46,8 @@ public class Taxidermy : MonoBehaviour
     {
         if (_control)
         {
-            rb.useGravity = false;
-            rb.constraints = RigidbodyConstraints.FreezeAll;
-
-            StartCoroutine(constraintsControl());
+            rb.useGravity = true;
+            rb.constraints = RigidbodyConstraints.None;
         }
 
         else
@@ -57,11 +55,5 @@ public class Taxidermy : MonoBehaviour
             rb.useGravity = false;
             
         }
-    }
-
-    IEnumerator constraintsControl()
-    {
-        yield return new WaitForSecondsRealtime(0.5f);
-        rb.constraints = RigidbodyConstraints.None;
     }
 }

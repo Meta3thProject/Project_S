@@ -39,7 +39,7 @@ EditorBuildSettings:
     path: Assets/01. Project_S/Scene/MainScene.unity
     guid: 17e9de9028beec24ca8697637fb6d53f
   - enabled: 1
-    path: Assets/00.Project_S/Lobby.unity
+    path: Assets/_BSJ/Scenes/Lobby.unity
     guid: 0fffca37fbfc3f3449d88b9f51e7bac0
   - enabled: 1
     path: Assets/_BSJ/Scenes/BSJ_TestScene.unity

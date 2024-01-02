@@ -14675,7 +14675,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4464635246588060987}
   - component: {fileID: 4464635246588060984}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: GrabTransform Right
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -14731,7 +14731,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4464635247413827544}
   - component: {fileID: 4464635247413827545}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: GrabTransform Left
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -14792,7 +14792,7 @@ GameObject:
   - component: {fileID: 4464635247666121151}
   - component: {fileID: 4464635247666121149}
   - component: {fileID: 4464635247666121148}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Axe
   m_TagString: Axe
   m_Icon: {fileID: 0}
@@ -20426,6 +20426,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: RingHelper
+      objectReference: {fileID: 0}
+    - target: {fileID: 4213795611944346747, guid: 9e3b0bca4dce07c4cac56011bea1487d,
+        type: 3}
+      propertyPath: m_Layer
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 6799183511233398105, guid: 9e3b0bca4dce07c4cac56011bea1487d,
         type: 3}

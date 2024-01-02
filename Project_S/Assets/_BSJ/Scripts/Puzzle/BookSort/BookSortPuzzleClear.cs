@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using static UnityEngine.ParticleSystem;
 
 public class BookSortPuzzleClear : MonoBehaviour, IActiveSign
 {
@@ -61,6 +62,9 @@ public class BookSortPuzzleClear : MonoBehaviour, IActiveSign
                 return;
             }
         }
+
+        // 이펙트 실행
+        particle.Play();
 
         // 퍼즐 클리어 체크
         PuzzleManager.instance.puzzles[PUZZLEINDEX] = true;

@@ -34,8 +34,8 @@ public class ButcherShop03Trigger : MonoBehaviour
         butcherShop03Clear = transform.root.GetChild(16).GetComponent<ButcherShop03Clear>();
 
         // 고기 정답 캐싱
-        PorkCountAnswer = transform.parent.parent.GetChild(0).GetChild(0).childCount;
-        MeatCountAnswer = transform.parent.parent.GetChild(0).GetChild(1).childCount;
+        MeatCountAnswer = transform.parent.parent.GetChild(0).GetChild(0).childCount;
+        PorkCountAnswer = transform.parent.parent.GetChild(0).GetChild(1).childCount;
         ChickenCountAnswer = transform.parent.parent.GetChild(0).GetChild(2).childCount;
 
         // Text 캐싱

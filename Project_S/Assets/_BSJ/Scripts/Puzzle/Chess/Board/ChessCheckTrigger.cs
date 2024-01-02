@@ -23,7 +23,7 @@ public class ChessCheckTrigger : MonoBehaviour
 
             if(chesspiece.pieceName == chessPieceName) 
             {
-                chesspiece.transform.position = new Vector3(transform.position.x, chesspiece.transform.position.y, transform.position.z);
+                chesspiece.transform.position = new Vector3(transform.position.x, chesspiece.transform.position.y - 0.1f, transform.position.z);    // y값은 제일 어울리는 값을 찾아서 넣어준 것임.
                 chesspiece.EnterChessTrigger();
                 puzzleClear.IncreaseClearCheck((int)chessPieceName);
             }

@@ -16,14 +16,12 @@ public class HiddenFlowers : MonoBehaviour
     // 꽃이 쓰러지지 않기 위해 꽃의 시작 회전값 캐싱
     private Rigidbody rb;
     private Quaternion flowerRotate;
-    private RigidbodyConstraints rbConstraints;
 
     private void Awake()
     {
         // 꽃이 쓰러지지 않게 하기 위한 설정
-        rbConstraints = RigidbodyConstraints.FreezeRotationX | RigidbodyConstraints.FreezeRotationZ;
         rb = GetComponent<Rigidbody>();
-        rb.constraints = rbConstraints;
+        rb.constraints = RigidbodyConstraints.FreezeRotationX | RigidbodyConstraints.FreezeRotationZ;
         flowerRotate = transform.rotation;
     }
 
@@ -44,9 +42,10 @@ public class HiddenFlowers : MonoBehaviour
     /// <returns></returns>
     private IEnumerator ConstraintsControl()
     {
-        yield return new WaitForSecondsRealtime(0.5f);
-        rb.constraints = RigidbodyConstraints.None;
-        rb.constraints = rbConstraints;
+        yield return new WaitForSecondsRealtime(0.1f);
+        rb.velocity = Vector3.zero;
+        rb.angularVelocity = Vector3.zero;
+        rb.constraints = RigidbodyConstraints.FreezeRotationX | RigidbodyConstraints.FreezeRotationZ;
         transform.rotation = flowerRotate;
     }
 }

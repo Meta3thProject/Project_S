@@ -6,7 +6,7 @@ using TMPro;
 
 public class ButcherShop01Clear : MonoBehaviour, IActiveSign
 {
-    const int PUZZLEINDEX = 11;      // 이 퍼즐의 번호는 11번 입니다.
+    const int PUZZLEINDEX = 12;      // 이 퍼즐의 번호는 12번 입니다.
 
     // 현재 생성되어 있는 고기의 카운트
     [field: SerializeField] public int iceCubeCount { get; set; }
