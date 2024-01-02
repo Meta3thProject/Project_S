@@ -115,7 +115,7 @@ GameObject:
   - component: {fileID: 5681015506116101332}
   - component: {fileID: 1386781056264942441}
   m_Layer: 0
-  m_Name: Cube (1)
+  m_Name: GrabPoint (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -230,7 +230,7 @@ GameObject:
   - component: {fileID: 4859802634175270871}
   - component: {fileID: 6339356011002985114}
   m_Layer: 0
-  m_Name: Cube (2)
+  m_Name: GrabPoint (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -345,7 +345,7 @@ GameObject:
   - component: {fileID: 6073008205606940186}
   - component: {fileID: 5534515802257473936}
   m_Layer: 0
-  m_Name: Cube
+  m_Name: GrabPoint
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -460,7 +460,7 @@ GameObject:
   - component: {fileID: 411455851384693045}
   - component: {fileID: 142574717040729950}
   m_Layer: 0
-  m_Name: Cube (3)
+  m_Name: GrabPoint (3)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -575,7 +575,7 @@ GameObject:
   - component: {fileID: 6100836037567985054}
   - component: {fileID: 4260121321443198230}
   m_Layer: 0
-  m_Name: Cube (4)
+  m_Name: GrabPoint (4)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
