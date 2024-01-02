@@ -1,15 +1,16 @@
 using System.Collections.Generic;
 
+public enum Tutorial
+{
+    // 301100 ~ 301108 까지 튜토리얼
+    Yes = 301100,
+    No = 301108
+}
+
 public class QuestManager : GSingleton<QuestManager>
 {
     // 퀘스트 데이터
     public QUEST_TABLE questTable;
-    public enum Tutorial
-    {
-        // 301100 ~ 301108 까지 튜토리얼
-        Yes = 301100,
-        No = 301109
-    }
 
     // 퀘스트 Dictionary
     public Dictionary<int, Quest> idToQuest;

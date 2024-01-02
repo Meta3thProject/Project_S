@@ -134,37 +134,37 @@ public class NPCManager : GSingleton<NPCManager>
                 // 수락한 퀘스트라면
                 else if (QuestManager.Instance.idToQuest[interacted.questID].IsAccepted == true)
                 {
+                    // 퀘스트 완료 체크
                     QuestManager.Instance.CompleteCheck(interacted.questID);
                 }
 
                 // 완료하지 않은 퀘스트라면
                 if (QuestManager.Instance.idToQuest[interacted.questID].IsCompleted == false)
                 {
+                    // 진행중 출력문
                     interacted.printID = QuestManager.Instance.idToQuest[interacted.questID].IngID;
                 }
                 // 완료한 퀘스트라면
                 else
                 {
+                    // 완료 출력문
                     interacted.printID = QuestManager.Instance.idToQuest[interacted.questID].CompleteID;
                 }
 
                 break;
             case QuestType.Conversation:
-                // 완료한 퀘스트라면
+                // 대화형은 멈출 수 없고, 끝까지 대화하면 완료이므로
+                // 완료하지 않은 퀘스트라면
                 if (QuestManager.Instance.idToQuest[interacted.questID].IsCompleted == false)
                 {
-                    // 대화형은 끝까지 대화하면 완료이므로
+                    // 퀘스트 완료
                     QuestManager.Instance.CompleteQuest(interacted.questID);
+                }
+                // 완료한 퀘스트라면 아무것도 하지 않음
+                else { /* Do Nothing */ }
 
-                    // 완료 출력문ID 설정
-                    interacted.printID = QuestManager.Instance.idToQuest[interacted.questID].CompleteID;
-                }
-                // 완료하지 않은 퀘스트라면
-                else
-                {
-                    // 퀘스트 완료 처리 없이 출력문ID만 설정
-                    interacted.printID = QuestManager.Instance.idToQuest[interacted.questID].CompleteID;
-                }
+                // 완료 출력문ID 설정
+                interacted.printID = QuestManager.Instance.idToQuest[interacted.questID].CompleteID;
 
                 break;
             case QuestType.Puzzle:
@@ -176,16 +176,18 @@ public class NPCManager : GSingleton<NPCManager>
                     QuestManager.Instance.AcceptQuest(interacted.questID);
                 }
 
-                // 완료 체크는 NPC가 한다
+                // 완료 체크는 NPC가 스스로 한다
 
                 // 완료하지 않은 퀘스트라면
                 if (QuestManager.Instance.idToQuest[interacted.questID].IsCompleted == false)
                 {
+                    // 진행중 출력문
                     interacted.printID = QuestManager.Instance.idToQuest[interacted.questID].IngID;
                 }
                 // 완료한 퀘스트라면
                 else
                 {
+                    // 완료 출력문
                     interacted.printID = QuestManager.Instance.idToQuest[interacted.questID].CompleteID;
                 }
 

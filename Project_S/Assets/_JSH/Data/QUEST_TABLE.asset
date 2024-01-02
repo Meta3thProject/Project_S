@@ -104,59 +104,48 @@ MonoBehaviour:
     complete_dialogue: 304136
     reward: 0
   - id: 301104
-    quest_title: "\uC778\uBCA4\uD1A0\uB9AC \uC774\uB3D9\uD574\uBCF4\uAE30"
+    quest_title: "\uC870\uD569\uD574\uBCF4\uAE30"
     start_npc: 300100
     end_npc: 300100
     quest_type: 1
     value1: 100004
     value2: 1
     before_dialogue: 0
-    doing_dialogue: 304146
-    complete_dialogue: 304150
+    doing_dialogue: 304149
+    complete_dialogue: 304151
     reward: 0
   - id: 301105
-    quest_title: "\uC870\uD569\uD574\uBCF4\uAE30"
-    start_npc: 300100
-    end_npc: 300100
-    quest_type: 1
-    value1: 100005
-    value2: 1
-    before_dialogue: 0
-    doing_dialogue: 304161
-    complete_dialogue: 304162
-    reward: 0
-  - id: 301106
     quest_title: "\uC694\uC815\uC758 \uC9D1 \uBB38 \uC5F4\uAE30"
     start_npc: 300100
     end_npc: 300100
     quest_type: 4
     value1: 0
     value2: 0
-    before_dialogue: 304163
-    doing_dialogue: 304170
-    complete_dialogue: 304172
+    before_dialogue: 0
+    doing_dialogue: 304158
+    complete_dialogue: 304160
     reward: 0
-  - id: 301107
+  - id: 301106
     quest_title: "\uB9C8\uC9C0\uB9C9 \uD14C\uC2A4\uD2B8"
     start_npc: 300101
     end_npc: 300101
     quest_type: 1
     value1: 101003
     value2: 1
-    before_dialogue: 304173
-    doing_dialogue: 304181
-    complete_dialogue: 304182
+    before_dialogue: 304161
+    doing_dialogue: 304169
+    complete_dialogue: 304170
     reward: 0
-  - id: 301108
+  - id: 301107
     quest_title: "\uB5A0\uB098\uAE30 \uC804\uC5D0"
     start_npc: 300100
     end_npc: 300100
     quest_type: 3
     value1: 0
     value2: 0
-    before_dialogue: 304184
+    before_dialogue: 304172
     doing_dialogue: 0
-    complete_dialogue: 304193
+    complete_dialogue: 304181
     reward: 0
   - id: 301200
     quest_title: "\uAC8C\uC784\uC740 \uD63C\uC790, \uAC19\uC774"
