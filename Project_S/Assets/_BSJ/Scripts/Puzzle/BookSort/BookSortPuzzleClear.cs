@@ -1,27 +1,24 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using static UnityEngine.ParticleSystem;
 
-public class BookSortPuzzleClear : MonoBehaviour
+public class BookSortPuzzleClear : MonoBehaviour, IActiveSign
 {
     const int PUZZLEINDEX = 4;      // 이 퍼즐의 번호는 4번 입니다.
     const int PUZZLECOUNT = 4;      // 퍼즐의 배열의 요소는 4개입니다.
 
-    // 퍼즐의 클리어 여부
-    public bool _isClear;
-
     // 퍼즐의 클리어 배열
     [field: SerializeField] public int[] clearCheck { get; private set; }
+
+    // 퍼즐 클리어 팻말
+    [SerializeField] private GameObject clearSign;
 
     // 이펙트
     private ParticleSystem particle;
 
     private void Awake()
     {
-        // 퍼즐의 클리어 여부 [거짓으로 초기화]
-        _isClear = false;
-
+        // 퍼즐 요소 배열 초기화 & 이펙트 캐싱
         clearCheck = new int[PUZZLECOUNT] { 0, 0, 0, 0 };
         particle = transform.GetChild(0).GetChild(0).GetComponent<ParticleSystem>();
     }
@@ -32,8 +29,8 @@ public class BookSortPuzzleClear : MonoBehaviour
     /// <param name="_indexNumber">배열의 요소 인덱스</param>
     public void IncreaseClearCheck(int _indexNumber)
     {
-        // 이미 클리어가 되었다면 리턴
-        if (_isClear) { return; }
+        // 이미 퍼즐을 클리어 했다면 리턴
+        if (PuzzleManager.instance.puzzles[PUZZLEINDEX] == true) { return; }
 
         clearCheck[_indexNumber] = 1;
         CheckClearArray();
@@ -45,8 +42,8 @@ public class BookSortPuzzleClear : MonoBehaviour
     /// <param name="_indexNumber">배열의 요소 인덱스</param>
     public void DecreaseClearCheck(int _indexNumber)
     {
-        // 이미 클리어가 되었다면 리턴
-        if (_isClear) { return; }
+        // 이미 퍼즐을 클리어 했다면 리턴
+        if (PuzzleManager.instance.puzzles[PUZZLEINDEX] == true) { return; }
 
         clearCheck[_indexNumber] = 0;
     }
@@ -65,16 +62,28 @@ public class BookSortPuzzleClear : MonoBehaviour
             }
         }
 
-        // 이펙트 플레이
-        particle.Play();
-
         // 퍼즐 클리어 체크
-        _isClear = true;
+        PuzzleManager.instance.puzzles[PUZZLEINDEX] = true;
 
         // 별의 총 갯수 증가
         StartCoroutine(StarManager.starManager.CallStar());
 
         // 별 구역의 클리어 체크
         PuzzleManager.instance.CheckPuzzleClear(PUZZLEINDEX, true);
+
+        // 파이어베이스 RDB에 업데이트
+        FirebaseManager.instance.PuzzleClearUpdateToDB(PUZZLEINDEX, true);
+
+        // 클리어 팻말 활성화
+        ActiveClearSign(true);
+    }
+
+    /// <summary>
+    /// 클리어 팻말의 활성화 여부
+    /// </summary>
+    /// <param name="_isClear"></param>
+    public void ActiveClearSign(bool _isClear)
+    {
+        clearSign.SetActive(_isClear);
     }
 }

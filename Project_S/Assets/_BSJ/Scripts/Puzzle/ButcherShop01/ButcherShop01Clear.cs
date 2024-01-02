@@ -4,12 +4,9 @@ using UnityEngine;
 using DG.Tweening;
 using TMPro;
 
-public class ButcherShop01Clear : MonoBehaviour
+public class ButcherShop01Clear : MonoBehaviour, IActiveSign
 {
     const int PUZZLEINDEX = 11;      // 이 퍼즐의 번호는 11번 입니다.
-
-    // 퍼즐 클리어 여부
-    public bool _isClear;
 
     // 현재 생성되어 있는 고기의 카운트
     [field: SerializeField] public int iceCubeCount { get; set; }
@@ -32,14 +29,15 @@ public class ButcherShop01Clear : MonoBehaviour
     private Quaternion leftLeverRotate;
     private Quaternion RightLeverRotate;
 
+    // 성공 했는지 O, X 띄워주는 캔버스 && 텍스트
     [SerializeField] private GameObject _canvasObj;
     [SerializeField] private TMP_Text _tmp_Text;
 
+    // 퍼즐 클리어 팻말
+    [SerializeField] private GameObject clearSign;
+
     private void Awake()
     {
-        // 클리어 false;
-        _isClear = false;
-
         // 처음 고기의 시작 갯수는 9개
         iceCubeCount = 9;
 
@@ -115,16 +113,23 @@ public class ButcherShop01Clear : MonoBehaviour
     /// </summary>
     public void ButcherShopClear()
     {
-        if (_isClear) { return; }
+        // 이미 퍼즐을 클리어 했다면 리턴
+        if (PuzzleManager.instance.puzzles[PUZZLEINDEX] == true) { return; }
 
         // 퍼즐 클리어 체크
-        _isClear = true;
+        PuzzleManager.instance.puzzles[PUZZLEINDEX] = true;
 
         // 별의 총 갯수 증가
         StartCoroutine(StarManager.starManager.CallStar());
 
         // 별 구역의 클리어 체크
         PuzzleManager.instance.CheckPuzzleClear(PUZZLEINDEX, true);
+
+        // 파이어베이스 RDB에 업데이트
+        FirebaseManager.instance.PuzzleClearUpdateToDB(PUZZLEINDEX, true);
+
+        // 클리어 팻말 활성화
+        ActiveClearSign(true);
     }
 
     /// <summary>
@@ -149,5 +154,14 @@ public class ButcherShop01Clear : MonoBehaviour
         // 테스트 변경
         _tmp_Text.text = "O";
         _tmp_Text.color = Color.yellow;
+    }
+
+    /// <summary>
+    /// 클리어 팻말의 활성화 여부
+    /// </summary>
+    /// <param name="_isClear"></param>
+    public void ActiveClearSign(bool _isClear)
+    {
+        clearSign.SetActive(_isClear);
     }
 }

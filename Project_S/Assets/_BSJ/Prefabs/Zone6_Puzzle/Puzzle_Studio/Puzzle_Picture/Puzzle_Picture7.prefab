@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 2090417156319908556}
   - component: {fileID: 7867070910021842254}
   - component: {fileID: 5175751146329619367}
-  m_Layer: 5
+  m_Layer: 10
   m_Name: Text (Legacy)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -79,7 +79,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: KING
+  m_Text: Picture
 --- !u!1 &4850966542653260339
 GameObject:
   m_ObjectHideFlags: 0
@@ -92,7 +92,7 @@ GameObject:
   - component: {fileID: 4837152497681546287}
   - component: {fileID: 4829598394329583723}
   - component: {fileID: 5441786958864089903}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: SM_Prop_Painting_03
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -188,7 +188,7 @@ GameObject:
   - component: {fileID: 317179700799920444}
   - component: {fileID: 3909715930097319601}
   - component: {fileID: 6446475788733825509}
-  m_Layer: 5
+  m_Layer: 10
   m_Name: Text (Legacy) (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -256,7 +256,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 01
+  m_Text: 07
 --- !u!1 &8213215500732950632
 GameObject:
   m_ObjectHideFlags: 0
@@ -267,7 +267,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8213215500732950635}
   - component: {fileID: 8213215500732950634}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: GrabTransform Right
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -323,7 +323,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8213215500976269595}
   - component: {fileID: 8213215500976269594}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: GrabTransform Left
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -380,7 +380,7 @@ GameObject:
   - component: {fileID: 8213215502078984220}
   - component: {fileID: 8213215502078984222}
   - component: {fileID: 8213215502078984223}
-  m_Layer: 5
+  m_Layer: 10
   m_Name: Image
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -459,7 +459,7 @@ GameObject:
   - component: {fileID: 8213215502527096483}
   - component: {fileID: 8117491881103784209}
   - component: {fileID: -6622108920400350849}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Puzzle_Picture7
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -495,7 +495,7 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 0.76, y: 1, z: 0.05}
+  m_Size: {x: 0.76, y: 1, z: 0.1}
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!54 &8213215502527096482
 Rigidbody:
@@ -528,7 +528,7 @@ MonoBehaviour:
   BeingHeld: 0
   GrabButton: 2
   Grabtype: 2
-  GrabPhysics: 1
+  GrabPhysics: 4
   GrabMechanic: 1
   GrabSpeed: 15
   RemoteGrabbable: 1
@@ -539,7 +539,7 @@ MonoBehaviour:
   BreakDistance: 0
   HideHandGraphics: 0
   ParentToHands: 0
-  ParentHandModel: 1
+  ParentHandModel: 0
   SnapHandModel: 1
   CanBeDropped: 1
   CanBeSnappedToSnapZone: 0
@@ -664,7 +664,7 @@ GameObject:
   - component: {fileID: 8213215502826803342}
   - component: {fileID: 8213215502826803343}
   - component: {fileID: 8213215502826803340}
-  m_Layer: 5
+  m_Layer: 10
   m_Name: Canvas
   m_TagString: Untagged
   m_Icon: {fileID: 0}

@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.18028355, g: 0.2257148, b: 0.3069232, a: 1}
+  m_IndirectSpecularColor: {r: 0.18028337, g: 0.22571445, b: 0.3069225, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -700,7 +700,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d0aba53952b56b94ca372b5c57614810, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  <getStarCount>k__BackingField: 0
+  getStarCount: 0
   star: {fileID: 310389000}
   starGold: {fileID: 310388999}
   starGoldVFX: {fileID: 0}
@@ -1012,6 +1012,7 @@ MonoBehaviour:
   <treePuzzleClear>k__BackingField: {fileID: 174279925}
   <shieldPuzzleClear>k__BackingField: {fileID: 2037508998}
   <studioPuzzleClear>k__BackingField: {fileID: 75157978}
+  <taxidermyClear>k__BackingField: {fileID: 4993760666080271517}
   <potPuzzleClear>k__BackingField: {fileID: 611458840}
   <butcherShop01Clear>k__BackingField: {fileID: 1089274189}
   <butcherShop02Clear>k__BackingField: {fileID: 519625357}
@@ -1626,6 +1627,26 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1016830942}
     m_Modifications:
+    - target: {fileID: 544929863231413361, guid: c71ddb07be72a9b4a9f3e79d861f0f48,
+        type: 3}
+      propertyPath: m_Layer
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 4464635246588060986, guid: c71ddb07be72a9b4a9f3e79d861f0f48,
+        type: 3}
+      propertyPath: m_Layer
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 4464635247413827547, guid: c71ddb07be72a9b4a9f3e79d861f0f48,
+        type: 3}
+      propertyPath: m_Layer
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 4464635247666121138, guid: c71ddb07be72a9b4a9f3e79d861f0f48,
+        type: 3}
+      propertyPath: m_Layer
+      value: 10
+      objectReference: {fileID: 0}
     - target: {fileID: 4464635247888542094, guid: c71ddb07be72a9b4a9f3e79d861f0f48,
         type: 3}
       propertyPath: m_Name
@@ -2451,6 +2472,18 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1c87e67ce98cf2c4bbf79e8f32866a41, type: 3}
+--- !u!114 &4993760666080271517 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1402234352, guid: 1c87e67ce98cf2c4bbf79e8f32866a41,
+    type: 3}
+  m_PrefabInstance: {fileID: 4993760666080271516}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a0e244edee2d2b741a30f4a4703490c4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &6596363506687509691
 PrefabInstance:
   m_ObjectHideFlags: 0

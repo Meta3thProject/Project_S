@@ -8,7 +8,9 @@ public class StarManager : MonoBehaviour
 {
     public static StarManager starManager;
 
-    [field:SerializeField] public int getStarCount { get; private set; }
+    // 현재 까지 획득한 총 스타의 갯수
+    public int getStarCount;
+
     [SerializeField] private GameObject star;
     [SerializeField] private GameObject starGold;
     [SerializeField] private ParticleSystem starGoldVFX;
@@ -22,11 +24,8 @@ public class StarManager : MonoBehaviour
     {
         starManager = this;
         starGoldVFX = starGold.GetComponent<ParticleSystem>();
-    }
 
-    private void Start()
-    {
-        StartCoroutine(CallStar());
+        star.gameObject.SetActive(false);
     }
 
     /// <summary>
@@ -63,6 +62,9 @@ public class StarManager : MonoBehaviour
     /// <returns></returns>
     public IEnumerator CallStar()
     {
+        // 획득한 별의 갯수 증가
+        getStarCount++;
+
         yield return new WaitForSeconds(2f);
         starAppearVFX01.Play();
 
@@ -71,8 +73,5 @@ public class StarManager : MonoBehaviour
 
         yield return new WaitForSeconds(0.8f);
         SpiralStarSequence();
-
-        getStarCount++;
-        
     }
 }

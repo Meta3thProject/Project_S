@@ -16,6 +16,7 @@ GameObject:
   - component: {fileID: 82515978235703620}
   - component: {fileID: 82515978235703621}
   - component: {fileID: 7227714601250155848}
+  - component: {fileID: 581633859115961130}
   m_Layer: 10
   m_Name: Model_Puzzle_Pot1 ( answer )
   m_TagString: Untagged
@@ -32,7 +33,7 @@ Transform:
   m_GameObject: {fileID: 1844623765744237739}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 20.65941, y: -0.29356232, z: 89.94305}
-  m_LocalScale: {x: 1.8427175, y: 0.43721583, z: 2.149928}
+  m_LocalScale: {x: 0.67488676, y: 0.6748869, z: 0.67488676}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 7575218016272565105}
@@ -134,7 +135,7 @@ MonoBehaviour:
   BeingHeld: 0
   GrabButton: 2
   Grabtype: 2
-  GrabPhysics: 1
+  GrabPhysics: 4
   GrabMechanic: 1
   GrabSpeed: 15
   RemoteGrabbable: 1
@@ -258,6 +259,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   <potType>k__BackingField: 0
+--- !u!114 &581633859115961130
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1844623765744237739}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 034bc47afcbf5e141a58d5c20b7808e4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &6071239719951784275
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -272,28 +285,43 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4423085677758323234, guid: 4217f9fbbd057464a9c8fbcb28615c27,
         type: 3}
+      propertyPath: m_LocalScale.x
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 4423085677758323234, guid: 4217f9fbbd057464a9c8fbcb28615c27,
+        type: 3}
+      propertyPath: m_LocalScale.y
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 4423085677758323234, guid: 4217f9fbbd057464a9c8fbcb28615c27,
+        type: 3}
+      propertyPath: m_LocalScale.z
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 4423085677758323234, guid: 4217f9fbbd057464a9c8fbcb28615c27,
+        type: 3}
       propertyPath: m_LocalPosition.x
-      value: -13.111988
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4423085677758323234, guid: 4217f9fbbd057464a9c8fbcb28615c27,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.22569263
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4423085677758323234, guid: 4217f9fbbd057464a9c8fbcb28615c27,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 20.036003
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4423085677758323234, guid: 4217f9fbbd057464a9c8fbcb28615c27,
         type: 3}
       propertyPath: m_LocalRotation.w
-      value: 0.7071068
+      value: 0.7071079
       objectReference: {fileID: 0}
     - target: {fileID: 4423085677758323234, guid: 4217f9fbbd057464a9c8fbcb28615c27,
         type: 3}
       propertyPath: m_LocalRotation.x
-      value: -0.7071068
+      value: -0.70710576
       objectReference: {fileID: 0}
     - target: {fileID: 4423085677758323234, guid: 4217f9fbbd057464a9c8fbcb28615c27,
         type: 3}
@@ -319,6 +347,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4423085677758323234, guid: 4217f9fbbd057464a9c8fbcb28615c27,
+        type: 3}
+      propertyPath: m_ConstrainProportionsScale
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4424955998687635092, guid: 4217f9fbbd057464a9c8fbcb28615c27,
         type: 3}

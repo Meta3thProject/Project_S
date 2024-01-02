@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 4609968317640816947}
   - component: {fileID: 5752840383074967217}
   - component: {fileID: 7289274632003227736}
-  m_Layer: 5
+  m_Layer: 10
   m_Name: Text (Legacy)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -79,7 +79,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: KING
+  m_Text: Picture
 --- !u!1 &5980905018439598823
 GameObject:
   m_ObjectHideFlags: 0
@@ -90,7 +90,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5980905018439598820}
   - component: {fileID: 5980905018439598821}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: GrabTransform Left
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -146,7 +146,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5980905018599326612}
   - component: {fileID: 5980905018599326613}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: GrabTransform Right
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -203,7 +203,7 @@ GameObject:
   - component: {fileID: 5980905019409165283}
   - component: {fileID: 5980905019409165281}
   - component: {fileID: 5980905019409165280}
-  m_Layer: 5
+  m_Layer: 10
   m_Name: Image
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -280,7 +280,7 @@ GameObject:
   - component: {fileID: 5980905019751578481}
   - component: {fileID: 5980905019751578480}
   - component: {fileID: 5980905019751578483}
-  m_Layer: 5
+  m_Layer: 10
   m_Name: Canvas
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -385,7 +385,7 @@ GameObject:
   - component: {fileID: 5980905020122877276}
   - component: {fileID: 5934720994602341096}
   - component: {fileID: -4557465113938561175}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Puzzle_Picture6
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -421,7 +421,7 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 0.76, y: 1, z: 0.05}
+  m_Size: {x: 0.76, y: 1, z: 0.1}
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!54 &5980905020122877277
 Rigidbody:
@@ -454,7 +454,7 @@ MonoBehaviour:
   BeingHeld: 0
   GrabButton: 2
   Grabtype: 2
-  GrabPhysics: 1
+  GrabPhysics: 4
   GrabMechanic: 1
   GrabSpeed: 15
   RemoteGrabbable: 1
@@ -465,7 +465,7 @@ MonoBehaviour:
   BreakDistance: 0
   HideHandGraphics: 0
   ParentToHands: 0
-  ParentHandModel: 1
+  ParentHandModel: 0
   SnapHandModel: 1
   CanBeDropped: 1
   CanBeSnappedToSnapZone: 0
@@ -590,7 +590,7 @@ GameObject:
   - component: {fileID: 7051025166250153936}
   - component: {fileID: 7060919294524291988}
   - component: {fileID: 6966563334408080595}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: SM_Prop_Painting_07
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -686,7 +686,7 @@ GameObject:
   - component: {fileID: 2782551494522139331}
   - component: {fileID: 1493325331501634894}
   - component: {fileID: 8902834734917184026}
-  m_Layer: 5
+  m_Layer: 10
   m_Name: Text (Legacy) (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -754,4 +754,4 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 01
+  m_Text: 06

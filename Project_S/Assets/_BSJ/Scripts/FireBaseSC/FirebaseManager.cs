@@ -11,7 +11,6 @@ using System;
 using System.IO;
 using Firebase.Extensions;
 using UnityEngine.SceneManagement;
-using UnityEditor.VersionControl;
 
 public class FirebaseManager : MonoBehaviour
 {
@@ -19,6 +18,7 @@ public class FirebaseManager : MonoBehaviour
     public static FirebaseManager instance;
 
     // 다음 스테이지 이름
+    const string LOGINSCENE = "Lobby";
     const string MAINSCENE = "BSJ_TestScene";
 
     // { 키 값 상수
@@ -110,8 +110,17 @@ public class FirebaseManager : MonoBehaviour
         reference = FirebaseDatabase.DefaultInstance.RootReference;
     }
 
+    private void Update()
+    {
+        // Test : 로그아웃 테스트 BSJ_240102
+        if(Input.GetKeyDown(KeyCode.Escape)) 
+        {
+            LogOut();
+        }
+    }
+
     /// <summary>
-    /// 회원가입하는 함수
+    /// 회원가입하는 메서드.
     /// </summary>
     public void Register()
     {
@@ -154,7 +163,7 @@ public class FirebaseManager : MonoBehaviour
     }
 
     /// <summary>
-    /// 로그인 하는 함수.
+    /// 로그인 하는 메서드.
     /// </summary>
     public void Login()
     {
@@ -256,19 +265,34 @@ public class FirebaseManager : MonoBehaviour
     public void LogOut()
     {
         auth.SignOut(); // 로그아웃이 자동으로 된다.
-        Debug.Log("로그아웃");
 
-        // 유저데이터 비우기 231229
-        // userData = new Userdata(null);
+        // { 로그인 관련 UI 활성화
+        loadingUIPannel.gameObject.SetActive(true);
+        loginObjects.gameObject.SetActive(true);
+        loadingObjects.gameObject.SetActive(false);
+        // } 로그인 관련 UI 활성화
 
-        // 아이템 갯수 초기화
-        PlayerInventory.instance.ItemInit();
+        // 파이어 베이스 객체 초기화
+        auth = Firebase.Auth.FirebaseAuth.DefaultInstance;
 
-        // 모든 아이템 딕셔너리 클리어 ( 6은 아이템 타입 )
-        for(int i = 0; i < 6; i++)
-        {
-            PlayerInventory.instance.ItemDictionaryInit(i);
-        }
+        // 상태 메세지 초기화
+        infoTextField.text = "상태 : 대기 중 ...";
+
+        SceneManager.LoadScene(LOGINSCENE);
+
+        // { LEGACY : BSJ 240102
+        //// 유저데이터 비우기 231229
+        //// userData = new Userdata(null);
+
+        //// 아이템 갯수 초기화
+        //PlayerInventory.instance.ItemInit();
+
+        //// 모든 아이템 딕셔너리 클리어 ( 6은 아이템 타입 )
+        //for(int i = 0; i < 6; i++)
+        //{
+        //    PlayerInventory.instance.ItemDictionaryInit(i);
+        //}
+        // } LEGACY : BSJ 240102
     }
 
     /// <summary>
@@ -340,6 +364,12 @@ public class FirebaseManager : MonoBehaviour
 
                     PuzzleManager.instance.CheckPuzzleClear(_key, _value);
                 }
+
+                // 각 퍼즐 마다 클리어 팻말 세우기
+                PuzzleManager.instance.ActiveSign();
+
+                // 획득한 별의 총 갯수 설정
+                PuzzleManager.instance.InitAllStarCount();
             }
         });
 
