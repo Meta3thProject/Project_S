@@ -4,13 +4,13 @@ using UnityEngine;
 
 public class SpiritHand : MonoBehaviour
 {
-    // 타입을 나누기 위해 열어둠
     public HandControl handControl = default;
 
     private InputBridge input = default;
     private Grabber grabber = default;
     private GameObject projectilePointer = default;
     private GameObject spiritProjectile = default;
+    private GameObject chargeEffect = default;
 
     private LineRenderer lineRenderer = default;
     private Vector3 defaultPosition = new Vector3(0f,0f,10f);
@@ -37,9 +37,12 @@ public class SpiritHand : MonoBehaviour
         projectilePointer = this.gameObject.GetChildObj("ProjectilePointer");
         lineRenderer = projectilePointer.GetComponent<LineRenderer>();
 
-        spiritProjectile = Instantiate(ResourceManager.objects["Projectile"], projectilePointer.transform);
-        projectilePointer.SetActive(isHandEnabled);
+        spiritProjectile = Instantiate(ResourceManager.objects["fairy's hand_ projectile Variant"], projectilePointer.transform);
+        chargeEffect = Instantiate(ResourceManager.objects["fairy's hand_ charging Variant"], projectilePointer.transform);
 
+        lineRenderer.enabled = isHandEnabled;
+        spiritProjectile.SetActive(isHandEnabled);
+        chargeEffect.SetActive(isHandEnabled);
     }
 
     void Update()
@@ -50,9 +53,10 @@ public class SpiritHand : MonoBehaviour
         } // if : 빈 손이 아니라면 return 
 
         isHandEnabled = CheckTriggerDown();
-        
+
         if (!isShooting)
         {
+
             ActiveSpiritHand();
         }
 
@@ -99,7 +103,8 @@ public class SpiritHand : MonoBehaviour
         {
             lineRenderer.SetPosition(1,GetRayDistance());
         }
-        projectilePointer.SetActive(isHandEnabled);
+        lineRenderer.enabled = isHandEnabled;
+        chargeEffect.SetActive(isHandEnabled);
 
     }       // ActivePointer()
 
@@ -115,6 +120,7 @@ public class SpiritHand : MonoBehaviour
     {
         if (isCharged)
         {
+            spiritProjectile.SetActive(true);
             spiritProjectile.transform.SetParent(null);
             spiritProjectile.GetComponent<Rigidbody>().AddForce(projectilePointer.transform.forward * 5f, ForceMode.Impulse);
             isShooting = true;
@@ -135,10 +141,13 @@ public class SpiritHand : MonoBehaviour
         isShooting = false;
     }       // WaitForShoot()
 
+    // ! Projectile Reset 
     private void SetProjectile()
     {
+        spiritProjectile.SetActive(false);
         spiritProjectile.transform.SetParent(projectilePointer.transform);
         spiritProjectile.transform.localPosition = Vector3.zero;
+        spiritProjectile.transform.localRotation = Quaternion.identity;  
         spiritProjectile.GetComponent<Rigidbody>().velocity = Vector3.zero;
 
     }       // SetProjectile()
