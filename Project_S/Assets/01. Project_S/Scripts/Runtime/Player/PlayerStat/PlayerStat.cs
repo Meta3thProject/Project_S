@@ -55,7 +55,9 @@ public class PlayerStat : MonoBehaviour
     // ! MBTI 문자열을 반환하는 퍼블릭 메서드
     // ! 외부에서 사용하기 위한 메서드
     public string GetMBTIStat()
-    {        
+    {
+        Debug.Log("4GetMBTIStat들어옴?");
+
         return GetMBTI();
     }       // GetMBTIStat()
 

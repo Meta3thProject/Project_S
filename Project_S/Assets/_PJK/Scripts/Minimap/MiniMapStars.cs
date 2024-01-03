@@ -7,7 +7,6 @@ using TMPro;
 public class MiniMapStars : MonoBehaviour
 {
     private TMP_Text starsNumber = default;
-    private int Star = default;
     
     // Start is called before the first frame update
     void Start()

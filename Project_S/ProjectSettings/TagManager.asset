@@ -16,6 +16,7 @@ TagManager:
   - Damageable
   - Torch
   - FireOff
+  - Endingstar
   layers:
   - Default
   - TransparentFX

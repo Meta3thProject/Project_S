@@ -5,15 +5,15 @@ using UnityEngine;
 
 public class GameManager : GSingleton<GameManager>
 {
-    private PlayerStat playerStat = default;
+    public PlayerStat PlayerStat { get; private set; }
     // Start is called before the first frame update
     private void Awake()
     {
         ResourceManager.Init();
+        PlayerStat = GFunc.GetRootObj(Define.PLAYER).GetComponent<PlayerStat>();
     }
     void Start()
     {
-        playerStat = GFunc.GetRootObj(Define.PLAYER).GetComponent<PlayerStat>();
                
     }
 
