@@ -10,11 +10,11 @@ public class GameManager : GSingleton<GameManager>
     private void Awake()
     {
         ResourceManager.Init();
+        playerStat = GFunc.GetRootObj(Define.PLAYER).GetComponent<PlayerStat>();
     }
     void Start()
     {
-        playerStat = GFunc.GetRootObj(Define.PLAYER).GetComponent<PlayerStat>();
-               
+
     }
 
     // Update is called once per frame

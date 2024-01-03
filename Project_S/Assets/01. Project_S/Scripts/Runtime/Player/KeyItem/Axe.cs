@@ -35,6 +35,7 @@ public class Axe : GrabbableEvents
             isBladeOn = false;
             bladeCollider.enabled = false;
         }
+  
 
         if (isBladeOn)
         {
