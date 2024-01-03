@@ -160,7 +160,7 @@ MonoBehaviour:
   - id: 304106
     npc_id: 300100
     dialogue: "\uC774\uB3D9\uC740 \uC88C\uCE21 \uC2A4\uD2F1\uC73C\uB85C,<br>\uB9D0\uC744
-      \uAC78 \uB54C\uB294 \uB098\uB97C \uC870\uC900\uD574\uC11C<br>X\uB098 Y \uBC84\uD2BC\uC744
+      \uAC78 \uB54C\uB294 \uB098\uB97C \uC870\uC900\uD574\uC11C<br>X\uB098 A \uBC84\uD2BC\uC744
       \uB204\uB974\uBA74 \uB3FC!"
     link_dialog: 304107
   - id: 304107
