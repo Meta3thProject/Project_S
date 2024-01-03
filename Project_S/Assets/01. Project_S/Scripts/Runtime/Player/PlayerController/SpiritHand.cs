@@ -1,12 +1,15 @@
 using BNG;
 using System.Collections;
 using UnityEngine;
+using UnityEngine.EventSystems;
 
 public class SpiritHand : MonoBehaviour
 {
     public HandControl handControl = default;
 
     private InputBridge input = default;
+    private VRUISystem uiSystem = default;
+
     private Grabber grabber = default;
     private GameObject projectilePointer = default;
     private GameObject spiritProjectile = default;
@@ -32,6 +35,7 @@ public class SpiritHand : MonoBehaviour
     void Init()
     {
         input = InputBridge.Instance;
+        uiSystem = VRUISystem.Instance;
 
         grabber = GetComponentInChildren<Grabber>();        
         projectilePointer = this.gameObject.GetChildObj("ProjectilePointer");
@@ -47,6 +51,12 @@ public class SpiritHand : MonoBehaviour
 
     void Update()
     {
+        if (uiSystem.EventData.pointerCurrentRaycast.gameObject != null &&
+            uiSystem.EventData.pointerCurrentRaycast.gameObject.layer == LayerMask.NameToLayer("UI"))
+        {
+            return;
+        }       // if : UI를 인식하면 정령 손을 사용하지 못하도록 return;
+
         if (grabber.HeldGrabbable != null)
         {            
             return;
@@ -56,7 +66,6 @@ public class SpiritHand : MonoBehaviour
 
         if (!isShooting)
         {
-
             ActiveSpiritHand();
         }
 
@@ -155,6 +164,7 @@ public class SpiritHand : MonoBehaviour
     // ! HandControl 
     private bool CheckTriggerDown()
     {
+       
 
         if (GetHandController(handControl) == HandControl.LeftTrigger)
         {

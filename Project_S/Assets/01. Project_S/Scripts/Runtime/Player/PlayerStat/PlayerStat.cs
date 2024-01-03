@@ -21,7 +21,6 @@ public class PlayerStat : MonoBehaviour
         //AddPoint(Define.MBTI_P, 8f);
         //Debug.Log($"{GetMBTIStat()}");
     }
-
     void Init()
     {
         #region MBTI Stat Init
