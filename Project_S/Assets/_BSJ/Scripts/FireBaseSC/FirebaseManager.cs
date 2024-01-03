@@ -11,6 +11,7 @@ using System;
 using System.IO;
 using Firebase.Extensions;
 using UnityEngine.SceneManagement;
+using UnityEngine.InputSystem;
 
 public class FirebaseManager : MonoBehaviour
 {
@@ -24,6 +25,10 @@ public class FirebaseManager : MonoBehaviour
     // { 키 값 상수
     const string User = "User";
     const string Puzzle = "Puzzle";
+    const string POSITION = "Position";
+    const string X = "x";
+    const string Y = "y";
+    const string Z = "z";
     #region LEGACY : 안쓰는 상수
     // LEGACY : 유저의 닉네임 사용 여부 확실치 않음. 인벤토리 사라짐.
     //const string UserNickname = "UserNickName";
@@ -45,8 +50,8 @@ public class FirebaseManager : MonoBehaviour
     private string userID;                      // 인증이 완료된 유저 ID
 
     [SerializeField] private GameObject loginObjects;       // 로그인 관련 오브젝트들
-    [SerializeField] private Button loginButton;            // 로그인 버튼
-    [SerializeField] private Button registerButton;         // 회원가입 버튼
+    [SerializeField] private UnityEngine.UI.Button loginButton;            // 로그인 버튼
+    [SerializeField] private UnityEngine.UI.Button registerButton;         // 회원가입 버튼
 
     [SerializeField] private InputField emailField;         // 이메일 입력받을 필드
     [SerializeField] private InputField passField;          // 비밀번호 입력받을 필드
@@ -71,6 +76,14 @@ public class FirebaseManager : MonoBehaviour
     // 아이템 박스 오브젝트들
     [SerializeField]
     private GameObject itemBoxes;
+
+    // 플레이어의 마지막 위치를 DB에 저장시키기 위한 딕셔너리 ( -10, 9, 72 ) => 플레이어 초기 위치임.
+    private float playerXPos = -10;
+    private float playerYPos = 9;
+    private float playerZPos = 72;
+
+    // 플레이어 위치를 바꾸기 위한 값
+    public Vector3 lastPlayerPos { get; private set; }
 
     void Awake()
     {
@@ -152,6 +165,9 @@ public class FirebaseManager : MonoBehaviour
 
                     // 회원가입 성공 시 유저 데이터 초기값 셋팅
                     userID = result.User.UserId.ToString();
+
+                    // 플레이어 포지션 DB의 초기 데이터 생성
+                    MakePlayerPosDB();
 
                     // 퍼즐 DB의 초기 데이터 생성
                     MakePuzzleDB();
@@ -264,6 +280,10 @@ public class FirebaseManager : MonoBehaviour
     /// </summary>
     public void LogOut()
     {
+        // 플레이어의 마지막 위치 DB에 업데이트
+        Vector3 _lastPlayerPos = GameObject.FindAnyObjectByType<CharacterController>().transform.position;
+        PlayerPosUpdateToDB(_lastPlayerPos);
+
         auth.SignOut(); // 로그아웃이 자동으로 된다.
 
         // { 로그인 관련 UI 활성화
@@ -370,6 +390,104 @@ public class FirebaseManager : MonoBehaviour
 
                 // 획득한 별의 총 갯수 설정
                 PuzzleManager.instance.InitAllStarCount();
+            }
+        });
+
+        // 레퍼런스 초기화 (초기화 안하면 새로 덮어 씌워짐)
+        reference = FirebaseDatabase.DefaultInstance.RootReference;
+    }
+
+    /// <summary>
+    /// 플레이어 위치에 대한 처음 DB를 만들어주는 메서드.
+    /// </summary>
+    public void MakePlayerPosDB()
+    {
+        // 경로 초기화
+        reference = FirebaseDatabase.DefaultInstance.RootReference;
+
+        // 플레이어 포지션
+        Dictionary<string, float> playerPosition = new Dictionary<string, float>();
+
+        playerPosition.Add(X, playerXPos);
+        playerPosition.Add(Y, playerYPos);
+        playerPosition.Add(Z, playerZPos);
+
+        // 경로 재지정 후 x, y, z 노드 생성하기.
+        reference.Child(User).Child(userID).Child(POSITION).SetValueAsync(playerPosition);
+    }
+
+    /// <summary>
+    /// 플레이어의 위치를 업데이트하는 메서드.
+    /// </summary>
+    public void PlayerPosUpdateToDB(Vector3 _PlayerPosition)
+    {
+        // 레퍼런스 초기화
+        reference = FirebaseDatabase.DefaultInstance.RootReference;
+
+        // 파이어베이스 경로 재설정
+        reference = reference.Child(User).Child(userID).Child(POSITION);
+
+        // 플레이어 마지막 위치 업데이트
+        playerXPos = _PlayerPosition.x;
+        playerYPos = _PlayerPosition.y;
+        playerZPos = _PlayerPosition.z;
+
+        // 업데이트할 데이터 생성
+        Dictionary<string, object> updateDate = new Dictionary<string, object>();
+        updateDate.Add(X, playerXPos);
+        updateDate.Add(Y, playerYPos);
+        updateDate.Add(Z, playerZPos);
+
+        // 플레이어 위치 노드 업데이트
+        reference.UpdateChildrenAsync(updateDate).ContinueWithOnMainThread(task =>
+        {
+            if (task.IsCompleted)
+            {
+                Debug.Log("플레이어 위치 업데이트 완료");
+            }
+        });
+
+        // 레퍼런스 초기화
+        reference = FirebaseDatabase.DefaultInstance.RootReference;
+    }
+
+    /// <summary>
+    /// RDB에서 플레이어의 위치를 인게임내로 가져오는 메서드.
+    /// </summary>
+    public void PlayerPosUpdateFromDB(Transform playerTransform_)
+    {
+        float _xPos = 0;
+        float _yPos = 0;
+        float _zPos = 0;
+
+        // 레퍼런스 초기화 (초기화 안하면 새로 덮어 씌워짐)
+        reference = FirebaseDatabase.DefaultInstance.RootReference;
+
+        //데이터 가져오기(유저 ID를 찾아서 스냅샷으로 가져옴)
+        reference = FirebaseDatabase.DefaultInstance.GetReference(User).Child(userID).Child(POSITION);
+
+        reference.GetValueAsync().ContinueWithOnMainThread(task =>
+        {
+            // 정상적으로 데이터를 가져왔다면?
+            if (task.IsCompleted)
+            {
+                DataSnapshot snapshot = task.Result;
+
+                var DB_xPos = snapshot.Child(X).Value;
+                var DB_yPos = snapshot.Child(Y).Value;
+                var DB_zPos = snapshot.Child(Z).Value;
+
+                string str_xPos = Convert.ToString(DB_xPos);
+                string str_yPos = Convert.ToString(DB_yPos);
+                string str_zPos = Convert.ToString(DB_zPos);
+
+                _xPos = float.Parse(str_xPos);
+                _yPos = float.Parse(str_yPos);
+                _zPos = float.Parse(str_zPos);
+
+                // DB에 있는 플레이어의 마지막 위치 캐싱
+                playerTransform_.position = new Vector3(_xPos, _yPos, _zPos);
+                Debug.Log(lastPlayerPos);
             }
         });
 
