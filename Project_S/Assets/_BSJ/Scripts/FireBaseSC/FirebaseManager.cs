@@ -20,7 +20,7 @@ public class FirebaseManager : MonoBehaviour
 
     // 다음 스테이지 이름
     const string LOGINSCENE = "Lobby";
-    const string MAINSCENE = "BSJ_TestScene";
+    const string MAINSCENE = "BSJ_MainSceneCopy";
 
     // { 키 값 상수
     const string User = "User";

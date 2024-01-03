@@ -16,7 +16,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &103594177
 Transform:
   m_ObjectHideFlags: 0
@@ -39,7 +39,7 @@ LineRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 103594176}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 0
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
@@ -147,7 +147,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &765815960
 Transform:
   m_ObjectHideFlags: 0
@@ -170,7 +170,7 @@ LineRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 765815959}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 0
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
@@ -4894,7 +4894,7 @@ MonoBehaviour:
   MaxFade: 0.995
   FadeSpeed: 5
   CheckOnlyIfHMDActive: 0
-  IgnoreHeldGrabbables: 1
+  IgnoreHeldGrabbables: 0
   DistanceTransform: {fileID: 8582584797892972427}
   cols: 0
   collisions: []
@@ -4912,6 +4912,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   CollidersToIgnore:
   - {fileID: 5999191482527385040}
+  - {fileID: 4765648406947983090}
+  - {fileID: 2398036758197836716}
 --- !u!114 &7693192344885118966
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -13184,7 +13186,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &8737316526717253351
 Transform:
   m_ObjectHideFlags: 0
@@ -13338,7 +13340,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &8737316526772632959
 Transform:
   m_ObjectHideFlags: 0
@@ -14235,6 +14237,12 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 4417431735841354966}
   m_PrefabAsset: {fileID: 0}
+--- !u!136 &4765648406947983090 stripped
+CapsuleCollider:
+  m_CorrespondingSourceObject: {fileID: 9182599089271216676, guid: b1ea56f0e5e822e4695cec063080b963,
+    type: 3}
+  m_PrefabInstance: {fileID: 4417431735841354966}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &8021258534407970567
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -14322,6 +14330,12 @@ PrefabInstance:
 --- !u!4 &2398036758197836715 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5626884459895915692, guid: 56644fcad49822c48a095b6fe7724f45,
+    type: 3}
+  m_PrefabInstance: {fileID: 8021258534407970567}
+  m_PrefabAsset: {fileID: 0}
+--- !u!136 &2398036758197836716 stripped
+CapsuleCollider:
+  m_CorrespondingSourceObject: {fileID: 5626884459895915691, guid: 56644fcad49822c48a095b6fe7724f45,
     type: 3}
   m_PrefabInstance: {fileID: 8021258534407970567}
   m_PrefabAsset: {fileID: 0}

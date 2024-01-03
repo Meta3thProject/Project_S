@@ -42,8 +42,8 @@ EditorBuildSettings:
     path: Assets/_BSJ/Scenes/Lobby.unity
     guid: 0fffca37fbfc3f3449d88b9f51e7bac0
   - enabled: 1
-    path: Assets/_BSJ/Scenes/BSJ_TestScene.unity
-    guid: c733deb9907fc2342aad073483379383
+    path: Assets/_BSJ/Scenes/BSJ_MainSceneCopy.unity
+    guid: 88e7fcb4c4410474d9db83deb04ea04f
   m_configObjects:
     Unity.XR.Oculus.Settings: {fileID: 11400000, guid: 2fbe164f11be0c9459486ead63d36780,
       type: 2}
