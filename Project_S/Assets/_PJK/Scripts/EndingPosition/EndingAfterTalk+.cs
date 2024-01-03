@@ -54,9 +54,6 @@ public partial class EndingAfterTalk : MonoBehaviour
 
     public void MBTIColor(out Color mbticolor)
     {
-        Debug.Log(GameManager.Instance.PlayerStat.GetMBTIStat());
-        Debug.Log("들어온거맞아?");
-        //string temp = playerstat.GetMBTIStat();
         string MBTI = "enfp";
         Debug.LogFormat(MBTI);
 

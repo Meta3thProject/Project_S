@@ -39,7 +39,6 @@ public partial class EndingAfterTalk : MonoBehaviour
 
     public void startEnding()
     {
-        GameManager.Instance.PlayerStat.GetMBTIStat();
         StartCoroutine(SkytoDark());
         GoddessAnimator.SetBool("EndTalk", true);
 
