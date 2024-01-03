@@ -1,5 +1,9 @@
 fileFormatVersion: 2
+<<<<<<<< HEAD:Project_S/Assets/_BSJ/Images.meta
 guid: f04be1ca905b316448bca707915d74fb
+========
+guid: 4b532490c50ba4e4886144770146f7ea
+>>>>>>>> origin/PJK_231229_LastEndingandMap:Project_S/Assets/_PJK/Scripts/GoddessSphere.meta
 folderAsset: yes
 DefaultImporter:
   externalObjects: {}

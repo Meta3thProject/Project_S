@@ -1,5 +1,9 @@
 fileFormatVersion: 2
+<<<<<<<< HEAD:Project_S/Assets/01. Project_S/Textures.meta
 guid: 71a17872040538147a336c7e889ed3e1
+========
+guid: 603e04926270c83449e6ab11d207ed53
+>>>>>>>> origin/PJK_231229_LastEndingandMap:Project_S/Assets/_PJK/Scripts/Goddess.meta
 folderAsset: yes
 DefaultImporter:
   externalObjects: {}
