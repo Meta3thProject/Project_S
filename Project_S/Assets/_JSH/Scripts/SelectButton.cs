@@ -12,15 +12,27 @@ public class SelectButton : MonoBehaviour
     public PlayerStat stat;
 
     // 상승 MBTI
-    public MBTI target;
+    public MBTI targetMBTI;
     // 상승량
     public int amount;
+    // 다음 출력문ID
+    public int nextPrintID;
 
     // 몇번째 선택지인지
     public bool isFirst;
 
     public void RewardAndReset()
     {
-        stat.AddPoint(target.ToString(), amount);
+        stat.AddPoint(targetMBTI.ToString(), amount);
+    }
+
+    // 선택 시 실행되는 함수
+    public void OnSelect()
+    {
+        // MBTI 상승
+        stat.AddPoint(targetMBTI.ToString(), amount);
+
+        // 다음 출력문ID 설정 후 출력
+        NPCManager.Instance.SetIDAfterSelect(nextPrintID);
     }
 }

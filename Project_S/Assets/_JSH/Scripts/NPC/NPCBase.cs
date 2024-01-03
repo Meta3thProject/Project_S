@@ -40,9 +40,20 @@ public class NPCBase : MonoBehaviour, INPCBehaviour
         }
     }
 
-    public void SetPrintID(int id_)
+    public void SetPrintID()
     {
         // TODO: 퀘스트 수락 여부, 퀘스트 완료 여부를 체크해서 출력문ID 설정
-
+        // 완료하지 않은 퀘스트라면
+        if (QuestManager.Instance.idToQuest[questID].IsCompleted == false)
+        {
+            // 진행중 출력문
+            printID = QuestManager.Instance.idToQuest[questID].IngID;
+        }
+        // 완료한 퀘스트라면
+        else
+        {
+            // 완료 출력문
+            printID = QuestManager.Instance.idToQuest[questID].CompleteID;
+        }
     }
 }
