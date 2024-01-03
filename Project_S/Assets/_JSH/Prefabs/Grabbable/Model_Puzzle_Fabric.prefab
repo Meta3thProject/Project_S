@@ -16,6 +16,7 @@ GameObject:
   - component: {fileID: 656394413495162659}
   - component: {fileID: -1040617303399847400}
   - component: {fileID: -1885206403624092550}
+  - component: {fileID: 4367220827092819249}
   m_Layer: 10
   m_Name: Model_Puzzle_Fabric
   m_TagString: Untagged
@@ -254,5 +255,17 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: fee8279a47ff75f46b7c852ece1888d6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &4367220827092819249
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9215011616537306481}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 034bc47afcbf5e141a58d5c20b7808e4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
