@@ -48,7 +48,7 @@ public class FlowerPuzzle : MonoBehaviour
 
     private IEnumerator constraintsControl()
     {
-        yield return new WaitForSecondsRealtime(0.5f);
+        yield return new WaitForSecondsRealtime(0.1f);
         rb.constraints = RigidbodyConstraints.None;
     }
 }

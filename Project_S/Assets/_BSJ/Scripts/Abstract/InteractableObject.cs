@@ -42,9 +42,22 @@ public abstract class InteractableObject : MonoBehaviour
     /// </summary>
     public void DropItem()
     {
-        GameObject _dropItem = Instantiate(dropedItem);
-        _dropItem.transform.position = this.transform.position;
+        if(dropedItem != null)
+        {
+            GameObject _dropItem = Instantiate(dropedItem);
+            _dropItem.transform.position = this.transform.position;
+        }
+
+        else { /*DoNothing*/ }
+
         this.gameObject.SetActive(false);
+
+        // 기믹01이 부모 스크립트에 있다면 투명벽 제거 메서드 실행.
+        if(transform.parent.GetComponent<Gimmick01>() != null) 
+        {
+            Gimmick01 gmimick01 = transform.parent.GetComponent<Gimmick01>();
+            gmimick01.DestroyTransparencyWall();
+        }
     }
 
     /// <summary>

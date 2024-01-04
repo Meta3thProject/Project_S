@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.18028352, g: 0.22571376, b: 0.30692244, a: 1}
+  m_IndirectSpecularColor: {r: 0.18077587, g: 0.2263016, b: 0.30717972, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -97,8 +97,10 @@ LightmapSettings:
     m_ExportTrainingData: 0
     m_TrainingDataDestination: TrainingData
     m_LightProbeSampleCountMultiplier: 4
-  m_LightingDataAsset: {fileID: 0}
-  m_LightingSettings: {fileID: 0}
+  m_LightingDataAsset: {fileID: 112000000, guid: 1f46ccdfd8844d643bbc7d4a6e95bec1,
+    type: 2}
+  m_LightingSettings: {fileID: 4890085278179872738, guid: eaddd0798511d5c488504c518be658d7,
+    type: 2}
 --- !u!196 &4
 NavMeshSettings:
   serializedVersion: 2
@@ -1619,6 +1621,16 @@ PrefabInstance:
       propertyPath: m_PresetInfoIsWorld
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 5885571433683049865, guid: 4ac7df741a9c0a2418ec19477729ee3d,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5885571433683049975, guid: 4ac7df741a9c0a2418ec19477729ee3d,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6130294578286966575, guid: 4ac7df741a9c0a2418ec19477729ee3d,
         type: 3}
       propertyPath: m_PresetInfoIsWorld
@@ -1637,6 +1649,16 @@ PrefabInstance:
     - target: {fileID: 8320362180693068707, guid: 4ac7df741a9c0a2418ec19477729ee3d,
         type: 3}
       propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8516297021300253502, guid: 4ac7df741a9c0a2418ec19477729ee3d,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8516297021300253504, guid: 4ac7df741a9c0a2418ec19477729ee3d,
+        type: 3}
+      propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
@@ -7074,14 +7096,14 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1001853422}
-  m_LocalRotation: {x: 0.40821788, y: -0.23456968, z: 0.10938163, w: 0.8754261}
+  m_LocalRotation: {x: 0.657991, y: -0.46383798, z: -0.03739788, w: 0.59203345}
   m_LocalPosition: {x: 0, y: 3, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 4
-  m_LocalEulerAnglesHint: {x: 50, y: -30, z: 0}
+  m_LocalEulerAnglesHint: {x: 131.89099, y: 63.667, z: 101.34}
 --- !u!114 &1001853425
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -12937,6 +12959,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 384275093}
     m_Modifications:
+    - target: {fileID: 2798719225435439118, guid: a1a0cd97543f83941b8924515ecf0273,
+        type: 3}
+      propertyPath: m_Text
+      value: 
+      objectReference: {fileID: 0}
     - target: {fileID: 3606535572422830692, guid: a1a0cd97543f83941b8924515ecf0273,
         type: 3}
       propertyPath: m_Pivot.x
@@ -13055,7 +13082,7 @@ PrefabInstance:
     - target: {fileID: 6132009428643651291, guid: a1a0cd97543f83941b8924515ecf0273,
         type: 3}
       propertyPath: m_Text
-      value: eunhartst@naver.com
+      value: 1234@naver.com
       objectReference: {fileID: 0}
     - target: {fileID: 6132009429039935002, guid: a1a0cd97543f83941b8924515ecf0273,
         type: 3}
@@ -13067,6 +13094,11 @@ PrefabInstance:
       propertyPath: AttachedKeyboard
       value: 
       objectReference: {fileID: 382864380}
+    - target: {fileID: 6343558766486723531, guid: a1a0cd97543f83941b8924515ecf0273,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6836328914625404476, guid: a1a0cd97543f83941b8924515ecf0273,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target

@@ -45,8 +45,7 @@ public class ShieldPuzzle : MonoBehaviour
         if (_control)
         {
             rb.useGravity = false;
-            
-            StartCoroutine(constraintsControl());
+            rb.constraints = RigidbodyConstraints.None;
         }
 
         else
