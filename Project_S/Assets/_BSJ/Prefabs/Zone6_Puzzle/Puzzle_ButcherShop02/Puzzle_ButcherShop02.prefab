@@ -5450,6 +5450,36 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 31471019433524825}
     m_Modifications:
+    - target: {fileID: 8555980911144808194, guid: 73a80f2044e7ace48bf006564a5057a2,
+        type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8555980911144808194, guid: 73a80f2044e7ace48bf006564a5057a2,
+        type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8555980911328898969, guid: 73a80f2044e7ace48bf006564a5057a2,
+        type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8555980911328898969, guid: 73a80f2044e7ace48bf006564a5057a2,
+        type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8555980911450974647, guid: 73a80f2044e7ace48bf006564a5057a2,
+        type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8555980911450974647, guid: 73a80f2044e7ace48bf006564a5057a2,
+        type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8555980912635312266, guid: 73a80f2044e7ace48bf006564a5057a2,
         type: 3}
       propertyPath: m_RootOrder
