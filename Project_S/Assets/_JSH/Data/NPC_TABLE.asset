@@ -96,9 +96,6 @@ MonoBehaviour:
   - id: 300503
     npc_name: "\uB3D9\uB124 \uBC14\uBCF4"
     npc_initial_quest: 301503
-  - id: 300504
-    npc_name: "\uB3D9\uB124 \uBC14\uBCF4"
-    npc_initial_quest: 301503
   - id: 300600
     npc_name: "\uC5EC\uC2E0"
     npc_initial_quest: 301600

@@ -84,6 +84,7 @@ public class NPCManager : GSingleton<NPCManager>
     public void ActivateMain(int id_)
     {
         main.SetActive(true);
+        twoChoices.SetActive(false);
 
         oneOfOne.text = idToDialogue[id_].dialogue;
 
@@ -91,12 +92,13 @@ public class NPCManager : GSingleton<NPCManager>
     }
 
     /// <summary>
-    /// 데이터 테이블이 없는 NPC를 위한 임시 함수
+    /// 데이터 테이블이 없는 NPC를 위한 함수
     /// </summary>
-    /// <param name="text_"></param>
+    /// <param name="text_">출력할 문자열</param>
     public void ActivateMain(string text_)
     {
         main.SetActive(true);
+        twoChoices.SetActive(false);
 
         oneOfOne.text = text_;
     }
@@ -107,13 +109,15 @@ public class NPCManager : GSingleton<NPCManager>
 
         oneOfTwo.text = idToChoices[id_].choice1;
         SelectButton button1 = oneOfTwo.transform.parent.GetComponent<SelectButton>();
-        button1.target = idToChoices[id_].value1;
+        button1.targetMBTI = idToChoices[id_].value1;
         button1.amount = idToChoices[id_].value2;
+        button1.nextPrintID = idToChoices[id_].linkDlg1;
 
         twoOfTwo.text = idToChoices[id_].choice2;
         SelectButton button2 = twoOfTwo.transform.parent.GetComponent<SelectButton>();
-        button2.target = idToChoices[id_].value3;
+        button2.targetMBTI = idToChoices[id_].value3;
         button2.amount = idToChoices[id_].value4;
+        button2.nextPrintID = idToChoices[id_].linkDlg2;
     }
 
     // 퀘스트 ID에 따라 진행 방법이 달라짐
@@ -138,19 +142,6 @@ public class NPCManager : GSingleton<NPCManager>
                     QuestManager.Instance.CompleteCheck(interacted.questID);
                 }
 
-                // 완료하지 않은 퀘스트라면
-                if (QuestManager.Instance.idToQuest[interacted.questID].IsCompleted == false)
-                {
-                    // 진행중 출력문
-                    interacted.printID = QuestManager.Instance.idToQuest[interacted.questID].IngID;
-                }
-                // 완료한 퀘스트라면
-                else
-                {
-                    // 완료 출력문
-                    interacted.printID = QuestManager.Instance.idToQuest[interacted.questID].CompleteID;
-                }
-
                 break;
             case QuestType.Conversation:
                 // 대화형은 멈출 수 없고, 끝까지 대화하면 완료이므로
@@ -163,9 +154,6 @@ public class NPCManager : GSingleton<NPCManager>
                 // 완료한 퀘스트라면 아무것도 하지 않음
                 else { /* Do Nothing */ }
 
-                // 완료 출력문ID 설정
-                interacted.printID = QuestManager.Instance.idToQuest[interacted.questID].CompleteID;
-
                 break;
             case QuestType.Puzzle:
                 // 수락하지 않은 퀘스트이고 완료하지 않은 퀘스트라면
@@ -176,23 +164,28 @@ public class NPCManager : GSingleton<NPCManager>
                     QuestManager.Instance.AcceptQuest(interacted.questID);
                 }
 
-                // 완료 체크는 NPC가 스스로 한다
+                // 혹시나 모를 예외 처리
+                if(interacted.GetComponent<IPuzzleHolder>() == null || interacted.GetComponent<IPuzzleHolder>() == default)
+                {
+                    Debug.Log($"오브젝트 이름: {interacted.npcName}");
+                
+                    return;
+                }
 
-                // 완료하지 않은 퀘스트라면
-                if (QuestManager.Instance.idToQuest[interacted.questID].IsCompleted == false)
+                // 퍼즐을 클리어 했다면
+                if (interacted.GetComponent<IPuzzleHolder>().PuzzleClearCheck() == true)
                 {
-                    // 진행중 출력문
-                    interacted.printID = QuestManager.Instance.idToQuest[interacted.questID].IngID;
+                    // 퀘스트 완료
+                    QuestManager.Instance.CompleteQuest(interacted.questID);
                 }
-                // 완료한 퀘스트라면
-                else
-                {
-                    // 완료 출력문
-                    interacted.printID = QuestManager.Instance.idToQuest[interacted.questID].CompleteID;
-                }
+                // 못했다면
+                else { /* Do Nothing */ }
 
                 break;
         }
+
+        // 다음 출력문ID 설정 함수 콜
+        interacted.SetPrintID();
     }
 
     // 대화 진행 함수
@@ -215,15 +208,12 @@ public class NPCManager : GSingleton<NPCManager>
         }
     }
 
-    // 선택지1 선택 후 대화 진행 함수
-    public void SetIDAfterChoice1()
+    /// <summary>
+    /// 선택지 선택 후 대화 진행 함수
+    /// </summary>
+    /// <param name="id_">선택지의 다음 출력문ID</param>
+    public void SetIDAfterSelect(int id_)
     {
-        interacted.printID = idToChoices[interacted.printID].linkDlg1;
-    }
-
-    // 선택지2 선택 후 대화 진행 함수
-    public void SetIDAfterChoice2()
-    {
-        interacted.printID = idToChoices[interacted.printID].linkDlg2;
+        interacted.printID = id_;
     }
 }

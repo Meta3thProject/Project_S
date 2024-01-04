@@ -2,29 +2,36 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class AppleCheck : MonoBehaviour
+public class AppleCheck : MonoBehaviour, IActiveSign
 {
+    // { BSJ PuzzleManager 에 맞춰서 추가된 변수들
+    // 이 퍼즐의 인덱스
+    const int PUZZLEINDEX = 9;
+    // 퍼즐 클리어 팻말
+    [SerializeField] private GameObject clearSign;
+    // } BSJ PuzzleManager 에 맞춰서 추가된 변수들
+
+    // 접시들
     public List<GameObject> dishes;
 
     // 순서 체크 
     private bool isInOrder;
-    // 완료 체크
-    private bool isComplete;
 
     private int first;
     private int second;
     private int third;
 
-    private void Awake()
+    // 클리어 팻말의 활성화 여부
+    public void ActiveClearSign(bool _isClear)
     {
-        isComplete = false;
+        clearSign.SetActive(_isClear);
     }
 
     // 순서대로 올린 사과 체크
     public void CheckInOrder(int idx_)
     {
         // 이미 완료된 상태라면 함수 종료
-        if (isComplete == true) { return; }
+        if (PuzzleManager.instance.puzzles[PUZZLEINDEX] == true) { return; }
 
         // 순서대로 놓지 않았을 때 
         if (isInOrder == false)
@@ -52,10 +59,20 @@ public class AppleCheck : MonoBehaviour
         // 세개를 모두 순서대로 놓았다면
         if (idx_ == 3 && isInOrder == true)
         {
-            isComplete = true;
+            // 퍼즐 클리어 체크
+            PuzzleManager.instance.puzzles[PUZZLEINDEX] = true;
 
-            // 완료
+            // 별의 총 갯수 증가
             StartCoroutine(StarManager.starManager.CallStar());
+
+            // 별 구역의 클리어 체크
+            PuzzleManager.instance.CheckPuzzleClear(PUZZLEINDEX, true);
+
+            // 파이어베이스 RDB에 업데이트
+            FirebaseManager.instance.PuzzleClearUpdateToDB(PUZZLEINDEX, true);
+
+            // 팻말 활성화
+            ActiveClearSign(true);
         }
     }
 
@@ -63,7 +80,7 @@ public class AppleCheck : MonoBehaviour
     public void CheckMatchNumber()
     {
         // 이미 완료된 상태라면 함수 종료
-        if (isComplete == true) { return; }
+        if (PuzzleManager.instance.puzzles[PUZZLEINDEX] == true) { return; }
 
         first = 0;
         second = 0;
@@ -104,10 +121,20 @@ public class AppleCheck : MonoBehaviour
 
         if (first == 1 && second == 2 && third == 3)
         {
-            isComplete = true;
+            // 퍼즐 클리어 체크
+            PuzzleManager.instance.puzzles[PUZZLEINDEX] = true;
 
-            // 완료
+            // 별의 총 갯수 증가
             StartCoroutine(StarManager.starManager.CallStar());
+
+            // 별 구역의 클리어 체크
+            PuzzleManager.instance.CheckPuzzleClear(PUZZLEINDEX, true);
+
+            // 파이어베이스 RDB에 업데이트
+            FirebaseManager.instance.PuzzleClearUpdateToDB(PUZZLEINDEX, true);
+
+            // 팻말 활성화
+            ActiveClearSign(true);
         }
     }
 }
