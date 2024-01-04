@@ -140,7 +140,6 @@ public class MiniMapController : MonoBehaviour
         //gameObject.transform.position = new Vector3(0f, 2f, 0f);
         m.SetFloat(direction, -1);
         StartCoroutine(CloseM());
-        Debug.Log(number);
         //gameObject.transform.position = new Vector3(gameObject.transform.position.x + 0.5f, gameObject.transform.position.y, gameObject.transform.position.z);
     }
     IEnumerator CloseM()
