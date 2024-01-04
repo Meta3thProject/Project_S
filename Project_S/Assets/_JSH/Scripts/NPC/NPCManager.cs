@@ -162,7 +162,22 @@ public class NPCManager : GSingleton<NPCManager>
                     QuestManager.Instance.AcceptQuest(interacted.questID);
                 }
 
-                // 완료 체크는 NPC가 스스로 한다
+                // 혹시나 모를 예외 처리
+                if(interacted.GetComponent<IPuzzleHolder>() == null || interacted.GetComponent<IPuzzleHolder>() == default)
+                {
+                    Debug.Log($"오브젝트 이름: {interacted.npcName}");
+                
+                    return;
+                }
+
+                // 퍼즐을 클리어 했다면
+                if (interacted.GetComponent<IPuzzleHolder>().PuzzleClearCheck() == true)
+                {
+                    // 퀘스트 완료
+                    QuestManager.Instance.CompleteQuest(interacted.questID);
+                }
+                // 못했다면
+                else { /* Do Nothing */ }
 
                 break;
         }

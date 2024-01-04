@@ -42,7 +42,6 @@ public class NPCBase : MonoBehaviour, INPCBehaviour
 
     public void SetPrintID()
     {
-        // TODO: 퀘스트 수락 여부, 퀘스트 완료 여부를 체크해서 출력문ID 설정
         // 완료하지 않은 퀘스트라면
         if (QuestManager.Instance.idToQuest[questID].IsCompleted == false)
         {

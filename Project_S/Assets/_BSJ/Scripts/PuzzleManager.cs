@@ -31,6 +31,7 @@ public class PuzzleManager : MonoBehaviour
     // 접시에 사과 올리기 퍼즐                                                                     // 9
     [field: SerializeField] public AppleCheck appleClear { get; private set; }                  // 9
     // 옷감 퍼즐                                                                                  // 10
+    [field: SerializeField] public FabricCheck fabricClear { get; private set; }                  // 10
 
     [field: SerializeField] public PotPuzzleClear potPuzzleClear { get; private set; }                  // 11
     [field: SerializeField] public ButcherShop01Clear butcherShop01Clear { get; private set; }          // 12
@@ -62,7 +63,7 @@ public class PuzzleManager : MonoBehaviour
         // { 퍼즐 클리어 초기화
         puzzles = new bool[PUZZLECOUNT];
 
-        for (int i = 0; i < PUZZLECOUNT; i++) 
+        for (int i = 0; i < PUZZLECOUNT; i++)
         {
             puzzles[i] = false;
             CheckPuzzleClear(i, puzzles[i]);
@@ -86,7 +87,7 @@ public class PuzzleManager : MonoBehaviour
         puzzles[_puzzleIndex] = _isClear;
 
         // 딕셔너리 업데이트 [ key가 있다면 value 업데이트 ]
-        if (puzzleClearDictionary.ContainsKey(_puzzleIndex)) 
+        if (puzzleClearDictionary.ContainsKey(_puzzleIndex))
         {
             puzzleClearDictionary[_puzzleIndex] = _isClear;
         }
@@ -103,26 +104,26 @@ public class PuzzleManager : MonoBehaviour
     public void ActiveSign()
     {
         // 퍼즐이 클리어가 되었다면 팻말 세우기
-        for(int i = 0; i < PUZZLECOUNT; i++)
+        for (int i = 0; i < PUZZLECOUNT; i++)
         {
-            if (i == 0) { upon3TreePuzzleClear.ActiveClearSign(puzzles[i]);}
-            else if(i == 1) { letterPuzzleClear.ActiveClearSign(puzzles[i]);}
-            else if(i == 2) { flowerPuzzleClear.ActiveClearSign(puzzles[i]); }
-            else if(i == 3) { chessPuzzleClear.ActiveClearSign(puzzles[i]);}
-            else if(i == 4) { bookSortPuzzleClear.ActiveClearSign(puzzles[i]);}
-            else if(i == 5) { treePuzzleClear.ActiveClearSign(puzzles[i]);}
-            else if(i == 6) { shieldPuzzleClear.ActiveClearSign(puzzles[i]);}
-            else if(i == 7) { studioPuzzleClear.ActiveClearSign(puzzles[i]);}
-            else if(i == 8) { taxidermyClear.ActiveClearSign(puzzles[i]);}
-            /* else if(i == 9) { TODO: 접시에 사과 올리기 퍼즐 클리어 } */
-            /* else if(i == 10) { TODO : 옷감 퍼즐 클리어 } */
-            else if(i == 11) { potPuzzleClear.ActiveClearSign(puzzles[i]);}
-            else if(i == 12) { butcherShop01Clear.ActiveClearSign(puzzles[i]);}
+            if (i == 0) { upon3TreePuzzleClear.ActiveClearSign(puzzles[i]); }
+            else if (i == 1) { letterPuzzleClear.ActiveClearSign(puzzles[i]); }
+            else if (i == 2) { flowerPuzzleClear.ActiveClearSign(puzzles[i]); }
+            else if (i == 3) { chessPuzzleClear.ActiveClearSign(puzzles[i]); }
+            else if (i == 4) { bookSortPuzzleClear.ActiveClearSign(puzzles[i]); }
+            else if (i == 5) { treePuzzleClear.ActiveClearSign(puzzles[i]); }
+            else if (i == 6) { shieldPuzzleClear.ActiveClearSign(puzzles[i]); }
+            else if (i == 7) { studioPuzzleClear.ActiveClearSign(puzzles[i]); }
+            else if (i == 8) { taxidermyClear.ActiveClearSign(puzzles[i]); }
+            else if(i == 9) { appleClear.ActiveClearSign(puzzles[i]); }
+            else if(i == 10) { fabricClear.ActiveClearSign(puzzles[i]); } 
+            else if (i == 11) { potPuzzleClear.ActiveClearSign(puzzles[i]); }
+            else if (i == 12) { butcherShop01Clear.ActiveClearSign(puzzles[i]); }
             /* else if(i == 13) { TODO : 듀토리얼 퍼즐 01 } */
             /* else if(i == 14) { TODO : 듀토리얼 퍼즐 02 } */
-            else if(i == 15) { butcherShop02Clear.ActiveClearSign(puzzles[i]);}
-            else if(i == 16) { butcherShop03Clear.ActiveClearSign(puzzles[i]);}
-            else if(i == 17) { hiddenPuzzleClear.ActiveClearSign(puzzles[i]);}
+            else if (i == 15) { butcherShop02Clear.ActiveClearSign(puzzles[i]); }
+            else if (i == 16) { butcherShop03Clear.ActiveClearSign(puzzles[i]); }
+            else if (i == 17) { hiddenPuzzleClear.ActiveClearSign(puzzles[i]); }
         }
     }
 
@@ -133,9 +134,9 @@ public class PuzzleManager : MonoBehaviour
     {
         int starCount = 0;
 
-        foreach(bool _isClear in puzzles)
+        foreach (bool _isClear in puzzles)
         {
-            if(_isClear)
+            if (_isClear)
             {
                 starCount++;
             }

@@ -70,6 +70,9 @@ public class AppleCheck : MonoBehaviour, IActiveSign
 
             // 파이어베이스 RDB에 업데이트
             FirebaseManager.instance.PuzzleClearUpdateToDB(PUZZLEINDEX, true);
+
+            // 팻말 활성화
+            ActiveClearSign(true);
         }
     }
 
@@ -129,6 +132,9 @@ public class AppleCheck : MonoBehaviour, IActiveSign
 
             // 파이어베이스 RDB에 업데이트
             FirebaseManager.instance.PuzzleClearUpdateToDB(PUZZLEINDEX, true);
+
+            // 팻말 활성화
+            ActiveClearSign(true);
         }
     }
 }
