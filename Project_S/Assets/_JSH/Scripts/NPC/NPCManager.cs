@@ -84,6 +84,7 @@ public class NPCManager : GSingleton<NPCManager>
     public void ActivateMain(int id_)
     {
         main.SetActive(true);
+        twoChoices.SetActive(false);
 
         oneOfOne.text = idToDialogue[id_].dialogue;
 
@@ -97,6 +98,7 @@ public class NPCManager : GSingleton<NPCManager>
     public void ActivateMain(string text_)
     {
         main.SetActive(true);
+        twoChoices.SetActive(false);
 
         oneOfOne.text = text_;
     }

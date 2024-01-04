@@ -21,18 +21,16 @@ public class SelectButton : MonoBehaviour
     // 몇번째 선택지인지
     public bool isFirst;
 
-    public void RewardAndReset()
-    {
-        stat.AddPoint(targetMBTI.ToString(), amount);
-    }
-
     // 선택 시 실행되는 함수
     public void OnSelect()
     {
         // MBTI 상승
         stat.AddPoint(targetMBTI.ToString(), amount);
 
-        // 다음 출력문ID 설정 후 출력
+        // 다음 출력문ID 설정
         NPCManager.Instance.SetIDAfterSelect(nextPrintID);
+
+        // 다음 출력문 출력
+        NPCManager.Instance.interacted.PopUpDialog();
     }
 }

@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class LittleSpirit : NPCBase
+public class LittleSpirit : NPCBase, IPuzzleHolder
 {
     // 퀘스트가 변화함 301100 ~ 301108
     // 퀘스트가 변화하면 이동함
@@ -10,8 +10,9 @@ public class LittleSpirit : NPCBase
     private int[] ids = { 304117, 304133, 304172 };
     // 정해놓은 이동할 위치들: 직렬화
     public Transform[] fixedLocations;
-    // 체크해야하는 퍼즐의 인덱스
-    public int puzzleIdx;
+    // 체크해야하는 퍼즐의 인덱스: 퍼즐 매니저에서 13, 14에 해당한다
+    public const int AXEPUZZLE = 13;
+    public const int DOORPUZZLE = 14;
 
     // 퀘스트 진행 함수: 상호작용 시 호출
     public void SetQuestID()
@@ -71,5 +72,20 @@ public class LittleSpirit : NPCBase
                 transform.rotation = fixedLocations[i].rotation;
             }
         }
+    }
+
+    public bool PuzzleClearCheck()
+    {
+        // 아직 퍼즐이 없으므로 true 반환
+        return true;
+
+        //if (questID == 301102)
+        //{
+        //    return PuzzleManager.instance.puzzles[AXEPUZZLE];
+        //}
+        //else if (questID == 301105)
+        //{
+        //    return PuzzleManager.instance.puzzles[DOORPUZZLE];
+        //}
     }
 }
