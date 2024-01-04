@@ -136,11 +136,12 @@ public partial class EndingAfterTalk : MonoBehaviour
         {
             fogDensity -= 0.01f;
 
-
             RenderSettings.fogDensity = fogDensity; // Fog 밀도 설정
 
+            FirebaseManager.instance.LogOut();
 
             yield return new WaitForSeconds(0.1f);
+
         }
     }
 }

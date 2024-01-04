@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using UnityEngine;
 
 public enum Tutorial
 {
@@ -7,8 +8,11 @@ public enum Tutorial
     No = 301108
 }
 
-public class QuestManager : GSingleton<QuestManager>
+public class QuestManager : MonoBehaviour
 {
+    // 싱글턴
+    public static QuestManager Instance;
+
     // 퀘스트 데이터
     public QUEST_TABLE questTable;
 
@@ -20,8 +24,18 @@ public class QuestManager : GSingleton<QuestManager>
 
     private void Awake()
     {
-        Instance = this;
-        DontDestroyOnLoad(gameObject);
+        // { 싱글톤
+        if (null == Instance)
+        {
+            Instance = this;
+
+            DontDestroyOnLoad(this.gameObject);
+        }
+        else
+        {
+            Destroy(this.gameObject);
+        }
+        // } 싱글톤
 
         idToQuest = new Dictionary<int, Quest>();
         acceptedQuests = new List<Quest>();
@@ -51,23 +65,36 @@ public class QuestManager : GSingleton<QuestManager>
     // 퀘스트 완료 배달형만 체크
     public void CompleteCheck(int id_)
     {
-        // 상호작용한 NPC가 가진 퀘스트의 ID
-        //int targetQuestID = NPCManager.Instance.interacted.questID;
-        // ID 체크
-        if (NPCManager.Instance.interacted.npcId == acceptedQuests[id_].EndNPC)
+        int index_ = default;
+
+        // 수락한 퀘스트의 인덱스 찾기
+        for (int i = 0; i < acceptedQuests.Count; i++)
         {
-            switch (acceptedQuests[id_].Type)
+            if (acceptedQuests[i] == idToQuest[id_])
+            {
+                index_ = i; 
+                break;
+            }
+        }
+
+        // 여전히 default일 경우 함수 종료
+        if (index_ == default) { return; }
+
+        // ID 체크
+        if (NPCManager.Instance.interacted.npcId == acceptedQuests[index_].EndNPC)
+        {
+            switch (acceptedQuests[index_].Type)
             {
                 case QuestType.Delivery1:                                                       // 소지품 생기면 이후 수정
-                    if (InventoryFake.Instance.fakeItems[acceptedQuests[id_].Value1] >= acceptedQuests[id_].Value2)
+                    if (InventoryFake.Instance.fakeItems[acceptedQuests[index_].Value1] >= acceptedQuests[index_].Value2)
                     {
                         CompleteQuest(id_);
                     }
                     else { /* Do Nothing */ }
                     break;
                 case QuestType.Delivery2:
-                    if (InventoryFake.Instance.fakeItems[acceptedQuests[id_].Value1] >= 1 ||
-                        InventoryFake.Instance.fakeItems[acceptedQuests[id_].Value2] >= 1)
+                    if (InventoryFake.Instance.fakeItems[acceptedQuests[index_].Value1] >= 1 ||
+                        InventoryFake.Instance.fakeItems[acceptedQuests[index_].Value2] >= 1)
                     {
                         CompleteQuest(id_);
                     }

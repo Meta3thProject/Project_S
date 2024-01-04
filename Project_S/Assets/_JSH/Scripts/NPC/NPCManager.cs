@@ -2,8 +2,11 @@ using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 
-public class NPCManager : GSingleton<NPCManager>
+public class NPCManager : MonoBehaviour
 {
+    // 싱글턴
+    public static NPCManager Instance;
+
     // 플레이어
     public GameObject player;
     // 현재 상호작용 중인 NPC
@@ -39,8 +42,20 @@ public class NPCManager : GSingleton<NPCManager>
 
     private void Awake()
     {
-        Instance = this;
-        DontDestroyOnLoad(gameObject);
+        // { 싱글톤
+        if (null == Instance)
+        {
+            Instance = this;
+
+            DontDestroyOnLoad(this.gameObject);
+        }
+        else
+        {
+            Destroy(this.gameObject);
+        }
+        // } 싱글톤
+
+        player = GameObject.FindObjectOfType<CharacterController>().transform.gameObject;
 
         idToDialogue = new Dictionary<int, Dialogue>();
         idToChoices = new Dictionary<int, Choice>();

@@ -11,7 +11,7 @@ public class NPCInteractor : MonoBehaviour
 
     private Transform leftHand = default;
     private Transform rightHand = default;
-    
+
     private RaycastHit leftHit = default;
     private RaycastHit rightHit = default;
 
@@ -21,9 +21,9 @@ public class NPCInteractor : MonoBehaviour
     private Collider curRayHitLeft = default;
     private Collider curRayHitRight = default;
 
-    private readonly float rayDistance = 5f;
+    private readonly float rayDistance = 20f;
     private void Awake()
-    {        
+    {
         Init();
     }
 
@@ -44,20 +44,22 @@ public class NPCInteractor : MonoBehaviour
 
     // TODO : Refactoring needed
     private void InteractNpc()
-    {                
+    {
 
         if (Physics.Raycast(leftHand.transform.position, leftHand.transform.forward, out leftHit, rayDistance, LayerMask.GetMask("NPC")))
         {
             GetHitNpc(leftHit.collider, ref prevRayHitLeft, ref curRayHitLeft);
-            if (input.XButtonDown)
-            {            
+            //if (input.XButtonDown)
+            if (Input.GetKeyDown(KeyCode.F))
+            {
+                Debug.Log("F 눌림");
                 GetNpcDialog(curRayHitLeft);
 
             }
         }       // if : 좌측 컨트롤러 Ray처리
         else
         {
-            if(prevRayHitLeft != null)
+            if (prevRayHitLeft != null)
             {
                 ActiveOutLine(prevRayHitLeft, false);
             }
@@ -65,7 +67,7 @@ public class NPCInteractor : MonoBehaviour
 
         if (Physics.Raycast(rightHand.transform.position, rightHand.transform.forward, out rightHit, rayDistance, LayerMask.GetMask("NPC")))
         {
-            GetHitNpc(rightHit.collider,ref prevRayHitRight, ref curRayHitRight);
+            GetHitNpc(rightHit.collider, ref prevRayHitRight, ref curRayHitRight);
             if (input.AButtonDown)
             {
                 GetNpcDialog(curRayHitRight);
@@ -77,27 +79,28 @@ public class NPCInteractor : MonoBehaviour
             {
                 ActiveOutLine(prevRayHitRight, false);
             }
-        }       
+        }
     }       // CheckNpc()       
 
     private void GetNpcDialog(Collider curHitCollider_)
     {
         NPCManager.Instance.interacted = NPCManager.Instance.npcs[NPCManager.Instance.npcs.IndexOf(curHitCollider_.GetComponent<NPCBase>())];
 
-        Vector3 dirToTarget = (curRayHitRight.transform.position - transform.position).normalized;
+        //Vector3 dirToTarget = (curRayHitRight.transform.position - transform.position).normalized;
+        Vector3 dirToTarget = (curRayHitLeft.transform.position - transform.position).normalized;
         dirToTarget.y = 0;
 
         NPCManager.Instance.PopUp(dirToTarget);
 
         curHitCollider_.GetComponent<INPCBehaviour>().PopUpDialog();
     }       // GetNpcDialog()
-        
-    private void GetHitNpc(Collider hitCollider_,ref Collider prevRayhit_, ref Collider curRayhit_)
+
+    private void GetHitNpc(Collider hitCollider_, ref Collider prevRayhit_, ref Collider curRayhit_)
     {
-         curRayhit_ = hitCollider_;
+        curRayhit_ = hitCollider_;
         ActiveOutLine(curRayhit_, true);
 
-        if(curRayhit_ != prevRayhit_ && prevRayhit_ != null)
+        if (curRayhit_ != prevRayhit_ && prevRayhit_ != null)
         {
             ActiveOutLine(prevRayhit_, false);
         }
@@ -107,7 +110,7 @@ public class NPCInteractor : MonoBehaviour
 
     private void ActiveOutLine(Collider hitCollider_, bool isOn)
     {
-        if(hitCollider_.TryGetComponent<Outlinable>(out Outlinable outlinable))
+        if (hitCollider_.TryGetComponent<Outlinable>(out Outlinable outlinable))
         {
             outlinable.enabled = isOn;
         }
