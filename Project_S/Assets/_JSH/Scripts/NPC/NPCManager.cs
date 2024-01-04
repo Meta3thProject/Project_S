@@ -91,9 +91,9 @@ public class NPCManager : GSingleton<NPCManager>
     }
 
     /// <summary>
-    /// 데이터 테이블이 없는 NPC를 위한 임시 함수
+    /// 데이터 테이블이 없는 NPC를 위한 함수
     /// </summary>
-    /// <param name="text_"></param>
+    /// <param name="text_">출력할 문자열</param>
     public void ActivateMain(string text_)
     {
         main.SetActive(true);

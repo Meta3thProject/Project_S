@@ -28,8 +28,10 @@ public class PuzzleManager : MonoBehaviour
     [field: SerializeField] public ShieldPuzzleClear shieldPuzzleClear { get; private set; }            // 6
     [field: SerializeField] public StudioPuzzleClear studioPuzzleClear { get; private set; }            // 7
     [field: SerializeField] public TaxidermyClear taxidermyClear { get; private set; }                  // 8
-    // TODO : 접시에 사과 올리기 퍼즐                                                                     // 9
-    // TODO : 옷감 퍼즐                                                                                  // 10
+    // 접시에 사과 올리기 퍼즐                                                                     // 9
+    [field: SerializeField] public AppleCheck appleClear { get; private set; }                  // 9
+    // 옷감 퍼즐                                                                                  // 10
+
     [field: SerializeField] public PotPuzzleClear potPuzzleClear { get; private set; }                  // 11
     [field: SerializeField] public ButcherShop01Clear butcherShop01Clear { get; private set; }          // 12
     // TODO : 듀토리얼 퍼즐 01                                                                           // 13
