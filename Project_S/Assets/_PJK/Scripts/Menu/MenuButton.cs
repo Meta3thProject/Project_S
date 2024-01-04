@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -12,56 +10,121 @@ public class MenuButton : MonoBehaviour
     public GameObject logOut;
     public GameObject gameExit;
 
+    public Button stillplaybutton;
+    public Button optionbutton;
+    public Button logoutbutton;
+    public Button gameoverbutton;
+    private Text stillplaytext;
+    private Text optiontext;
+    private Text logouttext;
+    private Text gameovertext;
+    private Text stillplaytext2;
+    private Text optiontext2;
+    private Text logouttext2;
+    private Text gameovertext2;
+    private bool isOptionclose = true;
 
 
+
+    private void Start()
+    {
+        stillplaytext = stillplaybutton.GetComponentInChildren<Text>();
+        stillplaytext2 = stillplaybutton.GetComponentInChildren<Text>();
+        optiontext = optionbutton.GetComponentInChildren<Text>();
+        optiontext2 = optionbutton.GetComponentInChildren<Text>();
+        logouttext = logoutbutton.GetComponentInChildren<Text>();
+        logouttext2 = logoutbutton.GetComponentInChildren<Text>();
+        gameovertext = gameoverbutton.GetComponentInChildren<Text>();
+        gameovertext2 = gameoverbutton.GetComponentInChildren<Text>();
+    }
     private void Update()
     {
-        if(Input.GetKeyDown(KeyCode.K))
+        if (Input.GetKeyDown(KeyCode.K))
         {
-            MenuOpen();
+            if (isOptionclose == true)
+            {
+                MenuOpen();
+            }
+            else if (isOptionclose == false)
+            {
+                MenuClose();
+            }
         }
     }
 
-
     public void MenuOpen()
     {
+
+        Debug.Log("옵션창꺼져있음");
         Menu.gameObject.SetActive(true);
         firstMenu.gameObject.SetActive(true);
         option.gameObject.SetActive(false);
+        isOptionclose = false;
     }
-    public void Option()
-    {
-        option.gameObject.SetActive(true);
-        firstMenu.gameObject.SetActive(false);
 
+    public void MenuClose()
+    {
+
+        Debug.Log("옵션창켜져있음");
+
+        Menu.gameObject.SetActive(false);
+        firstMenu.gameObject.SetActive(false);
+        option.gameObject.SetActive(false);
+        isOptionclose = true;
     }
+
 
     public void StillPlay()
     {
-        firstMenu.gameObject.SetActive(true);
+        Debug.Log("계속진행버튼클릭");
+
+        firstMenu.gameObject.SetActive(false);
+
         option.gameObject.SetActive(false);
+
         Menu.gameObject.SetActive(false);
     }
+    public void Option()
+    {
+        Debug.Log("설정버튼클릭");
+
+        firstMenu.gameObject.SetActive(false);
+
+        option.gameObject.SetActive(true);
+
+        secondOption.gameObject.SetActive(true);
+        logOut.gameObject.SetActive(false);
+        gameExit.gameObject.SetActive(false);
+
+    }
+
+
 
 
     public void LogOut()
     {
-        logOut.gameObject.SetActive(true);
+        Debug.Log("로그아웃버튼클릭");
+
+        firstMenu.gameObject.SetActive(false);
+
+        option.gameObject.SetActive(true);
+
         secondOption.gameObject.SetActive(false);
+        logOut.gameObject.SetActive(true);
         gameExit.gameObject.SetActive(false);
 
-    }
 
-    public void SecondOption()
-    {
-        logOut.gameObject.SetActive(false);
-        secondOption.gameObject.SetActive(true);
-        gameExit.gameObject.SetActive(false);
     }
     public void GameExit()
     {
-        logOut.gameObject.SetActive(false);
+        Debug.Log("게임종료버튼클릭");
+
+        firstMenu.gameObject.SetActive(false);
+
+        option.gameObject.SetActive(true);
+
         secondOption.gameObject.SetActive(false);
+        logOut.gameObject.SetActive(false);
         gameExit.gameObject.SetActive(true);
     }
 
