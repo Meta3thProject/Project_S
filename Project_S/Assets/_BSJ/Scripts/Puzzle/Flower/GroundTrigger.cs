@@ -23,7 +23,7 @@ public class GroundTrigger : MonoBehaviour
 
             if (flower.flowerName == flowerName)
             {
-                flower.transform.position = new Vector3(transform.position.x, flower.transform.position.y - 0.1f, transform.position.z);    // y값은 제일 어울리는 값을 찾아서 넣어준 것임.
+                flower.transform.position = new Vector3(transform.position.x, flower.transform.position.y - 0.3f, transform.position.z);    // y값은 제일 어울리는 값을 찾아서 넣어준 것임.
                 flower.EnterGroundTrigger();
                 puzzleClear.IncreaseClearCheck((int)flowerName);
             }

@@ -12959,6 +12959,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 384275093}
     m_Modifications:
+    - target: {fileID: 2798719225435439118, guid: a1a0cd97543f83941b8924515ecf0273,
+        type: 3}
+      propertyPath: m_Text
+      value: 
+      objectReference: {fileID: 0}
     - target: {fileID: 3606535572422830692, guid: a1a0cd97543f83941b8924515ecf0273,
         type: 3}
       propertyPath: m_Pivot.x
@@ -13077,7 +13082,7 @@ PrefabInstance:
     - target: {fileID: 6132009428643651291, guid: a1a0cd97543f83941b8924515ecf0273,
         type: 3}
       propertyPath: m_Text
-      value: eunhartst@naver.com
+      value: 1234@naver.com
       objectReference: {fileID: 0}
     - target: {fileID: 6132009429039935002, guid: a1a0cd97543f83941b8924515ecf0273,
         type: 3}
@@ -13089,6 +13094,11 @@ PrefabInstance:
       propertyPath: AttachedKeyboard
       value: 
       objectReference: {fileID: 382864380}
+    - target: {fileID: 6343558766486723531, guid: a1a0cd97543f83941b8924515ecf0273,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6836328914625404476, guid: a1a0cd97543f83941b8924515ecf0273,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
