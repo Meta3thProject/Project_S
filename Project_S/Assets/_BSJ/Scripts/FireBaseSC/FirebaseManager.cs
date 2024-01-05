@@ -348,7 +348,6 @@ public class FirebaseManager : MonoBehaviour
     IEnumerator WaitAndGameEnd()
     {
         yield return new WaitForSecondsRealtime(3f);
-        EditorApplication.isPlaying = false;
         Application.Quit();
     }
 
