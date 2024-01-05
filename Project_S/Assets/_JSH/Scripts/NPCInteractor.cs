@@ -49,8 +49,8 @@ public class NPCInteractor : MonoBehaviour
         if (Physics.Raycast(leftHand.transform.position, leftHand.transform.forward, out leftHit, rayDistance, LayerMask.GetMask("NPC")))
         {
             GetHitNpc(leftHit.collider, ref prevRayHitLeft, ref curRayHitLeft);
-            //if (input.XButtonDown)
-            if (Input.GetKeyDown(KeyCode.F))
+
+            if (Input.GetKeyDown(KeyCode.F) || input.XButtonDown || input.AButtonDown)
             {
                 Debug.Log("F 눌림");
                 GetNpcDialog(curRayHitLeft);

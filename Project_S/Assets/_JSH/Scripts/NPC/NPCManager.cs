@@ -84,7 +84,7 @@ public class NPCManager : MonoBehaviour
 
     public void PopUp(Vector3 dir_)
     {
-        windowCanvas.GetComponent<RectTransform>().position = (dir_ * 4) + player.transform.position;
+        windowCanvas.GetComponent<RectTransform>().position = (dir_ * 2) + player.transform.position;
         windowCanvas.GetComponent<RectTransform>().forward = dir_;
     }
 
@@ -163,6 +163,8 @@ public class NPCManager : MonoBehaviour
                 // 완료하지 않은 퀘스트라면
                 if (QuestManager.Instance.idToQuest[interacted.questID].IsCompleted == false)
                 {
+                    // 퀘스트 수락
+                    QuestManager.Instance.AcceptQuest(interacted.questID);
                     // 퀘스트 완료
                     QuestManager.Instance.CompleteQuest(interacted.questID);
                 }

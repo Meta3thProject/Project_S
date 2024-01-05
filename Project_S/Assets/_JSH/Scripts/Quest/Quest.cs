@@ -17,7 +17,7 @@ public class Quest
     /// <summary>
     /// 퀘스트 제목
     /// </summary>
-    private string title;
+    public string title;
 
     /// <summary>
     /// 퀘스트를 주는 NPC

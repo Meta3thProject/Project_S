@@ -12,6 +12,8 @@ using System.IO;
 using Firebase.Extensions;
 using UnityEngine.SceneManagement;
 using UnityEngine.InputSystem;
+using UnityEditor;
+using BNG;
 
 public class FirebaseManager : MonoBehaviour
 {
@@ -128,7 +130,14 @@ public class FirebaseManager : MonoBehaviour
         // Test : 로그아웃 테스트 BSJ_240102
         if(Input.GetKeyDown(KeyCode.Escape)) 
         {
-            LogOut();
+            LogOut(true);
+        }
+
+        // Y 버튼을 누르면 저장이 잘 됨.
+        if(InputBridge.Instance.YButtonDown)
+        {
+            // 인게임 데이터 저장
+            SaveIngameData();
         }
     }
 
@@ -276,15 +285,26 @@ public class FirebaseManager : MonoBehaviour
     }
 
     /// <summary>
-    /// 로그아웃하는 함수.
+    /// 인게임 데이터를 저장하는 메서드.
     /// </summary>
-    public void LogOut()
+    public void SaveIngameData()
     {
         // 플레이어의 마지막 위치 DB에 업데이트
         Vector3 _lastPlayerPos = GameObject.FindAnyObjectByType<CharacterController>().transform.position;
         PlayerPosUpdateToDB(_lastPlayerPos);
+    }
 
-        auth.SignOut(); // 로그아웃이 자동으로 된다.
+    /// <summary>
+    /// 로그아웃하는 메서드.
+    /// </summary>
+    /// <param name="isGoLoginScene_">true면 저장후 로그인씬으로 이동, false면 게임 종료</param>
+    public void LogOut(bool isGoLoginScene_)
+    {
+        // 인게임 데이터 저장
+        SaveIngameData();
+
+        // 로그아웃이 자동으로 된다.
+        auth.SignOut();
 
         // { 로그인 관련 UI 활성화
         loadingUIPannel.gameObject.SetActive(true);
@@ -298,7 +318,16 @@ public class FirebaseManager : MonoBehaviour
         // 상태 메세지 초기화
         infoTextField.text = "상태 : 대기 중 ...";
 
-        SceneManager.LoadScene(LOGINSCENE);
+        // 로그인씬으로 돌아가거나 게임 종료가 되는 로직
+        if(isGoLoginScene_)
+        {
+            SceneManager.LoadScene(LOGINSCENE);
+        }
+
+        else
+        {
+            StartCoroutine(WaitAndGameEnd());
+        }
 
         // { LEGACY : BSJ 240102
         //// 유저데이터 비우기 231229
@@ -313,6 +342,14 @@ public class FirebaseManager : MonoBehaviour
         //    PlayerInventory.instance.ItemDictionaryInit(i);
         //}
         // } LEGACY : BSJ 240102
+    }
+
+    /// 3초 뒤에 게임이 꺼지는 코루틴
+    IEnumerator WaitAndGameEnd()
+    {
+        yield return new WaitForSecondsRealtime(3f);
+        EditorApplication.isPlaying = false;
+        Application.Quit();
     }
 
     /// <summary>

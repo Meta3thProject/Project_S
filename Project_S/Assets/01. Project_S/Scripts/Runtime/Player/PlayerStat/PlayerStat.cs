@@ -6,14 +6,23 @@ public class PlayerStat : MonoBehaviour
 {
     private Dictionary<string, float> MBTIStat = default;
 
+    // { 잡고 있는 물건을 찾기 위한 수정
+    public HandController leftHC;
+    public HandController rightHC;
+    // } 잡고 있는 물건을 찾기 위한 수정
+
     private Grabbable leftHeldGrabbable = default;
     private Grabbable rigthHeldGrabbable = default;
-        
+
     private void Awake()
     {
         Init();
 
-        
+        // { 잡고 있는 물건을 찾기 위한 수정
+        leftHeldGrabbable = leftHC.PreviousHeldObject.GetComponent<Grabbable>();
+        rigthHeldGrabbable = rightHC.PreviousHeldObject.GetComponent<Grabbable>();
+        // } 잡고 있는 물건을 찾기 위한 수정
+
         // TEST 용 
         //AddPoint(Define.MBTI_N, 10f);
         //AddPoint(Define.MBTI_E, 5f);
@@ -46,8 +55,8 @@ public class PlayerStat : MonoBehaviour
     {
         MBTIStat[type_] += point_;
 
-#if UNITY_EDITOR       
-            Debug.LogFormat("Type {0} : Point {1}", type_, MBTIStat[type_]);
+#if UNITY_EDITOR
+        Debug.LogFormat("Type {0} : Point {1}", type_, MBTIStat[type_]);
 #endif
     }       // AddPoint()
 

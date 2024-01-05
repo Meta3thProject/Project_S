@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 
 public partial class EndingAfterTalk : MonoBehaviour
@@ -27,10 +28,15 @@ public partial class EndingAfterTalk : MonoBehaviour
     private int starnumber;
     public Animator GoddessAnimator;
 
+    public TextMeshProUGUI endingCanvasText;
+
+
     public void Light(Color EndingColor)
     {
         RenderSettings.fog = enableFog; // Fog 사용 여부 설정
-
+        //endingCanvasText.text = playerstat.GetMBTIStat();
+        endingCanvasText.text = "intp";
+        
         if (enableFog)
         {
 
@@ -45,7 +51,9 @@ public partial class EndingAfterTalk : MonoBehaviour
                     EndingCameratoUI.endingCameratoUI.gotoending();
                     StartCoroutine(SetForErase(EndingColor));
                 }
+
             }));
+
         }
 
 
@@ -54,9 +62,13 @@ public partial class EndingAfterTalk : MonoBehaviour
 
     public void MBTIColor(out Color mbticolor)
     {
-        string MBTI = "enfp";
-        Debug.LogFormat(MBTI);
 
+        string MBTI = "infp";
+        //if (playerstat.GetMBTIStat() != null)
+        //{
+        //    MBTI = playerstat.GetMBTIStat();
+
+        //}
         switch (MBTI)
         {
             case "enfp":
@@ -138,10 +150,12 @@ public partial class EndingAfterTalk : MonoBehaviour
 
             RenderSettings.fogDensity = fogDensity; // Fog 밀도 설정
 
-            FirebaseManager.instance.LogOut();
-
             yield return new WaitForSeconds(0.1f);
-
         }
+
+        yield return new WaitForSecondsRealtime(3f);
+
+        // 로그인씬으로 갑니다.
+        FirebaseManager.instance.LogOut(true);
     }
 }

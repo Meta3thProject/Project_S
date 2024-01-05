@@ -1,3 +1,4 @@
+using BNG;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -10,10 +11,10 @@ public class MenuButton : MonoBehaviour
     public GameObject logOut;
     public GameObject gameExit;
 
-    public Button stillplaybutton;
-    public Button optionbutton;
-    public Button logoutbutton;
-    public Button gameoverbutton;
+    public UnityEngine.UI.Button stillplaybutton;
+    public UnityEngine.UI.Button optionbutton;
+    public UnityEngine.UI.Button logoutbutton;
+    public UnityEngine.UI.Button gameoverbutton;
     private Text stillplaytext;
     private Text optiontext;
     private Text logouttext;
@@ -22,7 +23,7 @@ public class MenuButton : MonoBehaviour
     private Text optiontext2;
     private Text logouttext2;
     private Text gameovertext2;
-    private bool isOptionclose = true;
+    private bool isOptionclose;
 
 
 
@@ -39,7 +40,7 @@ public class MenuButton : MonoBehaviour
     }
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.K))
+        if (Input.GetKeyDown(KeyCode.K) || InputBridge.Instance.BackButtonDown)
         {
             if (isOptionclose == true)
             {
@@ -83,6 +84,7 @@ public class MenuButton : MonoBehaviour
         option.gameObject.SetActive(false);
 
         Menu.gameObject.SetActive(false);
+        isOptionclose = true;
     }
     public void Option()
     {
@@ -95,6 +97,7 @@ public class MenuButton : MonoBehaviour
         secondOption.gameObject.SetActive(true);
         logOut.gameObject.SetActive(false);
         gameExit.gameObject.SetActive(false);
+       
 
     }
 
@@ -113,6 +116,7 @@ public class MenuButton : MonoBehaviour
         logOut.gameObject.SetActive(true);
         gameExit.gameObject.SetActive(false);
 
+       
 
     }
     public void GameExit()
@@ -126,6 +130,8 @@ public class MenuButton : MonoBehaviour
         secondOption.gameObject.SetActive(false);
         logOut.gameObject.SetActive(false);
         gameExit.gameObject.SetActive(true);
+       
+
     }
 
 

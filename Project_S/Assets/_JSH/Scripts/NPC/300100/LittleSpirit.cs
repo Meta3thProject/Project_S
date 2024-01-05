@@ -53,6 +53,8 @@ public class LittleSpirit : NPCBase, IPuzzleHolder
             if (collider.gameObject == NPCManager.Instance.player)
             {
                 // 대화 시작
+                PopUpDialog();
+
                 break;
             }
         }
@@ -60,7 +62,10 @@ public class LittleSpirit : NPCBase, IPuzzleHolder
 
     public override void PopUpDialog()
     {
+
         base.PopUpDialog();
+
+        SetQuestID();
 
         // 현재 출력문ID로 이동할지 말지 정한다
         for (int i = 0; i < ids.Length; i++)
