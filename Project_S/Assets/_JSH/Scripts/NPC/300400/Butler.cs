@@ -14,7 +14,6 @@ public class Butler : NPCBase, IPuzzleHolder
 
     public bool PuzzleClearCheck()
     {
-        // 아직 퍼즐이 없으므로 true 반환
-        return true;
+        return PuzzleManager.instance.catPuzzleClear;
     }
 }
