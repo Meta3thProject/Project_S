@@ -13,8 +13,11 @@ public class Gimmick02FireTrigger : MonoBehaviour
     // 기믹 체크 스크립트
     private Gimmick02 gimmick02;
 
-    // 현재 불이 켜져있는지 체크
+    // 현재 이 촛대에 불이 켜져있는지 체크
     private bool isFire;
+
+    // 현재 토치에 불이 켜져있는지 체크하는 트리거
+    private SphereCollider touchFireTrigger;
 
     private void Awake()
     {
@@ -23,15 +26,17 @@ public class Gimmick02FireTrigger : MonoBehaviour
 
         fireEffect = transform.GetChild(0).GetComponent<ParticleSystem>();
         gimmick02 = transform.parent.parent.GetComponent<Gimmick02>();
+
+        touchFireTrigger = null;
     }
 
     private void OnTriggerEnter(Collider other)
     {
-        // 불 켜기
-        if (other.CompareTag("Torch"))
-        {
-            if (isFire) { return; }
+        if (isFire) { return; }
 
+        // 불 켜기
+        if (other.name == "TorchFire")
+        {
             isFire = true;
 
             fireEffect.Play();
