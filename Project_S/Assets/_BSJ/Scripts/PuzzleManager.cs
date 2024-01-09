@@ -28,10 +28,10 @@ public class PuzzleManager : MonoBehaviour
     [field: SerializeField] public ShieldPuzzleClear shieldPuzzleClear { get; private set; }            // 6
     [field: SerializeField] public StudioPuzzleClear studioPuzzleClear { get; private set; }            // 7
     [field: SerializeField] public TaxidermyClear taxidermyClear { get; private set; }                  // 8
-    // 접시에 사과 올리기 퍼즐                                                                     // 9
-    [field: SerializeField] public AppleCheck appleClear { get; private set; }                  // 9
-    // 옷감 퍼즐                                                                                  // 10
-    [field: SerializeField] public FabricCheck fabricClear { get; private set; }                  // 10
+    // 접시에 사과 올리기 퍼즐                                                                            // 9
+    [field: SerializeField] public AppleCheck appleClear { get; private set; }                          // 9
+    // 옷감 퍼즐                                                                                         // 10
+    [field: SerializeField] public FabricCheck fabricClear { get; private set; }                        // 10
 
     [field: SerializeField] public PotPuzzleClear potPuzzleClear { get; private set; }                  // 11
     [field: SerializeField] public ButcherShop01Clear butcherShop01Clear { get; private set; }          // 12
@@ -40,7 +40,12 @@ public class PuzzleManager : MonoBehaviour
     [field: SerializeField] public ButcherShop02Clear butcherShop02Clear { get; private set; }          // 15
     [field: SerializeField] public ButcherShop03Clear butcherShop03Clear { get; private set; }          // 16
     [field: SerializeField] public HiddenPuzzleClear hiddenPuzzleClear { get; private set; }            // 17
-    // TODO : 추후 개발 될 퍼즐이 더 추가될 예정 ...
+    // TODO : 꽃 배달 퍼즐                                                                               // 18
+    // TODO : 전구 교체 퍼즐                                                                             // 19
+    // TODO : 향수 퍼즐                                                                                  // 20
+    // TODO : 숨바꼭질 퍼즐                                                                              // 21
+    [field: SerializeField] public CatPuzzleClear catPuzzleClear { get; private set; }                  // 22
+    // 개발할 퍼즐 목표 종료.
 
     // 파이어 베이스
     private DatabaseReference reference;    // 루트 레퍼런스
@@ -124,6 +129,11 @@ public class PuzzleManager : MonoBehaviour
             else if (i == 15) { butcherShop02Clear.ActiveClearSign(puzzles[i]); }
             else if (i == 16) { butcherShop03Clear.ActiveClearSign(puzzles[i]); }
             else if (i == 17) { hiddenPuzzleClear.ActiveClearSign(puzzles[i]); }
+            /* else if(i == 18) { TODO : 꽃 배달 퍼즐 } */
+            /* else if(i == 19) { TODO : 전구 교체 퍼즐 } */
+            /* else if(i == 20) { TODO : 향수 퍼즐 } */
+            /* else if(i == 21) { TODO : 숨바꼭질 퍼즐 } */
+            else if (i == 22) { catPuzzleClear.ActiveClearSign(puzzles[i]); }
         }
     }
 
