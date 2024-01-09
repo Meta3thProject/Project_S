@@ -7,9 +7,21 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1233812300310538, guid: 767351b18306a2241a4ea6f458b338c3, type: 3}
+      propertyPath: m_Layer
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 1352060599882070, guid: 767351b18306a2241a4ea6f458b338c3, type: 3}
+      propertyPath: m_Layer
+      value: 20
+      objectReference: {fileID: 0}
     - target: {fileID: 1434351971722442, guid: 767351b18306a2241a4ea6f458b338c3, type: 3}
       propertyPath: m_Name
       value: fairy's hand_ projectile Variant
+      objectReference: {fileID: 0}
+    - target: {fileID: 1434351971722442, guid: 767351b18306a2241a4ea6f458b338c3, type: 3}
+      propertyPath: m_Layer
+      value: 20
       objectReference: {fileID: 0}
     - target: {fileID: 1434351971722442, guid: 767351b18306a2241a4ea6f458b338c3, type: 3}
       propertyPath: m_TagString
