@@ -8,6 +8,8 @@ public class Torch : GrabbableEvents
     private bool isFlameOn = false;
     private GameObject flameFX = default;
     private SphereCollider flameCollider = default;
+    private ReturnToSnapZone returnSnapZone = default;
+    private bool isFirst = default;
 
     // Start is called before the first frame 
     void Start()
@@ -18,29 +20,46 @@ public class Torch : GrabbableEvents
     void Init()
     {
         grabbable = GetComponent<Grabbable>();
+        returnSnapZone = GetComponent<ReturnToSnapZone>();
+        flameCollider = this.GetComponent<SphereCollider>();
 
         flameFX = this.gameObject.GetChildObj("TorchFire");
-        flameCollider = this.GetComponent<SphereCollider>();
-        flameCollider.enabled = false;
+        flameCollider.enabled = isFlameOn;
+        flameFX.SetActive(isFlameOn);
+        returnSnapZone.enabled = false;
     }
     // Update is called once per frame
     void Update()
-    {        
+    {       
+        
+    
         if(!grabbable.BeingHeld)
         {
             flameCollider.enabled = false;
             isFlameOn = false;
-        }
-        // { 토치 횃불 이펙트 끄고 키기
-        if (isFlameOn)
-        {                       
-            ActiveFlame(isFlameOn);
-        }
+            return;
+        }    
         else
         {
-            ActiveFlame(isFlameOn);
+            if (grabbable.BeingHeld && isFirst == default)
+            {
+                isFirst = true;
+                returnSnapZone.enabled = true;           
+            }
+
+            // { 토치 횃불 이펙트 끄고 키기
+            if (isFlameOn)
+            {
+                ActiveFlame(isFlameOn);
+            }
+            else
+            {
+                ActiveFlame(isFlameOn);
+            }
+            // } 토치 횃불 이펙트 끄고 키기
         }
-        // } 토치 횃불 이펙트 끄고 키기
+
+
     }
 
     private void ActiveFlame(bool isOn)

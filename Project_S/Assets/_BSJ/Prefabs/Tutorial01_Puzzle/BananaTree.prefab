@@ -109,6 +109,7 @@ GameObject:
   - component: {fileID: 5866277948375626100}
   - component: {fileID: 5853035754727806321}
   - component: {fileID: 5853035754727806320}
+  - component: {fileID: 2767960534788504788}
   m_Layer: 0
   m_Name: BananaTree
   m_TagString: Untagged
@@ -213,3 +214,16 @@ MonoBehaviour:
   <nextInteractionTime>k__BackingField: 1
   <isInteractionAble>k__BackingField: 0
   dropedItem: {fileID: 0}
+--- !u!114 &2767960534788504788
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5854423226641735664}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 264013eb56df7bc4898a68521c1d2378, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  <itemID>k__BackingField: 0

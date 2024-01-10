@@ -76,9 +76,12 @@ public class TutorialIceCube : MonoBehaviour
         {
             sphereCollider = other.GetComponent<SphereCollider>();
 
-            isTorchTouch = true;
-            meltingParticle.transform.position = new Vector3(transform.position.x, transform.position.y + 0.3f, transform.position.z);
-            meltingParticle.Play();
+            if(sphereCollider != null && sphereCollider.enabled) 
+            {
+                isTorchTouch = true;
+                meltingParticle.transform.position = new Vector3(transform.position.x, transform.position.y + 0.3f, transform.position.z);
+                meltingParticle.Play();
+            }
         }
     }
 

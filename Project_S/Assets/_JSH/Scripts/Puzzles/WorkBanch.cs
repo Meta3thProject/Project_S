@@ -9,6 +9,7 @@ public class WorkBanch : MonoBehaviour
     // 아이템ID를 체크해서 조합
 
     public List<GameObject> onWorkBanch;
+    public List<int> itemIds;
 
     private Dictionary<string, int> idStringToID;
 
@@ -16,6 +17,9 @@ public class WorkBanch : MonoBehaviour
 
     private void Awake()
     {
+        onWorkBanch = new List<GameObject>();
+        itemIds = new List<int>();
+
         idStringToID = new Dictionary<string, int>();
 
         idStringToID.Add("100002100004", 100005);   // 목재 + 기름 = 횃불
@@ -35,9 +39,10 @@ public class WorkBanch : MonoBehaviour
         {
             // 감지한 것을 리스트에 추가
             onWorkBanch.Add(other.gameObject);
+            itemIds.Add(other.gameObject.GetComponent<ItemData>().itemID);
         }
         // 아이템 조합 시도
-        CombineItems();
+        // CombineItems();
     }
 
     private void OnTriggerExit(Collider other)
@@ -46,19 +51,20 @@ public class WorkBanch : MonoBehaviour
         {
             // 감지한 것을 리스트에서 제거
             onWorkBanch.Remove(other.gameObject);
+            itemIds.Remove(other.gameObject.GetComponent<ItemData>().itemID);
         }
         // 아이템 조합 시도
-        CombineItems();
+        // CombineItems();
     }
 
     public void CombineItems()
     {
         // 요소 정렬
-        onWorkBanch.Sort();
+        itemIds.Sort();
 
         for (int i = 0; i < onWorkBanch.Count; i++)
         {
-            stringBuilder.Append(onWorkBanch[i].GetComponent<ItemData>().itemID.ToString());
+            stringBuilder.Append(itemIds[i].ToString());
         }
 
         foreach (string str in idStringToID.Keys)
@@ -66,12 +72,13 @@ public class WorkBanch : MonoBehaviour
             if (str == stringBuilder.ToString())
             {
                 // 조합대 위의 모든 아이템 삭제
-                for (int i = onWorkBanch.Count - 1; i >= 0; i--)
+                for (int i = itemIds.Count - 1; i >= 0; i--)
                 {
-                    GameObject temp_ = onWorkBanch[i];
-                    onWorkBanch.Remove(temp_);
-                    Destroy(temp_);
+                    Destroy(onWorkBanch[i]);
                 }
+
+                onWorkBanch.Clear();
+                itemIds.Clear();
 
                 // 조합대 컬라이더 중앙에서 조합된 아이템 생성
                 ItemDataManager.instance.InstanceItem(idStringToID[str], GetComponent<Collider>().bounds.center);

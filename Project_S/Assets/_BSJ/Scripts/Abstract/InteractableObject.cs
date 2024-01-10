@@ -45,7 +45,8 @@ public abstract class InteractableObject : MonoBehaviour
         if(dropedItem != null)
         {
             GameObject _dropItem = Instantiate(dropedItem);
-            _dropItem.transform.position = this.transform.position;
+            _dropItem.name = dropedItem.name;
+            _dropItem.transform.position = new Vector3(transform.position.x, transform.position.y + 3f, transform.position.z);
         }
 
         else { /*DoNothing*/ }

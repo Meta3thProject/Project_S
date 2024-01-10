@@ -35,7 +35,7 @@ public class Gimmick02FireTrigger : MonoBehaviour
         if (isFire) { return; }
 
         // 불 켜기
-        if (other.name == "TorchFire")
+        if (other.CompareTag("Torch"))
         {
             isFire = true;
 

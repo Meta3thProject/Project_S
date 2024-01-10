@@ -16856,7 +16856,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5960396776521571338}
-  m_LocalRotation: {x: -0, y: 1, z: -0, w: 0.0000029504295}
+  m_LocalRotation: {x: 0, y: 1, z: 0, w: 0}
   m_LocalPosition: {x: -11.58, y: 9.99, z: 71.83}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -17020,8 +17020,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 85966cfd4812ef041a876b89d597c727, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  leftHC: {fileID: 359417508475271702}
-  rightHC: {fileID: 359417507768645239}
 --- !u!1 &5960396776549470816
 GameObject:
   m_ObjectHideFlags: 0
@@ -20583,7 +20581,7 @@ MonoBehaviour:
   CanSwapItem: 1
   CanRemoveItem: 1
   ScaleItem: 1
-  DisableColliders: 1
+  DisableColliders: 0
   DuplicateItemOnGrab: 0
   MaxDropTime: 0.1
   LastSnapTime: 0
@@ -22214,6 +22212,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Torch
+      objectReference: {fileID: 0}
+    - target: {fileID: 5626884459895915695, guid: 56644fcad49822c48a095b6fe7724f45,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5626884459895915695, guid: 56644fcad49822c48a095b6fe7724f45,
         type: 3}
