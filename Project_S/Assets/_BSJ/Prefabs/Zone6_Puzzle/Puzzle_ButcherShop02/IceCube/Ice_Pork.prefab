@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 2409694513551430308}
   - component: {fileID: 2409694513551430311}
   - component: {fileID: 7587137071252828444}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Model_Item_Puzzle_Pork
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -113,7 +113,7 @@ GameObject:
   - component: {fileID: 3153317438286580115}
   - component: {fileID: 9221776135801101617}
   - component: {fileID: 7920734174023643141}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Ice_Pork
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -384,7 +384,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   cubeType: 2
-  nowSize: 0
+  <nowSize>k__BackingField: 0
   bigScale: {x: 0, y: 0, z: 0}
   halfScale: {x: 0, y: 0, z: 0}
   smallScale: {x: 0, y: 0, z: 0}
@@ -403,7 +403,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 277458761907157027}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: InIceItem
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -433,6 +433,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 2409694513558639993}
     m_Modifications:
+    - target: {fileID: 1130437426886618072, guid: 55920e4667fa9204b8912a657e19c1e5,
+        type: 3}
+      propertyPath: m_Layer
+      value: 10
+      objectReference: {fileID: 0}
     - target: {fileID: 1199637994574232881, guid: 55920e4667fa9204b8912a657e19c1e5,
         type: 3}
       propertyPath: m_RootOrder
@@ -493,6 +498,16 @@ PrefabInstance:
       propertyPath: m_Name
       value: FinalIceMelt_VFX
       objectReference: {fileID: 0}
+    - target: {fileID: 1328840322548058024, guid: 55920e4667fa9204b8912a657e19c1e5,
+        type: 3}
+      propertyPath: m_Layer
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 6324678892681700908, guid: 55920e4667fa9204b8912a657e19c1e5,
+        type: 3}
+      propertyPath: m_Layer
+      value: 10
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 55920e4667fa9204b8912a657e19c1e5, type: 3}
 --- !u!4 &1574880508458158763 stripped
@@ -512,6 +527,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: IceMelt_VFX
+      objectReference: {fileID: 0}
+    - target: {fileID: 1965505136393872074, guid: a2d5f53905ccf05408d5caf8bc0e06ae,
+        type: 3}
+      propertyPath: m_Layer
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 1969137099645137300, guid: a2d5f53905ccf05408d5caf8bc0e06ae,
         type: 3}

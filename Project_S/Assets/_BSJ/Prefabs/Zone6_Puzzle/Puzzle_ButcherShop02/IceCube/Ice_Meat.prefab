@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3043879998588800866}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: InIceItem
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -44,7 +44,7 @@ GameObject:
   - component: {fileID: 4920518880272084565}
   - component: {fileID: 4920518880272084566}
   - component: {fileID: 6301634976363237012}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Model_Item_Puzzle_Meet
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -145,7 +145,7 @@ GameObject:
   - component: {fileID: 7346927759035815842}
   - component: {fileID: 1340782545715941617}
   - component: {fileID: 6035203152532381640}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Ice_Meat
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -416,7 +416,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   cubeType: 1
-  nowSize: 0
+  <nowSize>k__BackingField: 0
   bigScale: {x: 0, y: 0, z: 0}
   halfScale: {x: 0, y: 0, z: 0}
   smallScale: {x: 0, y: 0, z: 0}
@@ -437,6 +437,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: IceMelt_VFX
+      objectReference: {fileID: 0}
+    - target: {fileID: 1965505136393872074, guid: a2d5f53905ccf05408d5caf8bc0e06ae,
+        type: 3}
+      propertyPath: m_Layer
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 1969137099645137300, guid: a2d5f53905ccf05408d5caf8bc0e06ae,
         type: 3}
@@ -508,6 +513,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 4920518880553536910}
     m_Modifications:
+    - target: {fileID: 1130437426886618072, guid: 55920e4667fa9204b8912a657e19c1e5,
+        type: 3}
+      propertyPath: m_Layer
+      value: 10
+      objectReference: {fileID: 0}
     - target: {fileID: 1199637994574232881, guid: 55920e4667fa9204b8912a657e19c1e5,
         type: 3}
       propertyPath: m_RootOrder
@@ -567,6 +577,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: FinalIceMelt_VFX
+      objectReference: {fileID: 0}
+    - target: {fileID: 1328840322548058024, guid: 55920e4667fa9204b8912a657e19c1e5,
+        type: 3}
+      propertyPath: m_Layer
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 6324678892681700908, guid: 55920e4667fa9204b8912a657e19c1e5,
+        type: 3}
+      propertyPath: m_Layer
+      value: 10
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 55920e4667fa9204b8912a657e19c1e5, type: 3}

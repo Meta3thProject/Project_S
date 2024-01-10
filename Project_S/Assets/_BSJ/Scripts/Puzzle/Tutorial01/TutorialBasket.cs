@@ -12,7 +12,7 @@ public class TutorialBasket : MonoBehaviour
     private Vector3 bounceDirection03;
 
     // 튀어나갈 힘
-    private float bouncePower = 10;
+    private float bouncePower = 15;
 
     private Rigidbody rigidBody;
     private Grabbable grabbable;
