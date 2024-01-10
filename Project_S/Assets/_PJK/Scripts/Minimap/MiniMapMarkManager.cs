@@ -10,7 +10,7 @@ public class MiniMapMarkManager : MonoBehaviour
     public GameObject questMark = default;
     private GameObject questMarker = default;
     public bool isWorldmap = false;
-    public bool isPlayermap = true;
+    public bool isZonemap = true;
 
 
 
