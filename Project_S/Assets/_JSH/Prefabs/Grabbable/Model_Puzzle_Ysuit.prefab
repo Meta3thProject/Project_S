@@ -12,10 +12,11 @@ GameObject:
   - component: {fileID: 7029497266229761480}
   - component: {fileID: 7037023454176256086}
   - component: {fileID: 6998569084335924464}
-  - component: {fileID: 1619320009090135788}
   - component: {fileID: 463450224544226760}
+  - component: {fileID: 1619320009090135788}
   - component: {fileID: 4933256734350128168}
   - component: {fileID: 3904338888295563864}
+  - component: {fileID: 4733713477547545694}
   m_Layer: 10
   m_Name: Model_Puzzle_Ysuit
   m_TagString: Untagged
@@ -102,6 +103,22 @@ MeshCollider:
   m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: 43032598054813752, guid: d8fe1490ac587c747a549f9b797e3a78, type: 2}
+--- !u!54 &463450224544226760
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7061275397645527218}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 1
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
 --- !u!114 &1619320009090135788
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -171,22 +188,6 @@ MonoBehaviour:
   UseCustomInspector: 1
   lastFlickTime: 0
   FlickForce: 1
---- !u!54 &463450224544226760
-Rigidbody:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7061275397645527218}
-  serializedVersion: 2
-  m_Mass: 1
-  m_Drag: 0
-  m_AngularDrag: 0.05
-  m_UseGravity: 1
-  m_IsKinematic: 0
-  m_Interpolate: 0
-  m_Constraints: 0
-  m_CollisionDetection: 0
 --- !u!114 &4933256734350128168
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -256,3 +257,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 034bc47afcbf5e141a58d5c20b7808e4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &4733713477547545694
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7061275397645527218}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 264013eb56df7bc4898a68521c1d2378, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  <itemID>k__BackingField: 0

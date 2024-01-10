@@ -88,7 +88,7 @@ public class AppleCheck : MonoBehaviour, IActiveSign
 
         foreach (GameObject obj in dishes[0].GetComponent<Dish>().onDish)
         {
-            if (obj.name == "Apple")
+            if (obj.name == "Model_Puzzle_Apple")
             {
                 first += 1;
             }
@@ -99,7 +99,7 @@ public class AppleCheck : MonoBehaviour, IActiveSign
 
         foreach (GameObject obj in dishes[1].GetComponent<Dish>().onDish)
         {
-            if (obj.name == "Apple")
+            if (obj.name == "Model_Puzzle_Apple")
             {
                 second += 1;
             }
@@ -110,7 +110,7 @@ public class AppleCheck : MonoBehaviour, IActiveSign
 
         foreach (GameObject obj in dishes[2].GetComponent<Dish>().onDish)
         {
-            if (obj.name == "Apple")
+            if (obj.name == "Model_Puzzle_Apple")
             {
                 third += 1;
             }

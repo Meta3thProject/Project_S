@@ -70,35 +70,33 @@ public class QuestManager : MonoBehaviour
         // 수락한 퀘스트의 인덱스 찾기
         for (int i = 0; i < acceptedQuests.Count; i++)
         {
-            if (acceptedQuests[i] == idToQuest[id_])
+            if (idToQuest[id_] == acceptedQuests[i])
             {
-                index_ = i; 
+                index_ = i;
                 break;
             }
         }
-        Debug.Log("리턴 전");
+
         // 여전히 default일 경우 함수 종료
         if (index_ == -1) { return; }
 
-        Debug.Log(InventoryFake.Instance.fakeItems[acceptedQuests[index_].Value1]);
-        Debug.Log(acceptedQuests[index_].Value2);
-        Debug.Log("리턴 후");
         // ID 체크
-        if (NPCManager.Instance.interacted.npcId == acceptedQuests[index_].EndNPC)
+        if (acceptedQuests[index_].EndNPC == NPCManager.Instance.interacted.npcId)
         {
-            Debug.Log("여기 들어옴?");
             switch (acceptedQuests[index_].Type)
             {
                 case QuestType.Delivery1:                                                       // 소지품 생기면 이후 수정
-                    if (InventoryFake.Instance.fakeItems[acceptedQuests[index_].Value1] >= acceptedQuests[index_].Value2)
+                    //if (InventoryFake.Instance.fakeItems[acceptedQuests[index_].Value1] >= acceptedQuests[index_].Value2)
+                    if (InventoryFake.Instance.CheckOneValue(acceptedQuests[index_].Value1, acceptedQuests[index_].Value2))
                     {
                         CompleteQuest(id_);
                     }
                     else { /* Do Nothing */ }
                     break;
                 case QuestType.Delivery2:
-                    if (InventoryFake.Instance.fakeItems[acceptedQuests[index_].Value1] >= 1 ||
-                        InventoryFake.Instance.fakeItems[acceptedQuests[index_].Value2] >= 1)
+                    //if (InventoryFake.Instance.fakeItems[acceptedQuests[index_].Value1] >= 1 ||
+                    // InventoryFake.Instance.fakeItems[acceptedQuests[index_].Value2] >= 1) 
+                    if (InventoryFake.Instance.CheckTwoValue(acceptedQuests[index_].Value1, acceptedQuests[index_].Value2))
                     {
                         CompleteQuest(id_);
                     }
@@ -118,7 +116,7 @@ public class QuestManager : MonoBehaviour
         else
         {
             acceptedQuests[acceptedQuests.IndexOf(idToQuest[id_])].Complete();
-            Debug.Log($"{acceptedQuests[acceptedQuests.IndexOf(idToQuest[id_])].title}클리어");
+            Debug.Log($"{acceptedQuests[acceptedQuests.IndexOf(idToQuest[id_])].title} 클리어");
 
             acceptedQuests.Remove(idToQuest[id_]);
         }

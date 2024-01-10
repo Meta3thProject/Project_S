@@ -55,7 +55,7 @@ public class NPCManager : MonoBehaviour
         }
         // } 싱글톤
 
-        player = GameObject.FindObjectOfType<CharacterController>().transform.gameObject;
+        //player = GameObject.FindObjectOfType<CharacterController>().transform.gameObject;
 
         idToDialogue = new Dictionary<int, Dialogue>();
         idToChoices = new Dictionary<int, Choice>();

@@ -8,6 +8,8 @@ public class InventoryFake : MonoBehaviour
 {
     public static InventoryFake Instance;
 
+    public PlayerStat status;
+
     public Dictionary<int, int> fakeItems;
 
     private void Awake()
@@ -27,25 +29,34 @@ public class InventoryFake : MonoBehaviour
 
         fakeItems = new Dictionary<int, int>();
 
-        fakeItems.Add(100002, 1);
-        fakeItems.Add(100004, 1);
-        fakeItems.Add(101003, 1);
-
-        fakeItems.Add(103011, 1);
-        fakeItems.Add(103012, 1);
-        fakeItems.Add(103013, 1);
-        fakeItems.Add(103014, 1);
-        fakeItems.Add(103015, 1);
-        fakeItems.Add(103016, 1);
-
-        fakeItems.Add(105003, 1);
-        fakeItems.Add(105004, 1);
-
-        fakeItems.Add(106000, 1);
-        fakeItems.Add(106001, 1);
-        fakeItems.Add(106002, 1);
-        fakeItems.Add(106003, 1);
-
         fakeItems.Add(7777777, 1);
+    }
+
+    public bool CheckOneValue(int value1_, int value2_)
+    {
+        // 소지중인 별의 총 개수 체크
+        if (value1_ == 7777777)
+        {
+            if (StarManager.starManager.getStarCount >= value2_) { return true; }
+        }
+        // 들고 있는 물건 체크
+        else if (value1_ != 7777777)
+        {
+            if (value1_ == status.GetRightGrabbableID() || value1_ == status.GetLeftGrabbableID()) { return true; }
+        }
+        else { /* Do Nothing */ }
+
+        return false;
+    }
+
+    public bool CheckTwoValue(int value1_, int value2_)
+    {
+        // 들고 있는 물건 체크
+        if (value1_ == status.GetRightGrabbableID() && value2_ == status.GetLeftGrabbableID()) { return true; }
+        // 반대로도 체크
+        else if (value2_ == status.GetRightGrabbableID() && value1_ == status.GetLeftGrabbableID()) { return true; }
+        else { /* Do Nothing */ }
+
+        return false;
     }
 }

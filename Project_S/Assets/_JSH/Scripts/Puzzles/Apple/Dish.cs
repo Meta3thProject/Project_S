@@ -21,7 +21,7 @@ public class Dish : MonoBehaviour
         // 리스트에 추가
         onDish.Add(other.gameObject);
 
-        if (other.name == "Apple")
+        if (other.name == "Model_Puzzle_Apple")
         {
             isAppleOn = true;
             checker.CheckMatchNumber();
@@ -34,7 +34,7 @@ public class Dish : MonoBehaviour
         // 리스트에서 제거
         onDish.Remove(other.gameObject);
 
-        if (other.name == "Apple")
+        if (other.name == "Model_Puzzle_Apple")
         {
             isAppleOn = false;
             // 순서먼저 체크
