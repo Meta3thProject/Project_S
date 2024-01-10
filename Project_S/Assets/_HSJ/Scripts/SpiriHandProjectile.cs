@@ -8,7 +8,7 @@ public class SpiriHandProjectile : MonoBehaviour
     private WaitForSeconds waitTime = new WaitForSeconds(time);     
     private void Awake()
     {
-        effect = Instantiate(ResourceManager.objects["fairy's hand_ attack Variant"]);
+        effect = Instantiate(ResourceManager.objects["fairy's hand_ attack Variant"],this.transform);
         effect.SetActive(false);        
     }
     // ISSUE : 표적을 빗나가게 맞췄을 떄 탄환이 지속시간 동안 떠있다는 문제가 있음

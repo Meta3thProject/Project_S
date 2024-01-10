@@ -1,7 +1,6 @@
 using BNG;
 using System.Collections;
 using UnityEngine;
-using UnityEngine.EventSystems;
 
 public class SpiritHand : MonoBehaviour
 {
@@ -20,8 +19,7 @@ public class SpiritHand : MonoBehaviour
     
     private float chargeTime = default;
     private float maxChargeTime = 1f;
-
-    
+        
     private bool isHandEnabled = false;
     private bool isCharged = false;
     private bool isShooting = false;
