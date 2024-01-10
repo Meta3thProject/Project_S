@@ -18538,6 +18538,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1437343044590985817, guid: 512faea4cfcb01d419644d6d75ea54fd,
         type: 3}
+      propertyPath: outlineTargets.Array.size
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1437343044590985817, guid: 512faea4cfcb01d419644d6d75ea54fd,
+        type: 3}
       propertyPath: outlineTargets.Array.data[0].renderer
       value: 
       objectReference: {fileID: 0}
