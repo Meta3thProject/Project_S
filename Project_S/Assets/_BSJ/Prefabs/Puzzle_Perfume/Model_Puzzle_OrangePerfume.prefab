@@ -17,6 +17,7 @@ GameObject:
   - component: {fileID: 6633874658002510542}
   - component: {fileID: 6633874658002510541}
   - component: {fileID: 9025892639807808849}
+  - component: {fileID: -4390688377483502590}
   m_Layer: 10
   m_Name: Model_Puzzle_OrangePerfume
   m_TagString: Untagged
@@ -270,3 +271,16 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   <itemID>k__BackingField: 105009
+--- !u!114 &-4390688377483502590
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5999970936456135424}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6fdce8d60db8a0d49b3751c3db752b4c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  <perfumeType>k__BackingField: 2

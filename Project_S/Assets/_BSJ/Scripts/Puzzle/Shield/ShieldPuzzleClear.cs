@@ -6,7 +6,7 @@ using static UnityEngine.ParticleSystem;
 public class ShieldPuzzleClear : MonoBehaviour, IActiveSign
 {
     const int PUZZLEINDEX = 6;  // 이 퍼즐의 번호는 6번 입니다.
-    const int PUZZLECOUNT = 4;  // 퍼즐의 요소는 3개입니다.
+    const int PUZZLECOUNT = 4;  // 퍼즐의 요소는 4개입니다.
 
     // 퍼즐 요소의 배열
     [field: SerializeField] public int[] clearCheck { get; private set; }
