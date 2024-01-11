@@ -22,10 +22,7 @@ public class LittleSpirit : NPCBase, IPuzzleHolder
         {
             // 301106 퀘스트는 다른 NPC의 퀘스트이므로 기준으로 한다
             // 다음 퀘스트ID 설정
-            if (questID < 301106)
-            {
-                questID += 1;
-            }
+            if (questID < 301106) { questID += 1; }
             // 301106 건너뛰기
             if (questID == 301106) { questID += 1; }
 
@@ -62,7 +59,6 @@ public class LittleSpirit : NPCBase, IPuzzleHolder
 
     public override void PopUpDialog()
     {
-
         base.PopUpDialog();
 
         SetQuestID();
@@ -81,16 +77,14 @@ public class LittleSpirit : NPCBase, IPuzzleHolder
 
     public bool PuzzleClearCheck()
     {
-        // 아직 퍼즐이 없으므로 true 반환
-        return true;
-
-        //if (questID == 301102)
-        //{
-        //    return PuzzleManager.instance.puzzles[AXEPUZZLE];
-        //}
-        //else if (questID == 301105)
-        //{
-        //    return PuzzleManager.instance.puzzles[DOORPUZZLE];
-        //}
+        if (questID == 301102)
+        {
+            return PuzzleManager.instance.puzzles[AXEPUZZLE];
+        }
+        else if (questID == 301105)
+        {
+            return PuzzleManager.instance.puzzles[DOORPUZZLE];
+        }
+        else { return false; }
     }
 }

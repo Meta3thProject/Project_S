@@ -85,8 +85,7 @@ public class QuestManager : MonoBehaviour
         {
             switch (acceptedQuests[index_].Type)
             {
-                case QuestType.Delivery1:                                                       // 소지품 생기면 이후 수정
-                    //if (InventoryFake.Instance.fakeItems[acceptedQuests[index_].Value1] >= acceptedQuests[index_].Value2)
+                case QuestType.Delivery1:
                     if (InventoryFake.Instance.CheckOneValue(acceptedQuests[index_].Value1, acceptedQuests[index_].Value2))
                     {
                         CompleteQuest(id_);
@@ -94,8 +93,6 @@ public class QuestManager : MonoBehaviour
                     else { /* Do Nothing */ }
                     break;
                 case QuestType.Delivery2:
-                    //if (InventoryFake.Instance.fakeItems[acceptedQuests[index_].Value1] >= 1 ||
-                    // InventoryFake.Instance.fakeItems[acceptedQuests[index_].Value2] >= 1) 
                     if (InventoryFake.Instance.CheckTwoValue(acceptedQuests[index_].Value1, acceptedQuests[index_].Value2))
                     {
                         CompleteQuest(id_);
