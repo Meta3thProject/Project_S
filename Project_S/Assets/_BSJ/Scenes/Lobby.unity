@@ -3751,6 +3751,7 @@ MonoBehaviour:
   tipText: {fileID: 0}
   loginCanvas: {fileID: 0}
   itemBoxes: {fileID: 0}
+  quest_Table: {fileID: 11400000, guid: 8d8edbfd53e8c7843924902304f8c89b, type: 2}
 --- !u!4 &511114333
 Transform:
   m_ObjectHideFlags: 0

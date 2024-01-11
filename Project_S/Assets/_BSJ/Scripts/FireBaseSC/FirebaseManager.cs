@@ -20,6 +20,7 @@ public class FirebaseManager : MonoBehaviour
     // 싱글톤
     public static FirebaseManager instance;
 
+    #region 필드
     // 다음 스테이지 이름
     const string LOGINSCENE = "Lobby";
     const string MAINSCENE = "BSJ_MainSceneCopy";
@@ -29,6 +30,7 @@ public class FirebaseManager : MonoBehaviour
     const string Puzzle = "Puzzle";
     const string POSITION = "Position";
     const string MBTI = "Mbti";
+    const string QUEST = "Quest";
     const string X = "x";
     const string Y = "y";
     const string Z = "z";
@@ -88,7 +90,7 @@ public class FirebaseManager : MonoBehaviour
     // 플레이어 위치를 바꾸기 위한 값
     public Vector3 lastPlayerPos { get; private set; }
 
-    // MBTI의 값을 저장시키기 위한 값
+    // 처음 시작할때 MBTI DB를 가져오기 위한 필드
     public float MBTI_E {  get; private set; }
     public float MBTI_I { get; private set; }
     public float MBTI_N { get; private set; }
@@ -98,6 +100,13 @@ public class FirebaseManager : MonoBehaviour
     public float MBTI_J { get; private set; }
     public float MBTI_P { get; private set; }
 
+    // 처음 시작할때 퀘스트 DB를 가져오기 위한 필드
+    [SerializeField] QUEST_TABLE quest_Table;
+    public Dictionary<int, bool> QuestClearDictionary { get; private set; } 
+
+    #endregion
+
+    #region 메서드
     void Awake()
     {
         // { 싱글톤
@@ -186,16 +195,17 @@ public class FirebaseManager : MonoBehaviour
                     // 회원가입 성공 시 유저 데이터 초기값 셋팅
                     userID = result.User.UserId.ToString();
 
-                    // 플레이어 포지션 DB의 초기 데이터 생성
+                    // 플레이어 포지션 DB의 초기 노드 생성
                     MakePlayerPosDB();
 
-                    // 퍼즐 DB의 초기 데이터 생성
+                    // 퍼즐 DB의 초기 노드 생성
                     MakePuzzleDB();
 
-                    // MBTI DB의 초기 데이터 생성
+                    // MBTI DB의 초기 노드 생성
                     MakeMbtiDB();
 
-                    // TODO : 퀘스트 DB를 유저데이터에 추가해야 합니다.
+                    // Quest DB의 초기 노드 생성
+                    MakeQuestDB();
                 }
             }
             );
@@ -239,6 +249,9 @@ public class FirebaseManager : MonoBehaviour
                     // 로딩 관련 UI 활성화
                     loginObjects.gameObject.SetActive(false);
                     loadingObjects.gameObject.SetActive(true);
+
+                    // 퀘스트 딕셔너리 초기화
+                    QuestUpdateFromDB();
 
                     // 비동기 로딩 실행
                     StartCoroutine(LoadTitleText());
@@ -600,7 +613,6 @@ public class FirebaseManager : MonoBehaviour
     /// <summary>
     /// RDB에서 MBTI의 값을 인게임 내로 가져오는 메서드.
     /// </summary>
-    /// <param name="playerTransform_"></param>
     public void MbtiUpdateFromDB()
     {
         // 레퍼런스 초기화 (초기화 안하면 새로 덮어 씌워짐)
@@ -648,6 +660,110 @@ public class FirebaseManager : MonoBehaviour
         // 레퍼런스 초기화 (초기화 안하면 새로 덮어 씌워짐)
         reference = FirebaseDatabase.DefaultInstance.RootReference;
     }
+
+
+    /// <summary>
+    /// 퀘스트에 대한 처음 DB를 만들어주는 메서드.
+    /// </summary>
+    public void MakeQuestDB()
+    {
+        // 퀘스트 딕셔너리 초기화
+        InitQuestDictionary();
+
+        // 경로 초기화
+        reference = FirebaseDatabase.DefaultInstance.RootReference;
+
+        // 경로 재지정 후 퀘스트 노드 생성하기.
+        reference.Child(User).Child(userID).Child(QUEST).SetValueAsync(QuestClearDictionary);
+    }
+
+    /// <summary>
+    /// 파이어베이스 퀘스트의 값을 업데이트하는 메서드.
+    /// </summary>
+    public void QuestUpdateToDB(int _key, bool _value)
+    {
+        // 레퍼런스 초기화
+        reference = FirebaseDatabase.DefaultInstance.RootReference;
+
+        // 파이어베이스 경로 재설정
+        reference = reference.Child(User).Child(userID).Child(QUEST);
+
+        // 업데이트할 데이터 생성
+        Dictionary<string, object> updateDate = new Dictionary<string, object>();
+        updateDate[_key.ToString()] = _value;
+
+        // 퍼즐 노드 업데이트
+        reference.UpdateChildrenAsync(updateDate).ContinueWithOnMainThread(task =>
+        {
+            if (task.IsCompleted)
+            {
+                Debug.Log("퀘스트 업데이트 완료");
+            }
+        });
+
+        // 레퍼런스 초기화
+        reference = FirebaseDatabase.DefaultInstance.RootReference;
+    }
+
+    /// <summary>
+    /// RDB에서 MBTI의 값을 인게임 내로 가져오는 메서드.
+    /// </summary>
+    public void QuestUpdateFromDB()
+    {
+        // 퀘스트 딕셔너리 초기화
+        InitQuestDictionary();
+
+        // 레퍼런스 초기화 (초기화 안하면 새로 덮어 씌워짐)
+        reference = FirebaseDatabase.DefaultInstance.RootReference;
+
+        //데이터 가져오기(유저 ID를 찾아서 스냅샷으로 가져옴)
+        reference = FirebaseDatabase.DefaultInstance.GetReference(User).Child(userID).Child(QUEST);
+
+        reference.GetValueAsync().ContinueWithOnMainThread(task =>
+        {
+            // 정상적으로 데이터를 가져왔다면?
+            if (task.IsCompleted)
+            {
+                DataSnapshot snapshot = task.Result;
+
+                // QuestClearDictionary 딕셔너리에 데이터 가져오기.
+                for (int i = 0; i < quest_Table.dataArray.Length; i++) 
+                {
+                    var DB_QuestClear = snapshot.Child((quest_Table.dataArray[i].ID).ToString()).Value;
+                    bool isQuestClear = Convert.ToBoolean(DB_QuestClear);
+
+                    if (QuestClearDictionary.ContainsKey(quest_Table.dataArray[i].ID))
+                    {
+                        QuestClearDictionary[quest_Table.dataArray[i].ID] = isQuestClear;
+                    }
+
+                    else
+                    {
+                        QuestClearDictionary.Add(quest_Table.dataArray[i].ID, isQuestClear);
+                    }
+                }
+            }
+        });
+
+        // 레퍼런스 초기화 (초기화 안하면 새로 덮어 씌워짐)
+        reference = FirebaseDatabase.DefaultInstance.RootReference;
+    }
+
+
+    /// <summary>
+    /// 퀘스트 데이터 딕셔너리 초기화
+    /// </summary>
+    private void InitQuestDictionary()
+    {
+        QuestClearDictionary = new Dictionary<int, bool> { };
+
+        for (int i = 0; i < quest_Table.dataArray.Length; i++)
+        {
+            QuestClearDictionary.Add(quest_Table.dataArray[i].ID, false);
+        }
+    }
+
+    #endregion
 
     // { LEGACY : BSJ 231229
     /// <summary>
