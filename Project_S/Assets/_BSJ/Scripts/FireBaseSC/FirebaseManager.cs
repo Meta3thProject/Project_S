@@ -28,6 +28,7 @@ public class FirebaseManager : MonoBehaviour
     const string User = "User";
     const string Puzzle = "Puzzle";
     const string POSITION = "Position";
+    const string MBTI = "Mbti";
     const string X = "x";
     const string Y = "y";
     const string Z = "z";
@@ -86,6 +87,16 @@ public class FirebaseManager : MonoBehaviour
 
     // 플레이어 위치를 바꾸기 위한 값
     public Vector3 lastPlayerPos { get; private set; }
+
+    // MBTI의 값을 저장시키기 위한 값
+    public float MBTI_E {  get; private set; }
+    public float MBTI_I { get; private set; }
+    public float MBTI_N { get; private set; }
+    public float MBTI_S { get; private set; }
+    public float MBTI_T { get; private set; }
+    public float MBTI_F { get; private set; }
+    public float MBTI_J { get; private set; }
+    public float MBTI_P { get; private set; }
 
     void Awake()
     {
@@ -180,6 +191,9 @@ public class FirebaseManager : MonoBehaviour
 
                     // 퍼즐 DB의 초기 데이터 생성
                     MakePuzzleDB();
+
+                    // MBTI DB의 초기 데이터 생성
+                    MakeMbtiDB();
 
                     // TODO : 퀘스트 DB를 유저데이터에 추가해야 합니다.
                 }
@@ -524,6 +538,110 @@ public class FirebaseManager : MonoBehaviour
                 // DB에 있는 플레이어의 마지막 위치 캐싱
                 playerTransform_.position = new Vector3(_xPos, _yPos, _zPos);
                 Debug.Log(lastPlayerPos);
+            }
+        });
+
+        // 레퍼런스 초기화 (초기화 안하면 새로 덮어 씌워짐)
+        reference = FirebaseDatabase.DefaultInstance.RootReference;
+    }
+
+    /// <summary>
+    /// 플레이어 MBTI에 대한 처음 DB를 만들어주는 메서드.
+    /// </summary>
+    public void MakeMbtiDB()
+    {
+        // 경로 초기화
+        reference = FirebaseDatabase.DefaultInstance.RootReference;
+
+        // MBTI
+        Dictionary<string, float> playerMBTI = new Dictionary<string, float>();
+
+        playerMBTI.Add(Define.MBTI_E, 0f);
+        playerMBTI.Add(Define.MBTI_I, 0f);
+        playerMBTI.Add(Define.MBTI_N, 0f);
+        playerMBTI.Add(Define.MBTI_S, 0f);
+        playerMBTI.Add(Define.MBTI_T, 0f);
+        playerMBTI.Add(Define.MBTI_F, 0f);
+        playerMBTI.Add(Define.MBTI_J, 0f);
+        playerMBTI.Add(Define.MBTI_P, 0f);
+
+        // 경로 재지정 후 x, y, z 노드 생성하기.
+        reference.Child(User).Child(userID).Child(MBTI).SetValueAsync(playerMBTI);
+    }
+
+    /// <summary>
+    /// 파이어베이스 MBTI의 값을 업데이트하는 메서드.
+    /// </summary>
+    public void PlayerMbtiUpdateToDB(string _key, float _value)
+    {
+        // 레퍼런스 초기화
+        reference = FirebaseDatabase.DefaultInstance.RootReference;
+
+        // 파이어베이스 경로 재설정
+        reference = reference.Child(User).Child(userID).Child(MBTI);
+
+        // 업데이트할 데이터 생성
+        Dictionary<string, object> updateDate = new Dictionary<string, object>();
+        updateDate[_key.ToString()] = _value;
+
+        // 퍼즐 노드 업데이트
+        reference.UpdateChildrenAsync(updateDate).ContinueWithOnMainThread(task =>
+        {
+            if (task.IsCompleted)
+            {
+                Debug.Log("MBTI 업데이트 완료");
+            }
+        });
+
+        // 레퍼런스 초기화
+        reference = FirebaseDatabase.DefaultInstance.RootReference;
+    }
+
+    /// <summary>
+    /// RDB에서 MBTI의 값을 인게임 내로 가져오는 메서드.
+    /// </summary>
+    /// <param name="playerTransform_"></param>
+    public void MbtiUpdateFromDB()
+    {
+        // 레퍼런스 초기화 (초기화 안하면 새로 덮어 씌워짐)
+        reference = FirebaseDatabase.DefaultInstance.RootReference;
+
+        //데이터 가져오기(유저 ID를 찾아서 스냅샷으로 가져옴)
+        reference = FirebaseDatabase.DefaultInstance.GetReference(User).Child(userID).Child(MBTI);
+
+        reference.GetValueAsync().ContinueWithOnMainThread(task =>
+        {
+            // 정상적으로 데이터를 가져왔다면?
+            if (task.IsCompleted)
+            {
+                DataSnapshot snapshot = task.Result;
+
+                var DB_MBTI_E = snapshot.Child(Define.MBTI_E).Value;
+                var DB_MBTI_I = snapshot.Child(Define.MBTI_I).Value;
+                var DB_MBTI_N = snapshot.Child(Define.MBTI_N).Value;
+                var DB_MBTI_S = snapshot.Child(Define.MBTI_S).Value;
+                var DB_MBTI_T = snapshot.Child(Define.MBTI_T).Value;
+                var DB_MBTI_F = snapshot.Child(Define.MBTI_F).Value;
+                var DB_MBTI_J = snapshot.Child(Define.MBTI_J).Value;
+                var DB_MBTI_P = snapshot.Child(Define.MBTI_P).Value;
+
+                string str_MBTI_E = Convert.ToString(DB_MBTI_E);
+                string str_MBTI_I = Convert.ToString(DB_MBTI_I);
+                string str_MBTI_N = Convert.ToString(DB_MBTI_N);
+                string str_MBTI_S = Convert.ToString(DB_MBTI_S);
+                string str_MBTI_T = Convert.ToString(DB_MBTI_T);
+                string str_MBTI_F = Convert.ToString(DB_MBTI_F);
+                string str_MBTI_J = Convert.ToString(DB_MBTI_J);
+                string str_MBTI_P = Convert.ToString(DB_MBTI_P);
+
+                MBTI_E = float.Parse(str_MBTI_E);
+                MBTI_I = float.Parse(str_MBTI_I);
+                MBTI_N = float.Parse(str_MBTI_N);
+                MBTI_S = float.Parse(str_MBTI_S);
+                MBTI_T = float.Parse(str_MBTI_T);
+                MBTI_F = float.Parse(str_MBTI_F);
+                MBTI_J = float.Parse(str_MBTI_J);
+                MBTI_P = float.Parse(str_MBTI_P);
             }
         });
 

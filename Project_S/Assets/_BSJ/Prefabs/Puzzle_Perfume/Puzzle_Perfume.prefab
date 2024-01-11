@@ -18357,6 +18357,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 53ea036d0cb852047b00ac148a1c7d34, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  <clearCheck>k__BackingField: 
   clearSign: {fileID: 2060148009708432303}
 --- !u!1 &5083742993989032369
 GameObject:
