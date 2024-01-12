@@ -11,5 +11,6 @@ public static class RDefine
     public const string PATH_OBJECTS = "Objects";
     public const string PATH_SPRITES = "Sprites";
     public const string PATH_SFX = "SFX";
+    public const string PATH_BGM = "BGM";
     #endregion
 }
