@@ -17,6 +17,8 @@ TagManager:
   - Torch
   - FireOff
   - Endingstar
+  - MiniMapLeft
+  - MiniMapRight
   layers:
   - Default
   - TransparentFX
@@ -40,8 +42,8 @@ TagManager:
   - Wall
   - SpiritHand
   - 
-  - 
-  - 
+  - Cloud
+  - MapIcon
   - 
   - 
   - 
