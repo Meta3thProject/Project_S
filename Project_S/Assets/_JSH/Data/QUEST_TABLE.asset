@@ -196,8 +196,8 @@ MonoBehaviour:
     start_npc: 300204
     end_npc: 300204
     quest_type: 2
-    value1: 103011
-    value2: 103012
+    value1: 103200
+    value2: 103201
     before_dialogue: 304224
     doing_dialogue: 304225
     complete_dialogue: 304226
@@ -206,13 +206,13 @@ MonoBehaviour:
     quest_title: "\uC591\uBCF5 \uAC00\uAC8C"
     start_npc: 300205
     end_npc: 300205
-    quest_type: 2
-    value1: 106002
-    value2: 106003
+    quest_type: 3
+    value1: 0
+    value2: 0
     before_dialogue: 304231
-    doing_dialogue: 304233
-    complete_dialogue: 304234
-    reward: 402013
+    doing_dialogue: 0
+    complete_dialogue: 304237
+    reward: 0
   - id: 301206
     quest_title: "\uB0AF\uAC00\uB9AC\uB294 \uC18C\uB140 "
     start_npc: 300206
@@ -234,7 +234,7 @@ MonoBehaviour:
     before_dialogue: 304247
     doing_dialogue: 304250
     complete_dialogue: 304251
-    reward: 402006
+    reward: 0
   - id: 301301
     quest_title: "\uC804\uAD6C\uAC00 \uC5C6\uC5C8\uB2E4\uBA74"
     start_npc: 300301
@@ -245,7 +245,7 @@ MonoBehaviour:
     before_dialogue: 304307
     doing_dialogue: 304309
     complete_dialogue: 304310
-    reward: 402008
+    reward: 0
   - id: 301302
     quest_title: "\uACE0\uC591\uC774\uC758 \uC774\uC720"
     start_npc: 300302
@@ -278,7 +278,7 @@ MonoBehaviour:
     before_dialogue: 304407
     doing_dialogue: 304408
     complete_dialogue: 304409
-    reward: 403003
+    reward: 0
   - id: 301402
     quest_title: "\uC0AC\uC9C4\uC740 \uACB0\uACFC? \uACFC\uC815?"
     start_npc: 300402
@@ -295,19 +295,19 @@ MonoBehaviour:
     start_npc: 300404
     end_npc: 300404
     quest_type: 2
-    value1: 106000
-    value2: 106001
+    value1: 106024
+    value2: 106025
     before_dialogue: 304427
     doing_dialogue: 304431
     complete_dialogue: 304432
-    reward: 403002
+    reward: 0
   - id: 301405
     quest_title: "\uC0DD\uC77C \uCD95\uD558 \uAF43"
     start_npc: 300405
     end_npc: 300405
     quest_type: 2
-    value1: 103013
-    value2: 103014
+    value1: 103202
+    value2: 103203
     before_dialogue: 304436
     doing_dialogue: 304438
     complete_dialogue: 304439
@@ -317,8 +317,8 @@ MonoBehaviour:
     start_npc: 300406
     end_npc: 300406
     quest_type: 2
-    value1: 103015
-    value2: 103016
+    value1: 103204
+    value2: 103205
     before_dialogue: 304444
     doing_dialogue: 304445
     complete_dialogue: 304446
@@ -333,7 +333,7 @@ MonoBehaviour:
     before_dialogue: 304450
     doing_dialogue: 304451
     complete_dialogue: 304452
-    reward: 402012
+    reward: 0
   - id: 301500
     quest_title: "\uD5A5\uC218 \uC18C\uBE44 \uC2B5\uAD00"
     start_npc: 300500
@@ -370,19 +370,19 @@ MonoBehaviour:
   - id: 301503
     quest_title: "\uC228\uBC14\uAF2D\uC9C8"
     start_npc: 300503
-    end_npc: 300504
-    quest_type: 3
+    end_npc: 300503
+    quest_type: 4
     value1: 0
     value2: 0
     before_dialogue: 304516
     doing_dialogue: 0
     complete_dialogue: 304517
-    reward: 402011
+    reward: 0
   - id: 301504
     quest_title: "\uC0AC\uB78C\uB4E4\uC774 \uC88B\uC544\uD558\uB294 \uAF43"
-    start_npc: 300504
-    end_npc: 300504
-    quest_type: 3
+    start_npc: 300503
+    end_npc: 300503
+    quest_type: 4
     value1: 0
     value2: 0
     before_dialogue: 304522

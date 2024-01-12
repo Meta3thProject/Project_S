@@ -11,7 +11,7 @@ public class FabricCheck : MonoBehaviour, IActiveSign
     // } BSJ PuzzleManager 에 맞춰서 추가된 변수들
 
     public PlayerStat playerStat;
-    // 
+
     public List<GameObject> fabrics;
 
 
@@ -34,7 +34,7 @@ public class FabricCheck : MonoBehaviour, IActiveSign
         FabricStat stat_ = GetComponent<FabricCheck>().CheckFabric();
 
         if (stat_ == null) { return; }
-        else if (stat_ != null /*&& isCompleted == false*/)
+        else if (stat_ != null)
         {
             // 퍼즐 클리어 체크
             PuzzleManager.instance.puzzles[PUZZLEINDEX] = true;
@@ -73,6 +73,8 @@ public class FabricCheck : MonoBehaviour, IActiveSign
     {
         // 리스트에 추가
         fabrics.Add(other.gameObject);
+
+        CompleteCheck();
     }
 
     private void OnTriggerExit(Collider other)

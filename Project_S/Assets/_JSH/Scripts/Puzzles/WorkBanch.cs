@@ -22,13 +22,15 @@ public class WorkBanch : MonoBehaviour
 
         idStringToID = new Dictionary<string, int>();
 
-        idStringToID.Add("100002100004", 100005);   // 목재 + 기름 = 횃불
-        idStringToID.Add("101000101001101002", 101003);   // 사과 + 바나나 + 바구니 = 과일 바구니
-        idStringToID.Add("100003104002104005", 104006);   // 돌 + 검은 꽃 + 옷감 = 검은 옷감
-        idStringToID.Add("100003104003104005", 104007);   // 돌 + 노란 꽃 + 옷감 = 노란 옷감
-        idStringToID.Add("105000105001", 105003);          // 탄산수 + 활기 오렌지 가루 = 활기 주스
-        idStringToID.Add("105000105002", 105004);          // 탄산수 + 고요 레몬 가루 = 고요 주스
-        idStringToID.Add("105007105008", 105009);          // 빨간 향수 + 노란 향수 = 주황 향수
+        idStringToID.Add("100002100004", 100005);           // 목재 + 기름 = 횃불
+        idStringToID.Add("101000101001101002", 101003);     // 사과 + 바나나 + 바구니 = 과일 바구니
+        idStringToID.Add("100003104002104005", 104006);     // 돌 + 검은 꽃 + 옷감 = 검은 옷감
+        idStringToID.Add("100003104003104005", 104007);     // 돌 + 노란 꽃 + 옷감 = 노란 옷감
+        idStringToID.Add("101002104002", 104009);           // 바구니 + 검은 꽃 = 검은 꽃바구니
+        idStringToID.Add("101002104003", 104008);           // 바구니 + 노란 꽃 = 노란 꽃바구니
+        idStringToID.Add("105000105001", 105003);           // 탄산수 + 활기 오렌지 가루 = 활기 주스
+        idStringToID.Add("105000105002", 105004);           // 탄산수 + 고요 레몬 가루 = 고요 주스
+        idStringToID.Add("105007105008", 105009);           // 빨간 향수 + 노란 향수 = 주황 향수
 
         stringBuilder = new StringBuilder();
     }

@@ -43,14 +43,14 @@ public class PlayerStat : MonoBehaviour
 
     public int GetRightGrabbableID()
     {
-        if (GFunc.IsValid(leftHeldGrabbable) == false) { return 0; }
+        if (GFunc.IsValid(rightHeldGrabbable) == false) { return 0; }
 
         return rightHeldGrabbable.GetComponent<ItemData>().itemID;
     }
 
     public int GetLeftGrabbableID()
     {
-        if (GFunc.IsValid(rightHeldGrabbable) == false) { return 0; }
+        if (GFunc.IsValid(leftHeldGrabbable) == false) { return 0; }
 
         return leftHeldGrabbable.GetComponent<ItemData>().itemID;
     }

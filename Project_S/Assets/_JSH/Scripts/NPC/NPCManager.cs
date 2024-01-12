@@ -138,68 +138,8 @@ public class NPCManager : MonoBehaviour
     // 퀘스트 ID에 따라 진행 방법이 달라짐
     public void SetIDByQuestType()
     {
-        // 상호작용 중인 NPC가 가진 퀘스트 타입
-        switch (QuestManager.Instance.idToQuest[interacted.questID].Type)
-        {
-            case QuestType.Delivery1:
-            case QuestType.Delivery2:
-                // 수락하지 않은 퀘스트이고 완료하지 않은 퀘스트라면
-                if (QuestManager.Instance.idToQuest[interacted.questID].IsAccepted == false &&
-                    QuestManager.Instance.idToQuest[interacted.questID].IsCompleted == false)
-                {
-                    // 퀘스트 수락
-                    QuestManager.Instance.AcceptQuest(interacted.questID);
-                }
-                // 수락한 퀘스트라면
-                else if (QuestManager.Instance.idToQuest[interacted.questID].IsAccepted == true)
-                {
-                    // 퀘스트 완료 체크
-                    QuestManager.Instance.CompleteCheck(interacted.questID);
-                }
-
-                break;
-            case QuestType.Conversation:
-                // 대화형은 멈출 수 없고, 끝까지 대화하면 완료이므로
-                // 완료하지 않은 퀘스트라면
-                if (QuestManager.Instance.idToQuest[interacted.questID].IsCompleted == false)
-                {
-                    // 퀘스트 수락
-                    QuestManager.Instance.AcceptQuest(interacted.questID);
-                    // 퀘스트 완료
-                    QuestManager.Instance.CompleteQuest(interacted.questID);
-                }
-                // 완료한 퀘스트라면 아무것도 하지 않음
-                else { /* Do Nothing */ }
-
-                break;
-            case QuestType.Puzzle:
-                // 수락하지 않은 퀘스트이고 완료하지 않은 퀘스트라면
-                if (QuestManager.Instance.idToQuest[interacted.questID].IsAccepted == false &&
-                    QuestManager.Instance.idToQuest[interacted.questID].IsCompleted == false)
-                {
-                    // 퀘스트 수락
-                    QuestManager.Instance.AcceptQuest(interacted.questID);
-                }
-
-                // 혹시나 모를 예외 처리
-                if(interacted.GetComponent<IPuzzleHolder>() == null || interacted.GetComponent<IPuzzleHolder>() == default)
-                {
-                    Debug.Log($"오브젝트 이름: {interacted.npcName}");
-                
-                    return;
-                }
-
-                // 퍼즐을 클리어 했다면
-                if (interacted.GetComponent<IPuzzleHolder>().PuzzleClearCheck() == true)
-                {
-                    // 퀘스트 완료
-                    QuestManager.Instance.CompleteQuest(interacted.questID);
-                }
-                // 못했다면
-                else { /* Do Nothing */ }
-
-                break;
-        }
+        // 수락 완료 처리
+        QuestManager.Instance.AcceptOrComplete(interacted.questID);
 
         // 다음 출력문ID 설정 함수 콜
         interacted.SetPrintID();

@@ -63,11 +63,6 @@ public class Quest
     private int completeID;
 
     /// <summary>
-    /// 퀘스트 완료 보상 아이템 ID
-    /// </summary>
-    private int rewardID;
-
-    /// <summary>
     /// 수락한 퀘스트인지 체크
     /// </summary>
     private bool isAccepted;
@@ -87,8 +82,6 @@ public class Quest
     public int IngID { get { return ingID; } }
     public int CompleteID { get { return completeID; } }
 
-    public int RewardID { get { return rewardID; } }
-
     public bool IsAccepted { get { return isAccepted; } }
     public bool IsCompleted { get { return isCompleted; } }
 
@@ -107,8 +100,6 @@ public class Quest
         beforeID = data_.BEFORE_DIALOGUE;
         ingID = data_.DOING_DIALOGUE;
         completeID = data_.COMPLETE_DIALOGUE;
-
-        rewardID = data_.REWARD;
 
         isAccepted = false;
         isCompleted = false;
