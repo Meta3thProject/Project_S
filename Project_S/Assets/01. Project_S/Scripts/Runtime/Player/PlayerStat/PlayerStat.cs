@@ -11,6 +11,9 @@ public class PlayerStat : MonoBehaviour
 
     private void Awake()
     {
+        // BSJ _ 240111 : 파이어베이스에 저장된 MBTI 값을 인게임내로 가져오는 메서드.
+        FirebaseManager.instance.MbtiUpdateFromDB();
+        
         Init();
 
         // TEST 용 
@@ -23,17 +26,18 @@ public class PlayerStat : MonoBehaviour
 
     void Init()
     {
+        // bsj 240111 : 파이어 베이스 매니저에서 값을 받아와서 초기화하는 코드로 변경했음.
         #region MBTI Stat Init
         MBTIStat = new Dictionary<string, float>
         {
-            { Define.MBTI_E, 0f },
-            { Define.MBTI_I, 0f },
-            { Define.MBTI_N, 0f },
-            { Define.MBTI_S, 0f },
-            { Define.MBTI_T, 0f },
-            { Define.MBTI_F, 0f },
-            { Define.MBTI_J, 0f },
-            { Define.MBTI_P, 0f }
+            { Define.MBTI_E, FirebaseManager.instance.MBTI_E },
+            { Define.MBTI_I, FirebaseManager.instance.MBTI_I },
+            { Define.MBTI_N, FirebaseManager.instance.MBTI_N },
+            { Define.MBTI_S, FirebaseManager.instance.MBTI_S },
+            { Define.MBTI_T, FirebaseManager.instance.MBTI_T },
+            { Define.MBTI_F, FirebaseManager.instance.MBTI_F },
+            { Define.MBTI_J, FirebaseManager.instance.MBTI_J },
+            { Define.MBTI_P, FirebaseManager.instance.MBTI_P }
         };
         #endregion        
 
@@ -59,6 +63,9 @@ public class PlayerStat : MonoBehaviour
     public void AddPoint(string type_, float point_)
     {
         MBTIStat[type_] += point_;
+
+        // bsj 240111 파이어 베이스에 업데이트되는 코드 추가했음.
+        FirebaseManager.instance.PlayerMbtiUpdateToDB(type_, point_);
 
 #if UNITY_EDITOR
         Debug.LogFormat("Type {0} : Point {1}", type_, MBTIStat[type_]);

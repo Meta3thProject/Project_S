@@ -41,7 +41,7 @@ public class PuzzleManager : MonoBehaviour
     [field: SerializeField] public ButcherShop03Clear butcherShop03Clear { get; private set; }          // 16
     [field: SerializeField] public HiddenPuzzleClear hiddenPuzzleClear { get; private set; }            // 17
     // TODO : 꽃 배달 퍼즐                                                                               // 18
-    // TODO : 전구 교체 퍼즐                                                                             // 19
+    [field: SerializeField] public BulbChangeClear bulbChangeClear { get; private set; }
     // TODO : 향수 퍼즐                                                                                  // 20
     // TODO : 숨바꼭질 퍼즐                                                                              // 21
     [field: SerializeField] public CatPuzzleClear catPuzzleClear { get; private set; }                  // 22
@@ -130,7 +130,7 @@ public class PuzzleManager : MonoBehaviour
             else if (i == 16) { butcherShop03Clear.ActiveClearSign(puzzles[i]); }
             else if (i == 17) { hiddenPuzzleClear.ActiveClearSign(puzzles[i]); }
             /* else if(i == 18) { TODO : 꽃 배달 퍼즐 } */
-            /* else if(i == 19) { TODO : 전구 교체 퍼즐 } */
+            else if(i == 19) { bulbChangeClear.ActiveClearSign(puzzles[i]); }
             /* else if(i == 20) { TODO : 향수 퍼즐 } */
             /* else if(i == 21) { TODO : 숨바꼭질 퍼즐 } */
             else if (i == 22) { catPuzzleClear.ActiveClearSign(puzzles[i]); }

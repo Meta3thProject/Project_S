@@ -5,7 +5,6 @@ PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
-    serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 6734038251476739777, guid: 2e42f661c741e7742958ad2d6dd19ef3,
@@ -15,23 +14,28 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6734038251476739778, guid: 2e42f661c741e7742958ad2d6dd19ef3,
         type: 3}
+      propertyPath: m_RootOrder
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6734038251476739778, guid: 2e42f661c741e7742958ad2d6dd19ef3,
+        type: 3}
       propertyPath: m_LocalPosition.x
-      value: -84.46348
+      value: 19.589123
       objectReference: {fileID: 0}
     - target: {fileID: 6734038251476739778, guid: 2e42f661c741e7742958ad2d6dd19ef3,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 6.3475246
+      value: 17.68618
       objectReference: {fileID: 0}
     - target: {fileID: 6734038251476739778, guid: 2e42f661c741e7742958ad2d6dd19ef3,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: -16.511147
+      value: -100.07761
       objectReference: {fileID: 0}
     - target: {fileID: 6734038251476739778, guid: 2e42f661c741e7742958ad2d6dd19ef3,
         type: 3}
       propertyPath: m_LocalRotation.w
-      value: 1
+      value: 0.6933184
       objectReference: {fileID: 0}
     - target: {fileID: 6734038251476739778, guid: 2e42f661c741e7742958ad2d6dd19ef3,
         type: 3}
@@ -41,7 +45,7 @@ PrefabInstance:
     - target: {fileID: 6734038251476739778, guid: 2e42f661c741e7742958ad2d6dd19ef3,
         type: 3}
       propertyPath: m_LocalRotation.y
-      value: -0
+      value: 0.72063136
       objectReference: {fileID: 0}
     - target: {fileID: 6734038251476739778, guid: 2e42f661c741e7742958ad2d6dd19ef3,
         type: 3}
@@ -56,7 +60,7 @@ PrefabInstance:
     - target: {fileID: 6734038251476739778, guid: 2e42f661c741e7742958ad2d6dd19ef3,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
+      value: 92.213
       objectReference: {fileID: 0}
     - target: {fileID: 6734038251476739778, guid: 2e42f661c741e7742958ad2d6dd19ef3,
         type: 3}
@@ -64,7 +68,4 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
-    m_RemovedGameObjects: []
-    m_AddedGameObjects: []
-    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2e42f661c741e7742958ad2d6dd19ef3, type: 3}
