@@ -1,8 +1,9 @@
+using BNG;
 using System.Collections;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class MiniMapController : MonoBehaviour
+public class MiniMapController : GrabbableEvents
 {
     private int id = Shader.PropertyToID("Vector1_98d33b1d219b486e97f4a6d459a007a3");
     private int direction = Shader.PropertyToID("Vector1_d6c62a52b7fe47f88987fd02c26c39fe");
@@ -14,6 +15,10 @@ public class MiniMapController : MonoBehaviour
     private GameObject minimap = default;
     private RectMask2D imagemask = default;
     private Canvas canvas = default;
+    private bool isRightOpen = false;
+    private bool isRightClose = false;
+    private bool isLeftOpen = false;
+    private bool isLeftClose = false;
 
     private Vector4 newPadding = default;
     private float left = 0f;
@@ -42,38 +47,80 @@ public class MiniMapController : MonoBehaviour
         {
 
 
-            if (Input.GetKeyDown(KeyCode.J))
+            if (Input.GetKeyDown(KeyCode.J) || thisGrabber.HeldGrabbable.tag.Equals("MiniMapLeft"))
             {
                 isacting = true;
+
                 canvas.GetComponent<Canvas>().enabled = true;
 
-                OpenMap();
-            }
-            if (Input.GetKeyDown(KeyCode.K))
-            {
-                isacting = true;
-                CloseMap();
-                if (right < -50f)
+                if (thisGrabber.HandSide == ControllerHand.Left)
                 {
-                    canvas.GetComponent<Canvas>().enabled = false;
+                    OpenMap();
+                    isLeftOpen = true;
+                    isLeftClose = false;
+                    isRightOpen = false;
+                    isRightClose = false;
+                }
+                else if (thisGrabber.HandSide == ControllerHand.Right)
+                {
+                    OpenLeftMap();
+                    isLeftOpen = false;
+                    isLeftClose = false;
+                    isRightOpen = true;
+                    isRightClose = false;
+                }
+            }
+            else if (Input.GetKeyDown(KeyCode.K) || thisGrabber.HeldGrabbable == null)
+            {
+                if (isLeftOpen == true)
+                {
+                    CloseMap();
 
+                    isLeftOpen = false;
+                    isLeftClose = true;
+                    isRightOpen = false;
+                    isRightClose = false;
+
+
+
+                    if (right < -50f)
+                    {
+                        canvas.GetComponent<Canvas>().enabled = false;
+
+                    }
+                    if (canvas.GetComponent<Canvas>().enabled == false)
+                    {
+
+                        isacting = false;
+                    }
+                }
+                else if (isRightOpen == true)
+                {
+                    CloseMap();
+
+                    isLeftOpen = false;
+                    isLeftClose = false;
+                    isRightOpen = false;
+                    isRightClose = true;
+
+
+
+                    if (right < -50f)
+                    {
+                        canvas.GetComponent<Canvas>().enabled = false;
+
+                    }
+                    if (canvas.GetComponent<Canvas>().enabled == false)
+                    {
+
+                        isacting = false;
+                    }
                 }
 
             }
-            if (Input.GetKeyDown(KeyCode.U))
-            {
-                isacting = true;
-                canvas.GetComponent<Canvas>().enabled = true;
-                CloseLeftMap();
-            }
-            if (Input.GetKeyDown(KeyCode.I))
-            {
-                isacting = true;
-                OpenLeftMap();
-                canvas.GetComponent<Canvas>().enabled = false;
-
-            }
         }
+
+        MapScale.instance.isMapOpen = isacting;
     }
 
     void OpenMap()
