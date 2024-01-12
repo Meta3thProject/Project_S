@@ -118,4 +118,70 @@ public class QuestManager : MonoBehaviour
             acceptedQuests.Remove(idToQuest[id_]);
         }
     }
+
+    public void AcceptOrComplete(int id_)
+    {// 상호작용 중인 NPC가 가진 퀘스트 타입
+        switch (idToQuest[id_].Type)
+        {
+            case QuestType.Delivery1:
+            case QuestType.Delivery2:
+                // 수락하지 않은 퀘스트이고 완료하지 않은 퀘스트라면
+                if (idToQuest[id_].IsAccepted == false &&
+                    idToQuest[id_].IsCompleted == false)
+                {
+                    // 퀘스트 수락
+                    AcceptQuest(id_);
+                }
+                // 수락한 퀘스트라면
+                else if (idToQuest[id_].IsAccepted == true)
+                {
+                    // 퀘스트 완료 체크
+                    CompleteCheck(id_);
+                }
+
+                break;
+            case QuestType.Conversation:
+                // 대화형은 멈출 수 없고, 끝까지 대화하면 완료이므로
+                // 완료하지 않은 퀘스트라면
+                if (idToQuest[id_].IsCompleted == false)
+                {
+                    // 퀘스트 수락
+                    AcceptQuest(id_);
+                    // 퀘스트 완료
+                    CompleteQuest(id_);
+                }
+                // 완료한 퀘스트라면 아무것도 하지 않음
+                else { /* Do Nothing */ }
+
+                break;
+            case QuestType.Puzzle:
+                // 수락하지 않은 퀘스트이고 완료하지 않은 퀘스트라면
+                if (idToQuest[id_].IsAccepted == false &&
+                    idToQuest[id_].IsCompleted == false)
+                {
+                    // 퀘스트 수락
+                    AcceptQuest(id_);
+                }
+
+                // 혹시나 모를 예외 처리
+                if (NPCManager.Instance.interacted.GetComponent<IPuzzleHolder>() == null || 
+                    NPCManager.Instance.interacted.GetComponent<IPuzzleHolder>() == default)
+                {
+                    Debug.Log($"오브젝트 이름: {NPCManager.Instance.interacted.npcName}");
+
+                    return;
+                }
+
+                // 퍼즐을 클리어 했다면
+                if (NPCManager.Instance.interacted.GetComponent<IPuzzleHolder>().PuzzleClearCheck() == true)
+                {
+                    // 퀘스트 완료
+                    CompleteQuest(id_);
+                }
+                // 못했다면
+                else { /* Do Nothing */ }
+
+                break;
+        }
+    }
 }

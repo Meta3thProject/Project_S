@@ -10,8 +10,6 @@ public class InventoryFake : MonoBehaviour
 
     public PlayerStat status;
 
-    public Dictionary<int, int> fakeItems;
-
     private void Awake()
     {
         // { 싱글톤
@@ -26,10 +24,6 @@ public class InventoryFake : MonoBehaviour
             Destroy(this.gameObject);
         }
         // } 싱글톤
-
-        fakeItems = new Dictionary<int, int>();
-
-        fakeItems.Add(7777777, 1);
     }
 
     public bool CheckOneValue(int value1_, int value2_)
@@ -55,8 +49,6 @@ public class InventoryFake : MonoBehaviour
         if (value1_ == status.GetRightGrabbableID() && value2_ == status.GetLeftGrabbableID()) { return true; }
         // 반대로도 체크
         else if (value2_ == status.GetRightGrabbableID() && value1_ == status.GetLeftGrabbableID()) { return true; }
-        else { /* Do Nothing */ }
-
-        return false;
+        else { return false; }
     }
 }
