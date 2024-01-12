@@ -129,7 +129,6 @@ GameObject:
   - component: {fileID: 9182599089271216672}
   - component: {fileID: 9182599089271216687}
   - component: {fileID: 8331312907041538919}
-  - component: {fileID: 9182599089271216679}
   - component: {fileID: 717463382}
   m_Layer: 10
   m_Name: Axe
@@ -270,7 +269,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   axeActivateSpeed: 10
-  CollisionAudio: {fileID: 0}
 --- !u!82 &9182599089271216675
 AudioSource:
   m_ObjectHideFlags: 0
@@ -278,7 +276,7 @@ AudioSource:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 9182599089271216856}
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 139ef2d853962e14f836c51a778b76f5, type: 3}
@@ -393,7 +391,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 9182599089271216856}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: c575c9380b9d239499fadf100ef2800b, type: 3}
   m_Name: 
@@ -416,25 +414,6 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.03, y: 0.3, z: 0.01}
   m_Center: {x: -0.00041878223, y: 0.36, z: 0.17}
---- !u!114 &9182599089271216679
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 9182599089271216856}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 821cfb7c3eab3764bbb57d764c6e26d6, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Damage: 5
-  ColliderRigidbody: {fileID: 0}
-  MinForce: 0.5
-  LastRelativeVelocity: 0
-  LastDamageForce: 0
-  TakeCollisionDamage: 0
-  CollisionDamage: 5
 --- !u!114 &717463382
 MonoBehaviour:
   m_ObjectHideFlags: 0

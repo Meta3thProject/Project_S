@@ -9,6 +9,7 @@ public class Torch : GrabbableEvents
     private GameObject flameFX = default;
     private SphereCollider flameCollider = default;
     private ReturnToSnapZone returnSnapZone = default;
+    private SnapZone snapZone = default;
     private bool isFirst = default;
 
     // Start is called before the first frame 
@@ -22,6 +23,7 @@ public class Torch : GrabbableEvents
         grabbable = GetComponent<Grabbable>();
         returnSnapZone = GetComponent<ReturnToSnapZone>();
         flameCollider = this.GetComponent<SphereCollider>();
+        snapZone = GFunc.GetRootObj("Player").GetChildObj("KeyItemSlot").GetComponent<SnapZone>();
 
         flameFX = this.gameObject.GetChildObj("TorchFire");
         flameCollider.enabled = isFlameOn;
@@ -44,7 +46,8 @@ public class Torch : GrabbableEvents
             if (grabbable.BeingHeld && isFirst == default)
             {
                 isFirst = true;
-                returnSnapZone.enabled = true;           
+                returnSnapZone.enabled = true;
+                returnSnapZone.ReturnTo = snapZone;
             }
 
             // { 토치 횃불 이펙트 끄고 키기
