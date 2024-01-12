@@ -5,7 +5,7 @@ using UnityEngine;
 public class Butler : NPCBase, IPuzzleHolder
 {
     // 이 NPC가 체크해야하는 퍼즐의 인덱스
-    //public const int PUZZLEINDEX = 아직 없음
+    public const int PUZZLEINDEX = 24;
 
     public override void PopUpDialog()
     {
@@ -14,6 +14,6 @@ public class Butler : NPCBase, IPuzzleHolder
 
     public bool PuzzleClearCheck()
     {
-        return PuzzleManager.instance.catPuzzleClear;
+        return PuzzleManager.instance.puzzles[PUZZLEINDEX];
     }
 }

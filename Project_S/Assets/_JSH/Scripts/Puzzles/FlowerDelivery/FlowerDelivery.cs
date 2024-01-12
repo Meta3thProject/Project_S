@@ -2,11 +2,13 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class FlowerDelivery : MonoBehaviour
+public class FlowerDelivery : MonoBehaviour, IActiveSign
 {
     // { BSJ PuzzleManager 에 맞춰서 추가된 변수들
     // 이 퍼즐의 인덱스
     const int PUZZLEINDEX = 18;
+    // 퍼즐 클리어 팻말
+    [SerializeField] private GameObject clearSign;
     // } BSJ PuzzleManager 에 맞춰서 추가된 변수들
 
     // 꽃배달 힌트
@@ -26,6 +28,12 @@ public class FlowerDelivery : MonoBehaviour
         answer[1] = 104008;
         answer[2] = 104011;
         answer[3] = 104009;
+    }
+
+    // 클리어 팻말의 활성화 여부
+    public void ActiveClearSign(bool _isClear)
+    {
+        clearSign.SetActive(_isClear);
     }
 
     // 힌트 제공
@@ -78,6 +86,9 @@ public class FlowerDelivery : MonoBehaviour
 
         // 파이어베이스 RDB에 업데이트
         FirebaseManager.instance.PuzzleClearUpdateToDB(PUZZLEINDEX, true);
+
+        // 팻말 활성화
+        ActiveClearSign(true);
     }
 
     public bool IsFlowerBusket(int id_)

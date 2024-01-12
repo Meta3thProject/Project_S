@@ -30,10 +30,6 @@ public class Idiot : NPCBase, IPuzzleHolder
         {
             GetComponent<HideAndSeek>().ComleteHideAndSeek();
         }
-        else if (questID == 301504)
-        {
-
-        }
         else { return; }
 
         base.PopUpDialog();

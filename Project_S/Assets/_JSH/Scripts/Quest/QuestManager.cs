@@ -44,6 +44,10 @@ public class QuestManager : MonoBehaviour
         for (int i = 0; i < questTable.dataArray.Length; i++)
         {
             idToQuest.Add(questTable.dataArray[i].ID, new Quest(questTable.dataArray[i]));
+            if (FirebaseManager.instance.QuestClearDictionary[questTable.dataArray[i].ID] == true)
+            {
+                idToQuest[questTable.dataArray[i].ID].Complete();
+            }
         }
     }
 
@@ -164,7 +168,7 @@ public class QuestManager : MonoBehaviour
                 }
 
                 // 혹시나 모를 예외 처리
-                if (NPCManager.Instance.interacted.GetComponent<IPuzzleHolder>() == null || 
+                if (NPCManager.Instance.interacted.GetComponent<IPuzzleHolder>() == null ||
                     NPCManager.Instance.interacted.GetComponent<IPuzzleHolder>() == default)
                 {
                     Debug.Log($"오브젝트 이름: {NPCManager.Instance.interacted.npcName}");

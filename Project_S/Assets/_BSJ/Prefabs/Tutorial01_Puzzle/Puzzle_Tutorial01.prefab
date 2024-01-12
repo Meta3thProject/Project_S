@@ -20543,6 +20543,7 @@ Transform:
   - {fileID: 7945331890648399497}
   - {fileID: 7945331891629051746}
   - {fileID: 3615535601197780268}
+  - {fileID: 8956422325514555698}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -20558,6 +20559,93 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: df01dc34917ab7c4db7c2dcdcb6cc4e4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  clearSign: {fileID: 1888416754123595111}
+--- !u!1001 &477976101341092025
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 7945331891666583456}
+    m_Modifications:
+    - target: {fileID: 2060148009364162014, guid: bc70693ef89542e4181cf9c93002f1ee,
+        type: 3}
+      propertyPath: m_Name
+      value: PuzzleClear_Sign
+      objectReference: {fileID: 0}
+    - target: {fileID: 2060148009364162014, guid: bc70693ef89542e4181cf9c93002f1ee,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8856757604284860811, guid: bc70693ef89542e4181cf9c93002f1ee,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 8856757604284860811, guid: bc70693ef89542e4181cf9c93002f1ee,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -17.452
+      objectReference: {fileID: 0}
+    - target: {fileID: 8856757604284860811, guid: bc70693ef89542e4181cf9c93002f1ee,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 8.737
+      objectReference: {fileID: 0}
+    - target: {fileID: 8856757604284860811, guid: bc70693ef89542e4181cf9c93002f1ee,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 37.75
+      objectReference: {fileID: 0}
+    - target: {fileID: 8856757604284860811, guid: bc70693ef89542e4181cf9c93002f1ee,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.4768428
+      objectReference: {fileID: 0}
+    - target: {fileID: 8856757604284860811, guid: bc70693ef89542e4181cf9c93002f1ee,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8856757604284860811, guid: bc70693ef89542e4181cf9c93002f1ee,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0.8789886
+      objectReference: {fileID: 0}
+    - target: {fileID: 8856757604284860811, guid: bc70693ef89542e4181cf9c93002f1ee,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8856757604284860811, guid: bc70693ef89542e4181cf9c93002f1ee,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8856757604284860811, guid: bc70693ef89542e4181cf9c93002f1ee,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: -123.041
+      objectReference: {fileID: 0}
+    - target: {fileID: 8856757604284860811, guid: bc70693ef89542e4181cf9c93002f1ee,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: bc70693ef89542e4181cf9c93002f1ee, type: 3}
+--- !u!1 &1888416754123595111 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2060148009364162014, guid: bc70693ef89542e4181cf9c93002f1ee,
+    type: 3}
+  m_PrefabInstance: {fileID: 477976101341092025}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &8956422325514555698 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 8856757604284860811, guid: bc70693ef89542e4181cf9c93002f1ee,
+    type: 3}
+  m_PrefabInstance: {fileID: 477976101341092025}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &4573779530769557157
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -20909,7 +20997,7 @@ PrefabInstance:
     - target: {fileID: 8379264009951709463, guid: 3ebba828ce342ba43b71c152d0e6dec9,
         type: 3}
       propertyPath: m_Name
-      value: Model_Puzzle_Basket
+      value: Model_Puzzle_Basket1
       objectReference: {fileID: 0}
     - target: {fileID: 8379264009951709463, guid: 3ebba828ce342ba43b71c152d0e6dec9,
         type: 3}

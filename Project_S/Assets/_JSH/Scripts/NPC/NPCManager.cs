@@ -94,6 +94,8 @@ public class NPCManager : MonoBehaviour
         twoChoices.SetActive(false);
 
         windowCanvas.GetComponent<RectTransform>().position = Vector3.zero;
+
+
     }
 
     public void ActivateMain(int id_)
