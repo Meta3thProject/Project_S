@@ -19,4 +19,9 @@ public class PlayerEnterPuzzleTrigger : MonoBehaviour
         puzzleWall.SetActive(false);
         this.gameObject.SetActive(false);
     }
+
+    public void ActiveWall()
+    {
+        puzzleWall.SetActive(true);
+    }
 }
