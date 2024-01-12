@@ -1,5 +1,36 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &1356965385
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1356965386}
+  m_Layer: 10
+  m_Name: EffectOffset
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1356965386
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1356965385}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0.4, z: 0.1}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 8927320673531091873}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &13295103552096729
 GameObject:
   m_ObjectHideFlags: 0
@@ -10981,7 +11012,9 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 1221213132312132132123
+  m_text: 'MBTI Result
+
+'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 7e53a03cfb23e224889a980d82af10fa, type: 2}
   m_sharedMaterial: {fileID: -6493370910393540887, guid: 7e53a03cfb23e224889a980d82af10fa,
@@ -11009,8 +11042,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 450
-  m_fontSizeBase: 450
+  m_fontSize: 200
+  m_fontSizeBase: 200
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -19705,11 +19738,11 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: b2f030614ddd76b449fa316db24bc699, type: 3}
+  m_audioClip: {fileID: 0}
   m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
-  Loop: 0
+  Loop: 1
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0
@@ -21580,6 +21613,11 @@ PrefabInstance:
       propertyPath: LerpSpeed
       value: 100
       objectReference: {fileID: 0}
+    - target: {fileID: 3952238403263790358, guid: b1ea56f0e5e822e4695cec063080b963,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 4
+      objectReference: {fileID: 0}
     - target: {fileID: 9182599089271216676, guid: b1ea56f0e5e822e4695cec063080b963,
         type: 3}
       propertyPath: m_Height
@@ -21665,7 +21703,8 @@ PrefabInstance:
       propertyPath: m_StaticEditorFlags
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 9182599089271216675, guid: b1ea56f0e5e822e4695cec063080b963, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: b1ea56f0e5e822e4695cec063080b963, type: 3}
 --- !u!4 &8927320673531091873 stripped
 Transform:
