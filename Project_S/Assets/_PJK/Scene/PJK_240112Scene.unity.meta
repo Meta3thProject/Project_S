@@ -1,6 +1,11 @@
 fileFormatVersion: 2
+<<<<<<<< HEAD:Project_S/Assets/_PJK/Scene/PJK_240112Scene.unity.meta
 guid: 0dc9730655509684ca524739198d7a64
 DefaultImporter:
+========
+guid: f3eda8ed7bf26b240ac457ffd246cde0
+PrefabImporter:
+>>>>>>>> pr/32:Project_S/Assets/_JSH/Prefabs/Grabbable/Model_Puzzle_Basket2.prefab.meta
   externalObjects: {}
   userData: 
   assetBundleName: 

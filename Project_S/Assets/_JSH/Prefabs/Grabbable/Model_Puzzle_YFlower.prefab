@@ -17,7 +17,7 @@ GameObject:
   - component: {fileID: -475620682949040108}
   - component: {fileID: -918567027259716898}
   - component: {fileID: -4122627631723334006}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Model_Puzzle_YFlower
   m_TagString: Untagged
   m_Icon: {fileID: 0}

@@ -17,7 +17,7 @@ GameObject:
   - component: {fileID: 2954778550006216192}
   - component: {fileID: 3824111696353776552}
   - component: {fileID: 7880296050260519682}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Model_Puzzle_YFabric
   m_TagString: Untagged
   m_Icon: {fileID: 0}

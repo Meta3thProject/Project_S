@@ -6,8 +6,8 @@ public class PlayerStat : MonoBehaviour
 {
     private Dictionary<string, float> MBTIStat = default;
 
-    private Grabbable leftHeldGrabbable = default;
-    private Grabbable rightHeldGrabbable = default;
+    public Grabber leftHeldGrabbable;
+    public Grabber rightHeldGrabbable;
 
     private void Awake()
     {
@@ -41,22 +41,24 @@ public class PlayerStat : MonoBehaviour
         };
         #endregion        
 
-        leftHeldGrabbable = this.gameObject.GetChildObj("Grabber").GetComponent<Grabber>().HeldGrabbable;
-        rightHeldGrabbable = this.gameObject.GetChildObj("Grabber").GetComponent<Grabber>().HeldGrabbable;
+        //leftHeldGrabbable = this.gameObject.GetChildObj("Grabber").GetComponent<Grabber>().HeldGrabbable;
+        //rightHeldGrabbable = this.gameObject.GetChildObj("Grabber").GetComponent<Grabber>().HeldGrabbable;
     }
 
     public int GetRightGrabbableID()
     {
         if (GFunc.IsValid(rightHeldGrabbable) == false) { return 0; }
+        if (GFunc.IsValid(rightHeldGrabbable.HeldGrabbable) == false) { return 0; }
 
-        return rightHeldGrabbable.GetComponent<ItemData>().itemID;
+        return rightHeldGrabbable.HeldGrabbable.gameObject.GetComponent<ItemData>().itemID;
     }
 
     public int GetLeftGrabbableID()
     {
         if (GFunc.IsValid(leftHeldGrabbable) == false) { return 0; }
+        if (GFunc.IsValid(leftHeldGrabbable.HeldGrabbable) == false) { return 0; }
 
-        return leftHeldGrabbable.GetComponent<ItemData>().itemID;
+        return leftHeldGrabbable.HeldGrabbable.gameObject.GetComponent<ItemData>().itemID;
     }
 
     // ! MBTI 점수를 올릴 때 함수 호출 

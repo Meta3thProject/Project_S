@@ -36,7 +36,11 @@ public class NPCBase : MonoBehaviour, INPCBehaviour
         }
         else
         {
+            // 대사창 내림
             NPCManager.Instance.PopDown();
+
+            // 타입별로 다르게 진행
+            NPCManager.Instance.SetIDByQuestType();
         }
     }
 
