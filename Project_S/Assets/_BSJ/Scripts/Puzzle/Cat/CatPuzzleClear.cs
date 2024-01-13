@@ -9,9 +9,6 @@ public class CatPuzzleClear : MonoBehaviour
     // 퍼즐 클리어 팻말
     [SerializeField] private GameObject clearSign;
 
-    // 퍼즐을 완료하기 위한 NPC
-    [SerializeField] private NPCBase catOwner;
-
     /// <summary>
     /// 클리어 체크 메서드.
     /// </summary>
@@ -42,16 +39,6 @@ public class CatPuzzleClear : MonoBehaviour
 
         // 클리어 팻말 활성화
         ActiveClearSign(true);
-
-        // NPC 대화
-        NPCManager.Instance.interacted = catOwner;
-
-        Vector3 npcDir = (catOwner.transform.position - NPCManager.Instance.player.transform.position).normalized;
-        npcDir.y = 0;
-
-        NPCManager.Instance.PopUp(npcDir);
-
-        NPCManager.Instance.interacted.PopUpDialog();
 
         // 파이어베이스 RDB에 업데이트
         FirebaseManager.instance.PuzzleClearUpdateToDB(PUZZLEINDEX, true);

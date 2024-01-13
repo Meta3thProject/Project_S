@@ -32,7 +32,7 @@ MonoBehaviour:
     end_npc: 300001
     quest_type: 1
     value1: 7777777
-    value2: 3
+    value2: 8
     before_dialogue: 304006
     doing_dialogue: 304007
     complete_dialogue: 304008
@@ -43,7 +43,7 @@ MonoBehaviour:
     end_npc: 300002
     quest_type: 1
     value1: 7777777
-    value2: 5
+    value2: 3
     before_dialogue: 304012
     doing_dialogue: 304013
     complete_dialogue: 304014
@@ -54,7 +54,7 @@ MonoBehaviour:
     end_npc: 300003
     quest_type: 1
     value1: 7777777
-    value2: 7
+    value2: 13
     before_dialogue: 304018
     doing_dialogue: 304019
     complete_dialogue: 304020
@@ -129,7 +129,7 @@ MonoBehaviour:
     quest_title: "\uB9C8\uC9C0\uB9C9 \uD14C\uC2A4\uD2B8"
     start_npc: 300101
     end_npc: 300101
-    quest_type: 1
+    quest_type: 4
     value1: 101003
     value2: 1
     before_dialogue: 304161

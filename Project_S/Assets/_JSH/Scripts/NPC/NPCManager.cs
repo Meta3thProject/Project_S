@@ -95,7 +95,7 @@ public class NPCManager : MonoBehaviour
 
         windowCanvas.GetComponent<RectTransform>().position = Vector3.zero;
 
-
+        Debug.Log("팝다운");
     }
 
     public void ActivateMain(int id_)
@@ -105,7 +105,8 @@ public class NPCManager : MonoBehaviour
 
         oneOfOne.text = idToDialogue[id_].dialogue;
 
-        SetIDAfterDialogue();
+        // 다음 출력문ID 설정
+        interacted.printID = idToDialogue[interacted.printID].linkDialogue;
     }
 
     /// <summary>
@@ -145,26 +146,6 @@ public class NPCManager : MonoBehaviour
 
         // 다음 출력문ID 설정 함수 콜
         interacted.SetPrintID();
-    }
-
-    // 대화 진행 함수
-    public void SetIDAfterDialogue()
-    {
-        // 0이 아니면
-        if (idToDialogue[interacted.printID].linkDialogue != 0)
-        {
-            // 다음 출력문ID 설정
-            interacted.printID = idToDialogue[interacted.printID].linkDialogue;
-        }
-        // 0이면
-        else
-        {
-            // 타입별로 다르게 진행
-            SetIDByQuestType();
-
-            // 대사창 내림
-            PopDown();
-        }
     }
 
     /// <summary>

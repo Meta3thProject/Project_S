@@ -17,7 +17,7 @@ GameObject:
   - component: {fileID: 7259661153189593262}
   - component: {fileID: 7487952977945163270}
   - component: {fileID: 6335538156521253289}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Model_Puzzle_BFabric
   m_TagString: Untagged
   m_Icon: {fileID: 0}
