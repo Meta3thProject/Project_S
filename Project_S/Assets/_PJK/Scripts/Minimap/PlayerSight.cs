@@ -1,44 +1,81 @@
 using UnityEngine;
+using UnityEngine.UI;
 
 public class PlayerSight : MonoBehaviour
 {
-    public MeshRenderer visionConeRenderer; // �þ߸� ��Ÿ�� �޽� ������
-    public float visionAngle = 60f; // �þ� ����
-    public float visionDistance = 10f; // �þ� �Ÿ�
+    public Transform playerTransform;
+    public Image minimapIcon;
+    public float fieldOfView = 90f;
+
+    private MeshFilter meshFilter;
+    private MeshRenderer meshRenderer;
+    private Mesh coneMesh;
+
+    void Start()
+    {
+        // MeshFilter 및 MeshRenderer 추가
+        meshFilter = minimapIcon.gameObject.AddComponent<MeshFilter>();
+        meshRenderer = minimapIcon.gameObject.AddComponent<MeshRenderer>();
+
+        // 메시 생성
+        coneMesh = CreateConeMesh(fieldOfView);
+
+        // MeshFilter에 메시 할당
+        meshFilter.mesh = coneMesh;
+
+        // 부채꼴 색상 설정
+        meshRenderer.material.color = Color.white;
+    }
 
     void Update()
     {
-        DrawVisionCone();
+        UpdateMinimapIcon();
     }
 
-    void DrawVisionCone()
+    void UpdateMinimapIcon()
     {
-        MeshFilter meshFilter = visionConeRenderer.GetComponent<MeshFilter>();
-        Mesh visionMesh = new Mesh();
+        // 플레이어 아이콘의 위치 및 회전을 설정
+        minimapIcon.transform.position = CalculateMinimapPosition(playerTransform.position);
+        minimapIcon.transform.rotation = Quaternion.Euler(0, playerTransform.eulerAngles.y, 0);
+    }
 
-        int segments = 50; // �޽��� ���׸�Ʈ ��, ���� ����
+    Vector3 CalculateMinimapPosition(Vector3 worldPosition)
+    {
+        // 월드 좌표를 미니맵 좌표로 변환하는 코드
+        // 예시에서는 간단히 worldPosition을 사용하고 있습니다.
+        return worldPosition;
+    }
 
+    Mesh CreateConeMesh(float angle)
+    {
+        int segments = 30;
+        float radius = 5f;
+
+        Mesh mesh = new Mesh();
+
+        // 정점 배열 생성
         Vector3[] vertices = new Vector3[segments + 2];
-        int[] triangles = new int[segments * 3];
+        vertices[0] = Vector3.zero; // 정점 0은 원점
 
-        vertices[0] = Vector3.zero;
-        float angleIncrement = visionAngle / segments;
         for (int i = 1; i <= segments + 1; i++)
         {
-            float angle = angleIncrement * (i - 1);
-            vertices[i] = new Vector3(Mathf.Cos(Mathf.Deg2Rad * angle), 0f, Mathf.Sin(Mathf.Deg2Rad * angle)) * visionDistance;
+            float radian = Mathf.Deg2Rad * (i * angle / (segments + 1) - angle / 2f);
+            vertices[i] = new Vector3(Mathf.Cos(radian) * radius, 0f, Mathf.Sin(radian) * radius);
         }
 
-        for (int i = 0; i < segments; i++)
+        // 삼각형 배열 생성
+        int[] triangles = new int[segments * 3];
+        for (int i = 0, vi = 1; i < segments * 3; i += 3, vi++)
         {
-            triangles[i * 3] = 0;
-            triangles[i * 3 + 1] = i + 1;
-            triangles[i * 3 + 2] = i + 2;
+            triangles[i] = 0;
+            triangles[i + 1] = vi;
+            triangles[i + 2] = vi + 1;
         }
 
-        visionMesh.vertices = vertices;
-        visionMesh.triangles = triangles;
+        // 메시에 정점 및 삼각형 할당
+        mesh.vertices = vertices;
+        mesh.triangles = triangles;
 
-        meshFilter.mesh = visionMesh;
+        return mesh;
     }
 }

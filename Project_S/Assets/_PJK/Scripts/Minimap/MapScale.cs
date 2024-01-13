@@ -34,14 +34,14 @@ public class MapScale : GrabbableEvents
 
 
     //현재 플레이어가 어느 존에 있는지?
-    private bool iszone1 = true;
-    private bool iszone2 = false;
-    private bool iszone3 = false;
-    private bool iszone4 = false;
-    private bool iszone5 = false;
+    public bool iszone1 = true;
+    public bool iszone2 = false;
+    public bool iszone3 = false;
+    public bool iszone4 = false;
+    public bool iszone5 = false;
     //현재 켜진 맵이 ZoneMap인지 WorldMap인지?
-    private bool isZoneMap = false;
-    private bool isWorldMap = true;
+    public bool isZoneMap = false;
+    public bool isWorldMap = true;
     //맵이 켜져있는지?
     public bool isMapOpen = false;
     //위치 지정 현재 플레이어의 위치
@@ -53,8 +53,8 @@ public class MapScale : GrabbableEvents
     private Rect zone1Rect = new Rect(0f, 0.55f, 1f, 1f);
     private Rect zone2Rect = new Rect(0.2f, 0.2f, 0.6f, 0.6f);
     private Rect zone3Rect = new Rect(0.2f, 0.2f, 0.6f, 0.6f);
-    private Rect zone4Rect = new Rect(0.2f, 0.41f, 0.57f, 1f);
-    private Rect zone5Rect = new Rect(0.2f, 0.2f, 0.6f, 0.6f);
+    private Rect zone4Rect = new Rect(0f, 0f, 1f, 1f);
+    private Rect zone5Rect = new Rect(0f, 0f, 1f, 1f);
     //미니맵 마크를 가져올 미니맵마커매니져인스턴스
 
     protected override void Awake()
@@ -85,26 +85,28 @@ public class MapScale : GrabbableEvents
 
     private void Update()
     {
-        if (input.RightTriggerDown && thisGrabber.HeldGrabbable.tag.Equals("MiniMap"))
+        if (thisGrabber != null && thisGrabber.HeldGrabbable != null)
         {
-
-
-
-            if (isZoneMap == false)
+            if (input.RightTriggerDown && thisGrabber.HeldGrabbable.tag.Equals("MiniMap"))
             {
-                isZoneMap = true;
-                isWorldMap = false;
+
+
+
+                if (isZoneMap == false)
+                {
+                    isZoneMap = true;
+                    isWorldMap = false;
+                }
+                else if (isWorldMap == false)
+                {
+                    isZoneMap = false;
+                    isWorldMap = true;
+                }
+
             }
-            else if (isWorldMap == false)
-            {
-                isZoneMap = false;
-                isWorldMap = true;
-            }
+
 
         }
-
-
-
 
         if (isMapOpen == false)
         {
@@ -115,6 +117,22 @@ public class MapScale : GrabbableEvents
             pos = NPCManager.Instance.player.transform.position;
         }
 
+        if (isMapOpen == true && isWorldMap == false && isZoneMap == true)
+        {
+            if ((InputBridge.Instance.RightTriggerDown || InputBridge.Instance.LeftTriggerDown) && ((thisGrabber.HandSide == ControllerHand.Left) || (thisGrabber.HandSide == ControllerHand.Right)))
+            {
+                isWorldMap = true;
+                isZoneMap = false;
+            }
+        }
+        else if (isMapOpen == true && isWorldMap == true && isZoneMap == false)
+        {
+            if ((InputBridge.Instance.RightTriggerDown || InputBridge.Instance.LeftTriggerDown) && ((thisGrabber.HandSide == ControllerHand.Left) || (thisGrabber.HandSide == ControllerHand.Right)))
+            {
+                isWorldMap = false;
+                isZoneMap = true;
+            }
+        }
 
         //zone1map
         if (-27f <= pos.x && pos.x <= 0f && 11.35f < pos.z && pos.z < 86f)
@@ -224,7 +242,7 @@ public class MapScale : GrabbableEvents
     public void Zone1()
     {
 
-        cam.orthographicSize = 33.8f;
+        cam.orthographicSize = 29f;
         minimapCamera.transform.position = zone1pos.transform.position;
         cam.rect = zone1Rect;
         outline.anchoredPosition = new Vector2(0f, 0f);
@@ -234,11 +252,11 @@ public class MapScale : GrabbableEvents
     public void Zone2()
     {
 
-        cam.orthographicSize = 130f;
+        cam.orthographicSize = 75f;
         minimapCamera.transform.position = zone2pos.transform.position;
         cam.rect = zone2Rect;
-        outline.anchoredPosition = new Vector2(-10.3f, 0);
-        outline.sizeDelta = new Vector2(720.47f, 910f);
+        outline.anchoredPosition = new Vector2(0f, 0);
+        outline.sizeDelta = new Vector2(900f, 900f);
         MapName.text = "중앙 섬";
     }
     //zone3map
@@ -248,8 +266,8 @@ public class MapScale : GrabbableEvents
         cam.orthographicSize = 58.6f;
         minimapCamera.transform.position = zone3pos.transform.position;
         cam.rect = zone3Rect;
-        outline.anchoredPosition = new Vector2(-10.3f, 0);
-        outline.sizeDelta = new Vector2(720.47f, 910f);
+        outline.anchoredPosition = new Vector2(0f, 0);
+        outline.sizeDelta = new Vector2(900f, 90f);
         MapName.text = "도구섬";
 
     }
@@ -257,11 +275,11 @@ public class MapScale : GrabbableEvents
     public void Zone4()
     {
 
-        cam.orthographicSize = 55f;
+        cam.orthographicSize = 42.9f;
         minimapCamera.transform.position = zone4pos.transform.position;
         cam.rect = zone4Rect;
-        outline.anchoredPosition = new Vector2(-50f, 0);
-        outline.sizeDelta = new Vector2(638f, 900f);
+        outline.anchoredPosition = new Vector2(0f, 0);
+        outline.sizeDelta = new Vector2(900f, 900f);
         MapName.text = "외부섬";
     }
 
@@ -269,7 +287,7 @@ public class MapScale : GrabbableEvents
     public void Zone5()
     {
 
-        cam.orthographicSize = 79.5f;
+        cam.orthographicSize = 42.9f;
         minimapCamera.transform.position = zone5pos.transform.position;
         cam.rect = zone5Rect;
         outline.anchoredPosition = new Vector2(0f, 0);

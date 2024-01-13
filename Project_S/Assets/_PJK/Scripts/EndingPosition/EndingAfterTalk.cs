@@ -44,7 +44,7 @@ public partial class EndingAfterTalk : MonoBehaviour
 
         Player = Player.gameObject;
         bool isend = false;
-        if (StarManager.starManager.getStarCount >= 7 && isend == false)
+        if (StarManager.starManager.getStarCount >= 15 && isend == false)
         {
             starnumber = StarManager.starManager.getStarCount;
 

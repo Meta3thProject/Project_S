@@ -28,7 +28,7 @@ public class PuzzleManager : MonoBehaviour
     [field: SerializeField] public ShieldPuzzleClear shieldPuzzleClear { get; private set; }            // 6
     [field: SerializeField] public StudioPuzzleClear studioPuzzleClear { get; private set; }            // 7
     [field: SerializeField] public TaxidermyClear taxidermyClear { get; private set; }                  // 8
-    // 접시에 사과 올리기 퍼즐                                                                            // 9
+    // 접시에 사과 올리기 퍼즐                                                                             // 9
     [field: SerializeField] public AppleCheck appleClear { get; private set; }                          // 9
     // 옷감 퍼즐                                                                                         // 10
     [field: SerializeField] public FabricCheck fabricClear { get; private set; }                        // 10
