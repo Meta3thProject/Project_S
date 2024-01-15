@@ -9,6 +9,9 @@ public class ButcherShop03Clear : MonoBehaviour
     // 퍼즐 클리어 팻말
     [SerializeField] private GameObject clearSign;
 
+    // 퍼즐을 막는 투명벽
+    [SerializeField] private PlayerEnterPuzzleTrigger transparentWall;
+
     /// <summary>
     /// 클리어 체크 메서드.
     /// </summary>
@@ -42,6 +45,9 @@ public class ButcherShop03Clear : MonoBehaviour
 
         // 클리어 팻말 활성화
         ActiveClearSign(true);
+
+        // 퍼즐을 막는 투명벽 해제
+        transparentWall.RemoveWall();
     }
 
     /// <summary>

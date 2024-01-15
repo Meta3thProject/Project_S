@@ -25,6 +25,7 @@ public class FirebaseManager : MonoBehaviour
     const string LOGINSCENE = "Lobby";
     const string MAINSCENE = "BSJ_MainSceneCopy";
     // bsj 추가
+    const string BSJTESTSCENE = "Main Scene Copy _ BSJ";
     const string TESTSCENE = "PJK_MainSceneCopy";
     const string JSHTestScene = "Main Scene Copy";
 

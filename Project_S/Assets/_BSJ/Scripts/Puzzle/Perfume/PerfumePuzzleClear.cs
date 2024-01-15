@@ -13,6 +13,9 @@ public class PerfumePuzzleClear : MonoBehaviour
     // 퍼즐 클리어 팻말
     [SerializeField] private GameObject clearSign;
 
+    // 퍼즐을 막는 투명벽
+    [SerializeField] private PlayerEnterPuzzleTrigger transparentWall;
+
     private void Awake()
     {
         // 퍼즐 요소 배열 초기화
@@ -67,11 +70,14 @@ public class PerfumePuzzleClear : MonoBehaviour
         // 별 구역의 클리어 체크
         PuzzleManager.instance.CheckPuzzleClear(PUZZLEINDEX, true);
 
+        // 파이어베이스 RDB에 업데이트
+        FirebaseManager.instance.PuzzleClearUpdateToDB(PUZZLEINDEX, true);
+
         // 클리어 팻말 활성화
         ActiveClearSign(true);
 
-        // 파이어베이스 RDB에 업데이트
-        FirebaseManager.instance.PuzzleClearUpdateToDB(PUZZLEINDEX, true);
+        // 퍼즐을 막는 투명벽 해제
+        transparentWall.RemoveWall();
     }
 
     /// <summary>

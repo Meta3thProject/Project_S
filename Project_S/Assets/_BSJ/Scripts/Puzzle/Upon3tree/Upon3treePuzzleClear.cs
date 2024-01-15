@@ -10,6 +10,9 @@ public class Upon3treePuzzleClear : MonoBehaviour, IActiveSign
     // 퍼즐 클리어 팻말
     [SerializeField] private GameObject clearSign;
 
+    // 퍼즐을 막는 투명벽
+    [SerializeField] private PlayerEnterPuzzleTrigger transparentWall;
+
     public void PuzzleClear()
     {
         // 이미 퍼즐을 클리어 했다면 리턴.
@@ -29,6 +32,9 @@ public class Upon3treePuzzleClear : MonoBehaviour, IActiveSign
 
         // 클리어 팻말 활성화
         ActiveClearSign(true);
+
+        // 퍼즐을 막는 투명벽 해제
+        transparentWall.RemoveWall();
     }
 
     /// <summary>

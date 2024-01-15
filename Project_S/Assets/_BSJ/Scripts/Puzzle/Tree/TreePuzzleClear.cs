@@ -16,6 +16,9 @@ public class TreePuzzleClear : MonoBehaviour, IActiveSign
     // 퍼즐 클리어 팻말
     [SerializeField] private GameObject clearSign;
 
+    // 퍼즐을 막는 투명벽
+    [SerializeField] private PlayerEnterPuzzleTrigger transparentWall;
+
     private void Awake()
     {
         // 나무 오브젝트 캐싱
@@ -97,6 +100,9 @@ public class TreePuzzleClear : MonoBehaviour, IActiveSign
 
             // 클리어 팻말 활성화
             ActiveClearSign(true);
+
+            // 퍼즐을 막는 투명벽 해제
+            transparentWall.RemoveWall();
         }
     }
 
