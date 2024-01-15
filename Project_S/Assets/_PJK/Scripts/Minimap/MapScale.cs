@@ -1,6 +1,8 @@
 using BNG;
 using TMPro;
+using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.Rendering;
 using UnityEngine.UI;
 
 public class MapScale : GrabbableEvents
@@ -18,6 +20,9 @@ public class MapScale : GrabbableEvents
     public RawImage minimapImage = default;
 
     public GameObject outLine = default;
+    public GameObject worldmap = default;
+    public GameObject zonemap = default;
+
     private RectTransform outline = default;
     //지역정보를 위한 이름
     public TextMeshProUGUI MapName = default;
@@ -85,28 +90,32 @@ public class MapScale : GrabbableEvents
 
     private void Update()
     {
-        if (thisGrabber != null && thisGrabber.HeldGrabbable != null)
-        {
-            if (input.RightTriggerDown && thisGrabber.HeldGrabbable.tag.Equals("MiniMap"))
-            {
+        //if (thisGrabber != null && thisGrabber.HeldGrabbable != null)
+        //{
+        //    if (input.RightGripDown && thisGrabber.HeldGrabbable.tag.Equals("MiniMap"))
+        //    {
 
 
 
-                if (isZoneMap == false)
-                {
-                    isZoneMap = true;
-                    isWorldMap = false;
-                }
-                else if (isWorldMap == false)
-                {
-                    isZoneMap = false;
-                    isWorldMap = true;
-                }
+        //        if (isZoneMap == false)
+        //        {
+        //            isZoneMap = true;
+        //            isWorldMap = false;
+        //            worldmap.SetActive(false);
+        //            zonemap.SetActive(true);
+        //        }
+        //        else if (isWorldMap == false)
+        //        {
+        //            isZoneMap = false;
+        //            isWorldMap = true;
+        //            worldmap.SetActive(true);
+        //            zonemap.SetActive(false);
+        //        }
 
-            }
+        //    }
 
 
-        }
+        //}
 
         if (isMapOpen == false)
         {
@@ -119,23 +128,27 @@ public class MapScale : GrabbableEvents
 
         if (isMapOpen == true && isWorldMap == false && isZoneMap == true)
         {
-            if ((InputBridge.Instance.RightTriggerDown || InputBridge.Instance.LeftTriggerDown) && ((thisGrabber.HandSide == ControllerHand.Left) || (thisGrabber.HandSide == ControllerHand.Right)))
+            if ((InputBridge.Instance.RightGripDown || InputBridge.Instance.LeftGripDown) && ((thisGrabber.HandSide == ControllerHand.Left) || (thisGrabber.HandSide == ControllerHand.Right)))
             {
                 isWorldMap = true;
                 isZoneMap = false;
+                worldmap.SetActive(true);
+                //zonemap.SetActive(false);
             }
         }
-        else if (isMapOpen == true && isWorldMap == true && isZoneMap == false)
-        {
-            if ((InputBridge.Instance.RightTriggerDown || InputBridge.Instance.LeftTriggerDown) && ((thisGrabber.HandSide == ControllerHand.Left) || (thisGrabber.HandSide == ControllerHand.Right)))
-            {
-                isWorldMap = false;
-                isZoneMap = true;
-            }
-        }
+        //else if (isMapOpen == true && isWorldMap == true && isZoneMap == false)
+        //{
+        //    if ((InputBridge.Instance.RightGripDown || InputBridge.Instance.LeftGripDown) && ((thisGrabber.HandSide == ControllerHand.Left) || (thisGrabber.HandSide == ControllerHand.Right)))
+        //    {
+        //        isWorldMap = false;
+        //        isZoneMap = true;
+        //        worldmap.SetActive(false);
+        //        zonemap.SetActive(true);
+        //    }
+        //}
 
         //zone1map
-        if (-27f <= pos.x && pos.x <= 0f && 11.35f < pos.z && pos.z < 86f)
+        if (-27f <= pos.x && pos.x <= 2f && 11.35f < pos.z && pos.z < 86f)
         {
             iszone1 = true;
             iszone2 = false;
@@ -232,16 +245,35 @@ public class MapScale : GrabbableEvents
         //worldmap
         if (isWorldMap == true)
         {
-            cam.orthographicSize = 76f;
-            minimapCamera.transform.position = zone2pos.transform.position;
-            cam.rect = zone4Rect;
+            worldmap.SetActive(true);
             MapName.text = "전체지도";
         }
 
     }
+    private void UpdateMinimapTexture()
+    {
+        // 랜더 텍스쳐 초기화
+        ClearRenderTexture();
+
+        // 미니맵 카메라 업데이트
+        UpdateMinimapCamera();
+    }
+    void ClearRenderTexture()
+    {
+        // 랜더 텍스쳐 초기화 (URP에서는 CommandBuffer를 사용)
+        CommandBuffer commandBuffer = new CommandBuffer();
+        commandBuffer.SetRenderTarget(minimapCameraTexture);
+        commandBuffer.ClearRenderTarget(true, true, Color.clear);
+        Graphics.ExecuteCommandBuffer(commandBuffer);
+    }
+    void UpdateMinimapCamera()
+    {
+        cam.targetTexture = minimapCameraTexture; 
+    }
+
     public void Zone1()
     {
-
+        UpdateMinimapTexture();
         cam.orthographicSize = 29f;
         minimapCamera.transform.position = zone1pos.transform.position;
         cam.rect = zone1Rect;
@@ -251,6 +283,7 @@ public class MapScale : GrabbableEvents
     }
     public void Zone2()
     {
+        UpdateMinimapTexture();
 
         cam.orthographicSize = 75f;
         minimapCamera.transform.position = zone2pos.transform.position;
@@ -262,6 +295,7 @@ public class MapScale : GrabbableEvents
     //zone3map
     public void Zone3()
     {
+        UpdateMinimapTexture();
 
         cam.orthographicSize = 58.6f;
         minimapCamera.transform.position = zone3pos.transform.position;
@@ -274,6 +308,7 @@ public class MapScale : GrabbableEvents
     //zone4map
     public void Zone4()
     {
+        UpdateMinimapTexture();
 
         cam.orthographicSize = 42.9f;
         minimapCamera.transform.position = zone4pos.transform.position;
@@ -286,6 +321,7 @@ public class MapScale : GrabbableEvents
     //zone5map
     public void Zone5()
     {
+        UpdateMinimapTexture();
 
         cam.orthographicSize = 42.9f;
         minimapCamera.transform.position = zone5pos.transform.position;
