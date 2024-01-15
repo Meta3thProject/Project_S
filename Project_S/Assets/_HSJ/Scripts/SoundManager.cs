@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Rendering;
@@ -6,6 +7,7 @@ using UnityEngine.UIElements;
 public class SoundManager : MonoBehaviour
 {
     private static SoundManager _instance;
+    
 
     public static SoundManager Instance
     {
@@ -22,46 +24,39 @@ public class SoundManager : MonoBehaviour
             _instance = value;
         }
     }
-    private Dictionary<string, AudioSource> audioSources = default;
+
+    private Queue<AudioSource> audioSources = default;
     private AudioSource BGMSource = default;
 
-    private readonly int minNum = 5;
     // Start is called before the first frame update
-    void Start()
+    void Awake()
     {
         Init();
     }
 
-    void Init()
+    private void Init()
     {
+        audioSources = new Queue<AudioSource>();
+        BGMSource = GFunc.GetRootObj("Player").GetComponentInChildren<AudioSource>();
+        PlayBGMClip("SE_BGM_Tutorial");
+
         SetAudioSources();
     }
 
-    void SetAudioSources()
+    private AudioSource SetAudioSources()
     {
-        audioSources = new Dictionary<string, AudioSource>();
-        for(int i = 0; i < minNum; i++)
-        {
-            GameObject tempObj = new GameObject("AudioSource " + i);
+            GameObject tempObj = new GameObject("AudioSource " + audioSources.Count);
             tempObj.transform.SetParent(this.transform);
             AudioSource tempSource = tempObj.AddComponent<AudioSource>();
-            audioSources.Add(tempObj.name, tempSource);
-        }
+            audioSources.Enqueue(tempSource);  
 
-        BGMSource = GFunc.GetRootObj(Define.PLAYER).GetComponentInChildren<AudioSource>();
-
-        PlayBGMClip("SE_BGM_Tutorial");
-    }
-    // Update is called once per frame
-    void Update()
-    {
-        
+            return tempSource;
     }
     
     private AudioSource CheckEmptySource()
     {
         AudioSource targetSource = default;
-        foreach(AudioSource source in audioSources.Values)
+        foreach(AudioSource source in audioSources)
         {
             if(!source.isPlaying)
             {
@@ -69,6 +64,8 @@ public class SoundManager : MonoBehaviour
                 return targetSource;
             }
         }
+        targetSource = SetAudioSources();
+
         return targetSource;
     }
 
@@ -79,15 +76,12 @@ public class SoundManager : MonoBehaviour
     }
     public void PlaySfxClip(string clipName_, Vector3 position_ ,float volume = 0.5f)
     {
-        //AudioSource.PlayClipAtPoint(ResourceManager.sfxClips[clipName_], position_);
-
-        GameObject gameObject = new GameObject("One shot audio");
-        gameObject.transform.position = position_;
-        AudioSource audioSource = (AudioSource)gameObject.AddComponent(typeof(AudioSource));
+        AudioSource source = CheckEmptySource();
+        
+        source.transform.position = position_;
         AudioClip clip = ResourceManager.sfxClips[clipName_];        
-        audioSource.clip = clip;
-        audioSource.volume = volume;
-        audioSource.Play();
-        Object.Destroy(gameObject, clip.length * ((Time.timeScale < 0.01f) ? 0.01f : Time.timeScale));
+        source.clip = clip;
+        source.volume = volume;
+        source.Play();        
     }    
 }

@@ -31,6 +31,7 @@ public class Torch : GrabbableEvents
         flameFX.SetActive(isFlameOn);
         returnSnapZone.enabled = false;
     }
+
     // Update is called once per 
     void Update()
     {
@@ -73,6 +74,14 @@ public class Torch : GrabbableEvents
     {
         isFlameOn = !isFlameOn;
         flameCollider.enabled = isFlameOn;
+        if(isFlameOn == true)
+        {
+            SoundManager.Instance.PlaySfxClip("SE_Item_torch_on", flameFX.transform.position);
+        }
+        else
+        {
+            SoundManager.Instance.PlaySfxClip("SE_Item_torch_off", flameFX.transform.position);
+        }
         base.OnTriggerDown();   
 
     }
@@ -83,7 +92,6 @@ public class Torch : GrabbableEvents
         if (!flameCollider.enabled) { return; }
         if (other.gameObject.layer == LayerMask.NameToLayer("Default"))
         {              
-            input.VibrateController(0.2f, 0.1f, 0.1f, thisGrabber.HandSide);
         }
                 
     }

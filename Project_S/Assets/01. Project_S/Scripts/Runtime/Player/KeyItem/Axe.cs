@@ -46,13 +46,19 @@ public class Axe : GrabbableEvents
     {
         effect.SetActive(isBladeOn);
     }
+
+    public void DoShake()
+    {
+        input.VibrateController(0.3f, 0.2f, 0.1f, thisGrabber.HandSide);
+    }
+
     public override void OnTriggerDown()
     {
         isBladeOn = !isBladeOn;
         bladeCollider.enabled = isBladeOn;
         if(isBladeOn == true)
         {
-            SoundManager.Instance.PlaySfxClip("SE_Item_axe_on", effectPos.position);
+            SoundManager.Instance.PlaySfxClip("SE_Item_axe_on", effectPos.position, 0.1f);
         }
         base.OnTriggerDown();
     }
