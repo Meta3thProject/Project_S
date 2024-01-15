@@ -15,6 +15,14 @@ public class NPCBase : MonoBehaviour, INPCBehaviour
     // 출력문ID
     public int printID;
 
+    private void Start()
+    {
+        if (QuestManager.Instance.idToQuest[questID].IsCompleted == true)
+        {
+            printID = QuestManager.Instance.idToQuest[questID].LastPrintID;
+        }
+    }
+
     // 매니져에서 사용할 초기화 함수
     public void Init(NPC_TABLEData data_)
     {
@@ -60,7 +68,7 @@ public class NPCBase : MonoBehaviour, INPCBehaviour
         else if (QuestManager.Instance.idToQuest[questID].IsCompleted == true)
         {
             // 완료 출력문
-            //printID = QuestManager.Instance.idToQuest[questID].CompleteID;
+            printID = QuestManager.Instance.idToQuest[questID].CompleteID;
             // 변화없음
         }
     }

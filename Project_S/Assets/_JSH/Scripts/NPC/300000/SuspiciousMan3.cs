@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class SuspiciousMan3 : NPCBase
 {
-    private void Awake()
+    private void Start()
     {
         if (QuestManager.Instance.idToQuest[questID].IsCompleted == true)
         {

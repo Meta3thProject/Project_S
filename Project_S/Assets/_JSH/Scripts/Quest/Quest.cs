@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 
 // 유형
 public enum QuestType
@@ -71,6 +72,11 @@ public class Quest
     /// </summary>
     private bool isCompleted;
 
+    /// <summary>
+    /// 퀘스트 클리어 후 대사 ID
+    /// </summary>
+    private int lastPrintID;
+
     public int EndNPC { get { return endNPC; } }
 
     public int Value1 { get { return value1; } }
@@ -85,7 +91,9 @@ public class Quest
     public bool IsAccepted { get { return isAccepted; } }
     public bool IsCompleted { get { return isCompleted; } }
 
-    public Quest(QUEST_TABLEData data_)
+    public int LastPrintID { get { return lastPrintID; } }
+
+    public Quest(QUEST_TABLEData data_, int id_)
     {
         title = data_.QUEST_TITLE;
 
@@ -103,6 +111,8 @@ public class Quest
 
         isAccepted = false;
         isCompleted = false;
+
+        lastPrintID = id_;
     }
 
     public void Accept()

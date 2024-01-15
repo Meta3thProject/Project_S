@@ -93,18 +93,18 @@ public class WorkBanch : MonoBehaviour
     }
 }
 
-[CustomEditor(typeof(WorkBanch))]
-public class CombineItemButton : Editor
-{
-    public override void OnInspectorGUI()
-    {
-        base.OnInspectorGUI();
+//[CustomEditor(typeof(WorkBanch))]
+//public class CombineItemButton : Editor
+//{
+//    public override void OnInspectorGUI()
+//    {
+//        base.OnInspectorGUI();
 
-        WorkBanch workBanch = (WorkBanch)target;
+//        WorkBanch workBanch = (WorkBanch)target;
 
-        if (GUILayout.Button("Combine Items"))
-        {
-            workBanch.CombineItems();
-        }
-    }
-}
+//        if (GUILayout.Button("Combine Items"))
+//        {
+//            workBanch.CombineItems();
+//        }
+//    }
+//}

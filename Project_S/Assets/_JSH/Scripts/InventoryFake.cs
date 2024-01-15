@@ -12,11 +12,13 @@ public class InventoryFake : MonoBehaviour
 
     private void Awake()
     {
+        // Instance = this;
+
+        // BSJ _ 240115
         // { 싱글톤
         if (null == Instance)
         {
             Instance = this;
-
             DontDestroyOnLoad(this.gameObject);
         }
         else

@@ -14,6 +14,21 @@ public class LittleSpirit : NPCBase, IPuzzleHolder
     public const int AXEPUZZLE = 13;
     public const int DOORPUZZLE = 14;
 
+    private void Start()
+    {
+        // 301102 301107
+        if (questID == 301102)
+        {
+            transform.position = fixedLocations[0].position;
+            transform.rotation = fixedLocations[0].rotation;
+        }
+        else if (questID == 301107)
+        {
+            transform.position = fixedLocations[2].position;
+            transform.rotation = fixedLocations[2].rotation;
+        }
+    }
+
     // 퀘스트 진행 함수: 상호작용 시 호출
     public void SetQuestID()
     {

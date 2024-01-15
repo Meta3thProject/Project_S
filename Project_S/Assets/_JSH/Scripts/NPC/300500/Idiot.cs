@@ -8,14 +8,20 @@ public class Idiot : NPCBase, IPuzzleHolder
     public Transform hidePos;
 
     // 이 NPC가 체크해야하는 퍼즐의 인덱스
-    public const int HIDESEEKINDEX = 18;
+    public const int HIDESEEKINDEX = 17;
     public const int FLOWERDELINDEX = 18;
-
-
 
     // 처음 말 걸었을 때, 퍼즐 벽이 쳐지는 스크립트.
     public PlayerEnterPuzzleTrigger hideAndSeekTransparentWall;
     public PlayerEnterPuzzleTrigger flowerDeliveryTransparentWall;
+
+    private void Start()
+    {
+        if (questID == 301504)
+        {
+            ChangePosition();
+        }
+    }
 
     // 301503, 301504
     public void SetQuestID()

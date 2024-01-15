@@ -9,6 +9,10 @@ public class NPCManager : MonoBehaviour
 
     // 플레이어
     public GameObject player;
+
+    // HSJ_ 240115
+    private MenuController menuController;
+
     // 현재 상호작용 중인 NPC
     public NPCBase interacted;
 
@@ -42,11 +46,17 @@ public class NPCManager : MonoBehaviour
 
     private void Awake()
     {
+
+        //Instance = this;
+        // HSJ_ 240115
+        menuController = player.GetComponent<MenuController>();
+
+
+        // BSJ _ 240115
         // { 싱글톤
         if (null == Instance)
         {
             Instance = this;
-
             DontDestroyOnLoad(this.gameObject);
         }
         else
@@ -84,12 +94,16 @@ public class NPCManager : MonoBehaviour
 
     public void PopUp(Vector3 dir_)
     {
+        menuController.DisableMove(false);
+
         windowCanvas.GetComponent<RectTransform>().position = (dir_ * 2) + player.transform.position;
         windowCanvas.GetComponent<RectTransform>().forward = dir_;
     }
 
     public void PopDown()
     {
+        menuController.DisableMove(true);
+
         main.SetActive(false);
         twoChoices.SetActive(false);
 

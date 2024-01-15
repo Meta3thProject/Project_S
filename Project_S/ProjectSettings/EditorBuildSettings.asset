@@ -41,13 +41,13 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/_BSJ/Scenes/Lobby.unity
     guid: 0fffca37fbfc3f3449d88b9f51e7bac0
-  - enabled: 1
+  - enabled: 0
     path: Assets/_BSJ/Scenes/BSJ_MainSceneCopy.unity
     guid: 88e7fcb4c4410474d9db83deb04ea04f
-  - enabled: 1
+  - enabled: 0
     path: Assets/_PJK/Scene/PJK_MainSceneCopy.unity
     guid: 26ea533210531f64aa78f95f32b8ad90
-  - enabled: 1
+  - enabled: 0
     path: Assets/_JSH/Scenes/Main Scene Copy.unity
     guid: 02538033247b24d4795fe4e4cc1f4f3a
   - enabled: 1

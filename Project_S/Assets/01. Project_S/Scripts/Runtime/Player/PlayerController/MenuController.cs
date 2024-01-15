@@ -22,14 +22,18 @@ public class MenuController : MonoBehaviour
 
     void Update()
     {
-     if(isMenuButtonDown())
+        if (isMenuButtonDown())
         {
-            isPress = !isPress;
-            controller.enabled = !isPress;
-            locomotionManager.enabled = !isPress;
+            DisableMove(!isPress);
         }
     }
 
+    public void DisableMove(bool isOn_)
+    {
+        isPress = isOn_;
+        controller.enabled = isOn_;
+        locomotionManager.enabled = isOn_;
+    }
     bool isMenuButtonDown()
     {
         if (input.BackButtonDown)

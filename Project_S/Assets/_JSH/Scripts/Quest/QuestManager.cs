@@ -18,17 +18,21 @@ public class QuestManager : MonoBehaviour
 
     // 퀘스트 Dictionary
     public Dictionary<int, Quest> idToQuest;
+    // 퀘스트 클리어 후 대사ID 리스트
+    public List<int> idList;
 
     // 현재 진행중인 퀘스트
     public List<Quest> acceptedQuests;
 
     private void Awake()
     {
+        //Instance = this;
+
+        // BSJ _ 240115
         // { 싱글톤
         if (null == Instance)
         {
             Instance = this;
-
             DontDestroyOnLoad(this.gameObject);
         }
         else
@@ -38,12 +42,53 @@ public class QuestManager : MonoBehaviour
         // } 싱글톤
 
         idToQuest = new Dictionary<int, Quest>();
+        idList = new List<int>();
+
+        #region 리스트 초기화
+        idList.Add(304005);
+        idList.Add(304011);
+        idList.Add(304017);
+        idList.Add(304024);
+        idList.Add(304108);
+        idList.Add(304117);
+        idList.Add(304126);
+        idList.Add(304136);
+        idList.Add(304151);
+        idList.Add(304160);
+        idList.Add(304171);
+        idList.Add(304181);
+        idList.Add(304206);
+        idList.Add(304212);
+        idList.Add(304218);
+        idList.Add(304223);
+        idList.Add(304230);
+        idList.Add(304237);
+        idList.Add(304246);
+        idList.Add(304306);
+        idList.Add(304318);
+        idList.Add(304326);
+        idList.Add(304406);
+        idList.Add(304413);
+        idList.Add(304419);
+        idList.Add(304426);
+        idList.Add(304435);
+        idList.Add(304443);
+        idList.Add(304449);
+        idList.Add(304455);
+        idList.Add(304505);
+        idList.Add(304510);
+        idList.Add(304515);
+        idList.Add(304521);
+        idList.Add(304525);
+        idList.Add(304624);
+        #endregion 리스트 초기화
+
         acceptedQuests = new List<Quest>();
 
         // 퀘스트 생성
         for (int i = 0; i < questTable.dataArray.Length; i++)
         {
-            idToQuest.Add(questTable.dataArray[i].ID, new Quest(questTable.dataArray[i]));
+            idToQuest.Add(questTable.dataArray[i].ID, new Quest(questTable.dataArray[i], idList[i]));
             if (FirebaseManager.instance.QuestClearDictionary[questTable.dataArray[i].ID] == true)
             {
                 idToQuest[questTable.dataArray[i].ID].Complete();
@@ -111,6 +156,8 @@ public class QuestManager : MonoBehaviour
     // 퀘스트 완료
     public void CompleteQuest(int id_)
     {
+        Debug.Log("들어옴");
+
         // 완료한 퀘스트는 퀘스트 리스트에 존재하지 않는다
         if (acceptedQuests.IndexOf(idToQuest[id_]) == -1) { return; }
         // 완료한 퀘스트가 아니면 리스트에 존재한다
@@ -120,6 +167,9 @@ public class QuestManager : MonoBehaviour
             Debug.Log($"{acceptedQuests[acceptedQuests.IndexOf(idToQuest[id_])].title} 클리어");
 
             acceptedQuests.Remove(idToQuest[id_]);
+
+            // DB에 정보 업데이트
+            UpdateToQuestDB();
         }
     }
 
@@ -186,6 +236,14 @@ public class QuestManager : MonoBehaviour
                 else { /* Do Nothing */ }
 
                 break;
+        }
+    }
+
+    public void UpdateToQuestDB()
+    {
+        foreach (int questID_ in idToQuest.Keys)
+        {
+            FirebaseManager.instance.QuestUpdateToDB(questID_, idToQuest[questID_].IsCompleted);
         }
     }
 }
