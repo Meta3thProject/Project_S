@@ -308,6 +308,7 @@ public class FirebaseManager : MonoBehaviour
                 1 => "로딩 중 .",
                 2 => "로딩 중 ..",
                 3 => "로딩 중 ...",
+                _ => "로딩 중 ...",
             };
 
             loadingTitleText.text = _loadTitleText;

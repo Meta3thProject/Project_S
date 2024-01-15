@@ -138,29 +138,29 @@ public class PuzzleManager : MonoBehaviour
         // 퍼즐 확정 되고 리팩토링 할 시간이 주어진다면 퀘스트 목록, 퀘스트 투명 벽 리스트 혹은 배열로 선언해서 코드 깔끔하게 하고싶음.
         for (int i = 0; i < PUZZLECOUNT; i++)
         {
-            if (i == 0) { upon3TreePuzzleClear.ActiveClearSign(puzzles[i]);         Puzzle_Upon3tree_Wall.RemoveWall();     }
-            else if (i == 1) { letterPuzzleClear.ActiveClearSign(puzzles[i]);       Puzzle_Letter_Wall.RemoveWall();        }
-            else if (i == 2) { flowerPuzzleClear.ActiveClearSign(puzzles[i]);       Puzzle_FlowerColor_Wall.RemoveWall();   }
-            else if (i == 3) { chessPuzzleClear.ActiveClearSign(puzzles[i]);        Puzzle_Chess_Wall.RemoveWall();         }
-            else if (i == 4) { bookSortPuzzleClear.ActiveClearSign(puzzles[i]);     Puzzle_Book_Wall.RemoveWall();          }
-            else if (i == 5) { treePuzzleClear.ActiveClearSign(puzzles[i]);         Puzzle_DropTree_Wall.RemoveWall();      }
-            else if (i == 6) { shieldPuzzleClear.ActiveClearSign(puzzles[i]);       Puzzle_Shield_Wall.RemoveWall();        }
-            else if (i == 7) { studioPuzzleClear.ActiveClearSign(puzzles[i]);       Puzzle_Studio_Wall.RemoveWall();        }
-            else if (i == 8) { taxidermyClear.ActiveClearSign(puzzles[i]);          Puzzle_taxidermy_Wall.RemoveWall();     }
-            else if (i == 9) { appleClear.ActiveClearSign(puzzles[i]);              Puzzle_UponApple_Wall.RemoveWall();     }
-            else if (i == 10) { fabricClear.ActiveClearSign(puzzles[i]);            Puzzle_Fabric_Wall.RemoveWall();        }
-            else if (i == 11) { potPuzzleClear.ActiveClearSign(puzzles[i]);         Puzzle_Pot_Wall.RemoveWall();           }
-            else if (i == 12) { butcherShop01Clear.ActiveClearSign(puzzles[i]);     Puzzle_ButcherShop01_Wall.RemoveWall(); }
+            if (i == 0) { upon3TreePuzzleClear.ActiveClearSign(puzzles[i]);         Puzzle_Upon3tree_Wall.isPuzzleClear = puzzles[i];       }
+            else if (i == 1) { letterPuzzleClear.ActiveClearSign(puzzles[i]);       Puzzle_Letter_Wall.isPuzzleClear = puzzles[i];          }
+            else if (i == 2) { flowerPuzzleClear.ActiveClearSign(puzzles[i]);       Puzzle_FlowerColor_Wall.isPuzzleClear = puzzles[i];     }
+            else if (i == 3) { chessPuzzleClear.ActiveClearSign(puzzles[i]);        Puzzle_Chess_Wall.isPuzzleClear = puzzles[i];           }
+            else if (i == 4) { bookSortPuzzleClear.ActiveClearSign(puzzles[i]);     Puzzle_Book_Wall.isPuzzleClear = puzzles[i];            }
+            else if (i == 5) { treePuzzleClear.ActiveClearSign(puzzles[i]);         Puzzle_DropTree_Wall.isPuzzleClear = puzzles[i];        }
+            else if (i == 6) { shieldPuzzleClear.ActiveClearSign(puzzles[i]);       Puzzle_Shield_Wall.isPuzzleClear = puzzles[i];          }
+            else if (i == 7) { studioPuzzleClear.ActiveClearSign(puzzles[i]);       Puzzle_Studio_Wall.isPuzzleClear = puzzles[i];          }
+            else if (i == 8) { taxidermyClear.ActiveClearSign(puzzles[i]);          Puzzle_taxidermy_Wall.isPuzzleClear = puzzles[i];       }
+            else if (i == 9) { appleClear.ActiveClearSign(puzzles[i]);              Puzzle_UponApple_Wall.isPuzzleClear = puzzles[i];       }
+            else if (i == 10) { fabricClear.ActiveClearSign(puzzles[i]);            Puzzle_Fabric_Wall.isPuzzleClear = puzzles[i];          }    
+            else if (i == 11) { potPuzzleClear.ActiveClearSign(puzzles[i]);         Puzzle_Pot_Wall.isPuzzleClear = puzzles[i];             }
+            else if (i == 12) { butcherShop01Clear.ActiveClearSign(puzzles[i]);     Puzzle_ButcherShop01_Wall.isPuzzleClear = puzzles[i];   }
             /* else if(i == 13) { TODO : 듀토리얼 퍼즐 01 } */
-            else if (i == 14) { tutorial02Clear.ActiveClearSign(puzzles[i]);        Puzzle_Tutorial02Clear_Wall.RemoveWall(); }
-            else if (i == 15) { butcherShop02Clear.ActiveClearSign(puzzles[i]);     Puzzle_ButcherShop02_Wall.RemoveWall(); }
-            else if (i == 16) { butcherShop03Clear.ActiveClearSign(puzzles[i]);     Puzzle_ButcherShop03_Wall.RemoveWall(); }
-            else if (i == 17) { hiddenPuzzleClear.ActiveClearSign(puzzles[i]);      Puzzle_Hidden_Wall.RemoveWall();        }
-            else if (i == 18) { flowerDeliveryPuzzleClear.ActiveClearSign(puzzles[i]); Puzzle_flowerDelivery_Wall.RemoveWall(); }
-            else if (i == 19) { bulbChangeClear.ActiveClearSign(puzzles[i]);        Puzzle_BulbChange_Wall.RemoveWall();    }
-            else if (i == 20) { perfumePuzzleClear.ActiveClearSign(puzzles[i]);     Puzzle_Perfume_Wall.RemoveWall();       }
-            else if (i == 21) { hideAndSeekPuzzleClear.ActiveClearSign(puzzles[i]); Puzzle_HideSeek_Wall.RemoveWall();      }
-            else if (i == 22) { catPuzzleClear.ActiveClearSign(puzzles[i]);         Puzzle_Cat_Wall.RemoveWall();           }
+            else if (i == 14) { tutorial02Clear.ActiveClearSign(puzzles[i]);        Puzzle_Tutorial02Clear_Wall.isPuzzleClear = puzzles[i]; }
+            else if (i == 15) { butcherShop02Clear.ActiveClearSign(puzzles[i]);     Puzzle_ButcherShop02_Wall.isPuzzleClear = puzzles[i];   }
+            else if (i == 16) { butcherShop03Clear.ActiveClearSign(puzzles[i]);     Puzzle_ButcherShop03_Wall.isPuzzleClear = puzzles[i];   }
+            else if (i == 17) { hiddenPuzzleClear.ActiveClearSign(puzzles[i]);      Puzzle_Hidden_Wall.isPuzzleClear = puzzles[i];          }
+            else if (i == 18) { flowerDeliveryPuzzleClear.ActiveClearSign(puzzles[i]); Puzzle_flowerDelivery_Wall.isPuzzleClear = puzzles[i]; }
+            else if (i == 19) { bulbChangeClear.ActiveClearSign(puzzles[i]);        Puzzle_BulbChange_Wall.isPuzzleClear = puzzles[i];      }
+            else if (i == 20) { perfumePuzzleClear.ActiveClearSign(puzzles[i]);     Puzzle_Perfume_Wall.isPuzzleClear = puzzles[i];         }
+            else if (i == 21) { hideAndSeekPuzzleClear.ActiveClearSign(puzzles[i]); Puzzle_HideSeek_Wall.isPuzzleClear = puzzles[i];        }
+            else if (i == 22) { catPuzzleClear.ActiveClearSign(puzzles[i]);         Puzzle_Cat_Wall.isPuzzleClear = puzzles[i];             }
         }
     }
 

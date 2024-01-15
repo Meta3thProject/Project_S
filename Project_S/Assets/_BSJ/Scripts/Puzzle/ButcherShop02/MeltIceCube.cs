@@ -26,7 +26,7 @@ public class MeltIceCube : MonoBehaviour
     [SerializeField] private bool isTorchTouch;
 
     // 마지막으로 녹았는지 체크하는 Bool값
-    [SerializeField] private bool isFinalMelt;
+    // [SerializeField] private bool isFinalMelt;
 
     // 재생성 시 생성될 위치와 회전값
     [SerializeField] private Vector3 startPosition;
@@ -183,7 +183,7 @@ public class MeltIceCube : MonoBehaviour
         rb.isKinematic = false;
 
         // 녹았음 체크 false로 변경
-        isFinalMelt = false;
+        // isFinalMelt = false;
     }
 
     /// <summary>
@@ -204,7 +204,7 @@ public class MeltIceCube : MonoBehaviour
         isTorchTouch = false;
 
         // 최종적으로 녹았는지 체크
-        isFinalMelt = true;
+        // isFinalMelt = true;
 
         // 현재 녹는 시간 초기화
         meltingTime = 0f;

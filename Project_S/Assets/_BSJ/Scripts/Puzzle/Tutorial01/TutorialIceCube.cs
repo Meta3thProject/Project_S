@@ -23,7 +23,7 @@ public class TutorialIceCube : MonoBehaviour
     [SerializeField] private bool isTorchTouch;
 
     // 마지막으로 녹았는지 체크하는 Bool값
-    [SerializeField] private bool isFinalMelt;
+    // [SerializeField] private bool isFinalMelt;
 
     // 다 녹았을 때 나올 사과 아이템
     [SerializeField] private GameObject apple;
@@ -168,7 +168,7 @@ public class TutorialIceCube : MonoBehaviour
         isTorchTouch = false;
 
         // 최종적으로 녹았는지 체크
-        isFinalMelt = true;
+        // isFinalMelt = true;
 
         // 현재 녹는 시간 초기화
         meltingTime = 0f;

@@ -17,7 +17,7 @@ public class Gimmick02FireTrigger : MonoBehaviour
     private bool isFire;
 
     // 현재 토치에 불이 켜져있는지 체크하는 트리거
-    private SphereCollider touchFireTrigger;
+    // private SphereCollider touchFireTrigger;
 
     private void Awake()
     {
@@ -27,7 +27,7 @@ public class Gimmick02FireTrigger : MonoBehaviour
         fireEffect = transform.GetChild(0).GetComponent<ParticleSystem>();
         gimmick02 = transform.parent.parent.GetComponent<Gimmick02>();
 
-        touchFireTrigger = null;
+        // touchFireTrigger = null;
     }
 
     private void OnTriggerEnter(Collider other)

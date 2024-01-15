@@ -9,11 +9,12 @@ public class BrazierChecker : MonoBehaviour
     // 이 퍼즐은 2번째 퍼즐입니다. 퍼즐의 총 갯수 (0, 1, 2, 3)
     const int PUZZLEINDEX = 1;
 
-    [Header("횟불 정답")]
-    [SerializeField] bool answerBrazier00;
-    [SerializeField] bool answerBrazier01;
-    [SerializeField] bool answerBrazier02;
-    [SerializeField] bool answerBrazier03;
+    // BSJ _ 240115
+    //[Header("횟불 정답")]
+    //[SerializeField] bool answerBrazier00;
+    //[SerializeField] bool answerBrazier01;
+    //[SerializeField] bool answerBrazier02;
+    //[SerializeField] bool answerBrazier03;
 
     [Header("현재 켜진 횟불")]
     [SerializeField] bool mirrorBrazier00;
@@ -30,10 +31,11 @@ public class BrazierChecker : MonoBehaviour
         hiddenPuzzleClear = transform.root.GetChild(17).GetComponent<HiddenPuzzleClear>();
 
         // 정답은 미리 협의된 2, 3번이 정답으로 설정
-        answerBrazier00 = false;
-        answerBrazier01 = true;
-        answerBrazier02 = true;
-        answerBrazier03 = false;
+        // BSJ _ 240115
+        //answerBrazier00 = false;
+        //answerBrazier01 = true;
+        //answerBrazier02 = true;
+        //answerBrazier03 = false;
     }
 
     /// <summary>
