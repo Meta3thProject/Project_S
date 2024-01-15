@@ -20560,6 +20560,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   clearSign: {fileID: 1888416754123595111}
+  tutorialNPC: {fileID: 0}
 --- !u!1001 &477976101341092025
 PrefabInstance:
   m_ObjectHideFlags: 0

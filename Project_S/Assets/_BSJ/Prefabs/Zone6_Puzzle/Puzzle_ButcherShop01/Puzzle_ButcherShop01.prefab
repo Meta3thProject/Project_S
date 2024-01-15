@@ -2125,6 +2125,7 @@ MonoBehaviour:
   _canvasObj: {fileID: 8787973475489433666}
   _tmp_Text: {fileID: 8787973475116559357}
   clearSign: {fileID: 7988103314777112379}
+  transparentWall: {fileID: 0}
 --- !u!1 &8787973474986202602
 GameObject:
   m_ObjectHideFlags: 0

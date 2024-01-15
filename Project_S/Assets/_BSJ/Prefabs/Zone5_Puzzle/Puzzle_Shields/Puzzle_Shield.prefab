@@ -16801,7 +16801,7 @@ Transform:
   m_GameObject: {fileID: 2847894017532704335}
   m_LocalRotation: {x: -0.00025302882, y: 0.7070945, z: -0.0001913343, w: 0.70711905}
   m_LocalPosition: {x: 23.79, y: -3.59, z: -0.36}
-  m_LocalScale: {x: 1.0213912, y: 1, z: 0.97905684}
+  m_LocalScale: {x: 1.0213912, y: 1, z: 0.97905695}
   m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 2847894018575579586}
@@ -16825,6 +16825,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   <clearCheck>k__BackingField: 
   clearSign: {fileID: 4997764596455097900}
+  transparentWall: {fileID: 0}
 --- !u!1 &2847894017873443489
 GameObject:
   m_ObjectHideFlags: 0

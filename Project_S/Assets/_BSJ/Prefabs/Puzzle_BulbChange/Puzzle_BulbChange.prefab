@@ -562,7 +562,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   clearSign: {fileID: 27855618801826268}
-  bulbQuestNpc: {fileID: 0}
 --- !u!1 &4156639265779042828
 GameObject:
   m_ObjectHideFlags: 0

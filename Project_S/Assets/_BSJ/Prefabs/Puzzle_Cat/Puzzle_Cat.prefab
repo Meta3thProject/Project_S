@@ -173,7 +173,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   clearSign: {fileID: 948199077951191222}
-  catOwner: {fileID: 0}
 --- !u!1001 &1278938433515109736
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -385,6 +384,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Layer
       value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 4793447232491792137, guid: 3198aba2856f1954e9e193acfd402700,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4825795493174895802, guid: 3198aba2856f1954e9e193acfd402700,
         type: 3}

@@ -279,6 +279,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   clearCheck: 
   clearSign: {fileID: 2087650469757984714}
+  transparentWall: {fileID: 0}
 --- !u!1 &31471019495788747
 GameObject:
   m_ObjectHideFlags: 0
