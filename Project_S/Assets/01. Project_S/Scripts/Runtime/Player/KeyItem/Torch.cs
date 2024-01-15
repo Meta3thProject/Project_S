@@ -1,4 +1,5 @@
 using BNG;
+using System.Drawing.Text;
 using UnityEngine;
 
 public class Torch : GrabbableEvents
@@ -30,39 +31,37 @@ public class Torch : GrabbableEvents
         flameFX.SetActive(isFlameOn);
         returnSnapZone.enabled = false;
     }
-    // Update is called once per frame
+    // Update is called once per 
     void Update()
-    {       
-        
-    
-        if(!grabbable.BeingHeld)
+    {
+        if (grabbable.BeingHeld && isFirst == default)
         {
-            flameCollider.enabled = false;
-            isFlameOn = false;
-            return;
-        }    
-        else
-        {
-            if (grabbable.BeingHeld && isFirst == default)
-            {
-                isFirst = true;
-                returnSnapZone.enabled = true;
-                returnSnapZone.ReturnTo = snapZone;
-            }
-
-            // { 토치 횃불 이펙트 끄고 키기
-            if (isFlameOn)
-            {
-                ActiveFlame(isFlameOn);
-            }
-            else
-            {
-                ActiveFlame(isFlameOn);
-            }
-            // } 토치 횃불 이펙트 끄고 키기
+            isFirst = true;
+            returnSnapZone.enabled = true;
+            returnSnapZone.ReturnTo = snapZone;
         }
 
+        if (!grabbable.BeingHeld)
+        {
+            flameCollider.enabled = false;
+            flameFX.SetActive(false);
+            isFlameOn = false;
+            return;
+        }   
 
+        // { 토치 횃불 이펙트 끄고 키기
+        if (isFlameOn)
+        {
+            ActiveFlame(isFlameOn);
+        }
+        else
+        {
+            ActiveFlame(isFlameOn);
+        }
+        // } 토치 횃불 이펙트 끄고 키기
+
+        
+        
     }
 
     private void ActiveFlame(bool isOn)
@@ -74,9 +73,11 @@ public class Torch : GrabbableEvents
     {
         isFlameOn = !isFlameOn;
         flameCollider.enabled = isFlameOn;
-        base.OnTriggerDown();
+        base.OnTriggerDown();   
+
     }
 
+    // 콜라이더 닿은 경우 진동이 필요없다면 삭제 
     private void OnTriggerEnter(Collider other)
     {
         if (!flameCollider.enabled) { return; }

@@ -49,8 +49,7 @@ public class SoundManager : MonoBehaviour
         }
 
         BGMSource = GFunc.GetRootObj(Define.PLAYER).GetComponentInChildren<AudioSource>();
-        //BGMSource.clip = ResourceManager.bgmClips["SE_BGM_Tutorial"];
-        //BGMSource.Play();
+
         PlayBGMClip("SE_BGM_Tutorial");
     }
     // Update is called once per frame
@@ -78,17 +77,17 @@ public class SoundManager : MonoBehaviour
         BGMSource.clip = ResourceManager.bgmClips[clipName_];
         BGMSource.Play();
     }
-    public void PlayAudioClip(string clipName_, Vector3 position_)
+    public void PlaySfxClip(string clipName_, Vector3 position_ ,float volume = 0.5f)
     {
-        AudioSource.PlayClipAtPoint(ResourceManager.sfxClips[clipName_], position_);
-        
-        //    GameObject gameObject = new GameObject("One shot audio");
-        //    gameObject.transform.position = position_;
-        //    AudioSource audioSource = (AudioSource)gameObject.AddComponent(typeof(AudioSource));
-        //    audioSource.clip = clip;
-        //    audioSource.spatialBlend = 1f;
-        //    audioSource.volume = volume;
-        //    audioSource.Play();
-        //    Object.Destroy(gameObject, clip.length * ((Time.timeScale < 0.01f) ? 0.01f : Time.timeScale));
+        //AudioSource.PlayClipAtPoint(ResourceManager.sfxClips[clipName_], position_);
+
+        GameObject gameObject = new GameObject("One shot audio");
+        gameObject.transform.position = position_;
+        AudioSource audioSource = (AudioSource)gameObject.AddComponent(typeof(AudioSource));
+        AudioClip clip = ResourceManager.sfxClips[clipName_];        
+        audioSource.clip = clip;
+        audioSource.volume = volume;
+        audioSource.Play();
+        Object.Destroy(gameObject, clip.length * ((Time.timeScale < 0.01f) ? 0.01f : Time.timeScale));
     }    
 }
