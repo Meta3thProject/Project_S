@@ -4,14 +4,43 @@ using UnityEngine;
 
 public class SuspiciousMan1 : NPCBase
 {
-    // 다리 개통: 별 1개 필요
+    private void Awake()
+    {
+        if (QuestManager.Instance.idToQuest[questID].IsCompleted == true)
+        {
+            BridgeOpen();
+        }
+    }
+
+
     public void BridgeOpen()
     {
-        // TODO: 별 소지수 체크 후 다리 개통
+        // 비활성화
+        gameObject.SetActive(false);
     }
 
     public override void PopUpDialog()
     {
         base.PopUpDialog();
+    }
+
+    public override void SetPrintID()
+    {
+        // 완료하지 않았다면
+        if (QuestManager.Instance.idToQuest[questID].IsAccepted == true &&
+            QuestManager.Instance.idToQuest[questID].IsCompleted == false)
+        {
+            if (QuestManager.Instance.idToQuest[questID].IngID == 0)
+            { /* Do Nothing */ }
+            else
+            // 진행중 출력문
+            { printID = QuestManager.Instance.idToQuest[questID].IngID; }
+        }
+        // 완료했다면
+        else if (QuestManager.Instance.idToQuest[questID].IsCompleted == true)
+        {
+            // 다리 개통
+            BridgeOpen();
+        }
     }
 }

@@ -44,7 +44,7 @@ public class NPCBase : MonoBehaviour, INPCBehaviour
         }
     }
 
-    public void SetPrintID()
+    public virtual void SetPrintID()
     {
         // 완료하지 않은 퀘스트라면
         if (QuestManager.Instance.idToQuest[questID].IsAccepted == true &&
@@ -60,7 +60,8 @@ public class NPCBase : MonoBehaviour, INPCBehaviour
         else if (QuestManager.Instance.idToQuest[questID].IsCompleted == true)
         {
             // 완료 출력문
-            printID = QuestManager.Instance.idToQuest[questID].CompleteID;
+            //printID = QuestManager.Instance.idToQuest[questID].CompleteID;
+            // 변화없음
         }
     }
 }
