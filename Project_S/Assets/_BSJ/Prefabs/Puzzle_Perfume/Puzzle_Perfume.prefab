@@ -18359,6 +18359,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   <clearCheck>k__BackingField: 
   clearSign: {fileID: 2060148009708432303}
+  transparentWall: {fileID: 0}
 --- !u!1 &5083742993989032369
 GameObject:
   m_ObjectHideFlags: 0

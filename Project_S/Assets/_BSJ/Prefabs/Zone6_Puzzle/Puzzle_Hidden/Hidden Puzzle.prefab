@@ -265,7 +265,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isClear: 0
   <clearCheck>k__BackingField: 
-  clearSign: {fileID: 0}
+  clearSign: {fileID: 4896274464666178488}
+  transparentWall: {fileID: 0}
 --- !u!1 &3803779656697436072
 GameObject:
   m_ObjectHideFlags: 0
@@ -5689,6 +5690,12 @@ PrefabInstance:
 --- !u!4 &2705981685937004525 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8856757604284860811, guid: bc70693ef89542e4181cf9c93002f1ee,
+    type: 3}
+  m_PrefabInstance: {fileID: 6873638843143116390}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &4896274464666178488 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2060148009364162014, guid: bc70693ef89542e4181cf9c93002f1ee,
     type: 3}
   m_PrefabInstance: {fileID: 6873638843143116390}
   m_PrefabAsset: {fileID: 0}

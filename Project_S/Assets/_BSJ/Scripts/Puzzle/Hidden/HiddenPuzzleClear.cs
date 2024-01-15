@@ -13,6 +13,9 @@ public class HiddenPuzzleClear : PuzzleClear
     // 퍼즐 클리어 팻말
     [SerializeField] private GameObject clearSign;
 
+    // 퍼즐을 막는 투명벽
+    [SerializeField] private PlayerEnterPuzzleTrigger transparentWall;
+
     private void Awake()
     {
         // 퍼즐 요소 배열 초기화
@@ -87,6 +90,9 @@ public class HiddenPuzzleClear : PuzzleClear
 
             // 클리어 팻말 활성화
             ActiveClearSign(true);
+
+            // 퍼즐을 막는 투명벽 해제
+            transparentWall.RemoveWall();
         }
     }
 

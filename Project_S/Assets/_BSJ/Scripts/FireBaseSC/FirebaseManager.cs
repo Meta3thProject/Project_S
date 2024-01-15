@@ -268,7 +268,7 @@ public class FirebaseManager : MonoBehaviour
     IEnumerator LoadSceneAsync()
     {
         // BSJ 테스트 씬으로 변경했음.
-        AsyncOperation AsyncLoad = SceneManager.LoadSceneAsync(JSHTestScene);
+        AsyncOperation AsyncLoad = SceneManager.LoadSceneAsync(BSJTESTSCENE);
         AsyncLoad.allowSceneActivation = false;
 
         int loadingGaugeCount = 0;

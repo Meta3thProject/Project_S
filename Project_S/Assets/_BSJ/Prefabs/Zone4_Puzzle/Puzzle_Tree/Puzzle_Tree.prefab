@@ -677,6 +677,7 @@ MonoBehaviour:
   - {fileID: 0}
   <clearCheck>k__BackingField: 
   clearSign: {fileID: 3373552423749411006}
+  transparentWall: {fileID: 0}
 --- !u!1 &3622681620261247987
 GameObject:
   m_ObjectHideFlags: 0
