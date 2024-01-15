@@ -81,7 +81,7 @@ public class WorkBanch : MonoBehaviour
 
                 onWorkBanch.Clear();
                 itemIds.Clear();
-
+                
                 // 조합대 컬라이더 중앙에서 조합된 아이템 생성
                 ItemDataManager.instance.InstanceItem(idStringToID[str], GetComponent<Collider>().bounds.center);
                 break;

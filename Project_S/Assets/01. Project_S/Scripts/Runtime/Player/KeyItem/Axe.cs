@@ -50,7 +50,10 @@ public class Axe : GrabbableEvents
     {
         isBladeOn = !isBladeOn;
         bladeCollider.enabled = isBladeOn;
-        SoundManager.Instance.PlayAudioClip("SE_Item_axe_on", effectPos.position);
+        if(isBladeOn == true)
+        {
+            SoundManager.Instance.PlaySfxClip("SE_Item_axe_on", effectPos.position);
+        }
         base.OnTriggerDown();
     }
     
