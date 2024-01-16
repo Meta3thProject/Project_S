@@ -21,6 +21,10 @@ public class PublicTree : InteractableObject
         {
             isInteractionAble = false;
 
+            // HSJ_ 230115
+            other.GetComponent<Axe>().DoShake();
+            SoundManager.Instance.PlaySfxClip("SE_Item_axe_box", other.ClosestPoint(this.transform.position));
+
             // 상호작용 실행
             InteractObject();
 
