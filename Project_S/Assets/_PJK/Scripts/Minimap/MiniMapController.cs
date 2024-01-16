@@ -44,58 +44,62 @@ public class MiniMapController : GrabbableEvents
 
     void Update()
     {
-        if (isacting == false)
+        if (!isacting)
         {
             if (thisGrabber != null && thisGrabber.HeldGrabbable != null)
             {
-                if (Input.GetKeyDown(KeyCode.J) || thisGrabber.HeldGrabbable.tag.Equals("MiniMapLeft"))
+                if ((Input.GetKeyDown(KeyCode.J) || thisGrabber.HeldGrabbable.tag.Equals("MiniMapLeft")) && isacting == false)
                 {
-
-                    MapOpen();
                     isacting = true;
-                    MapScale.instance.isMapOpen = isacting;
+                    StartCoroutine(MapOpenCoroutine());
+                    //MapOpen();
+                    MapScale.instance.isMapOpen = true;
 
-
+                    //isacting = false;
+                    //Debug.Log("맵열기종료");
                 }
             }
-        }
-        else if (isacting == true)
-        {
-            if (thisGrabber != null && thisGrabber.HeldGrabbable == null)
+            else if(thisGrabber != null && thisGrabber.HeldGrabbable == null)
             {
-
                 if (Input.GetKeyDown(KeyCode.K) || thisGrabber.HeldGrabbable == null)
                 {
-
-                    MapClose();
-                    isacting = false;
-                    MapScale.instance.isMapOpen = isacting;
+                    StartCoroutine(MapCloseCoroutine());
+                    //isacting = false;
+                    MapScale.instance.isMapOpen = false;
 
                 }
             }
         }
     }
+    IEnumerator MapOpenCoroutine()
+    {
+        MapOpen(); // MapOpen 함수 호출
+
+        // 여기서 MapOpen 함수의 코루틴이 끝날 때까지 기다립니다.
+        yield return StartCoroutine(OpenLeftM());
+
+        isacting = false;
+    }
+
+    IEnumerator MapCloseCoroutine()
+    {
+        MapClose(); // MapOpen 함수 호출
+
+        // 여기서 MapOpen 함수의 코루틴이 끝날 때까지 기다립니다.
+        yield return StartCoroutine(CloseLeftM());
+
+        isacting = false;
+    }
     public void MapOpen()
     {
 
-        Debug.Log("잡힘");
+
         isacting = true;
 
         canvas.GetComponent<Canvas>().enabled = true;
 
-        //if (thisGrabber.HandSide == ControllerHand.Left)
-        //{
-        //    Debug.Log("왼손으로 잡음");
-        //    OpenMap();
-        //    isLeftOpen = true;
-        //    isLeftClose = false;
-        //    isRightOpen = false;
-        //    isRightClose = false;
-        //}
-        //else 
         if (thisGrabber.HandSide == ControllerHand.Right)
         {
-            Debug.Log("오른손으로 잡음");
 
             OpenLeftMap();
             isLeftOpen = false;
@@ -110,30 +114,10 @@ public class MiniMapController : GrabbableEvents
     }
     public void MapClose()
     {
+        isacting = false;
 
-        //if (isLeftOpen == true)
-        //{
-        //    CloseMap();
+        canvas.GetComponent<Canvas>().enabled = false;
 
-        //    isLeftOpen = false;
-        //    isLeftClose = true;
-        //    isRightOpen = false;
-        //    isRightClose = false;
-
-
-
-        //    if (right < -50f)
-        //    {
-        //        canvas.GetComponent<Canvas>().enabled = false;
-
-        //    }
-        //    if (canvas.GetComponent<Canvas>().enabled == false)
-        //    {
-
-        //        isacting = false;
-        //    }
-        //}
-        //else 
         if (isRightOpen == true)
         {
             CloseLeftMap();
@@ -142,70 +126,23 @@ public class MiniMapController : GrabbableEvents
             isLeftClose = false;
             isRightOpen = false;
             isRightClose = true;
-
-
-
-            if (isLeftClose || isRightClose)
-            {
-                canvas.GetComponent<Canvas>().enabled = false;
-
-            }
-            if (canvas.GetComponent<Canvas>().enabled == false)
-            {
-
-                isacting = false;
-            }
         }
 
     }
 
-
-    //void OpenMap()
-    //{
-    //    Debug.Log("왼손으로 지도피기시작");
-
-    //    m.SetFloat(direction, -1);
-    //    StartCoroutine(OpenM());
-    //    Debug.Log("왼손으로 지도피기시작2");
-
-
-    //}
-    //IEnumerator OpenM()
-    //{
-    //    while (testFloat < 1f)
-    //    {
-
-    //        testFloat += speed * 0.1f;
-    //        m.SetFloat(id, testFloat);
-    //        left = 0f;
-    //        right = Mathf.Lerp(1090f, -50f, testFloat - 0.05f);
-    //        newPadding = new Vector4(left, bottom, right, top);
-    //        imagemask.padding = newPadding;
-    //        //Debug.Log(testFloat);
-    //        yield return new WaitForSeconds(0.01f);
-    //    }
-    //    isacting = false;
-
-    //}
-
     void OpenLeftMap()
     {
-        Debug.Log("오른손으로 지도피기시작");
-        //gameObject.transform.position = new Vector3(gameObject.transform.position.x + 0.5f, gameObject.transform.position.y, gameObject.transform.position.z);
+
         m.SetFloat(direction, 1);
 
         StartCoroutine(OpenLeftM());
-        Debug.Log("오른손으로 지도피기종료");
 
 
 
     }
     IEnumerator OpenLeftM()
     {
-        Debug.Log("코루틴시작");
-        //gameObject.transform.position = new Vector3(gameObject.transform.position.x + 0.5f, gameObject.transform.position.y, gameObject.transform.position.z);
 
-        Debug.LogFormat("시작 testFloat:{0}",testFloat);
         while (testFloat < 1f)
         {
             testFloat += speed * 0.1f;
@@ -219,58 +156,26 @@ public class MiniMapController : GrabbableEvents
         }
 
         isacting = false;
-        Debug.Log("오른손으로 지도피기코루틴종료");
 
     }
-
-
-
-
-
-    //void CloseMap()
-    //{
-    //    //gameObject.transform.position = new Vector3(0f, 2f, 0f);
-    //    m.SetFloat(direction, -1);
-    //    StartCoroutine(CloseM());
-    //    //gameObject.transform.position = new Vector3(gameObject.transform.position.x + 0.5f, gameObject.transform.position.y, gameObject.transform.position.z);
-    //}
-    //IEnumerator CloseM()
-    //{
-    //    while (testFloat > 0f)
-    //    {
-    //        testFloat -= speed * 0.1f;
-    //        m.SetFloat(id, testFloat);
-    //        left = 0f;
-    //        right = Mathf.Lerp(1090f, -50f, testFloat - 0.05f);
-    //        newPadding = new Vector4(left, bottom, right, top);
-    //        imagemask.padding = newPadding;
-    //        yield return new WaitForSeconds(0.01f);
-    //    }
-    //    yield return null;
-    //    isacting = false;
-    //}
 
     void CloseLeftMap()
     {
-        //  gameObject.transform.position = new Vector3(2.95f, 2f, 0f);
         m.SetFloat(direction, 1);
         StartCoroutine(CloseLeftM());
-        Debug.Log(number);
     }
     IEnumerator CloseLeftM()
     {
-        while (testFloat < 1f)
+        while (testFloat > 0f)
         {
-            testFloat += speed * 0.1f;
+            testFloat -= speed * 0.1f;
             m.SetFloat(id, testFloat);
-            right = 0;
-            left = Mathf.Lerp(1090f, -50f, testFloat - 0.05f);
+            right = Mathf.Lerp(1090f, -50f, testFloat - 0.05f);
+            left = 0;
             newPadding = new Vector4(left, bottom, right, top);
             imagemask.padding = newPadding;
-            Debug.Log(testFloat);
             yield return new WaitForSeconds(0.01f);
         }
-        yield return null;
         isacting = false;
     }
 }

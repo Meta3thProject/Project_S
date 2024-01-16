@@ -5,7 +5,7 @@ public class PlayerSight : MonoBehaviour
 {
     public Transform playerTransform;
     public Image minimapIcon;
-    public float fieldOfView = 90f;
+    public float fieldOfView = 0f;
 
     private MeshFilter meshFilter;
     private MeshRenderer meshRenderer;
@@ -34,9 +34,11 @@ public class PlayerSight : MonoBehaviour
 
     void UpdateMinimapIcon()
     {
-        // 플레이어 아이콘의 위치 및 회전을 설정
-        minimapIcon.transform.position = CalculateMinimapPosition(playerTransform.position);
-        minimapIcon.transform.rotation = Quaternion.Euler(0, playerTransform.eulerAngles.y, 0);
+        // 플레이어 아이콘의 위치를 설정
+        minimapIcon.transform.position = CalculateMinimapPosition(new Vector3(playerTransform.position.x, 17.9f, playerTransform.position.z));
+
+        // 플레이어 아이콘의 회전을 설정 (playerTransform의 y값에 20을 더한 각도로)
+        minimapIcon.transform.rotation = Quaternion.Euler(0, playerTransform.eulerAngles.y-90, 0);
     }
 
     Vector3 CalculateMinimapPosition(Vector3 worldPosition)
@@ -59,7 +61,7 @@ public class PlayerSight : MonoBehaviour
 
         for (int i = 1; i <= segments + 1; i++)
         {
-            float radian = Mathf.Deg2Rad * (i * angle / (segments + 1) - angle / 2f);
+            float radian = Mathf.Deg2Rad * (i * angle / segments - angle / 2f);
             vertices[i] = new Vector3(Mathf.Cos(radian) * radius, 0f, Mathf.Sin(radian) * radius);
         }
 

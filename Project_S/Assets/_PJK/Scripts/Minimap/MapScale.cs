@@ -1,6 +1,5 @@
 using BNG;
 using TMPro;
-using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.Rendering;
 using UnityEngine.UI;
@@ -45,8 +44,8 @@ public class MapScale : GrabbableEvents
     public bool iszone4 = false;
     public bool iszone5 = false;
     //현재 켜진 맵이 ZoneMap인지 WorldMap인지?
-    public bool isZoneMap = false;
-    public bool isWorldMap = true;
+    public bool isZoneMap = true;
+    public bool isWorldMap = false;
     //맵이 켜져있는지?
     public bool isMapOpen = false;
     //위치 지정 현재 플레이어의 위치
@@ -55,12 +54,17 @@ public class MapScale : GrabbableEvents
     public GameObject[] player = new GameObject[5];
 
     //카메라세팅 기본Zone세팅//Zone4세팅//Zone5세팅
-    private Rect zone1Rect = new Rect(0f, 0.55f, 1f, 1f);
-    private Rect zone2Rect = new Rect(0.2f, 0.2f, 0.6f, 0.6f);
-    private Rect zone3Rect = new Rect(0.2f, 0.2f, 0.6f, 0.6f);
+    private Rect zone1Rect = new Rect(0f, 0f, 1f, 1f);
+    private Rect zone2Rect = new Rect(0f, 0f, 1f, 1f);
+    private Rect zone3Rect = new Rect(0f, 0f, 1f, 1f);
     private Rect zone4Rect = new Rect(0f, 0f, 1f, 1f);
     private Rect zone5Rect = new Rect(0f, 0f, 1f, 1f);
     //미니맵 마크를 가져올 미니맵마커매니져인스턴스
+
+
+    // HSJ_ 240115
+    private Vector3 offset = new Vector3(-0.1f, 0f, 0f);
+    
 
     protected override void Awake()
     {
@@ -83,6 +87,9 @@ public class MapScale : GrabbableEvents
         cam = minimapCamera.GetComponent<Camera>();
         //minimapImage.texture = minimapMaxCameraTexture;
         outline = outLine.GetComponent<RectTransform>();
+        worldmap.SetActive(false);
+        isWorldMap = false;
+        isZoneMap = true;
     }
 
 
@@ -90,35 +97,12 @@ public class MapScale : GrabbableEvents
 
     private void Update()
     {
-        //if (thisGrabber != null && thisGrabber.HeldGrabbable != null)
-        //{
-        //    if (input.RightGripDown && thisGrabber.HeldGrabbable.tag.Equals("MiniMap"))
-        //    {
-
-
-
-        //        if (isZoneMap == false)
-        //        {
-        //            isZoneMap = true;
-        //            isWorldMap = false;
-        //            worldmap.SetActive(false);
-        //            zonemap.SetActive(true);
-        //        }
-        //        else if (isWorldMap == false)
-        //        {
-        //            isZoneMap = false;
-        //            isWorldMap = true;
-        //            worldmap.SetActive(true);
-        //            zonemap.SetActive(false);
-        //        }
-
-        //    }
-
-
-        //}
-
         if (isMapOpen == false)
         {
+            if(this.transform.parent.name == "HolsterRight")
+            {
+                this.transform.localPosition = offset;
+            }       // if : SnapZone에 들어 갔을 떄 포지션 Offset으로 맞춰주기
             return;
         }
         else if (isMapOpen == true)
@@ -126,26 +110,24 @@ public class MapScale : GrabbableEvents
             pos = NPCManager.Instance.player.transform.position;
         }
 
-        if (isMapOpen == true && isWorldMap == false && isZoneMap == true)
+        if (Input.GetKeyDown(KeyCode.O)||(InputBridge.Instance.RightTriggerDown || InputBridge.Instance.LeftTriggerDown) && ((thisGrabber.HandSide == ControllerHand.Left) || (thisGrabber.HandSide == ControllerHand.Right)))
         {
-            if ((InputBridge.Instance.RightGripDown || InputBridge.Instance.LeftGripDown) && ((thisGrabber.HandSide == ControllerHand.Left) || (thisGrabber.HandSide == ControllerHand.Right)))
+            Debug.Log("O버튼 누름");
+            if (isMapOpen == true && isWorldMap == false && isZoneMap == true)
             {
                 isWorldMap = true;
                 isZoneMap = false;
                 worldmap.SetActive(true);
-                //zonemap.SetActive(false);
+                zonemap.SetActive(false);
+            }
+            else if (isMapOpen == true && isWorldMap == true && isZoneMap == false)
+            {
+                isWorldMap = false;
+                isZoneMap = true;
+                worldmap.SetActive(false);
+                zonemap.SetActive(true);
             }
         }
-        //else if (isMapOpen == true && isWorldMap == true && isZoneMap == false)
-        //{
-        //    if ((InputBridge.Instance.RightGripDown || InputBridge.Instance.LeftGripDown) && ((thisGrabber.HandSide == ControllerHand.Left) || (thisGrabber.HandSide == ControllerHand.Right)))
-        //    {
-        //        isWorldMap = false;
-        //        isZoneMap = true;
-        //        worldmap.SetActive(false);
-        //        zonemap.SetActive(true);
-        //    }
-        //}
 
         //zone1map
         if (-27f <= pos.x && pos.x <= 2f && 11.35f < pos.z && pos.z < 86f)
@@ -250,30 +232,10 @@ public class MapScale : GrabbableEvents
         }
 
     }
-    private void UpdateMinimapTexture()
-    {
-        // 랜더 텍스쳐 초기화
-        ClearRenderTexture();
 
-        // 미니맵 카메라 업데이트
-        UpdateMinimapCamera();
-    }
-    void ClearRenderTexture()
-    {
-        // 랜더 텍스쳐 초기화 (URP에서는 CommandBuffer를 사용)
-        CommandBuffer commandBuffer = new CommandBuffer();
-        commandBuffer.SetRenderTarget(minimapCameraTexture);
-        commandBuffer.ClearRenderTarget(true, true, Color.clear);
-        Graphics.ExecuteCommandBuffer(commandBuffer);
-    }
-    void UpdateMinimapCamera()
-    {
-        cam.targetTexture = minimapCameraTexture; 
-    }
 
     public void Zone1()
     {
-        UpdateMinimapTexture();
         cam.orthographicSize = 29f;
         minimapCamera.transform.position = zone1pos.transform.position;
         cam.rect = zone1Rect;
@@ -283,7 +245,6 @@ public class MapScale : GrabbableEvents
     }
     public void Zone2()
     {
-        UpdateMinimapTexture();
 
         cam.orthographicSize = 75f;
         minimapCamera.transform.position = zone2pos.transform.position;
@@ -295,7 +256,6 @@ public class MapScale : GrabbableEvents
     //zone3map
     public void Zone3()
     {
-        UpdateMinimapTexture();
 
         cam.orthographicSize = 58.6f;
         minimapCamera.transform.position = zone3pos.transform.position;
@@ -308,7 +268,6 @@ public class MapScale : GrabbableEvents
     //zone4map
     public void Zone4()
     {
-        UpdateMinimapTexture();
 
         cam.orthographicSize = 42.9f;
         minimapCamera.transform.position = zone4pos.transform.position;
@@ -321,7 +280,6 @@ public class MapScale : GrabbableEvents
     //zone5map
     public void Zone5()
     {
-        UpdateMinimapTexture();
 
         cam.orthographicSize = 42.9f;
         minimapCamera.transform.position = zone5pos.transform.position;
@@ -366,23 +324,6 @@ public class MapScale : GrabbableEvents
 
         }
 
-    }
-
-
-    public void changetoWorldMap()
-    {
-        isWorldMap = true;
-        isZoneMap = false;
-        //minimapImage.texture = minimapZone1CameraTexture;
-
-
-    }
-
-    public void changetoZoneMap()
-    {
-        isZoneMap = true;
-        isWorldMap = false;
-        //minimapImage.texture = minimapZone1CameraTexture;
     }
 
     // BSJ 퍼즐 클리어 예시
