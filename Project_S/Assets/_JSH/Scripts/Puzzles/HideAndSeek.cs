@@ -11,6 +11,9 @@ public class HideAndSeek : MonoBehaviour, IActiveSign
     [SerializeField] private GameObject clearSign;
     // } BSJ PuzzleManager 에 맞춰서 추가된 변수들
 
+    // NPC
+    public NPCBase npc;
+
     // 숨바꼭질 힌트
     public GameObject hint;
 
@@ -27,7 +30,7 @@ public class HideAndSeek : MonoBehaviour, IActiveSign
         if (PuzzleManager.instance.puzzles[PUZZLEINDEX] == true) { return; }
 
         // 퀘스트 수락 체크
-        if (QuestManager.Instance.idToQuest[GetComponent<NPCBase>().questID].IsAccepted == true)
+        if (QuestManager.Instance.idToQuest[npc.questID].IsAccepted == true)
         {
             // 힌트 생성
             Instantiate(hint, transform.position, Quaternion.identity);
@@ -40,7 +43,7 @@ public class HideAndSeek : MonoBehaviour, IActiveSign
         // 이미 완료된 상태라면 함수 종료
         if (PuzzleManager.instance.puzzles[PUZZLEINDEX] == true) { return; }
 
-        if (QuestManager.Instance.idToQuest[GetComponent<NPCBase>().questID].IsAccepted == true)
+        if (QuestManager.Instance.idToQuest[npc.questID].IsAccepted == true)
         {
             // 퍼즐 클리어 체크
             PuzzleManager.instance.puzzles[PUZZLEINDEX] = true;

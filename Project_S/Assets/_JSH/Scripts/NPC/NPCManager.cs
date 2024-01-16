@@ -46,24 +46,23 @@ public class NPCManager : MonoBehaviour
 
     private void Awake()
     {
-
-        //Instance = this;
+        Instance = this;
         // HSJ_ 240115
         menuController = player.GetComponent<MenuController>();
 
 
         // BSJ _ 240115
-        // { 싱글톤
-        if (null == Instance)
-        {
-            Instance = this;
-            DontDestroyOnLoad(this.gameObject);
-        }
-        else
-        {
-            Destroy(this.gameObject);
-        }
-        // } 싱글톤
+        //// { 싱글톤
+        //if (null == Instance)
+        //{
+        //    Instance = this;
+        //    DontDestroyOnLoad(this.gameObject);
+        //}
+        //else
+        //{
+        //    Destroy(this.gameObject);
+        //}
+        //// } 싱글톤
 
         //player = GameObject.FindObjectOfType<CharacterController>().transform.gameObject;
 

@@ -52,7 +52,6 @@ public partial class EndingAfterTalk : MonoBehaviour
             float angleIncrement = (2 * Mathf.PI) / StarManager.starManager.getStarCount;
 
 
-            //star.transform.localScale = Vector3.one * 0.01f;
             for (int i = 0; i < StarManager.starManager.getStarCount+1; i++)
             {
                 float angle = i * angleIncrement;

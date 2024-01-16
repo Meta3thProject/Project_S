@@ -38,7 +38,7 @@ public class PlayerSight : MonoBehaviour
         minimapIcon.transform.position = CalculateMinimapPosition(new Vector3(playerTransform.position.x, 17.9f, playerTransform.position.z));
 
         // 플레이어 아이콘의 회전을 설정 (playerTransform의 y값에 20을 더한 각도로)
-        minimapIcon.transform.rotation = Quaternion.Euler(0, playerTransform.eulerAngles.y-90, 0);
+        minimapIcon.transform.rotation = Quaternion.Euler(0, playerTransform.eulerAngles.y - 90, 0);
     }
 
     Vector3 CalculateMinimapPosition(Vector3 worldPosition)

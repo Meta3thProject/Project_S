@@ -89,8 +89,8 @@ public class SpotTrigger : MonoBehaviour
             // 클리어 했음을 표시하는 메서드 호출
             butcherShop01Clear.ClearText();
 
-            // 이미 퍼즐을 클리어 했으면 리턴 ( 이 퍼즐은 11번 )
-            if (PuzzleManager.instance.puzzles[11]) { return; }
+            // 이미 퍼즐을 클리어 했으면 리턴 ( 이 퍼즐은 12번 )
+            if (PuzzleManager.instance.puzzles[12]) { return; }
 
             // 퍼즐을 완전히 클리어 했다는 메서드 호출
             butcherShop01Clear.ButcherShopClear();

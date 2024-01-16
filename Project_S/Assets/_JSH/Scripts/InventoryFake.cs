@@ -12,20 +12,20 @@ public class InventoryFake : MonoBehaviour
 
     private void Awake()
     {
-        // Instance = this;
+        Instance = this;
 
         // BSJ _ 240115
-        // { 싱글톤
-        if (null == Instance)
-        {
-            Instance = this;
-            DontDestroyOnLoad(this.gameObject);
-        }
-        else
-        {
-            Destroy(this.gameObject);
-        }
-        // } 싱글톤
+        //// { 싱글톤
+        //if (null == Instance)
+        //{
+        //    Instance = this;
+        //    DontDestroyOnLoad(this.gameObject);
+        //}
+        //else
+        //{
+        //    Destroy(this.gameObject);
+        //}
+        //// } 싱글톤
     }
 
     public bool CheckOneValue(int value1_, int value2_)

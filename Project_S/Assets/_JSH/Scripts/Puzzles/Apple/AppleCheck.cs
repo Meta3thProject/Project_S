@@ -15,11 +15,14 @@ public class AppleCheck : MonoBehaviour, IActiveSign
     public List<GameObject> dishes;
 
     // 순서 체크 
-    private bool isInOrder;
+    private bool isInOrder = default;
 
     private int first;
     private int second;
     private int third;
+
+    // 퍼즐을 막는 투명벽
+    [SerializeField] private PlayerEnterPuzzleTrigger transparentWall;
 
     // 클리어 팻말의 활성화 여부
     public void ActiveClearSign(bool _isClear)
@@ -73,6 +76,9 @@ public class AppleCheck : MonoBehaviour, IActiveSign
 
             // 팻말 활성화
             ActiveClearSign(true);
+
+            // 퍼즐을 막는 투명벽 해제
+            transparentWall.RemoveWall();
         }
     }
 
@@ -135,6 +141,9 @@ public class AppleCheck : MonoBehaviour, IActiveSign
 
             // 팻말 활성화
             ActiveClearSign(true);
+
+            // 퍼즐을 막는 투명벽 해제
+            transparentWall.RemoveWall();
         }
     }
 }

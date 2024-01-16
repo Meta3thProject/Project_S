@@ -59,6 +59,7 @@ public class Idiot : NPCBase, IPuzzleHolder
         {
             PuzzleManager.instance.hideAndSeekPuzzleClear.DropHint();
             ChangePosition();
+            NPCManager.Instance.PopDown();
         }
         else if (questID == 301504)
         {
