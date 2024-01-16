@@ -127,6 +127,8 @@ public class SpiritHand : MonoBehaviour
     {
         if (isCharged)
         {
+            SoundManager.Instance.PlaySfxClip("SE_Player_fairyhand_shoot", this.transform.position);
+
             spiritProjectile.SetActive(true);
             spiritProjectile.transform.SetParent(null);
             spiritProjectile.GetComponent<Rigidbody>().AddForce(projectilePointer.transform.forward * 5f, ForceMode.Impulse);

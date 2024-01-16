@@ -24,8 +24,11 @@ public class SpiriHandProjectile : MonoBehaviour
         // TODO : 어떤 Layer 에 대응할 것인지 할당할 것
         if (collision.gameObject.layer == LayerMask.NameToLayer("Default"))
         {   
+
             effect.transform.position = collision.contacts[0].point;
             effect.transform.up = collision.contacts[0].normal;
+            SoundManager.Instance.PlaySfxClip("SE_Player_fairyhand_hit", collision.contacts[0].point);
+
             StartCoroutine(OnEffect()); 
         }
     }

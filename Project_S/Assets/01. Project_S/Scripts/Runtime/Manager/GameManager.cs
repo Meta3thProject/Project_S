@@ -10,16 +10,16 @@ public class GameManager : GSingleton<GameManager>
     // Start is called before the first frame update
     private void Awake()
     {
+        Init();
+    }
+
+    protected override void Init()
+    {
         ResourceManager.Init();
-        soundManager = new SoundManager();
+        soundManager = SoundManager.Instance;
 
         playerStat = GFunc.GetRootObj(Define.PLAYER).GetComponent<PlayerStat>();
     }
-    void Start()
-    {
-
-    }
-
     // Update is called once per frame
     void Update()
     {

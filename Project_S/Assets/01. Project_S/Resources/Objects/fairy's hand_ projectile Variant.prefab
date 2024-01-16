@@ -83,6 +83,11 @@ PrefabInstance:
       propertyPath: m_LocalPosition.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 114921264505181958, guid: 767351b18306a2241a4ea6f458b338c3,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 198035292224571146, guid: 767351b18306a2241a4ea6f458b338c3,
         type: 3}
       propertyPath: TriggerModule.enabled
@@ -108,7 +113,8 @@ PrefabInstance:
       propertyPath: m_Materials.Array.size
       value: 1
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 114921264505181958, guid: 767351b18306a2241a4ea6f458b338c3, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 767351b18306a2241a4ea6f458b338c3, type: 3}
 --- !u!1 &4204597497280783574 stripped
 GameObject:
