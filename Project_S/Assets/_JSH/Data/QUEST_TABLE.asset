@@ -108,7 +108,7 @@ MonoBehaviour:
     start_npc: 300100
     end_npc: 300100
     quest_type: 1
-    value1: 100004
+    value1: 100005
     value2: 1
     before_dialogue: 0
     doing_dialogue: 304149
@@ -129,7 +129,7 @@ MonoBehaviour:
     quest_title: "\uB9C8\uC9C0\uB9C9 \uD14C\uC2A4\uD2B8"
     start_npc: 300101
     end_npc: 300101
-    quest_type: 4
+    quest_type: 1
     value1: 101003
     value2: 1
     before_dialogue: 304161
@@ -196,8 +196,8 @@ MonoBehaviour:
     start_npc: 300204
     end_npc: 300204
     quest_type: 2
-    value1: 103200
-    value2: 103201
+    value1: 103011
+    value2: 103012
     before_dialogue: 304224
     doing_dialogue: 304225
     complete_dialogue: 304226
@@ -295,8 +295,8 @@ MonoBehaviour:
     start_npc: 300404
     end_npc: 300404
     quest_type: 2
-    value1: 106024
-    value2: 106025
+    value1: 106000
+    value2: 106001
     before_dialogue: 304427
     doing_dialogue: 304431
     complete_dialogue: 304432
@@ -306,8 +306,8 @@ MonoBehaviour:
     start_npc: 300405
     end_npc: 300405
     quest_type: 2
-    value1: 103202
-    value2: 103203
+    value1: 103013
+    value2: 103014
     before_dialogue: 304436
     doing_dialogue: 304438
     complete_dialogue: 304439
@@ -317,8 +317,8 @@ MonoBehaviour:
     start_npc: 300406
     end_npc: 300406
     quest_type: 2
-    value1: 103204
-    value2: 103205
+    value1: 103015
+    value2: 103016
     before_dialogue: 304444
     doing_dialogue: 304445
     complete_dialogue: 304446

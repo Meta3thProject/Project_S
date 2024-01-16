@@ -44,7 +44,7 @@ MonoBehaviour:
     link_dialog: 0
   - id: 304006
     npc_id: 300001
-    dialogue: "\uB610 \uB098\uC57C!<br>\uBCC4\uC744 8\uAC1C \uAC00\uC838\uC624\uBA74<br>\uC9C0\uB098\uAC00\uAC8C
+    dialogue: "\uB610 \uB098\uC57C!<br>\uBCC4\uC744 3\uAC1C \uAC00\uC838\uC624\uBA74<br>\uC9C0\uB098\uAC00\uAC8C
       \uD574\uC8FC\uC9C0-"
     link_dialog: 0
   - id: 304007
@@ -70,7 +70,7 @@ MonoBehaviour:
     link_dialog: 0
   - id: 304012
     npc_id: 300002
-    dialogue: "\uC774\uC81C\uB294 \uC870\uAE08 \uBC18\uAC11\uC9C0?<br>\uBCC4 3\uAC1C\uB97C
+    dialogue: "\uC774\uC81C\uB294 \uC870\uAE08 \uBC18\uAC11\uC9C0?<br>\uBCC4 5\uAC1C\uB97C
       \uAC00\uC9C0\uACE0 \uC640!"
     link_dialog: 0
   - id: 304013
@@ -96,7 +96,7 @@ MonoBehaviour:
     link_dialog: 0
   - id: 304018
     npc_id: 300003
-    dialogue: "\uC548\uB155? \uB610 \uBCF4\uB124!<br>\uBCC4 13\uAC1C\uB97C \uAC00\uC9C0\uACE0
+    dialogue: "\uC548\uB155? \uB610 \uBCF4\uB124!<br>\uBCC4 7\uAC1C\uB97C \uAC00\uC9C0\uACE0
       \uC624\uB3C4\uB85D!"
     link_dialog: 0
   - id: 304019
@@ -376,8 +376,8 @@ MonoBehaviour:
     link_dialog: 304148
   - id: 304148
     npc_id: 300100
-    dialogue: "\uC544\uC774\uD15C\uC774 \uC5C6\uB294 \uCABD \uC190\uC758<br>\uBC84\uD2BC\uC744
-      \uB20C\uB7EC\uC57C \uD574!"
+    dialogue: "\uB611\uAC19\uC774 X\uB098 A \uBC84\uD2BC\uC744<br>\uB204\uB974\uBA74
+      \uB3FC!"
     link_dialog: 0
   - id: 304149
     npc_id: 300100
@@ -1135,28 +1135,28 @@ MonoBehaviour:
       \uACE0\uB9C8\uC6CC! "
     link_dialog: 0
   - id: 304450
-    npc_id: 300407
+    npc_id: 300600
     dialogue: "\uC800\uD76C \uACE0\uC591\uC774\uAC00 \uC800\uAE30 \uC704\uB85C \uC62C\uB77C\uAC14\uC5B4\uC694!<br>\uAD6C\uD574\uC8FC\uC138\uC694\u2026"
     link_dialog: 0
   - id: 304451
-    npc_id: 300407
+    npc_id: 300600
     dialogue: "\uC6B0\uB9AC \uC544\uAC00\u2026 \uC81C\uBC1C\u2026"
     link_dialog: 0
   - id: 304452
-    npc_id: 300407
+    npc_id: 300600
     dialogue: "\uC815\uB9D0 \uACE0\uB9D9\uC2B5\uB2C8\uB2E4!<br>\uC5B4\uCA4C\uB2E4
       \uC800\uAE30\uB97C \uC62C\uB77C\uAC14\uB294\uC9C0\u2026"
     link_dialog: 302407
   - id: 304453
-    npc_id: 300407
+    npc_id: 300600
     dialogue: "\uC88B\uC740 \uC870\uC5B8 \uAC10\uC0AC\uD569\uB2C8\uB2E4.<br>\uBA85\uC2EC\uD560\uAC8C\uC694!"
     link_dialog: 304455
   - id: 304454
-    npc_id: 300407
+    npc_id: 300600
     dialogue: "\uAC10\uC0AC\uD569\uB2C8\uB2E4!<br>\uB9C8\uC74C\uC774 \uCD94\uC2A4\uB824\uC9C0\uB124\uC694."
     link_dialog: 304455
   - id: 304455
-    npc_id: 300407
+    npc_id: 300600
     dialogue: "\uC774\uC81C \uC9D1\uC73C\uB85C \uAC00\uC790.<br>\uB098\uBE44\uC57C."
     link_dialog: 0
   - id: 304500
@@ -1236,44 +1236,44 @@ MonoBehaviour:
     dialogue: "\uC228\uBC14\uAF2D\uC9C8 \uD558\uC790!<br>\uB098\uB97C \uCC3E\uC544\uBD10~"
     link_dialog: 0
   - id: 304517
-    npc_id: 300503
+    npc_id: 300504
     dialogue: "\uC557! \uB4E4\uCF30\uB124.<br>\uB108 \uC815\uB9D0 \uC228\uBC14\uAF2D\uC9C8
       \uC798\uD55C\uB2E4~"
     link_dialog: 304518
   - id: 304518
-    npc_id: 300503
+    npc_id: 300504
     dialogue: "\uB098\uB3C4 \uC228\uBC14\uAF2D\uC9C8 \uC798\uD558\uACE0 \uC2F6\uC740\uB370\u2026<br>\uBE44\uBC95\uC774
       \uBB50\uC57C?"
     link_dialog: 302503
   - id: 304519
-    npc_id: 300503
+    npc_id: 300504
     dialogue: "\uC798 \uCC3E\uB294 \uC774\uC720\uAC00 \uC788\uC5C8\uAD6C\uB098!"
     link_dialog: 304521
   - id: 304520
-    npc_id: 300503
+    npc_id: 300504
     dialogue: "\uBB54\uAC00 \uB290\uAEF4\uC9C0\uB294 \uAC8C \uC788\uAD6C\uB098!"
     link_dialog: 304521
   - id: 304521
-    npc_id: 300503
+    npc_id: 300504
     dialogue: "\uB2E4\uC74C\uC5D0 \uB610 \uAC19\uC774 \uB180\uC790~"
     link_dialog: 0
   - id: 304522
-    npc_id: 300503
+    npc_id: 300504
     dialogue: "\uC548\uB155 \uB610 \uB108\uAD6C\uB098!<br>\uB9C8\uCE68 \uC798\uB410\uB2E4.<br>\uCE5C\uAD6C\uB4E4\uD55C\uD14C
       \uC120\uBB3C\uC744 \uC8FC\uACE0 \uC2F6\uAC70\uB4E0."
     link_dialog: 304523
   - id: 304523
-    npc_id: 300503
+    npc_id: 300504
     dialogue: "\uADFC\uB370 \uB204\uAC00 \uBB34\uC2A8 \uAF43\uC744<br>\uC88B\uC544\uD558\uB294
       \uC9C0 \uBAA8\uB974\uACA0\uB124."
     link_dialog: 304524
   - id: 304524
-    npc_id: 300503
+    npc_id: 300504
     dialogue: "\uB098\uB97C \uB3C4\uC640 \uCE5C\uAD6C\uB4E4\uC758 \uC9D1\uC5D0<br>\uAF43\uC744
       \uC120\uBB3C\uD574\uC904\uB798?"
     link_dialog: 0
   - id: 304525
-    npc_id: 300503
+    npc_id: 300504
     dialogue: "\uCE5C\uAD6C\uB4E4\uC774 \uC88B\uC544\uD588\uC73C\uBA74 \uC88B\uACA0\uB2E4!"
     link_dialog: 0
   - id: 304600

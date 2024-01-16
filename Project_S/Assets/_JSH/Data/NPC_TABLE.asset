@@ -32,7 +32,7 @@ MonoBehaviour:
     npc_initial_quest: 301100
   - id: 300101
     npc_name: "\uC2DC\uD5D8\uC7A5 \uAD00\uB9AC\uC778"
-    npc_initial_quest: 301106
+    npc_initial_quest: 301107
   - id: 300200
     npc_name: "\uB9AC\uD2C0 \uAC8C\uC774\uBA38"
     npc_initial_quest: 301200
