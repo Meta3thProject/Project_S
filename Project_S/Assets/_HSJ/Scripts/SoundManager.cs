@@ -1,14 +1,10 @@
-using System;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.Rendering;
-using UnityEngine.UIElements;
 
 public class SoundManager : MonoBehaviour
 {
     private static SoundManager _instance;
     
-
     public static SoundManager Instance
     {
         get
@@ -18,11 +14,7 @@ public class SoundManager : MonoBehaviour
                 _instance = GFunc.CreateObj<SoundManager>("SoundManager");
             }
             return _instance;
-        }
-        set
-        {
-            _instance = value;
-        }
+        }        
     }
 
     private Queue<AudioSource> audioSources = default;
