@@ -17,6 +17,7 @@ GameObject:
   - component: {fileID: 7259661153189593262}
   - component: {fileID: 7487952977945163270}
   - component: {fileID: 6335538156521253289}
+  - component: {fileID: 7904366677762011469}
   m_Layer: 10
   m_Name: Model_Puzzle_BFabric
   m_TagString: Untagged
@@ -270,3 +271,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   <itemID>k__BackingField: 104006
+--- !u!114 &7904366677762011469
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1571233201501026}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e76d7e61d8108564fabf2e1b5314fea4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  target: 1
+  amount: 1

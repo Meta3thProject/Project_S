@@ -4,8 +4,6 @@ using UnityEngine;
 
 public class FabricStat : MonoBehaviour
 {
-    public int fakeID;
-
     public MBTI target;
     public int amount;
 }
