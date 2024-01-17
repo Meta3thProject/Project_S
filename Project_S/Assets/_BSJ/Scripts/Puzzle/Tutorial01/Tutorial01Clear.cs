@@ -25,7 +25,7 @@ public class Tutorial01Clear : MonoBehaviour, IActiveSign
         if (PuzzleManager.instance.puzzles[PUZZLEINDEX] == true) { return; }
 
         // 맞게 잘 가져왔으면 클리어
-        if (InventoryFake.Instance.CheckOneValue(QuestManager.Instance.idToQuest[tutorialNPC.questID].Value1, QuestManager.Instance.idToQuest[tutorialNPC.questID].Value2))
+        if (PossessionItem.Instance.CheckOneValue(QuestManager.Instance.idToQuest[tutorialNPC.questID].Value1, QuestManager.Instance.idToQuest[tutorialNPC.questID].Value2))
         {
             // 퍼즐 클리어 체크
             PuzzleManager.instance.puzzles[PUZZLEINDEX] = true;
