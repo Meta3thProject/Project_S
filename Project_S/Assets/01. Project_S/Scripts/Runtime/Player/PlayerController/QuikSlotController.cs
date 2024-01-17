@@ -13,7 +13,9 @@ public class QuikSlotController : MonoBehaviour
     void Awake()
     {
         Init();
-        if (snapZone.HeldItem == null || PuzzleManager.instance.puzzles[14])
+        if (snapZone.HeldItem == null ||
+            PuzzleManager.instance.puzzles[14] ||
+            !snapZone.HeldItem.GetComponent<Torch>())
         {
             torch.SetActive(true);
             torch.GetComponent<ReturnToSnapZone>().enabled = true;

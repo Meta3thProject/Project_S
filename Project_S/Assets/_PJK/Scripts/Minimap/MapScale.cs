@@ -64,7 +64,7 @@ public class MapScale : GrabbableEvents
 
     // HSJ_ 240115
     private Vector3 offset = new Vector3(-0.1f, 0f, 0f);
-    
+    private SoundManager soundManager = default;
 
     protected override void Awake()
     {
@@ -90,25 +90,35 @@ public class MapScale : GrabbableEvents
         worldmap.SetActive(false);
         isWorldMap = false;
         isZoneMap = true;
-    }
 
+        // HSJ_ 240117
+        soundManager = SoundManager.Instance;
+    }
 
 
 
     private void Update()
     {
-        if (isMapOpen == false)
-        {
-            if(this.transform.parent.name == "HolsterRight")
-            {
-                this.transform.localPosition = offset;
-            }       // if : SnapZone에 들어 갔을 떄 포지션 Offset으로 맞춰주기
-            return;
-        }
-        else if (isMapOpen == true)
-        {
-            pos = NPCManager.Instance.player.transform.position;
-        }
+        pos = NPCManager.Instance.player.transform.position;
+
+        // LEGACY :
+        // pos로 실시간으로 해당위치를 받아와서 Sound를 교체해줘야하는데 맵을 열었을 때만 zone을 업데이트 하므로
+        // 실시간으로 포지션을 업데이트 하도록 변경함
+
+        //if (isMapOpen == false)
+        //{
+        //    if(this.transform.parent != null && this.transform.parent.name == "HolsterRight")
+        //    {
+                
+        //        this.transform.localPosition = offset;
+        //    }       // if : SnapZone에 들어 갔을 떄 포지션 Offset으로 맞춰주기
+        //    pos = NPCManager.Instance.player.transform.position;
+        //    return;
+        //}
+        //else if (isMapOpen == true)
+        //{
+        //    pos = NPCManager.Instance.player.transform.position;
+        //}
 
         if (Input.GetKeyDown(KeyCode.O)||(InputBridge.Instance.RightTriggerDown || InputBridge.Instance.LeftTriggerDown) && ((thisGrabber.HandSide == ControllerHand.Left) || (thisGrabber.HandSide == ControllerHand.Right)))
         {
@@ -132,6 +142,7 @@ public class MapScale : GrabbableEvents
         //zone1map
         if (-27f <= pos.x && pos.x <= 2f && 11.35f < pos.z && pos.z < 86f)
         {
+            soundManager.ChangeBGM(SoundManager.BGMState.TUTORIAL);            
             iszone1 = true;
             iszone2 = false;
             iszone3 = false;
@@ -151,11 +162,13 @@ public class MapScale : GrabbableEvents
         //zone2map
         else if (-72f <= pos.x && pos.x <= 105f && -115.8f < pos.z && pos.z < 11.35f)
         {
+            soundManager.ChangeBGM(SoundManager.BGMState.MAIN);
             iszone1 = false;
             iszone2 = true;
             iszone3 = false;
             iszone4 = false;
             iszone5 = false;
+
             if (isZoneMap == true)
             {
                 Zone2();
