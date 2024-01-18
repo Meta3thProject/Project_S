@@ -18,6 +18,7 @@ public class MiniMapText : MonoBehaviour
     private int clear3;
     private int clear4;
     private int clear5;
+    private bool isnumber = false;
     // Start is called before the first frame update
 
     // Update is called once per frame
@@ -26,11 +27,15 @@ public class MiniMapText : MonoBehaviour
 
         if (MapScale.instance.isMapOpen == true)
         {
+            if (isnumber == false)
+            {
+                OpenMap();
+                isnumber = true;
+            }
+
             if (MapScale.instance.isZoneMap == true)
             {
-                allStar.text = $"{StarManager.starManager.getStarCount}";
-                zoneStarScoreText.text = $"Zone클리어률 {zoneHaveStar}/{zoneStar}";
-                zoneName.text = $"{zonename}";
+
 
                 if (MapScale.instance.iszone1 == true)
                 {
@@ -63,6 +68,9 @@ public class MiniMapText : MonoBehaviour
                     zoneStar = 3;
                 }
 
+                allStar.text = $"{StarManager.starManager.getStarCount}";
+                zoneStarScoreText.text = $"Zone클리어률 {zoneHaveStar}/{zoneStar}";
+                zoneName.text = $"{zonename}";
             }
             else if (MapScale.instance.isWorldMap == true)
             {
@@ -72,11 +80,15 @@ public class MiniMapText : MonoBehaviour
                 WorldMapzoneStarScoreTexts[3].text = $"{clear4}/2";
                 WorldMapzoneStarScoreTexts[4].text = $"{clear5}/3";
                 worldMapallStar2.text = $"{StarManager.starManager.getStarCount}";
-               
+
             }
 
 
 
+        }
+        else if (MapScale.instance.isMapOpen == false)
+        {
+            isnumber = false;
         }
     }
 
@@ -90,7 +102,6 @@ public class MiniMapText : MonoBehaviour
         clear5 = 0;
         for (int i = 0; i < PuzzleManager.instance.puzzles.Length; i++)
         {
-
             if (PuzzleManager.instance.puzzles[i] == true)
             {
                 switch (i)
