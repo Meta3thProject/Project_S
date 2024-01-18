@@ -181,7 +181,7 @@ public class MapScale : GrabbableEvents
 
         }
         //zone3map
-        else if (-71f <= pos.x && -70f < pos.z && pos.z < -20f)
+        else if (pos.x < -54)
         {
             iszone1 = false;
             iszone2 = false;
@@ -200,7 +200,7 @@ public class MapScale : GrabbableEvents
 
         }
         //zone4map
-        else if (94.5f <= pos.x && -111.3f < pos.z && pos.z < -25.5f)
+        else if (95f < pos.x)
         {
             iszone1 = false;
             iszone2 = false;
@@ -274,7 +274,7 @@ public class MapScale : GrabbableEvents
         minimapCamera.transform.position = zone3pos.transform.position;
         cam.rect = zone3Rect;
         outline.anchoredPosition = new Vector2(0f, 0);
-        outline.sizeDelta = new Vector2(900f, 90f);
+        outline.sizeDelta = new Vector2(900f, 900f);
         MapName.text = "도구섬";
 
     }
