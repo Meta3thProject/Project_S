@@ -10,9 +10,11 @@ public class LittleSpirit : NPCBase, IPuzzleHolder
     private int[] ids = { 304117, 304133, 304172 };
     // 정해놓은 이동할 위치들: 직렬화
     public Transform[] fixedLocations;
+    // 도끼로 부술 나무 장벽
+    public GameObject woodenWall;
     // 체크해야하는 퍼즐의 인덱스: 퍼즐 매니저에서 13, 14에 해당한다
-    public const int AXEPUZZLE = 13;
-    public const int DOORPUZZLE = 14;
+    // 퍼즐하나가 사라짐 13
+    public const int PUZZLEINDEX = 14;
 
     private void Start()
     {
@@ -94,11 +96,12 @@ public class LittleSpirit : NPCBase, IPuzzleHolder
     {
         if (questID == 301102)
         {
-            return PuzzleManager.instance.puzzles[AXEPUZZLE];
+            // 나무벽이 활성화된 상태라면 false, 비활성화된 상태라면 true 반환
+            return !woodenWall.activeInHierarchy;
         }
         else if (questID == 301105)
         {
-            return PuzzleManager.instance.puzzles[DOORPUZZLE];
+            return PuzzleManager.instance.puzzles[PUZZLEINDEX];
         }
         else { return false; }
     }

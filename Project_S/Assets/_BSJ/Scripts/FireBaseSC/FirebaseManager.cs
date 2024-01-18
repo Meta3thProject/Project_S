@@ -27,7 +27,7 @@ public class FirebaseManager : MonoBehaviour
     // bsj 추가
     const string BSJTESTSCENE = "Main Scene Copy _ BSJ";
     const string TESTSCENE = "PJK_MainSceneCopy";
-    const string JSHTestScene = "Main Scene Copy";
+    const string JSHTestScene = "Main Scene Copy JSH";
 
     // { 키 값 상수
     const string User = "User";
@@ -268,7 +268,7 @@ public class FirebaseManager : MonoBehaviour
     IEnumerator LoadSceneAsync()
     {
         // BSJ 테스트 씬으로 변경했음.
-        AsyncOperation AsyncLoad = SceneManager.LoadSceneAsync(BSJTESTSCENE);
+        AsyncOperation AsyncLoad = SceneManager.LoadSceneAsync(JSHTestScene);
         AsyncLoad.allowSceneActivation = false;
 
         int loadingGaugeCount = 0;
