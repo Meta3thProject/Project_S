@@ -22,6 +22,11 @@ public class SuspiciousMan3 : NPCBase
     public override void PopUpDialog()
     {
         base.PopUpDialog();
+
+        if (QuestManager.Instance.idToQuest[questID].IsCompleted == true)
+        {
+            BridgeOpen();
+        }
     }
 
     public override void SetPrintID()
@@ -39,8 +44,7 @@ public class SuspiciousMan3 : NPCBase
         // 완료했다면
         else if (QuestManager.Instance.idToQuest[questID].IsCompleted == true)
         {
-            // 다리 개통
-            BridgeOpen();
+            printID = QuestManager.Instance.idToQuest[questID].CompleteID;
         }
     }
 }

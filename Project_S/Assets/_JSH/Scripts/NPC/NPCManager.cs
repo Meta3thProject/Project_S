@@ -151,6 +151,16 @@ public class NPCManager : MonoBehaviour
         button2.nextPrintID = idToChoices[id_].linkDlg2;
     }
 
+    public void DisableChoice1()
+    {
+        twoOfTwo.transform.parent.GetComponent<UnityEngine.UI.Button>().interactable = false;
+    }
+
+    public void DisableChoice2()
+    {
+        oneOfTwo.transform.parent.GetComponent<UnityEngine.UI.Button>().interactable = false;
+    }
+
     // 퀘스트 ID에 따라 진행 방법이 달라짐
     public void SetIDByQuestType()
     {

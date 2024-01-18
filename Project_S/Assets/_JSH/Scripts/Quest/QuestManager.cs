@@ -1,13 +1,6 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public enum Tutorial
-{
-    // 301100 ~ 301108 까지 튜토리얼
-    Yes = 301100,
-    No = 301108
-}
-
 public class QuestManager : MonoBehaviour
 {
     // 싱글턴
@@ -130,21 +123,31 @@ public class QuestManager : MonoBehaviour
         if (index_ == -1) { return; }
 
         // ID 체크
-        if (acceptedQuests[index_].EndNPC == NPCManager.Instance.interacted.npcId)
+        if (NPCManager.Instance.interacted.npcId == acceptedQuests[index_].EndNPC)
         {
             switch (acceptedQuests[index_].Type)
             {
                 case QuestType.Delivery1:
-                    if (InventoryFake.Instance.CheckOneValue(acceptedQuests[index_].Value1, acceptedQuests[index_].Value2))
+                    if (PossessionItem.Instance.CheckOneValue(acceptedQuests[index_].Value1, acceptedQuests[index_].Value2))
                     {
                         CompleteQuest(id_);
                     }
                     else { /* Do Nothing */ }
                     break;
                 case QuestType.Delivery2:
-                    if (InventoryFake.Instance.CheckTwoValue(acceptedQuests[index_].Value1, acceptedQuests[index_].Value2))
+                    if (PossessionItem.Instance.CheckTwoValue(acceptedQuests[index_].Value1, acceptedQuests[index_].Value2))
                     {
-                        CompleteQuest(id_);
+                        if (NPCManager.Instance.interacted.GetComponent<IDeliveryAndChoice>() == null ||
+                            NPCManager.Instance.interacted.GetComponent<IDeliveryAndChoice>() == default)
+                        {
+                            CompleteQuest(id_);
+                        }
+                        else
+                        {
+                            NPCManager.Instance.interacted.GetComponent<IDeliveryAndChoice>().CheckDelivered(
+                                PossessionItem.Instance.CheckValue1(acceptedQuests[index_].Value1),
+                                PossessionItem.Instance.CheckValue2(acceptedQuests[index_].Value2));
+                        }
                     }
                     else { /* Do Nothing */ }
                     break;
