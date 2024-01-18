@@ -106,7 +106,7 @@ public class MiniMapText : MonoBehaviour
             {
                 switch (i)
                 {
-                    case 13:
+                    case 14:
 
 
                         clear1++;
@@ -120,7 +120,6 @@ public class MiniMapText : MonoBehaviour
                     case 5:
                     case 9:
                     case 10:
-                    case 14:
                     case 18:
                     case 19:
                     case 20:
