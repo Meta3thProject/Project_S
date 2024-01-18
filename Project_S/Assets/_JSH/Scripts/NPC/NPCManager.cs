@@ -40,10 +40,6 @@ public class NPCManager : MonoBehaviour
     public TextMeshProUGUI oneOfTwo;
     public TextMeshProUGUI twoOfTwo;
 
-    private const int NPC_ID_START = 300000;
-    private const int CHOICE_ID_START = 302000;
-    private const int DIALOGUE_ID_START = 304000;
-
     private void Awake()
     {
         Instance = this;

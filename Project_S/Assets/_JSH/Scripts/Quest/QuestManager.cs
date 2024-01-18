@@ -35,6 +35,7 @@ public class QuestManager : MonoBehaviour
         //// } 싱글톤
 
         idToQuest = new Dictionary<int, Quest>();
+        // 마지막 대사ID 리스트
         idList = new List<int>();
 
         #region 리스트 초기화
