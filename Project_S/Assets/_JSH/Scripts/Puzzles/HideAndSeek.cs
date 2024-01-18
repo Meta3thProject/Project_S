@@ -33,7 +33,7 @@ public class HideAndSeek : MonoBehaviour, IActiveSign
         if (QuestManager.Instance.idToQuest[npc.questID].IsAccepted == true)
         {
             // 힌트 생성
-            Instantiate(hint, transform.position, Quaternion.identity);
+            Instantiate(hint, npc.transform.position, Quaternion.identity);
         }
     }
 
