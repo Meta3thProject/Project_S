@@ -16,6 +16,10 @@ public class TaxidermyClear : MonoBehaviour, IActiveSign
     // 퍼즐을 막는 투명벽
     [SerializeField] private PlayerEnterPuzzleTrigger transparentWall;
 
+    // 퍼즐을 클리어하면 나오는 덫과 총 오브젝트 아이템
+    [SerializeField] private GameObject trap;
+    [SerializeField] private GameObject gum;
+
     private void Awake()
     {
         clearCheck = new int[PUZZLECOUNT] { 0, 0, 0, 0 };
@@ -60,6 +64,9 @@ public class TaxidermyClear : MonoBehaviour, IActiveSign
             }
         }
 
+        // 총 & 덫 아이템을 드랍한다.
+        DropItem();
+
         // 퍼즐 클리어 체크
         PuzzleManager.instance.puzzles[PUZZLEINDEX] = true;
 
@@ -86,5 +93,14 @@ public class TaxidermyClear : MonoBehaviour, IActiveSign
     public void ActiveClearSign(bool _isClear)
     {
         clearSign.SetActive(_isClear);
+    }
+
+    /// <summary>
+    /// 박제퍼즐을 다 알맞게 놓았을 때, 총 & 덫 아이템을 드랍하는 메서드.
+    /// </summary>
+    private void DropItem()
+    {
+        trap.SetActive(true);
+        gum.SetActive(true);
     }
 }
