@@ -1432,7 +1432,8 @@ MonoBehaviour:
   DuplicateItemOnGrab: 0
   MaxDropTime: 0.1
   LastSnapTime: 0
-  OnlyAllowNames: []
+  OnlyAllowNames:
+  - Axe
   ExcludeTransformNames: []
   SoundOnSnap: {fileID: 8300000, guid: 3ceadf14726b0864fb39bb646c0f9ba0, type: 3}
   SoundOnUnsnap: {fileID: 8300000, guid: 3ceadf14726b0864fb39bb646c0f9ba0, type: 3}
@@ -2851,7 +2852,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1723948160040565183}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 60e921fb01765594ea413047ebcfc65c, type: 3}
   m_Name: 
@@ -17053,6 +17054,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 85966cfd4812ef041a876b89d597c727, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  leftHeldGrabbable: {fileID: 0}
+  rightHeldGrabbable: {fileID: 0}
 --- !u!1 &5960396776549470816
 GameObject:
   m_ObjectHideFlags: 0
@@ -18636,7 +18639,8 @@ MonoBehaviour:
   DuplicateItemOnGrab: 0
   MaxDropTime: 0.1
   LastSnapTime: 0
-  OnlyAllowNames: []
+  OnlyAllowNames:
+  - MiniMap
   ExcludeTransformNames: []
   SoundOnSnap: {fileID: 8300000, guid: 3ceadf14726b0864fb39bb646c0f9ba0, type: 3}
   SoundOnUnsnap: {fileID: 8300000, guid: 3ceadf14726b0864fb39bb646c0f9ba0, type: 3}
@@ -20618,7 +20622,8 @@ MonoBehaviour:
   DuplicateItemOnGrab: 0
   MaxDropTime: 0.1
   LastSnapTime: 0
-  OnlyAllowNames: []
+  OnlyAllowNames:
+  - Torch
   ExcludeTransformNames: []
   SoundOnSnap: {fileID: 8300000, guid: 3ceadf14726b0864fb39bb646c0f9ba0, type: 3}
   SoundOnUnsnap: {fileID: 8300000, guid: 3ceadf14726b0864fb39bb646c0f9ba0, type: 3}

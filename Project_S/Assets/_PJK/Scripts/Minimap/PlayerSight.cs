@@ -14,8 +14,8 @@ public class PlayerSight : MonoBehaviour
     void Start()
     {
         // MeshFilter 및 MeshRenderer 추가
-        meshFilter = minimapIcon.gameObject.AddComponent<MeshFilter>();
-        meshRenderer = minimapIcon.gameObject.AddComponent<MeshRenderer>();
+        meshFilter = minimapIcon.gameObject.GetComponent<MeshFilter>();
+        meshRenderer = minimapIcon.gameObject.GetComponent<MeshRenderer>();
 
         // 메시 생성
         coneMesh = CreateConeMesh(fieldOfView);
@@ -38,7 +38,7 @@ public class PlayerSight : MonoBehaviour
         minimapIcon.transform.position = CalculateMinimapPosition(new Vector3(playerTransform.position.x, 17.9f, playerTransform.position.z));
 
         // 플레이어 아이콘의 회전을 설정 (playerTransform의 y값에 20을 더한 각도로)
-        minimapIcon.transform.rotation = Quaternion.Euler(0, playerTransform.eulerAngles.y - 90, 0);
+        minimapIcon.transform.rotation = Quaternion.Euler(0, playerTransform.eulerAngles.y-90, 0);
     }
 
     Vector3 CalculateMinimapPosition(Vector3 worldPosition)

@@ -15,12 +15,15 @@ public class PlayerEnterPuzzleTrigger : MonoBehaviour
 
         if (other.GetComponent<CharacterController>() != null)
         {
+            SoundManager.Instance.ChangeBGM(SoundManager.BGMState.PUZZLE);
             puzzleWall.SetActive(true);
         }
     }
 
     public void RemoveWall()
     {
+
+        SoundManager.Instance.ChangeBGM(SoundManager.BGMState.PREV);
         isPuzzleClear = true;
         puzzleWall.SetActive(false);
         this.gameObject.SetActive(false);
@@ -30,6 +33,7 @@ public class PlayerEnterPuzzleTrigger : MonoBehaviour
     {
         if(isPuzzleClear) { return; }
 
+        SoundManager.Instance.ChangeBGM(SoundManager.BGMState.PUZZLE);
         puzzleWall.SetActive(true);
     }
 }

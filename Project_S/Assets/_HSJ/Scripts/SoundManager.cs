@@ -23,13 +23,14 @@ public class SoundManager : MonoBehaviour
     private AudioSource BGMSource = default;
     private float BGMVolume = 0f;
     private bool isFadeOutEnd = default;
+    public AudioClip previousAudioClip = default;
+
     public enum BGMState
     {
-        NONE = -1, TUTORIAL, MAIN, NPC, PUZZLE, ENDING
+        NONE = -1, TUTORIAL, MAIN, NPC, PUZZLE, ENDING, PREV
     }
 
-    public BGMState bgmState = BGMState.NONE
-        ;
+    private BGMState bgmState = default;
     // Start is called before the first frame update
     void Awake()
     {
@@ -41,7 +42,7 @@ public class SoundManager : MonoBehaviour
         audioSources = new Queue<AudioSource>();
         BGMSource = GFunc.GetRootObj("Player").GetComponentInChildren<AudioSource>();
         PlayBGMClip("SE_BGM_Tutorial");
-        bgmState = BGMState.TUTORIAL;
+        bgmState = BGMState.NONE;
         SetAudioSources();
     }
 
@@ -49,7 +50,6 @@ public class SoundManager : MonoBehaviour
     {
 
     }
-
     private AudioSource SetAudioSources()
     {
             GameObject tempObj = new GameObject("AudioSource " + audioSources.Count);
@@ -59,7 +59,12 @@ public class SoundManager : MonoBehaviour
 
             return tempSource;
     }
-    
+
+    public BGMState GetState()
+    {
+        return bgmState;
+    }
+
     private AudioSource CheckEmptySource()
     {
         AudioSource targetSource = default;
@@ -85,22 +90,32 @@ public class SoundManager : MonoBehaviour
             case BGMState.TUTORIAL:
                 StopBGMClip();
                 PlayBGMClip("SE_BGM_Tutorial");
+                bgmState = BGMState.TUTORIAL;
                 break;
             case BGMState.MAIN:
                 StopBGMClip();
                 PlayBGMClip("SE_BGM_Main_theme");
+                bgmState = BGMState.MAIN;
                 break;
             case BGMState.NPC:
                 StopBGMClip();
                 PlayBGMClip("SE_BGM_NPC_Dialog");
+                bgmState = BGMState.NPC;
                 break;
             case BGMState.PUZZLE:
                 StopBGMClip();
                 PlayBGMClip("SE_BGM_Puzzle");
+                bgmState = BGMState.PUZZLE;
                 break;
             case BGMState.ENDING:
                 StopBGMClip();
                 PlayBGMClip("SE_BGM_Ending");
+                bgmState = BGMState.ENDING;
+                break;
+            case BGMState.PREV:
+                StopBGMClip();
+                PlayPrevClip();
+                bgmState = BGMState.PREV;
                 break;
         }
         bgmState = state_;
@@ -112,13 +127,22 @@ public class SoundManager : MonoBehaviour
 
         BGMSource.clip = ResourceManager.bgmClips[clipName_];
         StartCoroutine(BGMFadeIn());
+        previousAudioClip = BGMSource.clip;
+        BGMSource.Play();
+    }
+
+    public void PlayPrevClip()
+    {
+        if(BGMSource.isPlaying == true) { return; }
+
+        BGMSource.clip = previousAudioClip;
+        StartCoroutine(BGMFadeIn());
         BGMSource.Play();
     }
 
     public void StopBGMClip()
     {
         if (BGMSource.isPlaying == false)  { return; }
-
         BGMSource.Stop();
 
     }
