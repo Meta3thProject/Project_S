@@ -29,6 +29,8 @@ public class SelectButton : MonoBehaviour
 
         // 다음 출력문ID 설정
         NPCManager.Instance.SetIDAfterSelect(nextPrintID);
+        // 선택지 활성 상태 초기화
+        NPCManager.Instance.EnableChoices();
 
         // 다음 출력문 출력
         NPCManager.Instance.interacted.PopUpDialog();

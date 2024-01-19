@@ -157,6 +157,12 @@ public class NPCManager : MonoBehaviour
         oneOfTwo.transform.parent.GetComponent<UnityEngine.UI.Button>().interactable = false;
     }
 
+    public void EnableChoices() 
+    {
+        oneOfTwo.transform.parent.GetComponent<UnityEngine.UI.Button>().interactable = true;
+        twoOfTwo.transform.parent.GetComponent<UnityEngine.UI.Button>().interactable = true;
+    }
+
     // 퀘스트 ID에 따라 진행 방법이 달라짐
     public void SetIDByQuestType()
     {
