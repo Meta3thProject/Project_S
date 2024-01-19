@@ -148,6 +148,8 @@ public class QuestManager : MonoBehaviour
                             NPCManager.Instance.interacted.GetComponent<IDeliveryAndChoice>().CheckDelivered(
                                 PossessionItem.Instance.CheckValue1(acceptedQuests[index_].Value1),
                                 PossessionItem.Instance.CheckValue2(acceptedQuests[index_].Value2));
+
+                            CompleteQuest(id_);
                         }
                     }
                     else { /* Do Nothing */ }
