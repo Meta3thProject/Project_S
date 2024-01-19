@@ -17,8 +17,8 @@ MonoBehaviour:
       type: 3}
   m_RendererFeatures:
   - {fileID: 4205993769462517776}
-  - {fileID: 9201035609485559822}
-  m_RendererFeatureMap: 10d0518c0cb15e3a0e481b3d23a5b07f
+  - {fileID: 8119955818181554028}
+  m_RendererFeatureMap: 10d0518c0cb15e3a6cef9396cbe0af70
   m_UseNativeRenderPass: 0
   postProcessData: {fileID: 11400000, guid: 41439944d30ece34e96484bdb6645b55, type: 2}
   xrSystemData: {fileID: 11400000, guid: 60e1133243b97e347b653163a8c01b64, type: 2}
@@ -72,7 +72,7 @@ MonoBehaviour:
   m_Name: URPOutlineFeature
   m_EditorClassIdentifier: 
   m_Active: 1
---- !u!114 &9201035609485559822
+--- !u!114 &8119955818181554028
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -96,7 +96,7 @@ MonoBehaviour:
       PassNames: []
     overrideMaterial: {fileID: 0}
     overrideMaterialPassIndex: 0
-    overrideDepthState: 0
+    overrideDepthState: 1
     depthCompareFunction: 4
     enableWrite: 1
     stencilSettings:

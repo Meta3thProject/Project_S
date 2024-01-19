@@ -199,17 +199,17 @@ public class FirebaseManager : MonoBehaviour
                     // 회원가입 성공 시 유저 데이터 초기값 셋팅
                     userID = result.User.UserId.ToString();
 
+                    //// 퍼즐 DB의 초기 노드 생성
+                    //MakePuzzleDB();
+
+                    //// MBTI DB의 초기 노드 생성
+                    //MakeMbtiDB();
+
+                    //// Quest DB의 초기 노드 생성
+                    //MakeQuestDB();
+
                     // 플레이어 포지션 DB의 초기 노드 생성
                     MakePlayerPosDB();
-
-                    // 퍼즐 DB의 초기 노드 생성
-                    MakePuzzleDB();
-
-                    // MBTI DB의 초기 노드 생성
-                    MakeMbtiDB();
-
-                    // Quest DB의 초기 노드 생성
-                    MakeQuestDB();
                 }
             }
             );

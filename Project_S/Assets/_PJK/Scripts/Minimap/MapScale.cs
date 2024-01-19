@@ -63,8 +63,7 @@ public class MapScale : GrabbableEvents
 
 
     private SoundManager soundManager = default;
-    private bool zone1Enter = false;
-    private bool zone2Enter = false;
+    private SnapZoneOffset offset = default;
     protected override void Awake()
     {
         base.Awake();
@@ -91,6 +90,10 @@ public class MapScale : GrabbableEvents
         isZoneMap = true;
 
         soundManager = SoundManager.Instance;
+        // HSJ_ 240119
+        // TODO : To fit snapZone
+        offset = GetComponent<SnapZoneOffset>();
+        offset.LocalPositionOffset = new Vector3(-5f, 0f, 0f);
     }
 
 
@@ -100,7 +103,7 @@ public class MapScale : GrabbableEvents
         pos = NPCManager.Instance.player.transform.position;
         
 
-        if (Input.GetKeyDown(KeyCode.O)||(InputBridge.Instance.RightTriggerDown || InputBridge.Instance.LeftTriggerDown) && ((thisGrabber.HandSide == ControllerHand.Left) || (thisGrabber.HandSide == ControllerHand.Right)))
+        if (Input.GetKeyDown(KeyCode.O)||(InputBridge.Instance.RightTriggerDown || InputBridge.Instance.LeftTriggerDown))
         {
             Debug.Log("O버튼 누름");
             if (isMapOpen == true && isWorldMap == false && isZoneMap == true)

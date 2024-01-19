@@ -9,20 +9,16 @@ public class QuikSlotController : MonoBehaviour
     private GameObject torch = default;
     
     private bool isPress = false;
-    
-    void Awake()
+    private void Start()
     {
-        Init();
-        if (snapZone.HeldItem == null ||
-            PuzzleManager.instance.puzzles[14] ||
-            !snapZone.HeldItem.GetComponent<Torch>())
+        if (PuzzleManager.instance.puzzles[14])
         {
-            torch.SetActive(true);
-            torch.GetComponent<ReturnToSnapZone>().enabled = true;
-            snapZone.HeldItem = torch.GetComponent<Grabbable>();
+            GFunc.CreateObj<Torch>("Torch").GetComponent<ReturnToSnapZone>().enabled = true;
         }       // if : 횃불 제작 후 재접속시 생성
-    }
 
+        Init();
+ 
+    }
     void Init()
     {
         input = InputBridge.Instance;

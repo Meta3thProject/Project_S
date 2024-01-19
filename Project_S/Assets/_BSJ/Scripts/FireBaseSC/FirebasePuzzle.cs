@@ -42,11 +42,13 @@ public class FirebasePuzzle : MonoBehaviour
             if (PuzzleClearDictionary.ContainsKey(i))
             {
                 PuzzleClearDictionary[i] = false;
-                continue;
             }
 
-            // key가 없다면 추가
-            PuzzleClearDictionary.Add(i, false);
+            else
+            {
+                // key가 없다면 추가
+                PuzzleClearDictionary.Add(i, false);
+            }
         }
     }
 

@@ -302,7 +302,7 @@ PlayerSettings:
   useCustomMainGradleTemplate: 0
   useCustomLauncherGradleManifest: 0
   useCustomBaseGradleTemplate: 0
-  useCustomGradlePropertiesTemplate: 0
+  useCustomGradlePropertiesTemplate: 1
   useCustomProguardFile: 0
   AndroidTargetArchitectures: 2
   AndroidTargetDevices: 0
@@ -1001,11 +1001,11 @@ PlayerSettings:
   apiCompatibilityLevel: 6
   activeInputHandler: 2
   windowsGamepadBackendHint: 0
-  cloudProjectId: 9f6b5ee4-9447-433d-8076-8f4b643dfb1e
+  cloudProjectId: 60880c49-6557-4c1c-8499-bf93454ce0f9
   framebufferDepthMemorylessMode: 0
   qualitySettingsNames: []
-  projectName: Project_S (3)
-  organizationId: lueun59
+  projectName: Project_S (1)
+  organizationId: onasheep
   cloudEnabled: 0
   legacyClampBlendShapeWeights: 1
   playerDataPath: 
