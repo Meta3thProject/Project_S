@@ -411,7 +411,7 @@ MonoBehaviour:
   - id: 304155
     npc_id: 300100
     dialogue: "\uBD88\uC774 \uCF1C\uC838 \uC788\uB294 \uD683\uBD88\uB85C<br>\uB450\uAC1C\uC758
-      \uD654\uB85C\uC5D0 \uBD88\uC740 \uBD99\uC778 \uB2E4\uC74C < br > \uB178\uD06C\uB97C
+      \uD654\uB85C\uC5D0 \uBD88\uC740 \uBD99\uC778 \uB2E4\uC74C<br>\uB178\uD06C\uB97C
       \uD558\uBA74 \uBB38\uC774 \uC5F4\uB9B4\uAC70\uC57C."
     link_dialog: 304156
   - id: 304156
@@ -930,10 +930,10 @@ MonoBehaviour:
     npc_id: 300400
     dialogue: "\uB098\uBB34\uB97C 3\uAC1C \uCE90\uC11C<br>\uD14C\uC774\uBE14 \uC704\uC5D0
       \uC62C\uB824\uC8FC\uC2DC\uBA74 \uB429\uB2C8\uB2E4."
-    link_dialog: 304406
+    link_dialog: 0
   - id: 304406
     npc_id: 300400
-    dialogue: "\uC5B4\uB514 \uC77C\uD560 \uC0AC\uB78C \uC5C6\uB098..."
+    dialogue: "\uC5B4\uB514 \uC77C\uD560 \uC0AC\uB78C \uC5C6\uB098\u2026"
     link_dialog: 0
   - id: 304407
     npc_id: 300401
@@ -1187,26 +1187,26 @@ MonoBehaviour:
     link_dialog: 0
   - id: 304506
     npc_id: 300501
-    dialogue: "\uACFC\uC77C\uC740 \uB108\uBB34 \uB9DB\uC788\uC5B4\uC11C \uBB38\uC81C\uC608\uC694. "
+    dialogue: "\uACFC\uC77C\uC740 \uB108\uBB34 \uB9DB\uC788\uC5B4\uC11C \uBB38\uC81C\uC57C."
     link_dialog: 304507
   - id: 304507
     npc_id: 300501
     dialogue: "\uC815\uC2E0\uCC28\uB824 \uBCF4\uBA74<br>\uBAA8\uB4E0 \uACFC\uC77C\uB4E4\uC744<br>\uB2E4
-      \uBA39\uC5B4 \uCE58\uC6CC\uBC84\uB824\uC694!"
+      \uBA39\uC5B4 \uCE58\uC6CC\uBC84\uB9B0\uB2E4\uACE0!"
     link_dialog: 302501
   - id: 304508
     npc_id: 300501
     dialogue: "\uADF8\uB7EC\uBA74 \uACFC\uC77C\uC744<br>\uBA48\uCD94\uC9C0 \uC54A\uACE0<br>\uBA39\uC744
-      \uC218 \uC788\uACA0\uB124\uC694."
+      \uC218 \uC788\uACA0\uAD6C\uB9CC."
     link_dialog: 304510
   - id: 304509
     npc_id: 300501
     dialogue: "\uADF8\uB7EC\uBA74 \uACFC\uC77C\uC744<br>\uB354 \uBA39\uACE0 \uC2F6\uC744
-      \uB54C \uB9C8\uB2E4<br>\uBA39\uC744 \uC218 \uC788\uACA0\uB124\uC694."
+      \uB54C \uB9C8\uB2E4<br>\uBA39\uC744 \uC218 \uC788\uACA0\uAD6C\uB9CC."
     link_dialog: 304510
   - id: 304510
     npc_id: 300501
-    dialogue: "\uACFC\uC77C\uC744 \uACC4\uC18D \uBA39\uC744 \uC218 \uC788\uACA0\uB2E4!"
+    dialogue: "\uC774\uC81C \uACFC\uC77C\uC744 \uACC4\uC18D \uBA39\uC744 \uC218 \uC788\uACA0\uC5B4!"
     link_dialog: 0
   - id: 304511
     npc_id: 300502

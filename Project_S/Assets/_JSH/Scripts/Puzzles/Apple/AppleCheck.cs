@@ -28,6 +28,9 @@ public class AppleCheck : MonoBehaviour, IActiveSign
     public void ActiveClearSign(bool _isClear)
     {
         clearSign.SetActive(_isClear);
+
+        // 퍼즐을 막는 투명벽 해제
+        transparentWall.RemoveWall();
     }
 
     // 순서대로 올린 사과 체크
