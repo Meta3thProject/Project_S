@@ -71,6 +71,10 @@ public class Quest
     /// 완료된 퀘스트인지 체크
     /// </summary>
     private bool isCompleted;
+    /// <summary>
+    /// 이미 완료된 퀘스트인지 체크
+    /// </summary>
+    private bool isNoBusiness;
 
     /// <summary>
     /// 퀘스트 클리어 후 대사 ID
@@ -90,6 +94,7 @@ public class Quest
 
     public bool IsAccepted { get { return isAccepted; } }
     public bool IsCompleted { get { return isCompleted; } }
+    public bool IsNoBusiness { get { return isCompleted; } }
 
     public int LastPrintID { get { return lastPrintID; } }
 
@@ -124,5 +129,6 @@ public class Quest
     {
         isAccepted = false;
         isCompleted = true;
+        isNoBusiness = true;
     }
 }

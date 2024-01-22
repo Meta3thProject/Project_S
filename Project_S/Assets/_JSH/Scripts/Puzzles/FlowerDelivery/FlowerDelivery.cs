@@ -49,7 +49,7 @@ public class FlowerDelivery : MonoBehaviour, IActiveSign
         if (QuestManager.Instance.idToQuest[npc.questID].IsAccepted == true)
         {
             // NPC 앞에 힌트 생성
-            Instantiate(hint, npc.transform.position + npc.transform.forward, Quaternion.identity);
+            Instantiate(hint, npc.transform.position + npc.transform.forward + npc.transform.up * 3, Quaternion.identity);
         }
     }
 

@@ -29,23 +29,4 @@ public class SuspiciousMan1 : NPCBase
             BridgeOpen();
         }
     }
-
-    public override void SetPrintID()
-    {
-        // 완료하지 않았다면
-        if (QuestManager.Instance.idToQuest[questID].IsAccepted == true &&
-            QuestManager.Instance.idToQuest[questID].IsCompleted == false)
-        {
-            if (QuestManager.Instance.idToQuest[questID].IngID == 0)
-            { /* Do Nothing */ }
-            else
-            // 진행중 출력문
-            { printID = QuestManager.Instance.idToQuest[questID].IngID; }
-        }
-        // 완료했다면
-        else if (QuestManager.Instance.idToQuest[questID].IsCompleted == true)
-        {
-            printID = QuestManager.Instance.idToQuest[questID].CompleteID;
-        }
-    }
 }

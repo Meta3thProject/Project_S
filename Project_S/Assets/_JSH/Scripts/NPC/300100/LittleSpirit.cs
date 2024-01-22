@@ -18,11 +18,28 @@ public class LittleSpirit : NPCBase, IPuzzleHolder
 
     private void Start()
     {
+        for (int i = 0; i < 7; i++)
+        {
+            printID = QuestManager.Instance.idToQuest[questID].CompleteID;
+            SetQuestID();
+        }
+
+        if (QuestManager.Instance.idToQuest[301105].IsCompleted)
+        {
+            questID = 301107;
+            printID = QuestManager.Instance.idToQuest[questID].BeforeID;
+        }
+
         // 301102 301107
-        if (questID == 301102)
+        if (questID >= 301102 && questID < 301103)
         {
             transform.position = fixedLocations[0].position;
             transform.rotation = fixedLocations[0].rotation;
+        }
+        else if (questID >= 301104 && questID < 301107)
+        {
+            transform.position = fixedLocations[1].position;
+            transform.rotation = fixedLocations[1].rotation;
         }
         else if (questID == 301107)
         {
@@ -38,48 +55,23 @@ public class LittleSpirit : NPCBase, IPuzzleHolder
         if (QuestManager.Instance.idToQuest[questID].IsCompleted)
         {
             // 301106 퀘스트는 다른 NPC의 퀘스트이므로 기준으로 한다
-            // 다음 퀘스트ID 설정
-            if (questID < 301106) { questID += 1; }
-            // 301106 건너뛰기
-            if (questID == 301106) { questID += 1; }
-
-            if (questID == 301107)
-            {
-                // 바뀐 퀘스트ID에 맞는 출력문ID로 설정
-                printID = QuestManager.Instance.idToQuest[questID].BeforeID;
-            }
+            // 다음 퀘스트ID 설정 301105까지
+            if (questID < 301105) { questID += 1; }
         }
         // 완료하지 않았다면 아무것도 하지 않음
         else { /* Do Nothing */ }
     }
 
-    // 이동법 익히기
-    public void HowToMove()
+    public void SetLastQuest()
     {
-        // 일정 거리내에 플레이어가 감지되면
-        Collider[] colliders = Physics.OverlapSphere(transform.position, 20);
-        // 감지한 것이 없으면 함수 종료
-        if (colliders.Length == 0) { return; }
-        // 감지한 것들 중에 
-        foreach (Collider collider in colliders)
-        {
-            // 플레이어가 있으면
-            if (collider.gameObject == NPCManager.Instance.player)
-            {
-                // 대화 시작
-                PopUpDialog();
-
-                break;
-            }
-        }
+        questID = 301107;
+        printID = QuestManager.Instance.idToQuest[questID].BeforeID;
+        MoveNPC();
     }
 
-    public override void PopUpDialog()
+    // 이동
+    public void MoveNPC()
     {
-        base.PopUpDialog();
-
-        SetQuestID();
-
         // 현재 출력문ID로 이동할지 말지 정한다
         for (int i = 0; i < ids.Length; i++)
         {
@@ -90,6 +82,14 @@ public class LittleSpirit : NPCBase, IPuzzleHolder
                 transform.rotation = fixedLocations[i].rotation;
             }
         }
+    }
+
+    public override void PopUpDialog()
+    {
+        base.PopUpDialog();
+
+        SetQuestID();
+        MoveNPC();
     }
 
     public bool PuzzleClearCheck()

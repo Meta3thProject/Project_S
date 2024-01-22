@@ -10,12 +10,15 @@ public class TestCenterNPC : NPCBase, IPuzzleHolder
 
     public Tutorial01Clear tutorial;
 
+    public LittleSpirit littleSpirit;
+
     // 투명 벽 지우는 필드
     public PlayerEnterPuzzleTrigger transparent_Wall;
 
     public override void PopUpDialog()
     {
         tutorial.CompleteTutorial();
+        littleSpirit.SetLastQuest();
 
         base.PopUpDialog();
 

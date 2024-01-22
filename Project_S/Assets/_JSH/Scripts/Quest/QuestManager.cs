@@ -43,9 +43,9 @@ public class QuestManager : MonoBehaviour
         idList.Add(304011);
         idList.Add(304017);
         idList.Add(304024);
-        idList.Add(304108);
+        idList.Add(304107);
         idList.Add(304117);
-        idList.Add(304126);
+        idList.Add(304125);
         idList.Add(304136);
         idList.Add(304151);
         idList.Add(304160);
@@ -58,7 +58,9 @@ public class QuestManager : MonoBehaviour
         idList.Add(304230);
         idList.Add(304237);
         idList.Add(304246);
+        idList.Add(304252);
         idList.Add(304306);
+        idList.Add(304313);
         idList.Add(304318);
         idList.Add(304326);
         idList.Add(304406);
@@ -209,8 +211,15 @@ public class QuestManager : MonoBehaviour
                 {
                     // 퀘스트 수락
                     AcceptQuest(id_);
-                    // 퀘스트 완료
-                    CompleteQuest(id_);
+                }
+                // 수락한 퀘스트라면
+                else if (idToQuest[id_].IsAccepted == true)
+                {
+                    if (NPCManager.Instance.interacted.printID == idToQuest[id_].LastPrintID)
+                    {
+                        // 퀘스트 완료
+                        CompleteQuest(id_);
+                    }
                 }
                 // 완료한 퀘스트라면 아무것도 하지 않음
                 else { /* Do Nothing */ }
