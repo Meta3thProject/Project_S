@@ -41,6 +41,9 @@ public class WorkBanch : MonoBehaviour
         {
             // 감지한 것을 리스트에 추가
             onWorkBanch.Add(other.gameObject);
+
+            if (other.gameObject.GetComponent<ItemData>() == null || other.gameObject.GetComponent<ItemData>() == default)
+            { return; }
             itemIds.Add(other.gameObject.GetComponent<ItemData>().itemID);
         }
         // 아이템 조합 시도
@@ -81,7 +84,7 @@ public class WorkBanch : MonoBehaviour
 
                 onWorkBanch.Clear();
                 itemIds.Clear();
-                
+
                 // 조합대 컬라이더 중앙에서 조합된 아이템 생성
                 ItemDataManager.instance.InstanceItem(idStringToID[str], GetComponent<Collider>().bounds.center);
                 break;
