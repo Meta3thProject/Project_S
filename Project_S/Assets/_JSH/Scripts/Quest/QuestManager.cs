@@ -88,6 +88,8 @@ public class QuestManager : MonoBehaviour
                 idToQuest[questTable.dataArray[i].ID].Complete();
             }
         }
+
+        idList.Clear();
     }
 
     // 퀘스트 수락
