@@ -64,6 +64,10 @@ public class NPCBase : MonoBehaviour, INPCBehaviour
             // 진행중 출력문
             { printID = QuestManager.Instance.idToQuest[questID].IngID; }
         }
+        else if (QuestManager.Instance.idToQuest[questID].IsNoBusiness == true)
+        {
+            printID = QuestManager.Instance.idToQuest[questID].LastPrintID;
+        }
         // 완료한 퀘스트라면
         else if (QuestManager.Instance.idToQuest[questID].IsCompleted == true)
         {

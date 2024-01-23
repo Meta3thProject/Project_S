@@ -20,6 +20,7 @@ public class Idiot : NPCBase, IPuzzleHolder
         if (PuzzleManager.instance.puzzles[HIDESEEKINDEX] == true)
         {
             ChangePosition();
+            SetQuestID();
         }
     }
 
@@ -55,13 +56,13 @@ public class Idiot : NPCBase, IPuzzleHolder
         else if (printID == 304525) { flowerDeliveryTransparentWall.RemoveWall(); }
 
         // 퀘스트에 맞는 힌트 제공
-        if (questID == 301503)
+        if (questID == 301503 && QuestManager.Instance.idToQuest[questID].IsAccepted == true)
         {
             PuzzleManager.instance.hideAndSeekPuzzleClear.DropHint();
             ChangePosition();
-            NPCManager.Instance.PopDown();
+            Invoke("PopDownAfter3Sec", 3.0f);
         }
-        else if (questID == 301504)
+        else if (questID == 301504 && QuestManager.Instance.idToQuest[questID].IsAccepted == true)
         {
             PuzzleManager.instance.flowerDeliveryPuzzleClear.DropHint();
         }
@@ -70,7 +71,12 @@ public class Idiot : NPCBase, IPuzzleHolder
         SetQuestID();
     }
 
-    public void ChangePosition()
+    private void PopDownAfter3Sec()
+    {
+        NPCManager.Instance.PopDown();
+    }
+
+    private void ChangePosition()
     {
         transform.position = hidePos.transform.position;
         transform.rotation = hidePos.transform.rotation;
