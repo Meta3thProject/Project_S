@@ -18,9 +18,8 @@ public class LittleSpirit : NPCBase, IPuzzleHolder
 
     private void Start()
     {
-        for (int i = 0; i < 7; i++)
+        for (int i = 0; i < 6; i++)
         {
-            printID = QuestManager.Instance.idToQuest[questID].CompleteID;
             SetQuestID();
         }
 
@@ -51,8 +50,7 @@ public class LittleSpirit : NPCBase, IPuzzleHolder
     // 퀘스트 진행 함수: 상호작용 시 호출
     public void SetQuestID()
     {
-        // 현재 퀘스트ID에 해당하는 퀘스트를 완료했다면
-        if (QuestManager.Instance.idToQuest[questID].IsCompleted)
+        if (QuestManager.Instance.idToQuest[questID].IsCompleted == true)
         {
             // 301106 퀘스트는 다른 NPC의 퀘스트이므로 기준으로 한다
             // 다음 퀘스트ID 설정 301105까지
