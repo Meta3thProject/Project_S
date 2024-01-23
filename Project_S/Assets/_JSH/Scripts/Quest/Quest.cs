@@ -116,6 +116,7 @@ public class Quest
 
         isAccepted = false;
         isCompleted = false;
+        isNoBusiness = false;
 
         lastPrintID = id_;
     }
