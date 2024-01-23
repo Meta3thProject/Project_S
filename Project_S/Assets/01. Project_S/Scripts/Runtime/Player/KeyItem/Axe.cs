@@ -4,10 +4,10 @@ using UnityEngine;
 public class Axe : GrabbableEvents
 {
     Grabbable grabbable;
-    
+
     public float axeActivateSpeed = 10f;
-    
-    private bool isBladeOn = false;
+
+    public bool IsBladeOn {  get; private set; } 
 
     private BoxCollider bladeCollider = default;
 
@@ -24,19 +24,20 @@ public class Axe : GrabbableEvents
     {
         grabbable = GetComponent<Grabbable>();
         bladeCollider = this.GetComponent<BoxCollider>();
+        IsBladeOn = false;
 
         // { Effect Init
         effectPos = this.gameObject.GetChildObj("EffectOffset").transform;        
         effect = Instantiate(ResourceManager.effects["axe on"], effectPos);
         effect.transform.localPosition = Vector3.zero;
-        effect.SetActive(isBladeOn);
+        effect.SetActive(IsBladeOn);
         // } Effect Init
     }
     void Update()
     {
         if (!grabbable.BeingHeld)
         {
-            isBladeOn = false;
+            IsBladeOn = false;
             bladeCollider.enabled = false;
         }
         ActiveBlade();
@@ -44,7 +45,7 @@ public class Axe : GrabbableEvents
 
     private void ActiveBlade()
     {
-        effect.SetActive(isBladeOn);
+        effect.SetActive(IsBladeOn);
     }
 
     public void DoShake()
@@ -54,9 +55,9 @@ public class Axe : GrabbableEvents
 
     public override void OnTriggerDown()
     {
-        isBladeOn = !isBladeOn;
-        bladeCollider.enabled = isBladeOn;
-        if(isBladeOn == true)
+        IsBladeOn = !IsBladeOn;
+        bladeCollider.enabled = IsBladeOn;
+        if(IsBladeOn == true)
         {
             SoundManager.Instance.PlaySfxClip("SE_Item_axe_on", effectPos.position, 0.1f);
         }

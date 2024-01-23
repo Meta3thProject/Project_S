@@ -59,7 +59,7 @@ public class MiniMapController : GrabbableEvents
                     //Debug.Log("맵열기종료");
                 }
             }
-            else if(thisGrabber != null && thisGrabber.HeldGrabbable == null)
+            else if (thisGrabber != null && thisGrabber.HeldGrabbable == null)
             {
                 if (Input.GetKeyDown(KeyCode.K) || thisGrabber.HeldGrabbable == null)
                 {
@@ -85,7 +85,7 @@ public class MiniMapController : GrabbableEvents
     {
         MapClose(); // MapOpen 함수 호출
 
-        // 여기서 MapOpen 함수의 코루틴이 끝날 때까지 기다립니다.
+        // 여기서 MapClose 함수의 코루틴이 끝날 때까지 기다립니다.
         yield return StartCoroutine(CloseLeftM());
 
         isacting = false;
@@ -161,7 +161,7 @@ public class MiniMapController : GrabbableEvents
 
     void CloseLeftMap()
     {
-        m.SetFloat(direction, 1);
+        m.SetFloat(direction, -1);
         StartCoroutine(CloseLeftM());
     }
     IEnumerator CloseLeftM()
@@ -170,8 +170,8 @@ public class MiniMapController : GrabbableEvents
         {
             testFloat -= speed * 0.1f;
             m.SetFloat(id, testFloat);
-            right = Mathf.Lerp(1090f, -50f, testFloat - 0.05f);
-            left = 0;
+            right = 0;
+            left = Mathf.Lerp(1090f, -50f, testFloat - 0.05f); ;
             newPadding = new Vector4(left, bottom, right, top);
             imagemask.padding = newPadding;
             yield return new WaitForSeconds(0.01f);

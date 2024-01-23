@@ -16,18 +16,31 @@ public class MenuButton : MonoBehaviour
     public UnityEngine.UI.Button logoutbutton;
     public UnityEngine.UI.Button gameoverbutton;
 
-    private bool isOptionclose = true;
+    private bool isOptionopen = false;
 
+    private MenuController menuController = default;
+
+    private void Start()
+    {
+        Init();
+    }
+
+    
+    // HSJ_ 240122
+    void Init()
+    {
+        menuController = GFunc.GetRootObj("Player").GetComponentInChildren<MenuController>();
+    }
 
     private void Update()
     {
         if (Input.GetKeyDown(KeyCode.K) || InputBridge.Instance.BackButtonDown)
         {
-            if (isOptionclose == true)
+            if (isOptionopen == false)
             {
                 MenuOpen();
             }
-            else if (isOptionclose == false)
+            else if (isOptionopen == true)
             {
                 MenuClose();
             }
@@ -36,52 +49,42 @@ public class MenuButton : MonoBehaviour
 
     public void MenuOpen()
     {
-
-        isOptionclose = false;
-        Debug.Log("옵션창꺼져있음");
+        // HSJ_ 240122
+        menuController.DisableMove(false);
+        
         Menu.gameObject.SetActive(true);
         firstMenu.gameObject.SetActive(true);
         option.gameObject.SetActive(false);
+        isOptionopen = true;
+
     }
 
     public void MenuClose()
     {
-
-        Debug.Log("옵션창켜져있음");
-        isOptionclose = true;
+        // HSJ_ 240122
+        menuController.DisableMove(true);
 
         Menu.gameObject.SetActive(false);
         firstMenu.gameObject.SetActive(false);
         option.gameObject.SetActive(false);
+        isOptionopen = false;
+
     }
 
 
     public void StillPlay()
     {
-        // BSJ _ 240105
-        return;
-
-        //Debug.Log("계속진행버튼클릭");
-
-        //isOptionclose = true;
-        //firstMenu.gameObject.SetActive(false);
-
-        //option.gameObject.SetActive(false);
-
-        //Menu.gameObject.SetActive(false);
+        MenuClose();
     }
     public void Option()
     {
         Debug.Log("설정버튼클릭");
-
         firstMenu.gameObject.SetActive(false);
-
         option.gameObject.SetActive(true);
-
         secondOption.gameObject.SetActive(true);
         logOut.gameObject.SetActive(false);
         gameExit.gameObject.SetActive(false);
-       
+
 
     }
 
@@ -91,16 +94,13 @@ public class MenuButton : MonoBehaviour
     public void LogOut()
     {
         Debug.Log("로그아웃버튼클릭");
-
         firstMenu.gameObject.SetActive(false);
-
         option.gameObject.SetActive(true);
-
         secondOption.gameObject.SetActive(false);
         logOut.gameObject.SetActive(true);
         gameExit.gameObject.SetActive(false);
 
-       
+
 
     }
     public void GameExit()
@@ -108,13 +108,11 @@ public class MenuButton : MonoBehaviour
         Debug.Log("게임종료버튼클릭");
 
         firstMenu.gameObject.SetActive(false);
-
         option.gameObject.SetActive(true);
-
         secondOption.gameObject.SetActive(false);
         logOut.gameObject.SetActive(false);
         gameExit.gameObject.SetActive(true);
-       
+
 
     }
 

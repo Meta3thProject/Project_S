@@ -6,7 +6,6 @@ public class MenuController : MonoBehaviour
     InputBridge input = default;
     CharacterController controller = default;
     LocomotionManager locomotionManager = default;
-    bool isPress = default;
     void Awake()
     {
         Init();
@@ -14,32 +13,26 @@ public class MenuController : MonoBehaviour
 
     void Init()
     {
-        input = InputBridge.Instance;
+        // LEGACY : 
+        // MenuButton 으로 옮겨갈 기능
+        //input = InputBridge.Instance;
         controller = this.GetComponent<CharacterController>();
         locomotionManager = this.GetComponent<LocomotionManager>();
-        isPress = false;
     }
 
     void Update()
     {
-        if (isMenuButtonDown())
-        {
-            DisableMove(!isPress);
-        }
+        // LEGACY : 
+        // MenuButton 으로 옮겨갈 기능
+        //if (isMenuButtonDown())
+        //{
+        //    DisableMove(!isPress);
+        //}
     }
 
     public void DisableMove(bool isOn_)
     {
-        isPress = isOn_;
         controller.enabled = isOn_;
         locomotionManager.enabled = isOn_;
-    }
-    bool isMenuButtonDown()
-    {
-        if (input.BackButtonDown)
-        {
-            return true;
-        }
-        return false;
     }
 }

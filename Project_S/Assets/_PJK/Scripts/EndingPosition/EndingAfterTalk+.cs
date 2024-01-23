@@ -34,8 +34,11 @@ public partial class EndingAfterTalk : MonoBehaviour
     public void Light(Color EndingColor)
     {
         RenderSettings.fog = enableFog; // Fog 사용 여부 설정
-        //endingCanvasText.text = playerstat.GetMBTIStat();
-        endingCanvasText.text = "intp";
+        
+        // TODO : 출력 이전에 문 MBTI 계산한것 추가해주기
+        // TODO : 이미 결정된 우위 N/S 스탯에 N/S 총합의 20%를 더해준다.
+
+        endingCanvasText.text = playerstat.GetMBTIStat();
         
         if (enableFog)
         {
