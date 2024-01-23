@@ -9,7 +9,7 @@ public class Goddess : NPCBase
         base.PopUpDialog();
         if (printID == 304624)
         {
-            Invoke("AfterTalkStartEnding", 1.0f);
+            Invoke("AfterTalkStartEnding", 3.0f);
         }
     }
 

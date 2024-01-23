@@ -44,7 +44,7 @@ MonoBehaviour:
     link_dialog: 0
   - id: 304006
     npc_id: 300001
-    dialogue: "\uB610 \uB098\uC57C!<br>\uBCC4\uC744 3\uAC1C \uAC00\uC838\uC624\uBA74<br>\uC9C0\uB098\uAC00\uAC8C
+    dialogue: "\uB610 \uB098\uC57C!<br>\uBCC4\uC744 8\uAC1C \uAC00\uC838\uC624\uBA74<br>\uC9C0\uB098\uAC00\uAC8C
       \uD574\uC8FC\uC9C0-"
     link_dialog: 0
   - id: 304007
@@ -70,7 +70,7 @@ MonoBehaviour:
     link_dialog: 0
   - id: 304012
     npc_id: 300002
-    dialogue: "\uC774\uC81C\uB294 \uC870\uAE08 \uBC18\uAC11\uC9C0?<br>\uBCC4 5\uAC1C\uB97C
+    dialogue: "\uC774\uC81C\uB294 \uC870\uAE08 \uBC18\uAC11\uC9C0?<br>\uBCC4 3\uAC1C\uB97C
       \uAC00\uC9C0\uACE0 \uC640!"
     link_dialog: 0
   - id: 304013
@@ -96,7 +96,7 @@ MonoBehaviour:
     link_dialog: 0
   - id: 304018
     npc_id: 300003
-    dialogue: "\uC548\uB155? \uB610 \uBCF4\uB124!<br>\uBCC4 7\uAC1C\uB97C \uAC00\uC9C0\uACE0
+    dialogue: "\uC548\uB155? \uB610 \uBCF4\uB124!<br>\uBCC4 13\uAC1C\uB97C \uAC00\uC9C0\uACE0
       \uC624\uB3C4\uB85D!"
     link_dialog: 0
   - id: 304019

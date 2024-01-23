@@ -25,7 +25,7 @@ public class SuspiciousMan3 : NPCBase
 
         if (printID == QuestManager.Instance.idToQuest[questID].LastPrintID)
         {
-            Invoke("BridgeOpen", 1.0f);
+            Invoke("BridgeOpen", 3.0f);
         }
     }
 
