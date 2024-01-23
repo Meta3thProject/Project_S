@@ -64,16 +64,18 @@ public class NPCBase : MonoBehaviour, INPCBehaviour
             // 진행중 출력문
             { printID = QuestManager.Instance.idToQuest[questID].IngID; }
         }
-        else if (QuestManager.Instance.idToQuest[questID].IsNoBusiness == true)
-        {
-            printID = QuestManager.Instance.idToQuest[questID].LastPrintID;
-        }
         // 완료한 퀘스트라면
         else if (QuestManager.Instance.idToQuest[questID].IsCompleted == true)
         {
             // 완료 출력문
             printID = QuestManager.Instance.idToQuest[questID].CompleteID;
-            // 변화없음
+
+            // 만약 마지막 대사라면 계속 마지막 대사만 출력
+            if (printID == QuestManager.Instance.idToQuest[questID].LastPrintID)
+            {
+                printID = QuestManager.Instance.idToQuest[questID].LastPrintID;
+            }
         }
+
     }
 }

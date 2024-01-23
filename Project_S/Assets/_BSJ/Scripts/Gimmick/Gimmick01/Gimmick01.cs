@@ -6,6 +6,7 @@ public class Gimmick01 : MonoBehaviour
 {
     private GameObject log;
     private GameObject transparencyWall;
+    public LittleSpirit littleSpirit;
 
     private void Awake()
     {
@@ -19,5 +20,7 @@ public class Gimmick01 : MonoBehaviour
     public void DestroyTransparencyWall()
     {
         transparencyWall.gameObject.SetActive(false);
+
+        littleSpirit.printID = QuestManager.Instance.idToQuest[littleSpirit.questID].LastPrintID;
     }
 }

@@ -200,7 +200,7 @@ public class FirebaseManager : MonoBehaviour
                     userID = result.User.UserId.ToString();
 
                     //// 퍼즐 DB의 초기 노드 생성
-                    //MakePuzzleDB();
+                    MakePuzzleDB();
 
                     //// MBTI DB의 초기 노드 생성
                     //MakeMbtiDB();

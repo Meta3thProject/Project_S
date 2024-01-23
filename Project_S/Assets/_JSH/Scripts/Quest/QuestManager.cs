@@ -209,17 +209,21 @@ public class QuestManager : MonoBehaviour
                 // 완료하지 않은 퀘스트라면
                 if (idToQuest[id_].IsCompleted == false)
                 {
-                    // 퀘스트 수락
-                    AcceptQuest(id_);
+                    // 수락하지 않은 퀘스트라면
+                    if (idToQuest[id_].IsAccepted == false)
+                    {
+                        // 퀘스트 수락
+                        AcceptQuest(id_);
+                    }
+                    // 수락한 퀘스트라면
+                    else if (idToQuest[id_].IsAccepted == true)
+                    {
+                        // 퀘스트 완료
+                        CompleteQuest(id_);
+                    }
+                    // 완료한 퀘스트라면 아무것도 하지 않음
+                    else { /* Do Nothing */ }
                 }
-                // 수락한 퀘스트라면
-                else if (idToQuest[id_].IsAccepted == true)
-                {
-                    // 퀘스트 완료
-                    CompleteQuest(id_);
-                }
-                // 완료한 퀘스트라면 아무것도 하지 않음
-                else { /* Do Nothing */ }
 
                 break;
             case QuestType.Puzzle:
