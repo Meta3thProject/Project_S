@@ -27,7 +27,7 @@ public class FirebaseManager : MonoBehaviour
     // bsj 추가
     const string BSJTESTSCENE = "Main Scene Copy _ BSJ";
     const string TESTSCENE = "PJK_MainSceneCopy";
-    const string JSHTestScene = "Main Scene Copy JSH Copy";
+    const string JSHTestScene = "Main Scene Copy JSH";
 
     // { 키 값 상수
     const string User = "User";

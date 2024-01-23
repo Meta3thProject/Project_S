@@ -22,7 +22,7 @@ public class SuspiciousMan4 : NPCBase
     {
         base.PopUpDialog();
 
-        if (QuestManager.Instance.idToQuest[questID].IsCompleted == true)
+        if (printID == QuestManager.Instance.idToQuest[questID].LastPrintID)
         {
             BridgeOpen();
         }

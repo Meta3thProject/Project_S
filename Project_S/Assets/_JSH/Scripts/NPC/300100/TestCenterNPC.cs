@@ -18,7 +18,6 @@ public class TestCenterNPC : NPCBase, IPuzzleHolder
     public override void PopUpDialog()
     {
         tutorial.CompleteTutorial();
-        littleSpirit.SetLastQuest();
 
         base.PopUpDialog();
 

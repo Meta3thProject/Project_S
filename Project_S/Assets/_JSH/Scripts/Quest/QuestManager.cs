@@ -43,9 +43,9 @@ public class QuestManager : MonoBehaviour
         idList.Add(304011);
         idList.Add(304017);
         idList.Add(304024);
-        idList.Add(304107);
-        idList.Add(304116);
-        idList.Add(304124);
+        idList.Add(304108);
+        idList.Add(304117);
+        idList.Add(304126);
         idList.Add(304136);
         idList.Add(304151);
         idList.Add(304160);
