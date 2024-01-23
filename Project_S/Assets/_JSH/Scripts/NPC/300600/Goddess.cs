@@ -9,12 +9,13 @@ public class Goddess : NPCBase
         base.PopUpDialog();
         if (printID == 304624)
         {
-            aftertalkstartending();
+            Invoke("AfterTalkStartEnding", 1.0f);
         }
     }
 
-    public void aftertalkstartending()
+    public void AfterTalkStartEnding()
     {
+        NPCManager.Instance.PopDown();
         EndingAfterTalk.endingAfterTalk.StartEndingtalk();
     }
 }
