@@ -5,7 +5,8 @@ using BNG;
 public class PlayerStat : MonoBehaviour
 {
     private Dictionary<string, float> MBTIStat = default;
-
+    private DoorChecker doorChecker = default;
+    
     public Grabber leftHeldGrabbable;
     public Grabber rightHeldGrabbable;
 
@@ -41,8 +42,7 @@ public class PlayerStat : MonoBehaviour
         };
         #endregion        
 
-        //leftHeldGrabbable = this.gameObject.GetChildObj("Grabber").GetComponent<Grabber>().HeldGrabbable;
-        //rightHeldGrabbable = this.gameObject.GetChildObj("Grabber").GetComponent<Grabber>().HeldGrabbable;
+        doorChecker = GFunc.GetRootObj("Xdoors").GetComponent<DoorChecker>();
     }
 
     public int GetRightGrabbableID()
@@ -78,7 +78,10 @@ public class PlayerStat : MonoBehaviour
     // ! 외부에서 사용하기 위한 메서드
     public string GetMBTIStat()
     {
-        Debug.Log("4GetMBTIStat들어옴?");
+
+        int doorPoint = Mathf.FloorToInt((MBTIStat[Define.MBTI_N] + MBTIStat[Define.MBTI_S]) * 0.2f);
+
+        AddPoint(doorChecker.CheckTouchDoor(), doorPoint);
 
         return GetMBTI();
     }       // GetMBTIStat()

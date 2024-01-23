@@ -44,81 +44,56 @@ public class MiniMapController : GrabbableEvents
 
     void Update()
     {
-        if (!isacting)
+
+        if (thisGrabber != null && thisGrabber.HeldGrabbable != null)
         {
-            if (thisGrabber != null && thisGrabber.HeldGrabbable != null)
+            if ((thisGrabber.HeldGrabbable.tag.Equals("MiniMapLeft")) && isacting == false)
             {
-                if ((Input.GetKeyDown(KeyCode.J) || thisGrabber.HeldGrabbable.tag.Equals("MiniMapLeft")) && isacting == false)
-                {
-                    isacting = true;
-                    StartCoroutine(MapOpenCoroutine());
-                    //MapOpen();
-                    MapScale.instance.isMapOpen = true;
+                MapOpen();
+                MapScale.instance.isMapOpen = true;
 
-                    //isacting = false;
-                    //Debug.Log("맵열기종료");
-                }
             }
-            else if (thisGrabber != null && thisGrabber.HeldGrabbable == null)
+        }
+        else if (thisGrabber != null && thisGrabber.HeldGrabbable == null)
+        {
+            if (Input.GetKeyDown(KeyCode.K) || thisGrabber.HeldGrabbable == null)
             {
-                if (Input.GetKeyDown(KeyCode.K) || thisGrabber.HeldGrabbable == null)
+                isacting = false;
+                MapClose();
+                MapScale.instance.isMapOpen = false;
+                if (mapCoroutine != null)
                 {
-                    StartCoroutine(MapCloseCoroutine());
-                    //isacting = false;
-                    MapScale.instance.isMapOpen = false;
-
+                    StopCoroutine(mapCoroutine);
                 }
             }
         }
-    }
-    IEnumerator MapOpenCoroutine()
-    {
-        MapOpen(); // MapOpen 함수 호출
 
-        // 여기서 MapOpen 함수의 코루틴이 끝날 때까지 기다립니다.
-        yield return StartCoroutine(OpenLeftM());
 
-        isacting = false;
     }
 
-    IEnumerator MapCloseCoroutine()
-    {
-        MapClose(); // MapOpen 함수 호출
 
-        // 여기서 MapClose 함수의 코루틴이 끝날 때까지 기다립니다.
-        yield return StartCoroutine(CloseLeftM());
 
-        isacting = false;
-    }
+
     public void MapOpen()
     {
-
-
-        isacting = true;
-
         canvas.GetComponent<Canvas>().enabled = true;
 
         if (thisGrabber.HandSide == ControllerHand.Right)
         {
-
             OpenLeftMap();
             isLeftOpen = false;
             isLeftClose = false;
             isRightOpen = true;
             isRightClose = false;
         }
-
-
-
-
     }
+
     public void MapClose()
     {
         isacting = false;
 
-        canvas.GetComponent<Canvas>().enabled = false;
 
-        if (isRightOpen == true)
+        if (isRightOpen)
         {
             CloseLeftMap();
 
@@ -127,55 +102,58 @@ public class MiniMapController : GrabbableEvents
             isRightOpen = false;
             isRightClose = true;
         }
+        canvas.GetComponent<Canvas>().enabled = false;
 
     }
+
+    Coroutine mapCoroutine = null;
 
     void OpenLeftMap()
     {
 
         m.SetFloat(direction, 1);
 
-        StartCoroutine(OpenLeftM());
+        if (mapCoroutine != null)
+        {
+            StopCoroutine(mapCoroutine);
+        }
+        mapCoroutine = StartCoroutine(OpenLeftM());
 
 
 
     }
     IEnumerator OpenLeftM()
     {
-
-        while (testFloat < 1f)
+        if (isacting == false)
         {
-            testFloat += speed * 0.1f;
-            m.SetFloat(id, testFloat);
-            right = 0;
-            left = Mathf.Lerp(1090f, -50f, testFloat - 0.05f);
-            newPadding = new Vector4(left, bottom, right, top);
-            imagemask.padding = newPadding;
-            //Debug.Log(testFloat);
-            yield return new WaitForSeconds(0.01f);
+            while (testFloat < 1f)
+            {
+                testFloat += speed * 0.1f;
+                m.SetFloat(id, testFloat);
+                right = 0;
+                left = Mathf.Lerp(1090f, -50f, testFloat - 0.05f);
+                newPadding = new Vector4(left, bottom, right, top);
+                imagemask.padding = newPadding;
+                yield return new WaitForSeconds(0.01f);
+            }
         }
+        isacting = true;
 
-        isacting = false;
+        mapCoroutine = null;
 
     }
 
     void CloseLeftMap()
     {
-        m.SetFloat(direction, -1);
-        StartCoroutine(CloseLeftM());
+
+        testFloat = 0f;
+        m.SetFloat(id, testFloat);
+
+
+        right = Mathf.Lerp(1090f, -50f, testFloat - 0.05f);
+        left = 0;
+        newPadding = new Vector4(left, bottom, right, top);
+        imagemask.padding = newPadding;
     }
-    IEnumerator CloseLeftM()
-    {
-        while (testFloat > 0f)
-        {
-            testFloat -= speed * 0.1f;
-            m.SetFloat(id, testFloat);
-            right = 0;
-            left = Mathf.Lerp(1090f, -50f, testFloat - 0.05f); ;
-            newPadding = new Vector4(left, bottom, right, top);
-            imagemask.padding = newPadding;
-            yield return new WaitForSeconds(0.01f);
-        }
-        isacting = false;
-    }
+
 }

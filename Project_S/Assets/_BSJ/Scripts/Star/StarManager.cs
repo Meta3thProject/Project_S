@@ -74,4 +74,21 @@ public class StarManager : MonoBehaviour
         yield return new WaitForSeconds(0.8f);
         SpiralStarSequence();
     }
+
+    /// <summary>
+    /// 처음 입장 시 별의 갯수를 초기화해주는 메서드.
+    /// </summary>
+    public void InitStar()
+    {
+        getStarCount = 0;
+
+        // 퍼즐이 클리어 된 갯수로 별의 갯수 변경
+        foreach (bool isClear in PuzzleManager.instance.puzzles)
+        {
+            if (isClear)
+            {
+                getStarCount += 1;
+            }
+        }
+    }
 }

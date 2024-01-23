@@ -29,10 +29,7 @@ public partial class EndingAfterTalk : MonoBehaviour
 
     public void StartEndingtalk()
     {
-
-
         startEnding();
-
     }
 
 

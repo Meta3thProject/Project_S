@@ -105,6 +105,9 @@ public class PuzzleManager : MonoBehaviour
     {
         // 퍼즐 DB 받아오기
         FirebaseManager.instance.PuzzleClearUpdateFromDB();
+
+        // 클리어 별의 갯수 초기화
+        StarManager.starManager.InitStar();
     }
 
     /// <summary>

@@ -36,21 +36,12 @@ public class FirebasePuzzle : MonoBehaviour
     /// </summary>
     public void PuzzleClearInit()
     {
-        for(int i = 0; i < GAME_PUZZLE_COUNT; i++)
+        for (int i = 0; i < GAME_PUZZLE_COUNT; i++)
         {
-            // 이미 key가 존재한다면, value 변경
-            if (PuzzleClearDictionary.ContainsKey(i))
-            {
-                PuzzleClearDictionary[i] = false;
-            }
-
-            else
-            {
-                // key가 없다면 추가
-                PuzzleClearDictionary.Add(i, false);
-            }
+            PuzzleClearDictionary.Add(i, false);
         }
     }
+
 
     /// <summary>
     /// 퀘스트 딕셔너리에 퀘스트 클리어를 true로 변경하는 메서드.
