@@ -1,5 +1,9 @@
 fileFormatVersion: 2
-guid: 7bfd0cd7375136a42917dd8ca23af1cd
+<<<<<<<< HEAD:Project_S/Assets/_JSH/Scenes/Main Scene Copy JSH.unity.meta
+guid: ea46f9cabefab9342ac3938c5c760950
+========
+guid: 2d4fb3a4ed0b6cf4cbfccca3ed713420
+>>>>>>>> BSJ_Develop:Project_S/Assets/_BSJ/ExcelDB/~$ItemDatabase.xlsx.meta
 DefaultImporter:
   externalObjects: {}
   userData: 

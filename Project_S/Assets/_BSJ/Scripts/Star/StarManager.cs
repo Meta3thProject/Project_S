@@ -20,6 +20,9 @@ public class StarManager : MonoBehaviour
 
     private DG.Tweening.Sequence StarAppearSequence;
 
+    // 엔딩 문
+    [SerializeField] private EndingDoor endingDoor;
+
     private void Awake()
     {
         starManager = this;
@@ -63,8 +66,14 @@ public class StarManager : MonoBehaviour
     public IEnumerator CallStar()
     {
         // 획득한 별의 갯수 증가
-        getStarCount++;
+        ++getStarCount;
 
+        // 획득한 별이 15개 이상이면 엔딩 문 오픈
+        if(getStarCount >= 15)
+        {
+            endingDoor.EndingDoorOpen();
+        }
+        
         yield return new WaitForSeconds(2f);
         starAppearVFX01.Play();
 
@@ -89,6 +98,12 @@ public class StarManager : MonoBehaviour
             {
                 getStarCount += 1;
             }
+        }
+
+        // 획득한 별이 15개 이상이면 엔딩 문 오픈
+        if (getStarCount >= 15)
+        {
+            endingDoor.EndingDoorOpen();
         }
     }
 }
